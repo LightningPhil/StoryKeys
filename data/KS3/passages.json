@@ -1,361 +1,1424 @@
 [
     {
-        "id": "ks3_academic_quiet_lab_1",
-        "stage": "KS3",
-        "theme": "Science snips",
-        "title": "Quiet Lab",
-        "text": "In the quiet lab, the solution turns a pale green; however, the reaction itself remains quite unremarkable.",
-        "tags": {
-            "complexity": {
-                "caps": true,
-                "punct": true
-            }
-        },
-        "meta": {
-            "est_chars": 138
-        }
+    "id": "ks3_tudors_rise-of-henry-vii_v1",
+    "stage": "KS3",
+    "theme": "The Tudors",
+    "title": "The Rise of Henry VII",
+    "text": "Henry VII began his reign after defeating Richard III at the Battle of Bosworth. As the new sovereign, he aimed to secure his heir and stabilise the realm after years of conflict. His rule marked the start of Tudor governance and relative peace across England.",
+    "tags": {
+      "complexity": { "caps": true, "punct": true },
+      "phonics": ["ks3-silent-letters"]
     },
-    {
-        "id": "ks3_myths_icarus_1",
-        "stage": "KS3",
-        "theme": "Myths",
-        "title": "Icarus's Flight",
-        "text": "He fashioned wings of feather and wax, ignoring his father's advice. The sun, however, had other ideas.",
-        "tags": {
-            "complexity": {
-                "caps": true,
-                "punct": true
-            }
-        },
-        "meta": {
-            "est_chars": 132
-        }
+    "meta": { "est_chars": 322 }
+  },
+  {
+    "id": "ks3_tudors_henry-viii-church_v1",
+    "stage": "KS3",
+    "theme": "The Tudors",
+    "title": "Henry VIII and the Church",
+    "text": "Henry VIII’s reign is remembered for breaking away from the Pope’s authority. His decision was influenced by the need for an heir and his desire for power. The creation of the Church of England had a lasting influence on governance and religion across the realm.",
+    "tags": {
+      "complexity": { "caps": true, "punct": true },
+      "phonics": ["ks3-ance-ence"]
     },
-    {
-        "id": "ks3_science_photosynthesis_1",
-        "stage": "KS3",
-        "theme": "Science snips",
-        "title": "Photosynthesis",
-        "text": "Photosynthesis is a remarkable process. Plants use sunlight to convert carbon dioxide and water into their own food.",
-        "tags": {
-            "complexity": {
-                "caps": true,
-                "punct": true
-            }
-        },
-        "meta": {
-            "est_chars": 148
-        }
+    "meta": { "est_chars": 325 }
+  },
+  {
+    "id": "ks3_tudors_catherine-of-aragon_v1",
+    "stage": "KS3",
+    "theme": "The Tudors",
+    "title": "Catherine of Aragon’s Influence",
+    "text": "Catherine of Aragon, Henry VIII’s first wife, showed remarkable resilience and intelligence. Despite losing favour, her influence on education and religion remained strong. Her defence of her marriage in court reflected her dignity and sense of royal importance.",
+    "tags": {
+      "complexity": { "caps": true, "punct": true },
+      "phonics": ["ks3-ance-ence"]
     },
-    {
-        "id": "ks3_academic_hypothesis_1",
-        "stage": "KS3",
-        "theme": "Academic",
-        "title": "The Hypothesis",
-        "text": "The experiment produced an unexpected result. Therefore, the initial hypothesis had to be re-evaluated completely.",
-        "tags": {
-            "complexity": {
-                "caps": true,
-                "punct": true
-            }
-        },
-        "meta": {
-            "est_chars": 139
-        }
+    "meta": { "est_chars": 311 }
+  },
+  {
+    "id": "ks3_tudors_anne-boleyn-trial_v1",
+    "stage": "KS3",
+    "theme": "The Tudors",
+    "title": "Anne Boleyn’s Trial",
+    "text": "Anne Boleyn’s downfall was swift and dramatic. Accused of betrayal and treason, she faced the judgement of her sovereign husband. Despite her defence, she was executed, marking one of the most tragic moments in Tudor reign and royal politics.",
+    "tags": {
+      "complexity": { "caps": true, "punct": true },
+      "phonics": ["ks3-silent-letters"]
     },
-    {
-        "id": "ks3_myths_perseus_medusa_1",
-        "stage": "KS3",
-        "theme": "Myths",
-        "title": "Perseus and Medusa",
-        "text": "Although Medusa's gaze could turn a man to stone, Perseus was clever; he used his polished shield as a mirror.",
-        "tags": {
-            "complexity": {
-                "caps": true,
-                "punct": true
-            }
-        },
-        "meta": {
-            "est_chars": 141
-        }
+    "meta": { "est_chars": 292 }
+  },
+  {
+    "id": "ks3_tudors_education-and-renaissance_v1",
+    "stage": "KS3",
+    "theme": "The Tudors",
+    "title": "Education and the Renaissance",
+    "text": "The Tudor period saw a revival of learning inspired by the European Renaissance. Scholars studied classical languages and the arts. This intellectual movement influenced scientific thought and changed the importance of education for the growing middle class.",
+    "tags": {
+      "complexity": { "caps": true, "punct": true },
+      "phonics": ["ks3-ance-ence"]
     },
-    {
-        "id": "ks3_nature_ecosystem_1",
-        "stage": "KS3",
-        "theme": "Nature",
-        "title": "Ecosystem Balance",
-        "text": "Every organism in an ecosystem has a specific role. The removal of one species can have unforeseen consequences.",
-        "tags": {
-            "complexity": {
-                "caps": true,
-                "punct": true
-            }
-        },
-        "meta": {
-            "est_chars": 139
-        }
+    "meta": { "est_chars": 307 }
+  },
+  {
+    "id": "ks3_tudors_exploration-and-trade_v1",
+    "stage": "KS3",
+    "theme": "The Tudors",
+    "title": "Exploration and Trade",
+    "text": "Under Elizabeth I’s reign, English explorers sought new lands and resources. Their courage and ambition expanded the nation’s influence overseas. The alliance of merchants and sailors laid the foundations for England’s later power in global trade and defence.",
+    "tags": {
+      "complexity": { "caps": true, "punct": true },
+      "phonics": ["ks3-ance-ence"]
     },
-    {
-        "id": "ks3_science_gravity_1",
-        "stage": "KS3",
-        "theme": "Science snips",
-        "title": "Universal Gravity",
-        "text": "Newton realised that the force keeping the moon in orbit was the same force that makes an apple fall to the ground.",
-        "tags": {
-            "complexity": {
-                "caps": true,
-                "punct": true
-            }
-        },
-        "meta": {
-            "est_chars": 142
-        }
+    "meta": { "est_chars": 310 }
+  },
+  {
+    "id": "ks3_tudors_elizabeth-i-reign_v1",
+    "stage": "KS3",
+    "theme": "The Tudors",
+    "title": "Elizabeth I’s Reign",
+    "text": "Elizabeth I’s reign was marked by intelligence and balance. She maintained peace through careful governance and skillful diplomacy. Her leadership brought stability and cultural growth, reinforcing England’s defence and prestige in a changing Europe.",
+    "tags": {
+      "complexity": { "caps": true, "punct": true },
+      "phonics": ["ks3-ance-ence"]
     },
-    {
-        "id": "ks3_academic_source_critique_1",
-        "stage": "KS3",
-        "theme": "Academic",
-        "title": "Source Critique",
-        "text": "When studying history, it's crucial to analyse the reliability of a source, considering its origin and potential bias.",
-        "tags": {
-            "complexity": {
-                "caps": true,
-                "punct": true
-            }
-        },
-        "meta": {
-            "est_chars": 147
-        }
+    "meta": { "est_chars": 298 }
+  },
+  {
+    "id": "ks3_tudors_the-armada_v1",
+    "stage": "KS3",
+    "theme": "The Tudors",
+    "title": "The Spanish Armada",
+    "text": "In 1588, England faced a great threat from Spain’s Armada. Elizabeth’s sovereign courage inspired her navy and citizens. Through skill and weather, England triumphed. The victory strengthened national pride and confirmed the importance of sea defence.",
+    "tags": {
+      "complexity": { "caps": true, "punct": true },
+      "phonics": ["ks3-ance-ence"]
     },
-    {
-        "id": "ks3_myths_pandora_box_1",
-        "stage": "KS3",
-        "theme": "Myths",
-        "title": "Pandora's Box",
-        "text": "She was warned never to open the box. Her curiosity, however, proved too strong and she unleashed chaos upon the world.",
-        "tags": {
-            "complexity": {
-                "caps": true,
-                "punct": true
-            }
-        },
-        "meta": {
-            "est_chars": 149
-        }
+    "meta": { "est_chars": 304 }
+  },
+  {
+    "id": "ks3_tudors_reformation_v1",
+    "stage": "KS3",
+    "theme": "The Tudors",
+    "title": "The Reformation in England",
+    "text": "The Reformation changed the spiritual and political structure of England. Many resisted new ideas, while others supported reform. This period of resistance and renewal deeply influenced the kingdom’s governance and its citizens’ beliefs.",
+    "tags": {
+      "complexity": { "caps": true, "punct": true },
+      "phonics": ["ks3-ance-ence"]
     },
-    {
-        "id": "ks3_nature_plate_tectonics_1",
-        "stage": "KS3",
-        "theme": "Nature",
-        "title": "Plate Tectonics",
-        "text": "The Earth's crust is not a single piece, but is composed of several tectonic plates that are in constant, slow motion.",
-        "tags": {
-            "complexity": {
-                "caps": true,
-                "punct": true
-            }
-        },
-        "meta": {
-            "est_chars": 146
-        }
+    "meta": { "est_chars": 283 }
+  },
+  {
+    "id": "ks3_tudors_succession-crisis_v1",
+    "stage": "KS3",
+    "theme": "The Tudors",
+    "title": "The Succession Crisis",
+    "text": "When Edward VI died young, the question of his heir caused turmoil. Competing claims threatened the realm’s stability. The struggle for succession revealed how fragile royal authority could be without a clear and legitimate sovereign heir.",
+    "tags": {
+      "complexity": { "caps": true, "punct": true },
+      "phonics": ["ks3-silent-letters"]
     },
-    {
-        "id": "ks3_science_dna_1",
-        "stage": "KS3",
-        "theme": "Science snips",
-        "title": "DNA",
-        "text": "DNA, the blueprint of life, is a complex molecule shaped like a twisted ladder, known as a double helix.",
-        "tags": {
-            "complexity": {
-                "caps": true,
-                "punct": true
-            }
-        },
-        "meta": {
-            "est_chars": 126
-        }
+    "meta": { "est_chars": 299 }
+  },
+  {
+    "id": "ks3_tudors_mary-i-reign_v1",
+    "stage": "KS3",
+    "theme": "The Tudors",
+    "title": "Mary I’s Reign",
+    "text": "Mary I sought to restore Catholicism in England after her father’s reforms. Her reign was marked by conflict and religious persecution. Though she was a determined sovereign, her policies deepened divisions that Elizabeth I later worked to heal.",
+    "tags": {
+      "complexity": { "caps": true, "punct": true },
+      "phonics": ["ks3-silent-letters"]
     },
-    {
-        "id": "ks3_academic_argument_1",
-        "stage": "KS3",
-        "theme": "Academic",
-        "title": "Building an Argument",
-        "text": "A strong argument requires a clear thesis, supported by credible evidence and logical reasoning. Without these, it fails.",
-        "tags": {
-            "complexity": {
-                "caps": true,
-                "punct": true
-            }
-        },
-        "meta": {
-            "est_chars": 144
-        }
+    "meta": { "est_chars": 303 }
+  },
+  {
+    "id": "ks3_tudors_tudor-society_v1",
+    "stage": "KS3",
+    "theme": "The Tudors",
+    "title": "Tudor Society and Daily Life",
+    "text": "Life in Tudor England varied greatly between rich and poor. Nobles lived in grand halls under royal favour, while peasants worked hard to pay their debts and survive. The sovereign’s decisions often shaped the fortunes of every class in society.",
+    "tags": {
+      "complexity": { "caps": true, "punct": true },
+      "phonics": ["ks3-silent-letters"]
     },
-    {
-        "id": "ks3_myths_king_midas_1",
-        "stage": "KS3",
-        "theme": "Myths",
-        "title": "King Midas",
-        "text": "King Midas wished that everything he touched would turn to gold. He soon discovered his wish was a terrible curse.",
-        "tags": {
-            "complexity": {
-                "caps": true,
-                "punct": true
-            }
-        },
-        "meta": {
-            "est_chars": 142
-        }
+    "meta": { "est_chars": 317 }
+  },
+  {
+    "id": "ks3_tudors_tower-of-london_v1",
+    "stage": "KS3",
+    "theme": "The Tudors",
+    "title": "The Tower of London",
+    "text": "The Tower of London was both a fortress and a prison during the Tudor era. Many heirs and nobles faced imprisonment or execution there. Its dark reputation reflected the danger of opposing the sovereign or losing royal favour.",
+    "tags": {
+      "complexity": { "caps": true, "punct": true },
+      "phonics": ["ks3-silent-letters"]
     },
-    {
-        "id": "ks3_nature_evolution_1",
-        "stage": "KS3",
-        "theme": "Nature",
-        "title": "Natural Selection",
-        "text": "Natural selection is the process where organisms better adapted to their environment tend to survive and reproduce.",
-        "tags": {
-            "complexity": {
-                "caps": true,
-                "punct": true
-            }
-        },
-        "meta": {
-            "est_chars": 140
-        }
+    "meta": { "est_chars": 295 }
+  },
+  {
+    "id": "ks3_tudors_art-and-music_v1",
+    "stage": "KS3",
+    "theme": "The Tudors",
+    "title": "Art and Music in the Tudor Court",
+    "text": "Art and music flourished under the patronage of the Tudor monarchs. Portraits showed power and prestige, while court musicians entertained the sovereign. These cultural achievements gave the Tudor court elegance and lasting influence across Europe.",
+    "tags": {
+      "complexity": { "caps": true, "punct": true },
+      "phonics": ["ks3-ance-ence"]
     },
-    {
-        "id": "ks3_science_black_hole_1",
-        "stage": "KS3",
-        "theme": "Science snips",
-        "title": "Black Holes",
-        "text": "A black hole is a region of spacetime where gravity is so strong that nothing—not even light—can escape its pull.",
-        "tags": {
-            "complexity": {
-                "caps": true,
-                "punct": true
-            }
-        },
-        "meta": {
-            "est_chars": 141
-        }
+    "meta": { "est_chars": 308 }
+  },
+  {
+    "id": "ks3_tudors_legacy_v1",
+    "stage": "KS3",
+    "theme": "The Tudors",
+    "title": "The Tudor Legacy",
+    "text": "The Tudor dynasty shaped modern Britain through its reforms, explorations, and cultural growth. Their governance strengthened national identity and pride. Even today, the reigns of Henry VIII and Elizabeth I remain symbols of ambition and resilience.",
+    "tags": {
+      "complexity": { "caps": true, "punct": true },
+      "phonics": ["ks3-ance-ence"]
     },
-    {
-        "id": "ks3_myths_prometheus_1",
-        "stage": "KS3",
-        "theme": "Myths",
-        "title": "Prometheus",
-        "text": "Prometheus defied the gods by stealing fire and giving it to humanity, an act for which he was severely punished.",
-        "tags": {
-            "complexity": {
-                "caps": true,
-                "punct": true
-            }
-        },
-        "meta": {
-            "est_chars": 139
-        }
-    },
-    {
-        "id": "ks3_academic_shakespeare_1",
-        "stage": "KS3",
-        "theme": "Academic",
-        "title": "Shakespearean Language",
-        "text": "Though initially challenging, Shakespeare's language is rich with metaphor and wordplay that rewards careful reading.",
-        "tags": {
-            "complexity": {
-                "caps": true,
-                "punct": true
-            }
-        },
-        "meta": {
-            "est_chars": 148
-        }
-    },
-    {
-        "id": "ks3_nature_volcano_1",
-        "stage": "KS3",
-        "theme": "Nature",
-        "title": "Volcanic Eruption",
-        "text": "Pressure builds deep within the Earth until molten rock, or magma, is forced to the surface in a volcanic eruption.",
-        "tags": {
-            "complexity": {
-                "caps": true,
-                "punct": true
-            }
-        },
-        "meta": {
-            "est_chars": 144
-        }
-    },
-    {
-        "id": "ks3_myths_theseus_minotaur_1",
-        "stage": "KS3",
-        "theme": "Myths",
-        "title": "Theseus and the Minotaur",
-        "text": "Theseus navigated the labyrinth using a ball of thread, faced the fearsome Minotaur, and emerged victorious.",
-        "tags": {
-            "complexity": {
-                "caps": true,
-                "punct": true
-            }
-        },
-        "meta": {
-            "est_chars": 140
-        }
-    },
-    {
-        "id": "ks3_science_relativity_1",
-        "stage": "KS3",
-        "theme": "Science snips",
-        "title": "Relativity",
-        "text": "Einstein's theory of relativity fundamentally changed our understanding of space, time, and the nature of gravity.",
-        "tags": {
-            "complexity": {
-                "caps": true,
-                "punct": true
-            }
-        },
-        "meta": {
-            "est_chars": 141
-        }
-    },
-    {
-        "id": "ks3_silly_poet_bunny_1",
-        "stage": "KS3",
-        "theme": "Silly Stories",
-        "title": "The Poet Rabbit",
-        "text": "Bartholomew considered the sunset. 'Oh, sky of pink and...' he mumbled, searching for a suitable rhyme. His stomach rumbled loudly. Consequently, the poem was abandoned in favour of some delicious clover.",
-        "tags": {
-            "complexity": {
-                "caps": true,
-                "punct": true
-            },
-            "phonics": [
-                "ow/ou"
-            ]
-        },
-        "meta": {
-            "est_chars": 201
-        }
-    },
-    {
-        "id": "ks3_science_bunny_crunch_1",
-        "stage": "KS3",
-        "theme": "Science snips",
-        "title": "A Scientific Crunch",
-        "text": "Professor Bunstable's experiment was simple: to determine which vegetable had the optimal crunch factor. His hypothesis favoured the carrot; however, his research was frequently compromised by him eating the evidence.",
-        "tags": {
-            "complexity": {
-                "caps": true,
-                "punct": true
-            },
-            "phonics": [
-                "double consonant",
-                "ow/ou"
-            ]
-        },
-        "meta": {
-            "est_chars": 214
-        }
-    }
+    "meta": { "est_chars": 310 }
+  },
+  {
+    "id": "ks3_industrialrevolution_factory-system_v1",
+    "stage": "KS3",
+    "theme": "The Industrial Revolution",
+    "title": "The Factory System",
+    "text": "The factory system changed the organisation of production. Machines powered by steam allowed mass production, increasing efficiency. However, poor working conditions and long hours created tension among the growing urban population.",
+    "tags": { "complexity": { "caps": true, "punct": true }, "phonics": ["ks3-tion-suffix"] },
+    "meta": { "est_chars": 292 }
+  },
+  {
+    "id": "ks3_industrialrevolution_steam-engine_v1",
+    "stage": "KS3",
+    "theme": "The Industrial Revolution",
+    "title": "The Steam Engine",
+    "text": "The invention of the steam engine transformed transport and industry. Factories could now operate away from rivers, and locomotives moved goods across the country. This technological revolution connected towns and encouraged trade.",
+    "tags": { "complexity": { "caps": true, "punct": true }, "phonics": ["ks3-tion-suffix"] },
+    "meta": { "est_chars": 287 }
+  },
+  {
+    "id": "ks3_industrialrevolution_telegraph_v1",
+    "stage": "KS3",
+    "theme": "The Industrial Revolution",
+    "title": "The Telegraph",
+    "text": "The telegraph was a groundbreaking invention that changed communication. Using electric signals, it sent messages rapidly across great distances. This technology linked cities and even continents, revolutionising information exchange in the nineteenth century.",
+    "tags": { "complexity": { "caps": true, "punct": true }, "phonics": ["ks3-greek-roots"] },
+    "meta": { "est_chars": 307 }
+  },
+  {
+    "id": "ks3_industrialrevolution_population-growth_v1",
+    "stage": "KS3",
+    "theme": "The Industrial Revolution",
+    "title": "Population Growth",
+    "text": "During the Industrial Revolution, Britain’s population increased dramatically. People moved from rural areas to towns in search of work. This urban migration created overcrowded housing, leading to sanitation problems and widespread pollution in growing cities.",
+    "tags": { "complexity": { "caps": true, "punct": true }, "phonics": ["ks3-tion-suffix"] },
+    "meta": { "est_chars": 306 }
+  },
+  {
+    "id": "ks3_industrialrevolution_urbanisation_v1",
+    "stage": "KS3",
+    "theme": "The Industrial Revolution",
+    "title": "Urbanisation and City Life",
+    "text": "Urbanisation changed Britain forever. Towns expanded rapidly as families sought employment in factories. While industrialisation brought progress, it also caused pollution and poverty, creating difficult living conditions for many working-class citizens.",
+    "tags": { "complexity": { "caps": true, "punct": true }, "phonics": ["ks3-tion-suffix"] },
+    "meta": { "est_chars": 291 }
+  },
+  {
+    "id": "ks3_industrialrevolution_child-labour_v1",
+    "stage": "KS3",
+    "theme": "The Industrial Revolution",
+    "title": "Child Labour",
+    "text": "Factories often employed children because they were cheap and agile. Many worked long hours in dangerous conditions. Campaigners demanded education and better protection, leading to reforms that limited child labour and encouraged social change.",
+    "tags": { "complexity": { "caps": true, "punct": true }, "phonics": ["ks3-tion-suffix"] },
+    "meta": { "est_chars": 296 }
+  },
+  {
+    "id": "ks3_industrialrevolution_public-health_v1",
+    "stage": "KS3",
+    "theme": "The Industrial Revolution",
+    "title": "Public Health Reforms",
+    "text": "As cities grew, disease spread rapidly due to poor sanitation. Reformers pushed for cleaner water and better housing. Their efforts led to legislation that improved public health and demonstrated the growing importance of government intervention in society.",
+    "tags": { "complexity": { "caps": true, "punct": true }, "phonics": ["ks3-tion-suffix"] },
+    "meta": { "est_chars": 309 }
+  },
+  {
+    "id": "ks3_industrialrevolution_photography_v1",
+    "stage": "KS3",
+    "theme": "The Industrial Revolution",
+    "title": "The Birth of Photography",
+    "text": "Advances in technology allowed the first photographs to be taken. These early images captured real life in a way painting never could. Photography became both a scientific achievement and a powerful new form of artistic expression.",
+    "tags": { "complexity": { "caps": true, "punct": true }, "phonics": ["ks3-greek-roots"] },
+    "meta": { "est_chars": 284 }
+  },
+  {
+    "id": "ks3_industrialrevolution_invention-and-innovation_v1",
+    "stage": "KS3",
+    "theme": "The Industrial Revolution",
+    "title": "Invention and Innovation",
+    "text": "Invention thrived during this period as inventors improved machines and methods. Innovation in steam power, textiles, and iron production created wealth and changed Britain into the world’s first industrial nation.",
+    "tags": { "complexity": { "caps": true, "punct": true }, "phonics": ["ks3-tion-suffix"] },
+    "meta": { "est_chars": 261 }
+  },
+  {
+    "id": "ks3_industrialrevolution_education_v1",
+    "stage": "KS3",
+    "theme": "The Industrial Revolution",
+    "title": "The Growth of Education",
+    "text": "Education became increasingly valued as factories required skilled workers. Schools began to provide basic literacy and numeracy. This focus on education helped create a more informed population and supported industrial and scientific progress.",
+    "tags": { "complexity": { "caps": true, "punct": true }, "phonics": ["ks3-tion-suffix"] },
+    "meta": { "est_chars": 290 }
+  },
+  {
+    "id": "ks3_industrialrevolution_women-in-work_v1",
+    "stage": "KS3",
+    "theme": "The Industrial Revolution",
+    "title": "Women in the Workforce",
+    "text": "Many women worked in textile mills and factories during the Industrial Revolution. Although their wages were low, their contribution to production was essential. Campaigners later argued for equal pay and better working conditions for all workers.",
+    "tags": { "complexity": { "caps": true, "punct": true }, "phonics": ["ks3-tion-suffix"] },
+    "meta": { "est_chars": 298 }
+  },
+  {
+    "id": "ks3_industrialrevolution_transport_v1",
+    "stage": "KS3",
+    "theme": "The Industrial Revolution",
+    "title": "Transport and Communication",
+    "text": "New transport systems such as railways and canals improved trade. The telegraph allowed fast communication, connecting industries and people. Together, these advances strengthened Britain’s economy and expanded international connections.",
+    "tags": { "complexity": { "caps": true, "punct": true }, "phonics": ["ks3-greek-roots"] },
+    "meta": { "est_chars": 286 }
+  },
+  {
+    "id": "ks3_industrialrevolution_middle-class_v1",
+    "stage": "KS3",
+    "theme": "The Industrial Revolution",
+    "title": "The Rise of the Middle Class",
+    "text": "The growth of factories and trade created new opportunities. Merchants and skilled workers gained wealth and status, forming a powerful middle class. Their influence shaped politics, education, and social reform throughout the Victorian era.",
+    "tags": { "complexity": { "caps": true, "punct": true }, "phonics": ["ks3-tion-suffix"] },
+    "meta": { "est_chars": 294 }
+  },
+  {
+    "id": "ks3_industrialrevolution_factory-inventions_v1",
+    "stage": "KS3",
+    "theme": "The Industrial Revolution",
+    "title": "Factory Inventions",
+    "text": "Factories became centres of invention where engineers developed new machines. Devices like the spinning jenny and power loom improved textile production. These inventions increased efficiency and strengthened Britain’s industrial dominance.",
+    "tags": { "complexity": { "caps": true, "punct": true }, "phonics": ["ks3-tion-suffix"] },
+    "meta": { "est_chars": 287 }
+  },
+  {
+    "id": "ks3_industrialrevolution_industrial-legacy_v1",
+    "stage": "KS3",
+    "theme": "The Industrial Revolution",
+    "title": "The Industrial Legacy",
+    "text": "The Industrial Revolution left a lasting impact on technology, society, and the environment. It inspired progress in science and engineering but also caused pollution and inequality. Its legacy continues to influence modern civilisation today.",
+    "tags": { "complexity": { "caps": true, "punct": true }, "phonics": ["ks3-tion-suffix"] },
+    "meta": { "est_chars": 295 }
+  },
+  {
+    "id": "ks3_humanbody_circulatory-system_v1",
+    "stage": "KS3",
+    "theme": "Human Body Systems",
+    "title": "The Circulatory System",
+    "text": "The circulatory system transports blood, oxygen, and nutrients around the body. It includes the heart, veins, and arteries. This vital system ensures that every organ receives the materials it needs for survival and removes waste from the body efficiently.",
+    "tags": { "complexity": { "caps": true, "punct": true }, "phonics": ["ks3-ory-suffix"] },
+    "meta": { "est_chars": 303 }
+  },
+  {
+    "id": "ks3_humanbody_respiratory-system_v1",
+    "stage": "KS3",
+    "theme": "Human Body Systems",
+    "title": "The Respiratory System",
+    "text": "The respiratory system allows the body to take in oxygen and release carbon dioxide. The lungs and diaphragm work together to draw air in and out. This process is essential for energy production in every living cell of the body.",
+    "tags": { "complexity": { "caps": true, "punct": true }, "phonics": ["ks3-ory-suffix"] },
+    "meta": { "est_chars": 294 }
+  },
+  {
+    "id": "ks3_humanbody_digestive-system_v1",
+    "stage": "KS3",
+    "theme": "Human Body Systems",
+    "title": "The Digestive System",
+    "text": "The digestory system breaks down food into smaller molecules that can be absorbed by the body. It begins in the mouth and continues through the stomach and intestines. Each organ plays a vital role in converting food into useful energy.",
+    "tags": { "complexity": { "caps": true, "punct": true }, "phonics": ["ks3-ory-suffix"] },
+    "meta": { "est_chars": 297 }
+  },
+  {
+    "id": "ks3_humanbody_excretory-system_v1",
+    "stage": "KS3",
+    "theme": "Human Body Systems",
+    "title": "The Excretory System",
+    "text": "The excretory system removes waste products from the blood. The kidneys filter harmful substances and produce urine. This regulatory process maintains a healthy balance of water and minerals in the body, which is essential for proper function.",
+    "tags": { "complexity": { "caps": true, "punct": true }, "phonics": ["ks3-ory-suffix"] },
+    "meta": { "est_chars": 297 }
+  },
+  {
+    "id": "ks3_humanbody_sensory-organs_v1",
+    "stage": "KS3",
+    "theme": "Human Body Systems",
+    "title": "The Sensory Organs",
+    "text": "The sensory system enables humans to experience the world. Eyes, ears, nose, skin, and tongue detect light, sound, smell, touch, and taste. These organs send information to the brain, which interprets and responds to environmental changes instantly.",
+    "tags": { "complexity": { "caps": true, "punct": true }, "phonics": ["ks3-ory-suffix"] },
+    "meta": { "est_chars": 304 }
+  },
+  {
+    "id": "ks3_humanbody_regulation_v1",
+    "stage": "KS3",
+    "theme": "Human Body Systems",
+    "title": "Regulation and Control",
+    "text": "The body’s regulatory systems, including the nervous and endocrine systems, control important processes. Hormones and electrical signals ensure that organs work together. This coordination allows the body to respond quickly to internal and external changes.",
+    "tags": { "complexity": { "caps": true, "punct": true }, "phonics": ["ks3-ory-suffix"] },
+    "meta": { "est_chars": 302 }
+  },
+  {
+    "id": "ks3_humanbody_diaphragm_v1",
+    "stage": "KS3",
+    "theme": "Human Body Systems",
+    "title": "The Diaphragm",
+    "text": "The diaphragm is a strong muscle beneath the lungs. When it contracts, air is drawn into the lungs. It separates the chest from the abdomen and plays a key role in breathing, linking the respiratory and muscular systems efficiently.",
+    "tags": { "complexity": { "caps": true, "punct": true }, "phonics": ["ks3-ph-ch-sounds"] },
+    "meta": { "est_chars": 291 }
+  },
+  {
+    "id": "ks3_humanbody_stomach-function_v1",
+    "stage": "KS3",
+    "theme": "Human Body Systems",
+    "title": "The Stomach’s Function",
+    "text": "The stomach is a muscular organ that helps digest food using acid and enzymes. Its chemical reactions break large molecules into smaller ones. This process allows nutrients to pass into the intestines for absorption into the bloodstream.",
+    "tags": { "complexity": { "caps": true, "punct": true }, "phonics": ["ks3-ph-ch-sounds"] },
+    "meta": { "est_chars": 289 }
+  },
+  {
+    "id": "ks3_humanbody_lymphatic-system_v1",
+    "stage": "KS3",
+    "theme": "Human Body Systems",
+    "title": "The Lymphatic System",
+    "text": "The lymphatic system helps protect the body from infection. It carries lymph fluid through vessels that remove bacteria and waste. Lymph nodes filter harmful substances, playing a major role in maintaining overall health and immunity.",
+    "tags": { "complexity": { "caps": true, "punct": true }, "phonics": ["ks3-ph-ch-sounds"] },
+    "meta": { "est_chars": 287 }
+  },
+  {
+    "id": "ks3_humanbody_pharynx_v1",
+    "stage": "KS3",
+    "theme": "Human Body Systems",
+    "title": "The Pharynx",
+    "text": "The pharynx, also called the throat, is a passage that connects the mouth and nose to the oesophagus. It allows food to travel to the stomach and air to reach the lungs. Its structure prevents choking and controls swallowing effectively.",
+    "tags": { "complexity": { "caps": true, "punct": true }, "phonics": ["ks3-ph-ch-sounds"] },
+    "meta": { "est_chars": 299 }
+  },
+  {
+    "id": "ks3_humanbody_chlorophyll_v1",
+    "stage": "KS3",
+    "theme": "Human Body Systems",
+    "title": "Chlorophyll and Oxygen",
+    "text": "Although chlorophyll is found in plants, it plays an indirect role in human life. It allows plants to make oxygen through photosynthesis. This oxygen is vital for human respiration and energy release in every living cell of the body.",
+    "tags": { "complexity": { "caps": true, "punct": true }, "phonics": ["ks3-ph-ch-sounds"] },
+    "meta": { "est_chars": 299 }
+  },
+  {
+    "id": "ks3_humanbody_chemical-processes_v1",
+    "stage": "KS3",
+    "theme": "Human Body Systems",
+    "title": "Chemical Processes in the Body",
+    "text": "Chemical reactions occur constantly in every cell. They provide energy, repair tissue, and support growth. Enzymes act as catalysts, helping reactions happen faster. Without these processes, life would not be possible or sustainable in complex organisms.",
+    "tags": { "complexity": { "caps": true, "punct": true }, "phonics": ["ks3-ph-ch-sounds"] },
+    "meta": { "est_chars": 294 }
+  },
+  {
+    "id": "ks3_humanbody_muscular-system_v1",
+    "stage": "KS3",
+    "theme": "Human Body Systems",
+    "title": "The Muscular System",
+    "text": "The muscular system works with the skeletal system to allow movement. Muscles contract and relax to pull bones at the joints. This coordination provides posture, balance, and the strength needed for everyday actions like walking or lifting.",
+    "tags": { "complexity": { "caps": true, "punct": true }, "phonics": ["ks3-ory-suffix"] },
+    "meta": { "est_chars": 295 }
+  },
+  {
+    "id": "ks3_humanbody_brain-function_v1",
+    "stage": "KS3",
+    "theme": "Human Body Systems",
+    "title": "The Brain’s Function",
+    "text": "The brain is the body’s control centre. It processes information from sensory organs and sends messages through nerves. Different regions of the brain manage memory, emotion, and coordination, allowing humans to think, learn, and adapt efficiently.",
+    "tags": { "complexity": { "caps": true, "punct": true }, "phonics": ["ks3-ory-suffix"] },
+    "meta": { "est_chars": 293 }
+  },
+  {
+    "id": "ks3_humanbody_skeletal-structure_v1",
+    "stage": "KS3",
+    "theme": "Human Body Systems",
+    "title": "The Skeletal Structure",
+    "text": "The skeletal system provides support and protection for the body. Bones work with muscles to produce movement, while joints and cartilage prevent damage. This internal framework maintains shape and stability as humans grow and develop.",
+    "tags": { "complexity": { "caps": true, "punct": true }, "phonics": ["ks3-ory-suffix"] },
+    "meta": { "est_chars": 292 }
+  },
+  {
+    "id": "ks3_periodictable_discovery_v1",
+    "stage": "KS3",
+    "theme": "The Periodic Table",
+    "title": "The Discovery of the Periodic Table",
+    "text": "The periodic table was developed to organise the known elements. Scientists such as Mendeleev noticed repeating patterns in properties like mass and reactivity. His system predicted elements like magnesium and calcium that were later discovered.",
+    "tags": { "complexity": { "caps": true, "punct": true }, "phonics": ["ks3-ium-suffix"] },
+    "meta": { "est_chars": 305 }
+  },
+  {
+    "id": "ks3_periodictable_structure_v1",
+    "stage": "KS3",
+    "theme": "The Periodic Table",
+    "title": "The Structure of the Table",
+    "text": "The periodic table is arranged in rows called periods and columns known as groups. Each element, such as sodium or aluminium, is placed according to its atomic number. This structure helps scientists understand how elements react and combine.",
+    "tags": { "complexity": { "caps": true, "punct": true }, "phonics": ["ks3-ium-suffix"] },
+    "meta": { "est_chars": 303 }
+  },
+  {
+    "id": "ks3_periodictable_metals_v1",
+    "stage": "KS3",
+    "theme": "The Periodic Table",
+    "title": "Metals and Their Properties",
+    "text": "Metals like calcium and magnesium are strong, shiny, and conduct heat well. They are essential for construction, energy, and the human body. These elements form positive ions, giving them distinct chemical behaviour compared with nonmetals.",
+    "tags": { "complexity": { "caps": true, "punct": true }, "phonics": ["ks3-ium-suffix"] },
+    "meta": { "est_chars": 297 }
+  },
+  {
+    "id": "ks3_periodictable_nonmetals_v1",
+    "stage": "KS3",
+    "theme": "The Periodic Table",
+    "title": "Nonmetals and Gases",
+    "text": "Nonmetals like oxygen and nitrogen are usually gases at room temperature. They are vital for life and environmental processes. While metals form shiny solids, these gases are invisible yet play crucial roles in respiration and combustion.",
+    "tags": { "complexity": { "caps": true, "punct": true }, "phonics": ["ks3-gen-root"] },
+    "meta": { "est_chars": 293 }
+  },
+  {
+    "id": "ks3_periodictable_hydrogen_v1",
+    "stage": "KS3",
+    "theme": "The Periodic Table",
+    "title": "Hydrogen: The First Element",
+    "text": "Hydrogen is the lightest element on the periodic table. It fuels stars and is found in water molecules. Scientists explore hydrogen as a clean energy source because it produces only water when it burns, making it environmentally friendly.",
+    "tags": { "complexity": { "caps": true, "punct": true }, "phonics": ["ks3-gen-root"] },
+    "meta": { "est_chars": 296 }
+  },
+  {
+    "id": "ks3_periodictable_oxygen_v1",
+    "stage": "KS3",
+    "theme": "The Periodic Table",
+    "title": "Oxygen and Life",
+    "text": "Oxygen is essential for respiration, allowing living things to release energy from food. It makes up a large part of Earth’s atmosphere. Without oxygen, chemical reactions that sustain life would not occur, making it one of the most vital gases.",
+    "tags": { "complexity": { "caps": true, "punct": true }, "phonics": ["ks3-gen-root"] },
+    "meta": { "est_chars": 300 }
+  },
+  {
+    "id": "ks3_periodictable_nitrogen_v1",
+    "stage": "KS3",
+    "theme": "The Periodic Table",
+    "title": "The Role of Nitrogen",
+    "text": "Nitrogen makes up around seventy-eight percent of Earth’s atmosphere. It is vital for the growth of plants, forming part of proteins and DNA. However, too much nitrogen from fertilisers can damage ecosystems and water supplies.",
+    "tags": { "complexity": { "caps": true, "punct": true }, "phonics": ["ks3-gen-root"] },
+    "meta": { "est_chars": 288 }
+  },
+  {
+    "id": "ks3_periodictable_alkali-metals_v1",
+    "stage": "KS3",
+    "theme": "The Periodic Table",
+    "title": "The Alkali Metals",
+    "text": "The alkali metals, including sodium and potassium, are soft and highly reactive. They must be stored in oil to prevent reactions with air or water. Their reactivity increases as you move down the group on the periodic table.",
+    "tags": { "complexity": { "caps": true, "punct": true }, "phonics": ["ks3-ium-suffix"] },
+    "meta": { "est_chars": 293 }
+  },
+  {
+    "id": "ks3_periodictable_noble-gases_v1",
+    "stage": "KS3",
+    "theme": "The Periodic Table",
+    "title": "The Noble Gases",
+    "text": "Noble gases like helium and neon are colourless and unreactive. Because they rarely form compounds, they are used in lighting and scientific equipment. Helium, for example, fills balloons because it is lighter than air and non-flammable.",
+    "tags": { "complexity": { "caps": true, "punct": true }, "phonics": ["ks3-ium-suffix"] },
+    "meta": { "est_chars": 297 }
+  },
+  {
+    "id": "ks3_periodictable_generation-of-energy_v1",
+    "stage": "KS3",
+    "theme": "The Periodic Table",
+    "title": "Generation of Energy",
+    "text": "Many elements help in the generation of power. Hydrogen and oxygen combine in fuel cells to create electricity. Metals like uranium provide nuclear energy. Understanding these processes allows scientists to design cleaner energy technologies.",
+    "tags": { "complexity": { "caps": true, "punct": true }, "phonics": ["ks3-gen-root"] },
+    "meta": { "est_chars": 298 }
+  },
+  {
+    "id": "ks3_periodictable_magnesium_v1",
+    "stage": "KS3",
+    "theme": "The Periodic Table",
+    "title": "Magnesium and Light",
+    "text": "Magnesium burns with a bright white flame and is used in fireworks and flares. It is also essential for plant growth, forming part of chlorophyll. This shows how one element can be useful both in chemistry and biology.",
+    "tags": { "complexity": { "caps": true, "punct": true }, "phonics": ["ks3-ium-suffix"] },
+    "meta": { "est_chars": 289 }
+  },
+  {
+    "id": "ks3_periodictable_aluminium_v1",
+    "stage": "KS3",
+    "theme": "The Periodic Table",
+    "title": "Aluminium in Everyday Life",
+    "text": "Aluminium is a lightweight metal used in aircraft, cans, and buildings. Its resistance to rust makes it very useful. Although common, it is difficult to extract from ore, requiring large amounts of electricity in the refining process.",
+    "tags": { "complexity": { "caps": true, "punct": true }, "phonics": ["ks3-ium-suffix"] },
+    "meta": { "est_chars": 293 }
+  },
+  {
+    "id": "ks3_periodictable_lab-safety_v1",
+    "stage": "KS3",
+    "theme": "The Periodic Table",
+    "title": "Lab Safety in Chemistry",
+    "text": "Working with elements requires caution. Students must wear goggles and handle chemicals with care. Using equipment like test tubes and bunsen burners safely ensures experiments are successful and that no harmful reactions occur unexpectedly.",
+    "tags": { "complexity": { "caps": true, "punct": true }, "phonics": ["ks3-gen-root"] },
+    "meta": { "est_chars": 295 }
+  },
+  {
+    "id": "ks3_periodictable_atomic-structure_v1",
+    "stage": "KS3",
+    "theme": "The Periodic Table",
+    "title": "Atomic Structure",
+    "text": "Every element is made of atoms containing protons, neutrons, and electrons. Hydrogen has one proton, while heavier elements like calcium have many. The arrangement of these particles determines each element’s unique properties and behaviour.",
+    "tags": { "complexity": { "caps": true, "punct": true }, "phonics": ["ks3-gen-root"] },
+    "meta": { "est_chars": 293 }
+  },
+  {
+    "id": "ks3_periodictable_future-elements_v1",
+    "stage": "KS3",
+    "theme": "The Periodic Table",
+    "title": "The Search for New Elements",
+    "text": "Scientists continue to create new elements in laboratories. These artificial atoms, often ending in -ium, exist only briefly before breaking apart. Discovering them expands our understanding of atomic structure and the limits of chemical stability.",
+    "tags": { "complexity": { "caps": true, "punct": true }, "phonics": ["ks3-ium-suffix"] },
+    "meta": { "est_chars": 299 }
+  },
+  {
+    "id": "ks3_forcesmotion_newtons-first-law_v1",
+    "stage": "KS3",
+    "theme": "Forces & Motion",
+    "title": "Newton’s First Law of Motion",
+    "text": "Newton’s first law states that an object will remain at rest or move at a constant velocity unless acted upon by an external force. This idea, known as inertia, explains why motion only changes when a force is applied.",
+    "tags": { "complexity": { "caps": true, "punct": true }, "phonics": ["ks3-tion-suffix"] },
+    "meta": { "est_chars": 297 }
+  },
+  {
+    "id": "ks3_forcesmotion_newtons-second-law_v1",
+    "stage": "KS3",
+    "theme": "Forces & Motion",
+    "title": "Newton’s Second Law of Motion",
+    "text": "The second law connects force, mass, and acceleration. It shows that a larger force causes a greater acceleration if the mass is constant. This relationship is written as F = ma, and it helps explain how motion changes in everyday life.",
+    "tags": { "complexity": { "caps": true, "punct": true }, "phonics": ["ks3-tion-suffix"] },
+    "meta": { "est_chars": 307 }
+  },
+  {
+    "id": "ks3_forcesmotion_newtons-third-law_v1",
+    "stage": "KS3",
+    "theme": "Forces & Motion",
+    "title": "Newton’s Third Law of Motion",
+    "text": "Newton’s third law states that for every action there is an equal and opposite reaction. This means forces always come in pairs. For example, when you push a wall, the wall pushes back with an equal amount of force.",
+    "tags": { "complexity": { "caps": true, "punct": true }, "phonics": ["ks3-tion-suffix"] },
+    "meta": { "est_chars": 301 }
+  },
+  {
+    "id": "ks3_forcesmotion_gravity_v1",
+    "stage": "KS3",
+    "theme": "Forces & Motion",
+    "title": "The Force of Gravity",
+    "text": "Gravity is a force that attracts objects toward each other. On Earth, it gives everything weight and keeps us on the ground. The strength of gravity depends on an object’s mass and the distance between two objects.",
+    "tags": { "complexity": { "caps": true, "punct": true }, "phonics": ["ks3-physics-spellings"] },
+    "meta": { "est_chars": 297 }
+  },
+  {
+    "id": "ks3_forcesmotion_mass-and-weight_v1",
+    "stage": "KS3",
+    "theme": "Forces & Motion",
+    "title": "Mass and Weight",
+    "text": "Mass measures how much matter is in an object, while weight is the force caused by gravity acting on that mass. Therefore, an astronaut’s mass stays the same on the Moon, but their weight becomes much smaller.",
+    "tags": { "complexity": { "caps": true, "punct": true }, "phonics": ["ks3-physics-spellings"] },
+    "meta": { "est_chars": 287 }
+  },
+  {
+    "id": "ks3_forcesmotion_friction_v1",
+    "stage": "KS3",
+    "theme": "Forces & Motion",
+    "title": "Understanding Friction",
+    "text": "Friction is a force that opposes motion between two surfaces. It produces heat and slows moving objects. While friction can cause energy loss, it is also helpful, allowing shoes to grip the ground or car tyres to stop safely.",
+    "tags": { "complexity": { "caps": true, "punct": true }, "phonics": ["ks3-tion-suffix"] },
+    "meta": { "est_chars": 300 }
+  },
+  {
+    "id": "ks3_forcesmotion_air-resistance_v1",
+    "stage": "KS3",
+    "theme": "Forces & Motion",
+    "title": "Air Resistance and Motion",
+    "text": "Air resistance slows down moving objects as they travel through air. The faster an object moves, the greater the resistance. Streamlined shapes like planes and cars reduce this force, allowing smoother and more efficient motion through the air.",
+    "tags": { "complexity": { "caps": true, "punct": true }, "phonics": ["ks3-tion-suffix"] },
+    "meta": { "est_chars": 307 }
+  },
+  {
+    "id": "ks3_forcesmotion_velocity_v1",
+    "stage": "KS3",
+    "theme": "Forces & Motion",
+    "title": "Speed and Velocity",
+    "text": "Speed describes how fast something moves, but velocity includes direction as well. Two cars may travel at the same speed but have different velocities if they move in opposite directions. Scientists use this concept to study motion precisely.",
+    "tags": { "complexity": { "caps": true, "punct": true }, "phonics": ["ks3-physics-spellings"] },
+    "meta": { "est_chars": 306 }
+  },
+  {
+    "id": "ks3_forcesmotion_energy-transfer_v1",
+    "stage": "KS3",
+    "theme": "Forces & Motion",
+    "title": "Energy and Work",
+    "text": "When a force moves an object, energy is transferred and work is done. The greater the force or distance, the more energy is used. Understanding how energy transfers helps explain how machines and living things move efficiently.",
+    "tags": { "complexity": { "caps": true, "punct": true }, "phonics": ["ks3-physics-spellings"] },
+    "meta": { "est_chars": 298 }
+  },
+  {
+    "id": "ks3_forcesmotion_acceleration_v1",
+    "stage": "KS3",
+    "theme": "Forces & Motion",
+    "title": "Acceleration and Deceleration",
+    "text": "Acceleration measures how quickly velocity changes over time. When an object slows down, it experiences deceleration. Forces like friction or gravity can increase or reduce acceleration, depending on the situation and the object’s motion path.",
+    "tags": { "complexity": { "caps": true, "punct": true }, "phonics": ["ks3-tion-suffix"] },
+    "meta": { "est_chars": 303 }
+  },
+  {
+    "id": "ks3_forcesmotion_tension-forces_v1",
+    "stage": "KS3",
+    "theme": "Forces & Motion",
+    "title": "Tension and Compression",
+    "text": "Tension occurs when a rope or cable is pulled, while compression happens when an object is squeezed. Engineers use these ideas to design bridges and buildings that withstand forces safely without collapsing or stretching too far.",
+    "tags": { "complexity": { "caps": true, "punct": true }, "phonics": ["ks3-physics-spellings"] },
+    "meta": { "est_chars": 293 }
+  },
+  {
+    "id": "ks3_forcesmotion_balanced-forces_v1",
+    "stage": "KS3",
+    "theme": "Forces & Motion",
+    "title": "Balanced and Unbalanced Forces",
+    "text": "When forces on an object are balanced, its motion does not change. However, unbalanced forces cause acceleration or a change in direction. Understanding this principle helps explain why stationary objects move when a push or pull is applied.",
+    "tags": { "complexity": { "caps": true, "punct": true }, "phonics": ["ks3-tion-suffix"] },
+    "meta": { "est_chars": 306 }
+  },
+  {
+    "id": "ks3_forcesmotion_motion-and-path_v1",
+    "stage": "KS3",
+    "theme": "Forces & Motion",
+    "title": "Motion and Direction",
+    "text": "An object’s motion depends on both speed and direction. Changing direction means a force must act on the object. Circular motion, for example, relies on a constant force pulling inward, such as gravity keeping planets in orbit around the Sun.",
+    "tags": { "complexity": { "caps": true, "punct": true }, "phonics": ["ks3-tion-suffix"] },
+    "meta": { "est_chars": 309 }
+  },
+  {
+    "id": "ks3_forcesmotion_force-fields_v1",
+    "stage": "KS3",
+    "theme": "Forces & Motion",
+    "title": "Force Fields",
+    "text": "Forces like gravity and magnetism act through invisible fields. These fields can attract or repel objects without touching them. Understanding fields allows scientists to study the interactions between masses, magnets, and charged particles in space and laboratories.",
+    "tags": { "complexity": { "caps": true, "punct": true }, "phonics": ["ks3-physics-spellings"] },
+    "meta": { "est_chars": 312 }
+  },
+  {
+    "id": "ks3_forcesmotion_energy-conservation_v1",
+    "stage": "KS3",
+    "theme": "Forces & Motion",
+    "title": "Conservation of Energy",
+    "text": "Energy cannot be created or destroyed, only transferred from one form to another. Moving objects lose energy through friction and heat, but the total energy stays the same. This scientific law explains how motion and energy are connected in all systems.",
+    "tags": { "complexity": { "caps": true, "punct": true }, "phonics": ["ks3-tion-suffix"] },
+    "meta": { "est_chars": 311 }
+  },
+  {
+    "id": "ks3_forcesmotion_momentum_v1",
+    "stage": "KS3",
+    "theme": "Forces & Motion",
+    "title": "Momentum in Motion",
+    "text": "Momentum describes how difficult it is to stop a moving object. It depends on both mass and velocity. When two objects collide, their momentum changes, but the total momentum of the system remains the same if no external forces act.",
+    "tags": { "complexity": { "caps": true, "punct": true }, "phonics": ["ks3-physics-spellings"] },
+    "meta": { "est_chars": 308 }
+  },
+  {
+    "id": "ks3_tectonicplates_plate-movement_v1",
+    "stage": "KS3",
+    "theme": "Tectonic Plates",
+    "title": "Plate Movement",
+    "text": "The Earth’s tectonic plates are enormous sections of the crust that move slowly across the planet’s surface. These tectonic shifts cause volcanic eruptions and earthquakes. The movement results from convection currents within the mantle beneath the plates.",
+    "tags": { "complexity": { "caps": true, "punct": true }, "phonics": ["ks3-ic-suffix"] },
+    "meta": { "est_chars": 314 }
+  },
+  {
+    "id": "ks3_tectonicplates_plate-boundaries_v1",
+    "stage": "KS3",
+    "theme": "Tectonic Plates",
+    "title": "Plate Boundaries",
+    "text": "There are three main types of tectonic plate boundaries: divergent, convergent, and transform. At divergent boundaries, plates move apart, forming new crust. Convergent boundaries create mountains or volcanic arcs, while transform boundaries cause seismic activity like earthquakes.",
+    "tags": { "complexity": { "caps": true, "punct": true }, "phonics": ["ks3-ic-suffix"] },
+    "meta": { "est_chars": 313 }
+  },
+  {
+    "id": "ks3_tectonicplates_volcano-formation_v1",
+    "stage": "KS3",
+    "theme": "Tectonic Plates",
+    "title": "Volcano Formation",
+    "text": "Volcanoes form when molten rock called magma rises through cracks in the Earth’s crust. When pressure builds up, an eruption occurs. Volcanic activity often happens at convergent or divergent boundaries where the crust is weak or moving apart.",
+    "tags": { "complexity": { "caps": true, "punct": true }, "phonics": ["ks3-ic-suffix"] },
+    "meta": { "est_chars": 310 }
+  },
+  {
+    "id": "ks3_tectonicplates_earthquake-cause_v1",
+    "stage": "KS3",
+    "theme": "Tectonic Plates",
+    "title": "What Causes Earthquakes?",
+    "text": "Earthquakes occur when stress builds up along faults in the crust. When the pressure is released, seismic waves travel through the ground, causing shaking. The point beneath the surface where it begins is called the focus or hypocentre.",
+    "tags": { "complexity": { "caps": true, "punct": true }, "phonics": ["ks3-ic-suffix"] },
+    "meta": { "est_chars": 304 }
+  },
+  {
+    "id": "ks3_tectonicplates_ring-of-fire_v1",
+    "stage": "KS3",
+    "theme": "Tectonic Plates",
+    "title": "The Ring of Fire",
+    "text": "The Pacific Ring of Fire is a major area of volcanic and seismic activity. It circles the Pacific Ocean, where tectonic plates meet and interact. This region experiences frequent earthquakes and eruptions due to intense geologic forces.",
+    "tags": { "complexity": { "caps": true, "punct": true }, "phonics": ["ks3-ic-suffix"] },
+    "meta": { "est_chars": 302 }
+  },
+  {
+    "id": "ks3_tectonicplates_mantle-movement_v1",
+    "stage": "KS3",
+    "theme": "Tectonic Plates",
+    "title": "Mantle Convection",
+    "text": "The mantle contains hot, flowing rock that circulates slowly. These convection currents move tectonic plates on the crust above. Heat from the core drives this process, making it the engine behind much of the planet’s volcanic and seismic activity.",
+    "tags": { "complexity": { "caps": true, "punct": true }, "phonics": ["ks3-ic-suffix"] },
+    "meta": { "est_chars": 308 }
+  },
+  {
+    "id": "ks3_tectonicplates_lithosphere_v1",
+    "stage": "KS3",
+    "theme": "Tectonic Plates",
+    "title": "The Lithosphere",
+    "text": "The lithosphere is the rigid outer layer of the Earth, including the crust and upper mantle. It is divided into tectonic plates that move across the softer asthenosphere beneath. This movement shapes mountains, oceans, and continents over time.",
+    "tags": { "complexity": { "caps": true, "punct": true }, "phonics": ["ks3-ph-digraph"] },
+    "meta": { "est_chars": 307 }
+  },
+  {
+    "id": "ks3_tectonicplates_atmosphere_v1",
+    "stage": "KS3",
+    "theme": "Tectonic Plates",
+    "title": "The Atmosphere",
+    "text": "The atmosphere surrounds the planet with layers of gases such as nitrogen and oxygen. Although it is separate from the lithosphere, the atmosphere interacts with volcanic gases, which can influence weather patterns and global temperatures after eruptions occur.",
+    "tags": { "complexity": { "caps": true, "punct": true }, "phonics": ["ks3-ph-digraph"] },
+    "meta": { "est_chars": 309 }
+  },
+  {
+    "id": "ks3_tectonicplates_hemispheres_v1",
+    "stage": "KS3",
+    "theme": "Tectonic Plates",
+    "title": "The Earth’s Hemispheres",
+    "text": "Earth is divided into the Northern and Southern Hemispheres by the equator. Each hemisphere experiences different climates and seasons due to the planet’s tilt. Tectonic activity occurs in both, shaping landforms such as mountain ranges and ocean trenches.",
+    "tags": { "complexity": { "caps": true, "punct": true }, "phonics": ["ks3-ph-digraph"] },
+    "meta": { "est_chars": 310 }
+  },
+  {
+    "id": "ks3_tectonicplates_geosphere_v1",
+    "stage": "KS3",
+    "theme": "Tectonic Plates",
+    "title": "The Geosphere",
+    "text": "The geosphere includes all the solid parts of the Earth, from mountains to minerals. It interacts with the atmosphere, hydrosphere, and biosphere. Understanding these connections helps scientists study how volcanic and tectonic forces shape our planet’s surface.",
+    "tags": { "complexity": { "caps": true, "punct": true }, "phonics": ["ks3-ph-digraph"] },
+    "meta": { "est_chars": 310 }
+  },
+  {
+    "id": "ks3_tectonicplates_hydrosphere_v1",
+    "stage": "KS3",
+    "theme": "Tectonic Plates",
+    "title": "The Hydrosphere",
+    "text": "The hydrosphere contains all of Earth’s water, including oceans, rivers, and ice. Tectonic movements can alter sea levels and create oceanic trenches. Volcanic activity beneath the oceans also forms new land, such as islands and underwater mountain chains.",
+    "tags": { "complexity": { "caps": true, "punct": true }, "phonics": ["ks3-ph-digraph"] },
+    "meta": { "est_chars": 305 }
+  },
+  {
+    "id": "ks3_tectonicplates_magnitude_v1",
+    "stage": "KS3",
+    "theme": "Tectonic Plates",
+    "title": "Measuring Earthquakes",
+    "text": "The strength of an earthquake is measured by its magnitude on the Richter scale. Seismographs record seismic waves, allowing scientists to study the event’s depth and impact. This information helps predict aftershocks and prepare communities for future risks.",
+    "tags": { "complexity": { "caps": true, "punct": true }, "phonics": ["ks3-ic-suffix"] },
+    "meta": { "est_chars": 310 }
+  },
+  {
+    "id": "ks3_tectonicplates_continental-drift_v1",
+    "stage": "KS3",
+    "theme": "Tectonic Plates",
+    "title": "Continental Drift",
+    "text": "The theory of continental drift suggests that continents were once joined in a single supercontinent called Pangaea. Over millions of years, tectonic forces caused them to move apart, forming the continents and oceans we recognise today on modern maps.",
+    "tags": { "complexity": { "caps": true, "punct": true }, "phonics": ["ks3-ic-suffix"] },
+    "meta": { "est_chars": 311 }
+  },
+  {
+    "id": "ks3_tectonicplates_volcanic-islands_v1",
+    "stage": "KS3",
+    "theme": "Tectonic Plates",
+    "title": "Volcanic Islands",
+    "text": "Volcanic islands like Hawaii are formed by eruptions on the ocean floor. Magma rises through weak points in the crust called hotspots. Over time, repeated eruptions build up layers of rock that eventually rise above the surface of the sea.",
+    "tags": { "complexity": { "caps": true, "punct": true }, "phonics": ["ks3-ic-suffix"] },
+    "meta": { "est_chars": 308 }
+  },
+  {
+    "id": "ks3_tectonicplates_global-effects_v1",
+    "stage": "KS3",
+    "theme": "Tectonic Plates",
+    "title": "Global Effects of Tectonics",
+    "text": "Tectonic processes influence life across the globe. They shape landscapes, form resources, and affect weather patterns through volcanic gases. Understanding tectonic activity helps humans prepare for natural hazards like earthquakes, eruptions, and tsunamis that change the planet’s surface.",
+    "tags": { "complexity": { "caps": true, "punct": true }, "phonics": ["ks3-ic-suffix"] },
+    "meta": { "est_chars": 316 }
+  },
+  {
+    "id": "ks3_literarydevices_metaphor-definition_v1",
+    "stage": "KS3",
+    "theme": "Literary Devices",
+    "title": "What Is a Metaphor?",
+    "text": "A metaphor compares two things without using 'like' or 'as'. For example, saying 'time is a thief' suggests that time steals moments from us. Metaphors help readers form vivid connections between ideas in a powerful, metaphorical way.",
+    "tags": { "complexity": { "caps": true, "punct": true }, "phonics": ["ks3-phor-root"] },
+    "meta": { "est_chars": 302 }
+  },
+  {
+    "id": "ks3_literarydevices_euphoric-language_v1",
+    "stage": "KS3",
+    "theme": "Literary Devices",
+    "title": "Euphoric Language",
+    "text": "Writers sometimes use euphoric language to express intense joy. For example, describing a victory as 'the most euphoric moment' communicates extreme happiness. This emotional tone engages readers and helps them feel connected to the character’s triumph.",
+    "tags": { "complexity": { "caps": true, "punct": true }, "phonics": ["ks3-phor-root"] },
+    "meta": { "est_chars": 295 }
+  },
+  {
+    "id": "ks3_literarydevices_aphorism_v1",
+    "stage": "KS3",
+    "theme": "Literary Devices",
+    "title": "Understanding Aphorisms",
+    "text": "An aphorism is a short, wise saying that expresses a universal truth, such as 'actions speak louder than words'. Writers use aphorisms to communicate wisdom concisely, encouraging readers to reflect on moral or philosophical ideas.",
+    "tags": { "complexity": { "caps": true, "punct": true }, "phonics": ["ks3-phor-root"] },
+    "meta": { "est_chars": 290 }
+  },
+  {
+    "id": "ks3_literarydevices_anaphora_v1",
+    "stage": "KS3",
+    "theme": "Literary Devices",
+    "title": "Repetition in Anaphora",
+    "text": "Anaphora is the repetition of a word or phrase at the start of several lines or sentences. For instance, 'I have a dream' in Martin Luther King Jr.’s speech is an example that builds rhythm and emotional impact through repetition.",
+    "tags": { "complexity": { "caps": true, "punct": true }, "phonics": ["ks3-phor-root"] },
+    "meta": { "est_chars": 308 }
+  },
+  {
+    "id": "ks3_literarydevices_extended-metaphor_v1",
+    "stage": "KS3",
+    "theme": "Literary Devices",
+    "title": "The Extended Metaphor",
+    "text": "An extended metaphor continues a comparison across several lines or paragraphs. For example, describing life as a journey allows a writer to explore choices, obstacles, and goals. This technique deepens meaning by linking abstract and concrete ideas.",
+    "tags": { "complexity": { "caps": true, "punct": true }, "phonics": ["ks3-phor-root"] },
+    "meta": { "est_chars": 304 }
+  },
+  {
+    "id": "ks3_literarydevices_buzzwords_v1",
+    "stage": "KS3",
+    "theme": "Literary Devices",
+    "title": "Onomatopoeia in Action",
+    "text": "Onomatopoeia occurs when a word imitates the sound it describes. Words like 'buzz', 'clang', and 'sizzle' create auditory imagery. Writers use onomatopoeia to make descriptions more realistic and to bring scenes vividly to life for the reader.",
+    "tags": { "complexity": { "caps": true, "punct": true }, "phonics": ["ks3-onomatopoeia"] },
+    "meta": { "est_chars": 308 }
+  },
+  {
+    "id": "ks3_literarydevices_sound-effects_v1",
+    "stage": "KS3",
+    "theme": "Literary Devices",
+    "title": "Sound Effects in Poetry",
+    "text": "Poets use onomatopoeia to create sound effects that match the mood of a poem. A line with words like 'crash' or 'whisper' helps readers imagine the noise. This sensory detail strengthens the poem’s emotional and atmospheric impact.",
+    "tags": { "complexity": { "caps": true, "punct": true }, "phonics": ["ks3-onomatopoeia"] },
+    "meta": { "est_chars": 304 }
+  },
+  {
+    "id": "ks3_literarydevices_clang-and-crash_v1",
+    "stage": "KS3",
+    "theme": "Literary Devices",
+    "title": "Clang and Crash!",
+    "text": "Writers often use strong onomatopoeic words like 'clang' and 'crash' to heighten action scenes. These sounds bring energy to battle or storm descriptions, making readers feel as though they are inside the chaos and noise themselves.",
+    "tags": { "complexity": { "caps": true, "punct": true }, "phonics": ["ks3-onomatopoeia"] },
+    "meta": { "est_chars": 299 }
+  },
+  {
+    "id": "ks3_literarydevices_sizzle-and-bang_v1",
+    "stage": "KS3",
+    "theme": "Literary Devices",
+    "title": "Sizzle and Bang!",
+    "text": "Words such as 'sizzle' and 'bang' add excitement and tension to writing. These vivid sounds engage the reader’s senses. Therefore, onomatopoeia can transform an ordinary description into an experience that feels lively, immersive, and realistic.",
+    "tags": { "complexity": { "caps": true, "punct": true }, "phonics": ["ks3-onomatopoeia"] },
+    "meta": { "est_chars": 303 }
+  },
+  {
+    "id": "ks3_literarydevices_simile-vs-metaphor_v1",
+    "stage": "KS3",
+    "theme": "Literary Devices",
+    "title": "Simile versus Metaphor",
+    "text": "A simile uses 'like' or 'as' to compare two things, while a metaphor states that one thing is another. For instance, 'the clouds are cotton' is a metaphor, but 'the clouds are like cotton' forms a simile instead.",
+    "tags": { "complexity": { "caps": true, "punct": true }, "phonics": ["ks3-phor-root"] },
+    "meta": { "est_chars": 298 }
+  },
+  {
+    "id": "ks3_literarydevices_personification_v1",
+    "stage": "KS3",
+    "theme": "Literary Devices",
+    "title": "The Power of Personification",
+    "text": "Personification gives human qualities to non-human things. For example, describing 'the wind whispered through the trees' uses onomatopoeia and personification. This combination helps writers create atmosphere and emotion through sound and imagery together.",
+    "tags": { "complexity": { "caps": true, "punct": true }, "phonics": ["ks3-onomatopoeia"] },
+    "meta": { "est_chars": 299 }
+  },
+  {
+    "id": "ks3_literarydevices_hyperbole_v1",
+    "stage": "KS3",
+    "theme": "Literary Devices",
+    "title": "Hyperbole and Exaggeration",
+    "text": "Hyperbole is an extreme exaggeration used for effect, such as 'I’ve told you a million times'. This literary device adds humour or emotion. It often works alongside metaphors or similes to intensify a writer’s description and impact on the reader.",
+    "tags": { "complexity": { "caps": true, "punct": true }, "phonics": ["ks3-phor-root"] },
+    "meta": { "est_chars": 309 }
+  },
+  {
+    "id": "ks3_literarydevices_symbolism_v1",
+    "stage": "KS3",
+    "theme": "Literary Devices",
+    "title": "Symbolism in Writing",
+    "text": "Symbolism occurs when one thing represents another idea or theme. For example, a storm may symbolise anger or conflict. Writers combine symbolism with metaphorical language to convey deeper meanings beyond the literal events of the story.",
+    "tags": { "complexity": { "caps": true, "punct": true }, "phonics": ["ks3-phor-root"] },
+    "meta": { "est_chars": 303 }
+  },
+  {
+    "id": "ks3_literarydevices_poetic-sound_v1",
+    "stage": "KS3",
+    "theme": "Literary Devices",
+    "title": "Sound in Poetry",
+    "text": "Sound devices like onomatopoeia, rhyme, and rhythm make poetry musical. A poet might repeat 'buzz' or 'whisper' to create atmosphere. These sounds work with rhythm to help readers experience the poem’s emotion more powerfully and clearly.",
+    "tags": { "complexity": { "caps": true, "punct": true }, "phonics": ["ks3-onomatopoeia"] },
+    "meta": { "est_chars": 301 }
+  },
+  {
+    "id": "ks3_literarydevices_imagery_v1",
+    "stage": "KS3",
+    "theme": "Literary Devices",
+    "title": "Imagery and Emotion",
+    "text": "Imagery appeals to the senses, helping readers see, hear, and feel what is described. Writers often combine imagery with onomatopoeia or metaphor. This creates writing that feels both sensory and emotional, drawing readers more deeply into the text.",
+    "tags": { "complexity": { "caps": true, "punct": true }, "phonics": ["ks3-onomatopoeia"] },
+    "meta": { "est_chars": 304 }
+  },
+  {
+    "id": "ks3_literarydevices_figures-of-speech_v1",
+    "stage": "KS3",
+    "theme": "Literary Devices",
+    "title": "Figures of Speech",
+    "text": "Figures of speech such as metaphors, similes, and onomatopoeia enrich writing. They transform plain sentences into expressive ones. Understanding these devices helps students appreciate how authors craft language to create meaning and emotion effectively.",
+    "tags": { "complexity": { "caps": true, "punct": true }, "phonics": ["ks3-phor-root"] },
+    "meta": { "est_chars": 300 }
+  },
+  {
+    "id": "ks3_formalwriting_academic-tone_v1",
+    "stage": "KS3",
+    "theme": "Formal Writing",
+    "title": "Maintaining an Academic Tone",
+    "text": "Formal writing requires a respectful and objective tone. It avoids slang and uses precise language. Writers must be responsible for presenting credible information and creating arguments that are logical, structured, and debatable in a balanced manner.",
+    "tags": { "complexity": { "caps": true, "punct": true }, "phonics": ["ks3-able-ible-suffix"] },
+    "meta": { "est_chars": 302 }
+  },
+  {
+    "id": "ks3_formalwriting_evidence-vs-opinion_v1",
+    "stage": "KS3",
+    "theme": "Formal Writing",
+    "title": "Evidence versus Opinion",
+    "text": "Formal essays should distinguish between fact and opinion. A credible writer supports claims with evidence rather than emotion. It is also essential to remain impartial, ensuring arguments are clear, reasonable, and responsible throughout the discussion.",
+    "tags": { "complexity": { "caps": true, "punct": true }, "phonics": ["ks3-able-ible-suffix"] },
+    "meta": { "est_chars": 296 }
+  },
+  {
+    "id": "ks3_formalwriting_introductions_v1",
+    "stage": "KS3",
+    "theme": "Formal Writing",
+    "title": "Writing Strong Introductions",
+    "text": "An effective introduction outlines the essay’s main argument. It introduces key ideas that will be explored in detail. Furthermore, a clear introduction helps the reader understand the essay’s purpose and sets a confident academic tone.",
+    "tags": { "complexity": { "caps": true, "punct": true }, "phonics": ["ks3-formal-connectives"] },
+    "meta": { "est_chars": 291 }
+  },
+  {
+    "id": "ks3_formalwriting_connectives_v1",
+    "stage": "KS3",
+    "theme": "Formal Writing",
+    "title": "Using Connectives Effectively",
+    "text": "Formal connectives link ideas logically within a paragraph. Words such as 'however', 'therefore', and 'consequently' demonstrate reasoning. Moreover, they guide the reader through complex arguments and improve the flow and cohesion of academic writing.",
+    "tags": { "complexity": { "caps": true, "punct": true }, "phonics": ["ks3-formal-connectives"] },
+    "meta": { "est_chars": 304 }
+  },
+  {
+    "id": "ks3_formalwriting_analysis-verbs_v1",
+    "stage": "KS3",
+    "theme": "Formal Writing",
+    "title": "Using Analytical Verbs",
+    "text": "Writers use analytical verbs like 'suggests' or 'evaluates' to explore meaning. These verbs show critical thinking rather than description. Therefore, students should select precise verbs to express how evidence supports a credible interpretation of the text.",
+    "tags": { "complexity": { "caps": true, "punct": true }, "phonics": ["ks3-formal-connectives"] },
+    "meta": { "est_chars": 303 }
+  },
+  {
+    "id": "ks3_formalwriting_paragraphs_v1",
+    "stage": "KS3",
+    "theme": "Formal Writing",
+    "title": "Structuring Paragraphs",
+    "text": "Each paragraph should begin with a topic sentence that outlines its focus. Evidence and analysis follow to develop the argument. Furthermore, connectives help ideas flow smoothly, leading to a clear and convincing conclusion for the reader.",
+    "tags": { "complexity": { "caps": true, "punct": true }, "phonics": ["ks3-formal-connectives"] },
+    "meta": { "est_chars": 296 }
+  },
+  {
+    "id": "ks3_formalwriting_conclusions_v1",
+    "stage": "KS3",
+    "theme": "Formal Writing",
+    "title": "Writing Conclusions",
+    "text": "A strong conclusion summarises the main arguments and reinforces the essay’s central idea. Therefore, it should not introduce new points but instead provide closure. A credible conclusion leaves the reader with a confident understanding of the topic.",
+    "tags": { "complexity": { "caps": true, "punct": true }, "phonics": ["ks3-formal-connectives"] },
+    "meta": { "est_chars": 303 }
+  },
+  {
+    "id": "ks3_formalwriting_objectivity_v1",
+    "stage": "KS3",
+    "theme": "Formal Writing",
+    "title": "Writing Objectively",
+    "text": "Formal writing avoids personal opinions and emotional language. It is responsible and balanced, presenting information that can be supported by facts. Objective writing increases reliability and ensures that the argument appears fair and credible to readers.",
+    "tags": { "complexity": { "caps": true, "punct": true }, "phonics": ["ks3-able-ible-suffix"] },
+    "meta": { "est_chars": 302 }
+  },
+  {
+    "id": "ks3_formalwriting_tone-and-style_v1",
+    "stage": "KS3",
+    "theme": "Formal Writing",
+    "title": "Tone and Style in Academic Writing",
+    "text": "Formal style requires complex sentences and academic vocabulary. Writers should avoid contractions and slang. Moreover, using clear and concise phrasing demonstrates control and makes the writing more professional, persuasive, and credible in academic contexts.",
+    "tags": { "complexity": { "caps": true, "punct": true }, "phonics": ["ks3-formal-connectives"] },
+    "meta": { "est_chars": 301 }
+  },
+  {
+    "id": "ks3_formalwriting_transitions_v1",
+    "stage": "KS3",
+    "theme": "Formal Writing",
+    "title": "Effective Transitions",
+    "text": "Transitions connect ideas between paragraphs. Words like 'however' or 'therefore' show contrast or cause and effect. Consequently, strong transitions improve coherence, helping essays sound fluent and logical from one section to the next.",
+    "tags": { "complexity": { "caps": true, "punct": true }, "phonics": ["ks3-formal-connectives"] },
+    "meta": { "est_chars": 291 }
+  },
+  {
+    "id": "ks3_formalwriting_evaluative-language_v1",
+    "stage": "KS3",
+    "theme": "Formal Writing",
+    "title": "Using Evaluative Language",
+    "text": "Evaluative language allows writers to judge evidence critically. For example, using words like 'significant' or 'effective' shows assessment. Therefore, this type of language helps essays sound analytical, responsible, and academic rather than descriptive or emotional.",
+    "tags": { "complexity": { "caps": true, "punct": true }, "phonics": ["ks3-formal-connectives"] },
+    "meta": { "est_chars": 300 }
+  },
+  {
+    "id": "ks3_formalwriting_reliability_v1",
+    "stage": "KS3",
+    "theme": "Formal Writing",
+    "title": "Reliability in Writing",
+    "text": "A reliable argument is based on factual and logical reasoning. Writers should use credible sources and explain their ideas clearly. Responsible research supports the accuracy of an essay, ensuring the information presented is trustworthy and debatable if needed.",
+    "tags": { "complexity": { "caps": true, "punct": true }, "phonics": ["ks3-able-ible-suffix"] },
+    "meta": { "est_chars": 306 }
+  },
+  {
+    "id": "ks3_formalwriting_word-choice_v1",
+    "stage": "KS3",
+    "theme": "Formal Writing",
+    "title": "Choosing the Right Words",
+    "text": "Word choice is vital in formal writing. Students should use academic vocabulary and avoid repetition. Furthermore, choosing precise and credible words ensures that arguments sound professional and the writing appears confident, thoughtful, and well-organised.",
+    "tags": { "complexity": { "caps": true, "punct": true }, "phonics": ["ks3-formal-connectives"] },
+    "meta": { "est_chars": 293 }
+  },
+  {
+    "id": "ks3_formalwriting_sentence-structure_v1",
+    "stage": "KS3",
+    "theme": "Formal Writing",
+    "title": "Sentence Structure and Clarity",
+    "text": "Clear sentence structure helps readers follow complex ideas. Writers should balance long and short sentences for rhythm. Moreover, strong punctuation and connectives make writing more sophisticated, allowing ideas to flow logically and persuasively throughout the essay.",
+    "tags": { "complexity": { "caps": true, "punct": true }, "phonics": ["ks3-formal-connectives"] },
+    "meta": { "est_chars": 302 }
+  },
+  {
+    "id": "ks3_formalwriting_formality_v1",
+    "stage": "KS3",
+    "theme": "Formal Writing",
+    "title": "What Makes Writing Formal?",
+    "text": "Formal writing uses structured sentences, academic vocabulary, and neutral tone. It avoids contractions and uses connectives like 'moreover' and 'nevertheless'. Consequently, this style makes the text sound authoritative, credible, and suitable for essays or reports.",
+    "tags": { "complexity": { "caps": true, "punct": true }, "phonics": ["ks3-formal-connectives"] },
+    "meta": { "est_chars": 297 }
+  },
+  {
+    "id": "ks3_shakespeare_elizabethan-era_v1",
+    "stage": "KS3",
+    "theme": "Shakespeare's World",
+    "title": "The Elizabethan Era",
+    "text": "The Elizabethan era was a period of great cultural growth in England. It saw advances in theatre, poetry, and exploration. This creative age produced Shakespearean drama, which captured the imagination of both nobles and common citizens alike.",
+    "tags": { "complexity": { "caps": true, "punct": true }, "phonics": ["ks3-ean-suffix"] },
+    "meta": { "est_chars": 297 }
+  },
+  {
+    "id": "ks3_shakespeare_jacobean-theatre_v1",
+    "stage": "KS3",
+    "theme": "Shakespeare's World",
+    "title": "The Jacobean Theatre",
+    "text": "Following the Elizabethan era came the Jacobean period, named after King James I. Theatre during this time became darker and more complex. Shakespeare’s later plays, such as Macbeth, reflect the tension and ambition of the Jacobean world.",
+    "tags": { "complexity": { "caps": true, "punct": true }, "phonics": ["ks3-ean-suffix"] },
+    "meta": { "est_chars": 300 }
+  },
+  {
+    "id": "ks3_shakespeare_globe-theatre_v1",
+    "stage": "KS3",
+    "theme": "Shakespeare's World",
+    "title": "The Globe Theatre",
+    "text": "The Globe Theatre was a circular, open-air building in London where Shakespeare’s plays were performed. The audience stood close to the stage, reacting loudly to every scene. This lively atmosphere made each performance truly Shakespearean.",
+    "tags": { "complexity": { "caps": true, "punct": true }, "phonics": ["ks3-ean-suffix"] },
+    "meta": { "est_chars": 295 }
+  },
+  {
+    "id": "ks3_shakespeare_renaissance-influence_v1",
+    "stage": "KS3",
+    "theme": "Shakespeare's World",
+    "title": "The Renaissance Influence",
+    "text": "The English Renaissance inspired writers to explore human nature and emotion. Shakespeare’s plays, filled with moral conflict and complexity, reflected this cultural rebirth. His Shakespearean language shaped how audiences understood love, power, and tragedy.",
+    "tags": { "complexity": { "caps": true, "punct": true }, "phonics": ["ks3-ean-suffix"] },
+    "meta": { "est_chars": 293 }
+  },
+  {
+    "id": "ks3_shakespeare_shakespearean-language_v1",
+    "stage": "KS3",
+    "theme": "Shakespeare's World",
+    "title": "The Power of Shakespearean Language",
+    "text": "Shakespeare’s language was rich with metaphor, rhythm, and invention. He created new words and expressions still used today. His Shakespearean dialogue used emotional depth and poetic beauty to explore the human condition in unforgettable ways.",
+    "tags": { "complexity": { "caps": true, "punct": true }, "phonics": ["ks3-ean-suffix"] },
+    "meta": { "est_chars": 298 }
+  },
+  {
+    "id": "ks3_shakespeare_iambic-pentameter_v1",
+    "stage": "KS3",
+    "theme": "Shakespeare's World",
+    "title": "What Is Iambic Pentameter?",
+    "text": "Iambic pentameter is a poetic rhythm based on ten syllables per line. Each line alternates between unstressed and stressed beats, creating a steady meter. This pattern gives Shakespeare’s verse a musical quality that enhances emotion and flow.",
+    "tags": { "complexity": { "caps": true, "punct": true }, "phonics": ["ks3-iambic-terms"] },
+    "meta": { "est_chars": 303 }
+  },
+  {
+    "id": "ks3_shakespeare_syllables-and-rhythm_v1",
+    "stage": "KS3",
+    "theme": "Shakespeare's World",
+    "title": "Syllables and Rhythm",
+    "text": "Each line of iambic pentameter contains five feet, or pairs of syllables. The first is unstressed, and the second is stressed. This rhythm mirrors natural speech, giving Shakespeare’s poetry its smooth, human-like cadence and balance.",
+    "tags": { "complexity": { "caps": true, "punct": true }, "phonics": ["ks3-iambic-terms"] },
+    "meta": { "est_chars": 296 }
+  },
+  {
+    "id": "ks3_shakespeare_meter-and-meaning_v1",
+    "stage": "KS3",
+    "theme": "Shakespeare's World",
+    "title": "Meter and Meaning",
+    "text": "Shakespeare used meter to shape emotion. The heartbeat-like rhythm of iambic pentameter made his lines memorable. Changes in stress or rhythm often reveal tension or excitement, allowing the audience to feel the mood of the scene.",
+    "tags": { "complexity": { "caps": true, "punct": true }, "phonics": ["ks3-iambic-terms"] },
+    "meta": { "est_chars": 296 }
+  },
+  {
+    "id": "ks3_shakespeare_poetic-foot_v1",
+    "stage": "KS3",
+    "theme": "Shakespeare's World",
+    "title": "Understanding the Poetic Foot",
+    "text": "In poetry, a foot is a unit of rhythm made up of syllables. Iambic pentameter uses five feet per line. Each foot follows an unstressed-stressed pattern that creates the familiar sound of Shakespeare’s blank verse.",
+    "tags": { "complexity": { "caps": true, "punct": true }, "phonics": ["ks3-iambic-terms"] },
+    "meta": { "est_chars": 297 }
+  },
+  {
+    "id": "ks3_shakespeare_sonnet-form_v1",
+    "stage": "KS3",
+    "theme": "Shakespeare's World",
+    "title": "The Sonnet Form",
+    "text": "Shakespeare wrote 154 sonnets, each using iambic pentameter and a fixed rhyme scheme. The structure of fourteen lines allowed him to explore love, time, and beauty in a controlled rhythm that balanced emotion and intellect perfectly.",
+    "tags": { "complexity": { "caps": true, "punct": true }, "phonics": ["ks3-iambic-terms"] },
+    "meta": { "est_chars": 299 }
+  },
+  {
+    "id": "ks3_shakespeare_european-influence_v1",
+    "stage": "KS3",
+    "theme": "Shakespeare's World",
+    "title": "European Influences on Shakespeare",
+    "text": "Shakespeare’s plays were influenced by European writers and classical mythology. Many of his stories, such as Romeo and Juliet, were based on Italian tales. These adaptations gave his work a universal quality that crossed national and cultural borders.",
+    "tags": { "complexity": { "caps": true, "punct": true }, "phonics": ["ks3-ean-suffix"] },
+    "meta": { "est_chars": 304 }
+  },
+  {
+    "id": "ks3_shakespeare_actors-and-audience_v1",
+    "stage": "KS3",
+    "theme": "Shakespeare's World",
+    "title": "Actors and Audience",
+    "text": "In Shakespeare’s time, actors performed in daylight before mixed audiences of nobles and labourers. The audience’s reactions were often loud and expressive. This interactive atmosphere made Shakespearean theatre a shared social and emotional experience.",
+    "tags": { "complexity": { "caps": true, "punct": true }, "phonics": ["ks3-ean-suffix"] },
+    "meta": { "est_chars": 302 }
+  },
+  {
+    "id": "ks3_shakespeare_shakespearean-legacy_v1",
+    "stage": "KS3",
+    "theme": "Shakespeare's World",
+    "title": "The Shakespearean Legacy",
+    "text": "Shakespeare’s influence continues today in literature, film, and everyday speech. His Shakespearean style of exploring complex human emotions has inspired generations of writers, making him one of the most important figures in world culture.",
+    "tags": { "complexity": { "caps": true, "punct": true }, "phonics": ["ks3-ean-suffix"] },
+    "meta": { "est_chars": 296 }
+  },
+  {
+    "id": "ks3_shakespeare_victorian-revival_v1",
+    "stage": "KS3",
+    "theme": "Shakespeare's World",
+    "title": "The Victorian Revival of Shakespeare",
+    "text": "During the Victorian era, Shakespeare’s plays became central to British education and theatre. His works were performed widely and adapted for new audiences, proving that his Shakespearean storytelling could transcend centuries and changing tastes.",
+    "tags": { "complexity": { "caps": true, "punct": true }, "phonics": ["ks3-ean-suffix"] },
+    "meta": { "est_chars": 296 }
+  },
+  {
+    "id": "ks3_shakespeare_poetic-legacy_v1",
+    "stage": "KS3",
+    "theme": "Shakespeare's World",
+    "title": "Shakespeare’s Poetic Legacy",
+    "text": "Shakespeare’s mastery of rhythm and meter influenced poetry for generations. His use of iambic pentameter demonstrated how structure and sound could express deep emotion. Consequently, his poetic legacy remains an essential part of English literary history.",
+    "tags": { "complexity": { "caps": true, "punct": true }, "phonics": ["ks3-iambic-terms"] },
+    "meta": { "est_chars": 305 }
+  },
+  {
+    "id": "ks3_shakespeare_global-impact_v1",
+    "stage": "KS3",
+    "theme": "Shakespeare's World",
+    "title": "Shakespeare’s Global Impact",
+    "text": "Today, Shakespeare’s plays are performed around the world in many languages. His Shakespearean themes of love, power, and jealousy remain relevant. This global appreciation shows that his insights into human nature are truly timeless.",
+    "tags": { "complexity": { "caps": true, "punct": true }, "phonics": ["ks3-ean-suffix"] },
+    "meta": { "est_chars": 297 }
+  },
+  {
+    "id": "ks3_trickyspellings_official-documents_v1",
+    "stage": "KS3",
+    "theme": "Tricky Spellings",
+    "title": "Official Documents",
+    "text": "Government records must remain official and confidential. Each document contains special details about important policies. Therefore, officials must handle them carefully to prevent the loss of significant and sensitive information.",
+    "tags": { "complexity": { "caps": true, "punct": true }, "phonics": ["ks3-cial-tial-suffix"] },
+    "meta": { "est_chars": 284 }
+  },
+  {
+    "id": "ks3_trickyspellings_artificial-intelligence_v1",
+    "stage": "KS3",
+    "theme": "Tricky Spellings",
+    "title": "Artificial Intelligence",
+    "text": "Artificial intelligence, or AI, has great potential to change modern society. It can perform tasks once thought impossible. However, there are also confidential concerns about privacy and data security within these systems.",
+    "tags": { "complexity": { "caps": true, "punct": true }, "phonics": ["ks3-cial-tial-suffix"] },
+    "meta": { "est_chars": 296 }
+  },
+  {
+    "id": "ks3_trickyspellings_confidential-meetings_v1",
+    "stage": "KS3",
+    "theme": "Tricky Spellings",
+    "title": "Confidential Meetings",
+    "text": "Business leaders often hold confidential meetings to discuss partial results of new projects. These sessions remain private to protect company secrets and maintain trust between partners. Breaching such confidence could have serious consequences.",
+    "tags": { "complexity": { "caps": true, "punct": true }, "phonics": ["ks3-cial-tial-suffix"] },
+    "meta": { "est_chars": 296 }
+  },
+  {
+    "id": "ks3_trickyspellings_social-behaviour_v1",
+    "stage": "KS3",
+    "theme": "Tricky Spellings",
+    "title": "Social Behaviour",
+    "text": "Social behaviour refers to how people act in groups. It is influenced by culture, education, and environment. Understanding these patterns helps psychologists identify potential issues in communication and develop strategies for cooperation.",
+    "tags": { "complexity": { "caps": true, "punct": true }, "phonics": ["ks3-cial-tial-suffix"] },
+    "meta": { "est_chars": 298 }
+  },
+  {
+    "id": "ks3_trickyspellings_special-achievements_v1",
+    "stage": "KS3",
+    "theme": "Tricky Spellings",
+    "title": "Special Achievements",
+    "text": "Each student has special talents that should be celebrated. Schools provide opportunities for everyone to shine, whether in art, sport, or science. Recognising potential and effort helps build confidence and self-esteem in young learners.",
+    "tags": { "complexity": { "caps": true, "punct": true }, "phonics": ["ks3-cial-tial-suffix"] },
+    "meta": { "est_chars": 295 }
+  },
+  {
+    "id": "ks3_trickyspellings_significant-events_v1",
+    "stage": "KS3",
+    "theme": "Tricky Spellings",
+    "title": "Significant Events",
+    "text": "Throughout history, significant events have shaped the world we live in. Independent nations have risen, revolutions have begun, and discoveries have changed how we think. Each moment teaches valuable lessons about human ambition and resilience.",
+    "tags": { "complexity": { "caps": true, "punct": true }, "phonics": ["ks3-ant-ent-suffix"] },
+    "meta": { "est_chars": 301 }
+  },
+  {
+    "id": "ks3_trickyspellings_confident-speakers_v1",
+    "stage": "KS3",
+    "theme": "Tricky Spellings",
+    "title": "Confident Speakers",
+    "text": "Confident speakers use clear language and strong body posture. They know their topic and engage their audience with enthusiasm. Therefore, confidence often grows from preparation, practice, and a genuine interest in the subject being discussed.",
+    "tags": { "complexity": { "caps": true, "punct": true }, "phonics": ["ks3-ant-ent-suffix"] },
+    "meta": { "est_chars": 301 }
+  },
+  {
+    "id": "ks3_trickyspellings_independent-study_v1",
+    "stage": "KS3",
+    "theme": "Tricky Spellings",
+    "title": "Independent Study",
+    "text": "Independent study helps students develop responsibility for their learning. It allows them to explore topics of personal interest. Consequently, this approach builds relevant research skills and encourages curiosity beyond the classroom environment.",
+    "tags": { "complexity": { "caps": true, "punct": true }, "phonics": ["ks3-ant-ent-suffix"] },
+    "meta": { "est_chars": 297 }
+  },
+  {
+    "id": "ks3_trickyspellings_brilliant-ideas_v1",
+    "stage": "KS3",
+    "theme": "Tricky Spellings",
+    "title": "Brilliant Ideas",
+    "text": "Many brilliant ideas begin with small sparks of curiosity. Inventors and scientists often face challenges, but persistence leads to progress. A confident and independent mindset is essential for turning creative thoughts into successful outcomes.",
+    "tags": { "complexity": { "caps": true, "punct": true }, "phonics": ["ks3-ant-ent-suffix"] },
+    "meta": { "est_chars": 296 }
+  },
+  {
+    "id": "ks3_trickyspellings_assistant-roles_v1",
+    "stage": "KS3",
+    "theme": "Tricky Spellings",
+    "title": "The Role of an Assistant",
+    "text": "An assistant provides support to others, helping tasks run smoothly. In schools, assistants may aid teachers or students. Their relevant contribution ensures that learning activities are effective, efficient, and beneficial to everyone involved.",
+    "tags": { "complexity": { "caps": true, "punct": true }, "phonics": ["ks3-ant-ent-suffix"] },
+    "meta": { "est_chars": 297 }
+  },
+  {
+    "id": "ks3_trickyspellings_embarrassing-mistakes_v1",
+    "stage": "KS3",
+    "theme": "Tricky Spellings",
+    "title": "Embarrassing Mistakes",
+    "text": "Everyone makes mistakes, but some are more embarrassing than others. Forgetting a line in a play or misspelling a word in an essay can feel awkward. However, learning from such experiences helps build confidence and resilience over time.",
+    "tags": { "complexity": { "caps": true, "punct": true }, "phonics": ["ks3-ant-ent-suffix"] },
+    "meta": { "est_chars": 300 }
+  },
+  {
+    "id": "ks3_trickyspellings_accommodate-guests_v1",
+    "stage": "KS3",
+    "theme": "Tricky Spellings",
+    "title": "Accommodating Guests",
+    "text": "Hotels must accommodate guests with comfort and care. Providing clean rooms, food, and friendly service creates a welcoming environment. Therefore, good hospitality depends on organisation, attention to detail, and a positive attitude toward visitors.",
+    "tags": { "complexity": { "caps": true, "punct": true }, "phonics": ["ks3-cial-tial-suffix"] },
+    "meta": { "est_chars": 301 }
+  },
+  {
+    "id": "ks3_trickyspellings_mischievous-behaviour_v1",
+    "stage": "KS3",
+    "theme": "Tricky Spellings",
+    "title": "Mischievous Behaviour",
+    "text": "Mischievous behaviour is often playful but can sometimes cause trouble. Children might play harmless jokes, yet it is important to respect others’ feelings. Understanding conscience helps people recognise when fun crosses into harm or disrespect.",
+    "tags": { "complexity": { "caps": true, "punct": true }, "phonics": ["ks3-cial-tial-suffix"] },
+    "meta": { "est_chars": 302 }
+  },
+  {
+    "id": "ks3_trickyspellings_subtle-changes_v1",
+    "stage": "KS3",
+    "theme": "Tricky Spellings",
+    "title": "Subtle Changes",
+    "text": "Subtle changes in behaviour or tone can have significant effects. For instance, a single word choice might alter the meaning of a sentence. Being aware of these differences is essential for clear and confident communication in writing and speech.",
+    "tags": { "complexity": { "caps": true, "punct": true }, "phonics": ["ks3-ant-ent-suffix"] },
+    "meta": { "est_chars": 303 }
+  },
+  {
+    "id": "ks3_trickyspellings_knowledge-and-effort_v1",
+    "stage": "KS3",
+    "theme": "Tricky Spellings",
+    "title": "Knowledge and Effort",
+    "text": "Knowledge grows through effort and patience. Students must practise spelling difficult words like 'conscience' and 'necessary'. These challenges, though frustrating at first, are vital steps toward becoming confident and accurate writers in every subject.",
+    "tags": { "complexity": { "caps": true, "punct": true }, "phonics": ["ks3-ant-ent-suffix"] },
+    "meta": { "est_chars": 306 }
+  }
 ]

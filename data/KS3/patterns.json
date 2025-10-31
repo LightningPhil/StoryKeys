@@ -1,40 +1,174 @@
 [
-    {
-        "id": "pattern_able_ible",
-        "stage": "KS3",
-        "name": "-able vs -ible",
-        "items": [
-            "reliable",
-            "adorable",
-            "visible",
-            "possible",
-            "flexible",
-            "sensible",
-            "edible"
-        ],
-        "tags": {
-            "phonics": [
-                "-able/-ible"
-            ]
-        }
-    },
-    {
-        "id": "pattern_ance_ence",
-        "stage": "KS3",
-        "name": "-ance vs -ence",
-        "items": [
-            "guidance",
-            "nuisance",
-            "relevance",
-            "absence",
-            "innocence",
-            "patience",
-            "silence"
-        ],
-        "tags": {
-            "phonics": [
-                "-ance/-ence"
-            ]
-        }
-    }
+   {
+    "id": "ks3_silent-letters_tudors_v1",
+    "stage": "KS3",
+    "name": "Silent Letters in Historical Words",
+    "items": ["reign", "sovereign", "heir", "knight", "debt", "plague"],
+    "tags": { "phonics": ["ks3-silent-letters"] }
+  },
+  {
+    "id": "ks3_ance-ence_tudors_v1",
+    "stage": "KS3",
+    "name": "The -ance and -ence Suffixes",
+    "items": ["alliance", "influence", "defence", "resistance", "importance", "governance"],
+    "tags": { "phonics": ["ks3-ance-ence"] }
+  },
+  {
+    "id": "ks3_tion_pattern_v1",
+    "stage": "KS3",
+    "name": "Words Ending in -tion",
+    "items": ["revolution", "invention", "population", "production", "education", "pollution"],
+    "tags": { "phonics": ["ks3-tion-suffix"] }
+  },
+  {
+    "id": "ks3_greekroots_pattern_v1",
+    "stage": "KS3",
+    "name": "Words with Greek Roots: tech and graph",
+    "items": ["technology", "telegraph", "photograph", "autograph", "technical", "biography"],
+    "tags": { "phonics": ["ks3-greek-roots"] }
+  },
+  {
+    "id": "ks3_ory_pattern_v1",
+    "stage": "KS3",
+    "name": "Words Ending in -ory",
+    "items": ["circulatory", "respiratory", "sensory", "digestory", "excretory", "regulatory"],
+    "tags": { "phonics": ["ks3-ory-suffix"] }
+  },
+  {
+    "id": "ks3_ph-ch_pattern_v1",
+    "stage": "KS3",
+    "name": "ph and ch Making /f/ and /k/ Sounds",
+    "items": ["diaphragm", "stomach", "lymph", "pharynx", "chlorophyll", "chemical"],
+    "tags": { "phonics": ["ks3-ph-ch-sounds"] }
+  },
+   {
+    "id": "ks3_ium_pattern_v1",
+    "stage": "KS3",
+    "name": "Words Ending in -ium",
+    "items": ["calcium", "sodium", "magnesium", "helium", "potassium", "aluminium"],
+    "tags": { "phonics": ["ks3-ium-suffix"] }
+  },
+  {
+    "id": "ks3_gen_pattern_v1",
+    "stage": "KS3",
+    "name": "Words with the Root 'gen'",
+    "items": ["hydrogen", "oxygen", "nitrogen", "generation", "genetic", "generator"],
+    "tags": { "phonics": ["ks3-gen-root"] }
+  },
+  {
+    "id": "ks3_tion_pattern_v1",
+    "stage": "KS3",
+    "name": "Words Ending in -tion",
+    "items": ["friction", "acceleration", "motion", "position", "direction", "rotation"],
+    "tags": { "phonics": ["ks3-tion-suffix"] }
+  },
+  {
+    "id": "ks3_physics-spellings_pattern_v1",
+    "stage": "KS3",
+    "name": "Tricky Physics Spellings",
+    "items": ["velocity", "gravity", "weight", "mass", "energy", "force"],
+    "tags": { "phonics": ["ks3-physics-spellings"] }
+  },
+  {
+    "id": "ks3_ic-pattern_v1",
+    "stage": "KS3",
+    "name": "Words Ending in -ic",
+    "items": ["tectonic", "volcanic", "seismic", "oceanic", "magnetic", "geologic"],
+    "tags": { "phonics": ["ks3-ic-suffix"] }
+  },
+  {
+    "id": "ks3_ph-pattern_v1",
+    "stage": "KS3",
+    "name": "Words with ph Making /f/",
+    "items": ["hemisphere", "lithosphere", "atmosphere", "geosphere", "hydrosphere", "photosphere"],
+    "tags": { "phonics": ["ks3-ph-digraph"] }
+  },
+  {
+    "id": "ks3_phor-pattern_v1",
+    "stage": "KS3",
+    "name": "Words with the Root -phor / -phorical",
+    "items": ["metaphor", "metaphorical", "euphoric", "aphorism", "phoresis", "anaphora"],
+    "tags": { "phonics": ["ks3-phor-root"] }
+  },
+  {
+    "id": "ks3_onomatopoeia-pattern_v1",
+    "stage": "KS3",
+    "name": "Onomatopoeia Examples",
+    "items": ["crash", "buzz", "whisper", "clang", "sizzle", "bang"],
+    "tags": { "phonics": ["ks3-onomatopoeia"] }
+  },
+  {
+    "id": "ks3_literarydevices_phorwords_v1",
+    "stage": "KS3",
+    "theme": "Literary Devices",
+    "name": "Words with the Root -phor / -phorical",
+    "words": ["metaphor", "metaphorical", "euphoric", "aphorism", "anaphora", "phoresis"],
+    "tags": { "complexity": { "caps": true, "punct": false } }
+  },
+  {
+    "id": "ks3_literarydevices_onomatopoeiawords_v1",
+    "stage": "KS3",
+    "theme": "Literary Devices",
+    "name": "Onomatopoeia Examples",
+    "words": ["crash", "buzz", "whisper", "clang", "sizzle", "bang"],
+    "tags": { "complexity": { "caps": true, "punct": false } }
+  },
+  {
+    "id": "ks3_literarydevices_figurativelanguage_v1",
+    "stage": "KS3",
+    "theme": "Literary Devices",
+    "name": "Figurative Language",
+    "words": ["simile", "personification", "hyperbole", "imagery", "alliteration", "symbolism"],
+    "tags": { "complexity": { "caps": true, "punct": false } }
+  },
+  {
+    "id": "ks3_literarydevices_poeticterms_v1",
+    "stage": "KS3",
+    "theme": "Literary Devices",
+    "name": "Poetic Terms",
+    "words": ["stanza", "rhyme", "rhythm", "meter", "verse", "couplet"],
+    "tags": { "complexity": { "caps": true, "punct": false } }
+  },
+  {
+    "id": "ks3_able-ible-pattern_v1",
+    "stage": "KS3",
+    "name": "Words with -able and -ible Suffixes",
+    "items": ["debatable", "credible", "responsible", "noticeable", "possible", "reliable"],
+    "tags": { "phonics": ["ks3-able-ible-suffix"] }
+  },
+  {
+    "id": "ks3_formal-connectives-pattern_v1",
+    "stage": "KS3",
+    "name": "Formal Connectives",
+    "items": ["however", "therefore", "consequently", "furthermore", "moreover", "nevertheless"],
+    "tags": { "phonics": ["ks3-formal-connectives"] }
+  },
+  {
+    "id": "ks3_ean-pattern_v1",
+    "stage": "KS3",
+    "name": "Words Ending in -ean",
+    "items": ["Elizabethan", "Shakespearean", "Jacobean", "European", "Victorian", "Renaissance"],
+    "tags": { "phonics": ["ks3-ean-suffix"] }
+  },
+  {
+    "id": "ks3_iambic-pattern_v1",
+    "stage": "KS3",
+    "name": "Iambic Pentameter Terms",
+    "items": ["syllable", "unstressed", "rhythm", "meter", "foot", "pentameter"],
+    "tags": { "phonics": ["ks3-iambic-terms"] }
+  },
+  {
+    "id": "ks3_cial-tial-pattern_v1",
+    "stage": "KS3",
+    "name": "Words with -cial and -tial Suffixes",
+    "items": ["special", "official", "artificial", "confidential", "partial", "potential"],
+    "tags": { "phonics": ["ks3-cial-tial-suffix"] }
+  },
+  {
+    "id": "ks3_ant-ent-pattern_v1",
+    "stage": "KS3",
+    "name": "Words with -ant and -ent Suffixes",
+    "items": ["relevant", "significant", "independent", "assistant", "confident", "brilliant"],
+    "tags": { "phonics": ["ks3-ant-ent-suffix"] }
+  }
 ]
