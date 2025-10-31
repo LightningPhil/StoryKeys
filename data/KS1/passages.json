@@ -1,360 +1,1352 @@
 [
-    {
-        "id": "ks1_animals_curious_cat_1",
-        "stage": "KS1",
-        "theme": "Animals",
-        "title": "Curious Cat",
-        "text": "The cat taps the glass and blinks. A goldfish waggles past. They both stare, as if planning tea.",
-        "tags": {
-            "complexity": {
-                "caps": true,
-                "punct": true
-            }
-        },
-        "meta": {
-            "est_chars": 121
-        }
-    },
-    {
-        "id": "ks1_silly_duck_1",
-        "stage": "KS1",
-        "theme": "Silly Stories",
-        "title": "A Silly Duck",
-        "text": "A duck wears a top hat. He tips it to a big green frog. The frog just looks confused.",
-        "tags": {
-            "complexity": {
-                "caps": true,
-                "punct": true
-            }
-        },
-        "meta": {
-            "est_chars": 105
-        }
-    },
-    {
-        "id": "ks1_animals_sleeping_fox_1",
-        "stage": "KS1",
-        "theme": "Animals",
-        "title": "Sleeping Fox",
-        "text": "The small fox curls up in the sun. His tail is a warm blanket. He dreams of chasing mice.",
-        "tags": {
-            "complexity": {
-                "caps": true,
-                "punct": true
-            }
-        },
-        "meta": {
-            "est_chars": 109
-        }
-    },
-    {
-        "id": "ks1_nature_gentle_rain_1",
-        "stage": "KS1",
-        "theme": "Nature",
-        "title": "Gentle Rain",
-        "text": "Raindrops tap on the green leaves. A little worm peeks out from the soil to say hello.",
-        "tags": {
-            "complexity": {
-                "caps": true,
-                "punct": true
-            }
-        },
-        "meta": {
-            "est_chars": 97
-        }
-    },
-    {
-        "id": "ks1_animals_busy_squirrel_1",
-        "stage": "KS1",
-        "theme": "Animals",
-        "title": "Busy Squirrel",
-        "text": "A red squirrel buries a nut. He must remember the spot for winter. It is very important work.",
-        "tags": {
-            "complexity": {
-                "caps": true,
-                "punct": true
-            }
-        },
-        "meta": {
-            "est_chars": 108
-        }
-    },
-    {
-        "id": "ks1_silly_snail_1",
-        "stage": "KS1",
-        "theme": "Silly Stories",
-        "title": "A Fast Snail",
-        "text": "A snail paints a bright red racing stripe on his shell. Now he feels much faster than before.",
-        "tags": {
-            "complexity": {
-                "caps": true,
-                "punct": true
-            }
-        },
-        "meta": {
-            "est_chars": 106
-        }
-    },
-    {
-        "id": "ks1_animals_happy_dog_1",
-        "stage": "KS1",
-        "theme": "Animals",
-        "title": "Happy Dog",
-        "text": "The dog wags his tail so hard that his whole body wiggles. He has found his favourite squeaky toy.",
-        "tags": {
-            "complexity": {
-                "caps": true,
-                "punct": true
-            }
-        },
-        "meta": {
-            "est_chars": 111
-        }
-    },
-    {
-        "id": "ks1_nature_the_moon_1",
-        "stage": "KS1",
-        "theme": "Nature",
-        "title": "The Moon",
-        "text": "The big moon shines in the dark sky. It looks like a bright silver coin watching over the town.",
-        "tags": {
-            "complexity": {
-                "caps": true,
-                "punct": true
-            }
-        },
-        "meta": {
-            "est_chars": 108
-        }
-    },
-    {
-        "id": "ks1_animals_small_mouse_1",
-        "stage": "KS1",
-        "theme": "Animals",
-        "title": "A Small Mouse",
-        "text": "A tiny mouse finds a big crumb of cheese. It is too heavy to carry, so he must eat it all now.",
-        "tags": {
-            "complexity": {
-                "caps": true,
-                "punct": true
-            }
-        },
-        "meta": {
-            "est_chars": 113
-        }
-    },
-    {
-        "id": "ks1_silly_bird_1",
-        "stage": "KS1",
-        "theme": "Silly Stories",
-        "title": "Singing Bird",
-        "text": "A little bird sings a song for his friends. He forgets the words and just hums the rest.",
-        "tags": {
-            "complexity": {
-                "caps": true,
-                "punct": true
-            }
-        },
-        "meta": {
-            "est_chars": 102
-        }
-    },
-    {
-        "id": "ks1_nature_tall_tree_1",
-        "stage": "KS1",
-        "theme": "Nature",
-        "title": "Tall Tree",
-        "text": "A tall tree reaches for the sky. Its leaves dance in the wind. Many birds have a home here.",
-        "tags": {
-            "complexity": {
-                "caps": true,
-                "punct": true
-            }
-        },
-        "meta": {
-            "est_chars": 105
-        }
-    },
-    {
-        "id": "ks1_animals_wise_owl_1",
-        "stage": "KS1",
-        "theme": "Animals",
-        "title": "A Wise Owl",
-        "text": "An owl sits on a branch at night. He has big round eyes. He looks very clever and wise.",
-        "tags": {
-            "complexity": {
-                "caps": true,
-                "punct": true
-            }
-        },
-        "meta": {
-            "est_chars": 101
-        }
-    },
-    {
-        "id": "ks1_silly_fish_1",
-        "stage": "KS1",
-        "theme": "Silly Stories",
-        "title": "Bubble Trouble",
-        "text": "A tiny fish blows a big bubble. It lifts him right out of the water. What a surprise!",
-        "tags": {
-            "complexity": {
-                "caps": true,
-                "punct": true
-            }
-        },
-        "meta": {
-            "est_chars": 94
-        }
-    },
-    {
-        "id": "ks1_animals_slow_tortoise_1",
-        "stage": "KS1",
-        "theme": "Animals",
-        "title": "Slow Tortoise",
-        "text": "A tortoise walks slowly across the grass. He is not in a hurry. He has all day to get there.",
-        "tags": {
-            "complexity": {
-                "caps": true,
-                "punct": true
-            }
-        },
-        "meta": {
-            "est_chars": 109
-        }
-    },
-    {
-        "id": "ks1_nature_the_sun_1",
-        "stage": "KS1",
-        "theme": "Nature",
-        "title": "The Sun",
-        "text": "The sun warms the sleepy ground. Flowers open up to feel its yellow light on their petals.",
-        "tags": {
-            "complexity": {
-                "caps": true,
-                "punct": true
-            }
-        },
-        "meta": {
-            "est_chars": 99
-        }
-    },
-    {
-        "id": "ks1_silly_cat_nap_1",
-        "stage": "KS1",
-        "theme": "Silly Stories",
-        "title": "A Cat Nap",
-        "text": "My cat can sleep anywhere. Today he is sleeping in the clean washing basket. Oh dear.",
-        "tags": {
-            "complexity": {
-                "caps": true,
-                "punct": true
-            }
-        },
-        "meta": {
-            "est_chars": 93
-        }
-    },
-    {
-        "id": "ks1_animals_garden_frog_1",
-        "stage": "KS1",
-        "theme": "Animals",
-        "title": "Garden Frog",
-        "text": "A fat green frog sits on a lily pad. He catches a fly with his long, sticky tongue. Yum!",
-        "tags": {
-            "complexity": {
-                "caps": true,
-                "punct": true
-            }
-        },
-        "meta": {
-            "est_chars": 97
-        }
-    },
-    {
-        "id": "ks1_nature_a_cloud_1",
-        "stage": "KS1",
-        "theme": "Nature",
-        "title": "A Cloud",
-        "text": "A fluffy white cloud floats by. It looks just like a big sheep grazing in a blue field.",
-        "tags": {
-            "complexity": {
-                "caps": true,
-                "punct": true
-            }
-        },
-        "meta": {
-            "est_chars": 96
-        }
-    },
-    {
-        "id": "ks1_silly_pig_1",
-        "stage": "KS1",
-        "theme": "Silly Stories",
-        "title": "A Clean Pig",
-        "text": "A pig decides he hates mud. He has a lovely bath with lots of bubbles and feels very fancy.",
-        "tags": {
-            "complexity": {
-                "caps": true,
-                "punct": true
-            }
-        },
-        "meta": {
-            "est_chars": 105
-        }
-    },
-    {
-        "id": "ks1_animals_bee_1",
-        "stage": "KS1",
-        "theme": "Animals",
-        "title": "A Busy Bee",
-        "text": "A fuzzy bee buzzes from flower to flower. She is collecting sweet nectar to take back home.",
-        "tags": {
-            "complexity": {
-                "caps": true,
-                "punct": true
-            }
-        },
-        "meta": {
-            "est_chars": 104
-        }
-    },
-    {
-        "id": "ks1_animals_bunny_tail_1",
-        "stage": "KS1",
-        "theme": "Animals",
-        "title": "The Fluffy Tail",
-        "text": "Barnaby the bunny saw his own fluffy tail. He spun round and round to catch it. Oh dear, now he was very dizzy!",
-        "tags": {
-            "complexity": {
-                "caps": true,
-                "punct": true
-            },
-            "phonics": [
-                "double consonant"
-            ]
-        },
-        "meta": {
-            "est_chars": 125
-        }
-    },
-    {
-        "id": "ks1_animals_bunny_carrot_1",
-        "stage": "KS1",
-        "theme": "Animals",
-        "title": "The Giant Carrot",
-        "text": "A bunny found a big carrot. It was too big for her hole. She pushed and pushed but it would not move. So she just sat and nibbled the end all day.",
-        "tags": {
-            "complexity": {
-                "caps": true,
-                "punct": true
-            },
-            "phonics": [
-                "double consonant"
-            ]
-        },
-        "meta": {
-            "est_chars": 141
-        }
-    }
+{
+    "id": "ks1_farm-sheep_in_shed_v1",
+    "stage": "KS1",
+    "theme": "Farm Animals",
+    "title": "Sheep in the Shed",
+    "text": "The sheep run to the shed. The shed is warm and dry. The big sheep and the small sheep stay in the shed at night.",
+    "tags": { "complexity": { "caps": true, "punct": true }, "phonics": ["ks1-phonics-sh"] },
+    "meta": { "est_chars": 143 }
+  },
+  {
+    "id": "ks1_farm-shut_the_shed_v1",
+    "stage": "KS1",
+    "theme": "Farm Animals",
+    "title": "Shut the Shed",
+    "text": "Dad will shut the shed door. The sheep are safe. The wind will not get in when the shed is shut tight.",
+    "tags": { "complexity": { "caps": true, "punct": true }, "phonics": ["ks1-phonics-sh"] },
+    "meta": { "est_chars": 127 }
+  },
+  {
+    "id": "ks1_farm-sheep_shop_v1",
+    "stage": "KS1",
+    "theme": "Farm Animals",
+    "title": "Sheep Shop",
+    "text": "The sheep go to the farm shop. They see wool, milk, and jam. The shop is small, but it is fun to see.",
+    "tags": { "complexity": { "caps": true, "punct": true }, "phonics": ["ks1-phonics-sh"] },
+    "meta": { "est_chars": 122 }
+  },
+  {
+    "id": "ks1_farm-ship_on_pond_v1",
+    "stage": "KS1",
+    "theme": "Farm Animals",
+    "title": "Ship on the Pond",
+    "text": "The duck sees a toy ship on the pond. It bobs and dips. The duck quacks and swims fast to the ship.",
+    "tags": { "complexity": { "caps": true, "punct": true }, "phonics": ["ks1-phonics-sh"] },
+    "meta": { "est_chars": 125 }
+  },
+  {
+    "id": "ks1_farm-shy_sheep_v1",
+    "stage": "KS1",
+    "theme": "Farm Animals",
+    "title": "Shy Sheep",
+    "text": "A shy sheep hides by the shed. The pig and hen call it out to play. The sheep runs and has fun at last.",
+    "tags": { "complexity": { "caps": true, "punct": true }, "phonics": ["ks1-phonics-sh"] },
+    "meta": { "est_chars": 121 }
+  },
+  {
+    "id": "ks1_farm-duck_in_muck_v1",
+    "stage": "KS1",
+    "theme": "Farm Animals",
+    "title": "Duck in the Muck",
+    "text": "The duck sits in the muck by the pond. It flaps its wings and makes a big splash. The chick laughs and joins in.",
+    "tags": { "complexity": { "caps": true, "punct": true }, "phonics": ["ks1-phonics-ck"] },
+    "meta": { "est_chars": 141 }
+  },
+  {
+    "id": "ks1_farm-little_chick_v1",
+    "stage": "KS1",
+    "theme": "Farm Animals",
+    "title": "Little Chick",
+    "text": "A little chick pecks the sack. The sack is full of corn. The chick eats and hops back to the hen.",
+    "tags": { "complexity": { "caps": true, "punct": true }, "phonics": ["ks1-phonics-ck"] },
+    "meta": { "est_chars": 120 }
+  },
+  {
+    "id": "ks1_farm-clock_in_shed_v1",
+    "stage": "KS1",
+    "theme": "Farm Animals",
+    "title": "Clock in the Shed",
+    "text": "A clock ticks in the shed. The sheep hear it and nod. Tick tock, tick tock, says the clock by the sack.",
+    "tags": { "complexity": { "caps": true, "punct": true }, "phonics": ["ks1-phonics-ck"] },
+    "meta": { "est_chars": 127 }
+  },
+  {
+    "id": "ks1_farm-duck_back_home_v1",
+    "stage": "KS1",
+    "theme": "Farm Animals",
+    "title": "Duck Back Home",
+    "text": "The duck comes back from the pond. The chicks peep and run to see. The farm is calm as the sun sets.",
+    "tags": { "complexity": { "caps": true, "punct": true }, "phonics": ["ks1-phonics-ck"] },
+    "meta": { "est_chars": 122 }
+  },
+  {
+    "id": "ks1_farm-pack_the_sack_v1",
+    "stage": "KS1",
+    "theme": "Farm Animals",
+    "title": "Pack the Sack",
+    "text": "Mum packs the sack with corn for the hens. The chick pecks at a seed and clucks. The farm is busy today.",
+    "tags": { "complexity": { "caps": true, "punct": true }, "phonics": ["ks1-phonics-ck"] },
+    "meta": { "est_chars": 131 }
+  },
+  {
+    "id": "ks1_farm-pig_in_mud_v1",
+    "stage": "KS1",
+    "theme": "Farm Animals",
+    "title": "Pig in the Mud",
+    "text": "The pig rolls in the mud. The sun is hot. The pig is cool now and happy in the wet mud pit.",
+    "tags": { "complexity": { "caps": true, "punct": true }, "phonics": ["ks1-phonics-ck"] },
+    "meta": { "est_chars": 118 }
+  },
+  {
+    "id": "ks1_farm-goat_on_hill_v1",
+    "stage": "KS1",
+    "theme": "Farm Animals",
+    "title": "Goat on the Hill",
+    "text": "The goat stands high on the hill. It can see the shed, the pond, and the cows. It bleats and jumps down.",
+    "tags": { "complexity": { "caps": true, "punct": true }, "phonics": ["ks1-phonics-sh"] },
+    "meta": { "est_chars": 132 }
+  },
+  {
+    "id": "ks1_farm-cow_and_hen_v1",
+    "stage": "KS1",
+    "theme": "Farm Animals",
+    "title": "Cow and Hen",
+    "text": "The cow moos and the hen clucks. They wait by the gate for food. The sun shines on the farm today.",
+    "tags": { "complexity": { "caps": true, "punct": true }, "phonics": ["ks1-phonics-sh"] },
+    "meta": { "est_chars": 126 }
+  },
+  {
+    "id": "ks1_farm-busy_farm_day_v1",
+    "stage": "KS1",
+    "theme": "Farm Animals",
+    "title": "A Busy Farm Day",
+    "text": "The hens peck and cluck. The ducks swim. The sheep rest in the shed. The farm is full of sound and fun.",
+    "tags": { "complexity": { "caps": true, "punct": true }, "phonics": ["ks1-phonics-sh"] },
+    "meta": { "est_chars": 132 }
+  },
+  {
+    "id": "ks1_farm-night_on_farm_v1",
+    "stage": "KS1",
+    "theme": "Farm Animals",
+    "title": "Night on the Farm",
+    "text": "The sun goes down. The chicks sleep in the shed. The sheep are still. The farm is quiet and dark now.",
+    "tags": { "complexity": { "caps": true, "punct": true }, "phonics": ["ks1-phonics-ck"] },
+    "meta": { "est_chars": 131 }
+  },
+  {
+    "id": "ks1_garden-busy_bee_v1",
+    "stage": "KS1",
+    "theme": "In the Garden",
+    "title": "The Busy Bee",
+    "text": "A bee buzzes by the tree. It lands on a red rose. The bee likes to sip sweet food from each flower it can see.",
+    "tags": { "complexity": { "caps": true, "punct": true }, "phonics": ["ks1-phonics-ee"] },
+    "meta": { "est_chars": 143 }
+  },
+  {
+    "id": "ks1_garden-green_tree_v1",
+    "stage": "KS1",
+    "theme": "In the Garden",
+    "title": "The Green Tree",
+    "text": "The green tree stands tall. A bird sits on its top branch. The bee hums near the leaves and the flowers shine below.",
+    "tags": { "complexity": { "caps": true, "punct": true }, "phonics": ["ks1-phonics-ee"] },
+    "meta": { "est_chars": 141 }
+  },
+  {
+    "id": "ks1_garden-plant_a_seed_v1",
+    "stage": "KS1",
+    "theme": "In the Garden",
+    "title": "Plant a Seed",
+    "text": "Mum helps me plant a seed. We dig a hole in the soil. The seed will grow and we will see a green shoot soon.",
+    "tags": { "complexity": { "caps": true, "punct": true }, "phonics": ["ks1-phonics-ee"] },
+    "meta": { "est_chars": 141 }
+  },
+  {
+    "id": "ks1_garden-bee_and_ant_v1",
+    "stage": "KS1",
+    "theme": "In the Garden",
+    "title": "Bee and Ant",
+    "text": "A bee meets an ant by the tree. They look for food. The ant finds crumbs, and the bee flies to the red rose.",
+    "tags": { "complexity": { "caps": true, "punct": true }, "phonics": ["ks1-phonics-ee"] },
+    "meta": { "est_chars": 135 }
+  },
+  {
+    "id": "ks1_garden-see_the_bee_v1",
+    "stage": "KS1",
+    "theme": "In the Garden",
+    "title": "See the Bee",
+    "text": "I see a bee near the green leaf. It hums and flies fast. The bee stops to sip from the pink flower by the tree.",
+    "tags": { "complexity": { "caps": true, "punct": true }, "phonics": ["ks1-phonics-ee"] },
+    "meta": { "est_chars": 137 }
+  },
+  {
+    "id": "ks1_garden-under_the_moon_v1",
+    "stage": "KS1",
+    "theme": "In the Garden",
+    "title": "Under the Moon",
+    "text": "The moon is bright. The snails slide slow on the path. A frog hops near the pond. The night garden is cool and calm.",
+    "tags": { "complexity": { "caps": true, "punct": true }, "phonics": ["ks1-phonics-oo"] },
+    "meta": { "est_chars": 138 }
+  },
+  {
+    "id": "ks1_garden-root_in_soil_v1",
+    "stage": "KS1",
+    "theme": "In the Garden",
+    "title": "Roots in the Soil",
+    "text": "The roots hold the plant in the soil. Worms wiggle near the roots. The rain helps the soil stay soft and cool.",
+    "tags": { "complexity": { "caps": true, "punct": true }, "phonics": ["ks1-phonics-oo"] },
+    "meta": { "est_chars": 136 }
+  },
+  {
+    "id": "ks1_garden-boots_on_v1",
+    "stage": "KS1",
+    "theme": "In the Garden",
+    "title": "Boots On!",
+    "text": "I put my boots on to go in the garden. The grass is wet and the soil is soft. My boots make deep marks in the mud.",
+    "tags": { "complexity": { "caps": true, "punct": true }, "phonics": ["ks1-phonics-oo"] },
+    "meta": { "est_chars": 145 }
+  },
+  {
+    "id": "ks1_garden-food_for_bug_v1",
+    "stage": "KS1",
+    "theme": "In the Garden",
+    "title": "Food for the Bug",
+    "text": "A bug eats a bit of leaf. The bee finds food too. The garden is full of tiny bugs that eat and crawl all day.",
+    "tags": { "complexity": { "caps": true, "punct": true }, "phonics": ["ks1-phonics-oo"] },
+    "meta": { "est_chars": 139 }
+  },
+  {
+    "id": "ks1_garden-room_for_root_v1",
+    "stage": "KS1",
+    "theme": "In the Garden",
+    "title": "Room for the Root",
+    "text": "The root needs room to grow. The soil is soft and brown. The seed will push down deep and soon we will see a sprout.",
+    "tags": { "complexity": { "caps": true, "punct": true }, "phonics": ["ks1-phonics-oo"] },
+    "meta": { "est_chars": 142 }
+  },
+  {
+    "id": "ks1_garden-little_slug_v1",
+    "stage": "KS1",
+    "theme": "In the Garden",
+    "title": "Little Slug",
+    "text": "A little slug slides on a leaf. It hides from the sun. When the moon comes up, the slug moves to eat fresh plants.",
+    "tags": { "complexity": { "caps": true, "punct": true }, "phonics": ["ks1-phonics-oo"] },
+    "meta": { "est_chars": 138 }
+  },
+  {
+    "id": "ks1_garden-weeds_and_seed_v1",
+    "stage": "KS1",
+    "theme": "In the Garden",
+    "title": "Weeds and Seeds",
+    "text": "We pull up the weeds to make space. Then we plant seeds in rows. Soon the green shoots grow and bees buzz by them.",
+    "tags": { "complexity": { "caps": true, "punct": true }, "phonics": ["ks1-phonics-ee"] },
+    "meta": { "est_chars": 138 }
+  },
+  {
+    "id": "ks1_garden-frog_in_pool_v1",
+    "stage": "KS1",
+    "theme": "In the Garden",
+    "title": "Frog in the Pool",
+    "text": "The frog sits in the cool pool. It sees a moon in the water. A bee flies by and the frog makes a splash!",
+    "tags": { "complexity": { "caps": true, "punct": true }, "phonics": ["ks1-phonics-oo"] },
+    "meta": { "est_chars": 133 }
+  },
+  {
+    "id": "ks1_garden-tree_and_leaf_v1",
+    "stage": "KS1",
+    "theme": "In the Garden",
+    "title": "Tree and Leaf",
+    "text": "A green leaf falls from the tree. It lands on soft soil. A worm crawls under it, and the bee hums near a flower.",
+    "tags": { "complexity": { "caps": true, "punct": true }, "phonics": ["ks1-phonics-ee"] },
+    "meta": { "est_chars": 137 }
+  },
+  {
+    "id": "ks1_garden-night_in_garden_v1",
+    "stage": "KS1",
+    "theme": "In the Garden",
+    "title": "Night in the Garden",
+    "text": "The moon glows on the garden. The trees are still. A slug creeps on the soil and a bat swoops low in the cool air.",
+    "tags": { "complexity": { "caps": true, "punct": true }, "phonics": ["ks1-phonics-oo"] },
+    "meta": { "est_chars": 139 }
+  },
+  {
+    "id": "ks1_beach-sail_boat_v1",
+    "stage": "KS1",
+    "theme": "At the Beach",
+    "title": "Sail the Boat",
+    "text": "We sail a small boat on the sea. The wind blows the sail high. The waves move the boat fast and we smile wide.",
+    "tags": { "complexity": { "caps": true, "punct": true }, "phonics": ["ks1-phonics-ai"] },
+    "meta": { "est_chars": 138 }
+  },
+  {
+    "id": "ks1_beach-pail_of_sand_v1",
+    "stage": "KS1",
+    "theme": "At the Beach",
+    "title": "Pail of Sand",
+    "text": "I fill my pail with soft sand. I pat it flat and lift the pail up. It makes a tall sand hill in the sun.",
+    "tags": { "complexity": { "caps": true, "punct": true }, "phonics": ["ks1-phonics-ai"] },
+    "meta": { "est_chars": 129 }
+  },
+  {
+    "id": "ks1_beach-rain_and_shells_v1",
+    "stage": "KS1",
+    "theme": "At the Beach",
+    "title": "Rain and Shells",
+    "text": "Rain falls on the beach. We run to the hut with our shells. The rain stops soon and the sea shines bright again.",
+    "tags": { "complexity": { "caps": true, "punct": true }, "phonics": ["ks1-phonics-ai"] },
+    "meta": { "est_chars": 138 }
+  },
+  {
+    "id": "ks1_beach-train_to_sea_v1",
+    "stage": "KS1",
+    "theme": "At the Beach",
+    "title": "Train to the Sea",
+    "text": "We take a train to the beach. The sea is blue and wide. We play with our pail and make big sand cakes all day.",
+    "tags": { "complexity": { "caps": true, "punct": true }, "phonics": ["ks1-phonics-ai"] },
+    "meta": { "est_chars": 139 }
+  },
+  {
+    "id": "ks1_beach-paint_the_shell_v1",
+    "stage": "KS1",
+    "theme": "At the Beach",
+    "title": "Paint the Shell",
+    "text": "I paint a shell red and blue. Mum paints one green. We line them up by the sand wall and make a shell train.",
+    "tags": { "complexity": { "caps": true, "punct": true }, "phonics": ["ks1-phonics-ai"] },
+    "meta": { "est_chars": 134 }
+  },
+  {
+    "id": "ks1_beach-with_the_crab_v1",
+    "stage": "KS1",
+    "theme": "At the Beach",
+    "title": "With the Crab",
+    "text": "I see the crab in the wet sand. It moves fast with tiny claws. I look at it and then it hides under a rock.",
+    "tags": { "complexity": { "caps": true, "punct": true }, "phonics": ["ks1-phonics-th"] },
+    "meta": { "est_chars": 135 }
+  },
+  {
+    "id": "ks1_beach-this_big_wave_v1",
+    "stage": "KS1",
+    "theme": "At the Beach",
+    "title": "This Big Wave",
+    "text": "The sea makes a big wave. I jump with the splash. Mum laughs as the wave hits our feet. We run back to the sand.",
+    "tags": { "complexity": { "caps": true, "punct": true }, "phonics": ["ks1-phonics-th"] },
+    "meta": { "est_chars": 141 }
+  },
+  {
+    "id": "ks1_beach-that_fish_v1",
+    "stage": "KS1",
+    "theme": "At the Beach",
+    "title": "That Fish",
+    "text": "I see that fish swim by. It is small and quick. The fish glints in the sun as it darts through the blue water.",
+    "tags": { "complexity": { "caps": true, "punct": true }, "phonics": ["ks1-phonics-th"] },
+    "meta": { "est_chars": 137 }
+  },
+  {
+    "id": "ks1_beach-them_on_the_rock_v1",
+    "stage": "KS1",
+    "theme": "At the Beach",
+    "title": "Them on the Rock",
+    "text": "Dad points at the seals. We see them rest on the big rock. They clap and bark. The sea splashes at their tails.",
+    "tags": { "complexity": { "caps": true, "punct": true }, "phonics": ["ks1-phonics-th"] },
+    "meta": { "est_chars": 136 }
+  },
+  {
+    "id": "ks1_beach-with_my_spade_v1",
+    "stage": "KS1",
+    "theme": "At the Beach",
+    "title": "With My Spade",
+    "text": "I dig with my spade in the sand. I find a shell and a crab claw. I show Mum and she smiles and takes a photo.",
+    "tags": { "complexity": { "caps": true, "punct": true }, "phonics": ["ks1-phonics-th"] },
+    "meta": { "est_chars": 137 }
+  },
+  {
+    "id": "ks1_beach-sea_and_rain_v1",
+    "stage": "KS1",
+    "theme": "At the Beach",
+    "title": "Sea and Rain",
+    "text": "Rain drops on the sea. The waves splash with sound. I hold my pail and dance in the rain until the sun comes out.",
+    "tags": { "complexity": { "caps": true, "punct": true }, "phonics": ["ks1-phonics-ai"] },
+    "meta": { "est_chars": 139 }
+  },
+  {
+    "id": "ks1_beach-with_the_shell_v1",
+    "stage": "KS1",
+    "theme": "At the Beach",
+    "title": "With the Shell",
+    "text": "Dad picks up a shell. I hold it to my ear. I can hear the sea. We smile and play with the shells all day long.",
+    "tags": { "complexity": { "caps": true, "punct": true }, "phonics": ["ks1-phonics-th"] },
+    "meta": { "est_chars": 137 }
+  },
+  {
+    "id": "ks1_beach-sail_in_the_sun_v1",
+    "stage": "KS1",
+    "theme": "At the Beach",
+    "title": "Sail in the Sun",
+    "text": "The boat sails on calm water. The sun shines bright. We watch the sail flap and the gulls glide in the blue sky.",
+    "tags": { "complexity": { "caps": true, "punct": true }, "phonics": ["ks1-phonics-ai"] },
+    "meta": { "est_chars": 138 }
+  },
+  {
+    "id": "ks1_beach-this_is_fun_v1",
+    "stage": "KS1",
+    "theme": "At the Beach",
+    "title": "This is Fun",
+    "text": "This is fun! We splash in the waves and run on the wet sand. The sea is cool and the sun is warm on our skin.",
+    "tags": { "complexity": { "caps": true, "punct": true }, "phonics": ["ks1-phonics-th"] },
+    "meta": { "est_chars": 138 }
+  },
+  {
+    "id": "ks1_beach-train_home_v1",
+    "stage": "KS1",
+    "theme": "At the Beach",
+    "title": "Train Home",
+    "text": "We pack our pail and shells. The rain starts again. We take the train back home. I dream of the sea and sun all night.",
+    "tags": { "complexity": { "caps": true, "punct": true }, "phonics": ["ks1-phonics-ai"] },
+    "meta": { "est_chars": 140 }
+  },
+  {
+    "id": "ks1_food-lunch_time_v1",
+    "stage": "KS1",
+    "theme": "Food Fun",
+    "title": "Lunch Time",
+    "text": "It is lunch time. I have a chip and some cheese. Mum chops an apple too. We sit and munch together in the sun.",
+    "tags": { "complexity": { "caps": true, "punct": true }, "phonics": ["ks1-phonics-ch"] },
+    "meta": { "est_chars": 141 }
+  },
+  {
+    "id": "ks1_food-big_chips_v1",
+    "stage": "KS1",
+    "theme": "Food Fun",
+    "title": "Big Chips",
+    "text": "Dad makes big chips for tea. We eat them with peas and corn. I munch and smile. Chips are so tasty and hot!",
+    "tags": { "complexity": { "caps": true, "punct": true }, "phonics": ["ks1-phonics-ch"] },
+    "meta": { "est_chars": 133 }
+  },
+  {
+    "id": "ks1_food-chop_carrots_v1",
+    "stage": "KS1",
+    "theme": "Food Fun",
+    "title": "Chop the Carrots",
+    "text": "Mum chops carrots for soup. I help her mix and stir. The smell is so nice. We eat soup with bread and cheese.",
+    "tags": { "complexity": { "caps": true, "punct": true }, "phonics": ["ks1-phonics-ch"] },
+    "meta": { "est_chars": 133 }
+  },
+  {
+    "id": "ks1_food-munch_and_crunch_v1",
+    "stage": "KS1",
+    "theme": "Food Fun",
+    "title": "Munch and Crunch",
+    "text": "I munch a red apple. It is crisp and sweet. Dad munches a pear. We crunch and laugh as juice drips down our chins.",
+    "tags": { "complexity": { "caps": true, "punct": true }, "phonics": ["ks1-phonics-ch"] },
+    "meta": { "est_chars": 142 }
+  },
+  {
+    "id": "ks1_food-cheese_snack_v1",
+    "stage": "KS1",
+    "theme": "Food Fun",
+    "title": "Cheese Snack",
+    "text": "We pack cheese cubes and grapes for a snack. At lunch, I eat them with my friends. We all munch and chat happily.",
+    "tags": { "complexity": { "caps": true, "punct": true }, "phonics": ["ks1-phonics-ch"] },
+    "meta": { "est_chars": 140 }
+  },
+  {
+    "id": "ks1_food-toast_breakfast_v1",
+    "stage": "KS1",
+    "theme": "Food Fun",
+    "title": "Toast for Breakfast",
+    "text": "I make toast with jam. The toast pops up hot and brown. I spread butter and jam on top. It smells so good to eat!",
+    "tags": { "complexity": { "caps": true, "punct": true }, "phonics": ["ks1-phonics-oa"] },
+    "meta": { "est_chars": 137 }
+  },
+  {
+    "id": "ks1_food-goat_and_oats_v1",
+    "stage": "KS1",
+    "theme": "Food Fun",
+    "title": "Goat and Oats",
+    "text": "A goat eats oats by the barn. It chews and chews all day. I feed it more oats and it nods at me. What fun!",
+    "tags": { "complexity": { "caps": true, "punct": true }, "phonics": ["ks1-phonics-oa"] },
+    "meta": { "est_chars": 132 }
+  },
+  {
+    "id": "ks1_food-soap_and_plates_v1",
+    "stage": "KS1",
+    "theme": "Food Fun",
+    "title": "Soap and Plates",
+    "text": "After lunch, I wash plates with soap. The bubbles shine. Mum dries the cups. We sing and splash as we clean up.",
+    "tags": { "complexity": { "caps": true, "punct": true }, "phonics": ["ks1-phonics-oa"] },
+    "meta": { "est_chars": 134 }
+  },
+  {
+    "id": "ks1_food-coat_and_loaf_v1",
+    "stage": "KS1",
+    "theme": "Food Fun",
+    "title": "Coat and Loaf",
+    "text": "I put on my coat to buy bread. The loaf is warm in my bag. I can’t wait to make toast when I get back home.",
+    "tags": { "complexity": { "caps": true, "punct": true }, "phonics": ["ks1-phonics-oa"] },
+    "meta": { "est_chars": 133 }
+  },
+  {
+    "id": "ks1_food-boat_picnic_v1",
+    "stage": "KS1",
+    "theme": "Food Fun",
+    "title": "Boat Picnic",
+    "text": "We sit on a boat and eat lunch. We have toast, fruit, and juice. The waves rock the boat as we munch and smile.",
+    "tags": { "complexity": { "caps": true, "punct": true }, "phonics": ["ks1-phonics-oa"] },
+    "meta": { "est_chars": 137 }
+  },
+  {
+    "id": "ks1_food-fresh_apple_v1",
+    "stage": "KS1",
+    "theme": "Food Fun",
+    "title": "Fresh Apple",
+    "text": "I pick a red apple from the tree. It smells sweet. I take a bite and crunch it loud. It is the best snack ever!",
+    "tags": { "complexity": { "caps": true, "punct": true }, "phonics": ["ks1-phonics-ch"] },
+    "meta": { "est_chars": 133 }
+  },
+  {
+    "id": "ks1_food-green_peas_v1",
+    "stage": "KS1",
+    "theme": "Food Fun",
+    "title": "Green Peas",
+    "text": "We pick green peas from the pod. I like to eat them fresh. Mum cooks them with carrots and beans for tea.",
+    "tags": { "complexity": { "caps": true, "punct": true }, "phonics": ["ks1-phonics-ch"] },
+    "meta": { "est_chars": 128 }
+  },
+  {
+    "id": "ks1_food-bowl_of_soup_v1",
+    "stage": "KS1",
+    "theme": "Food Fun",
+    "title": "Bowl of Soup",
+    "text": "I sit with my bowl of soup. The steam smells good. I blow on the spoon and take a sip. It warms me up inside.",
+    "tags": { "complexity": { "caps": true, "punct": true }, "phonics": ["ks1-phonics-oa"] },
+    "meta": { "est_chars": 133 }
+  },
+  {
+    "id": "ks1_food-lunch_with_dad_v1",
+    "stage": "KS1",
+    "theme": "Food Fun",
+    "title": "Lunch with Dad",
+    "text": "I eat lunch with Dad. We have chips and toast. He tells a joke and we laugh. I munch and sip my juice happily.",
+    "tags": { "complexity": { "caps": true, "punct": true }, "phonics": ["ks1-phonics-ch"] },
+    "meta": { "est_chars": 132 }
+  },
+  {
+    "id": "ks1_food-toast_and_tea_v1",
+    "stage": "KS1",
+    "theme": "Food Fun",
+    "title": "Toast and Tea",
+    "text": "Mum and I have toast and tea. I dip my toast in the tea. We sit by the fire in our coats and chat quietly.",
+    "tags": { "complexity": { "caps": true, "punct": true }, "phonics": ["ks1-phonics-oa"] },
+    "meta": { "est_chars": 133 }
+  },
+  {
+    "id": "ks1_weather-first_snow_v1",
+    "stage": "KS1",
+    "theme": "Weather Watchers",
+    "title": "First Snow",
+    "text": "Snow starts to fall. The ground turns white. I blow on my cold hands. Mum says we can make a snowman soon.",
+    "tags": { "complexity": { "caps": true, "punct": true }, "phonics": ["ks1-phonics-ow"] },
+    "meta": { "est_chars": 136 }
+  },
+  {
+    "id": "ks1_weather-wind_will_blow_v1",
+    "stage": "KS1",
+    "theme": "Weather Watchers",
+    "title": "The Wind Will Blow",
+    "text": "The wind will blow hard today. My hat flies off! I chase it down the path. The trees sway and leaves spin round.",
+    "tags": { "complexity": { "caps": true, "punct": true }, "phonics": ["ks1-phonics-ow"] },
+    "meta": { "est_chars": 138 }
+  },
+  {
+    "id": "ks1_weather-snow_show_v1",
+    "stage": "KS1",
+    "theme": "Weather Watchers",
+    "title": "Snow Show",
+    "text": "Snowflakes fall from the sky. They land soft and light. I show Mum my glove full of snow. We laugh and clap.",
+    "tags": { "complexity": { "caps": true, "punct": true }, "phonics": ["ks1-phonics-ow"] },
+    "meta": { "est_chars": 131 }
+  },
+  {
+    "id": "ks1_weather-slow_sunrise_v1",
+    "stage": "KS1",
+    "theme": "Weather Watchers",
+    "title": "Slow Sunrise",
+    "text": "The sun rises slow after the storm. The sky glows pink. I see light on the wet grass. The day will be warm.",
+    "tags": { "complexity": { "caps": true, "punct": true }, "phonics": ["ks1-phonics-ow"] },
+    "meta": { "est_chars": 130 }
+  },
+  {
+    "id": "ks1_weather-plants_grow_v1",
+    "stage": "KS1",
+    "theme": "Weather Watchers",
+    "title": "Plants Grow",
+    "text": "Rain helps plants grow. I water my pot. A small leaf pops out. Soon I will see a tall green flower in the sun.",
+    "tags": { "complexity": { "caps": true, "punct": true }, "phonics": ["ks1-phonics-ow"] },
+    "meta": { "est_chars": 132 }
+  },
+  {
+    "id": "ks1_weather-dark_clouds_v1",
+    "stage": "KS1",
+    "theme": "Weather Watchers",
+    "title": "Dark Clouds",
+    "text": "Dark clouds roll in fast. The sky turns grey. We run to the car as big drops fall. The rain starts to pour down.",
+    "tags": { "complexity": { "caps": true, "punct": true }, "phonics": ["ks1-phonics-ar"] },
+    "meta": { "est_chars": 134 }
+  },
+  {
+    "id": "ks1_weather-start_of_rain_v1",
+    "stage": "KS1",
+    "theme": "Weather Watchers",
+    "title": "Start of Rain",
+    "text": "I feel a drop on my arm. The rain will start soon. Mum says to grab the coat. We run before it gets too wet!",
+    "tags": { "complexity": { "caps": true, "punct": true }, "phonics": ["ks1-phonics-ar"] },
+    "meta": { "est_chars": 131 }
+  },
+  {
+    "id": "ks1_weather-park_in_sun_v1",
+    "stage": "KS1",
+    "theme": "Weather Watchers",
+    "title": "Park in the Sun",
+    "text": "The park is bright and warm. I swing high and see the blue sky. Dad sits on a bench and smiles as I play.",
+    "tags": { "complexity": { "caps": true, "punct": true }, "phonics": ["ks1-phonics-ar"] },
+    "meta": { "est_chars": 132 }
+  },
+  {
+    "id": "ks1_weather-farm_in_rain_v1",
+    "stage": "KS1",
+    "theme": "Weather Watchers",
+    "title": "Farm in the Rain",
+    "text": "The farm is muddy and wet. Pigs roll in the soft dirt. The rain falls on cows and sheep. The farmer waves at me.",
+    "tags": { "complexity": { "caps": true, "punct": true }, "phonics": ["ks1-phonics-ar"] },
+    "meta": { "est_chars": 136 }
+  },
+  {
+    "id": "ks1_weather-car_in_storm_v1",
+    "stage": "KS1",
+    "theme": "Weather Watchers",
+    "title": "Car in the Storm",
+    "text": "We sit in the car and wait. The storm bangs loud on the roof. Mum hums a song. Soon the rain will stop and we go home.",
+    "tags": { "complexity": { "caps": true, "punct": true }, "phonics": ["ks1-phonics-ar"] },
+    "meta": { "est_chars": 141 }
+  },
+  {
+    "id": "ks1_weather-warm_day_v1",
+    "stage": "KS1",
+    "theme": "Weather Watchers",
+    "title": "A Warm Day",
+    "text": "The sun is out and it is warm. I play in the park with my kite. The wind blows and the tail spins in the air.",
+    "tags": { "complexity": { "caps": true, "punct": true }, "phonics": ["ks1-phonics-ow"] },
+    "meta": { "est_chars": 135 }
+  },
+  {
+    "id": "ks1_weather-dark_night_v1",
+    "stage": "KS1",
+    "theme": "Weather Watchers",
+    "title": "Dark Night",
+    "text": "It is a dark night. Stars twinkle in the sky. I sit by the window and watch the moon glow over the quiet park.",
+    "tags": { "complexity": { "caps": true, "punct": true }, "phonics": ["ks1-phonics-ar"] },
+    "meta": { "est_chars": 134 }
+  },
+  {
+    "id": "ks1_weather-snowy_park_v1",
+    "stage": "KS1",
+    "theme": "Weather Watchers",
+    "title": "Snowy Park",
+    "text": "Snow falls on the park. I wear my warm coat and boots. We make a snowball and roll it down the hill so fast!",
+    "tags": { "complexity": { "caps": true, "punct": true }, "phonics": ["ks1-phonics-ow"] },
+    "meta": { "est_chars": 132 }
+  },
+  {
+    "id": "ks1_weather-start_of_spring_v1",
+    "stage": "KS1",
+    "theme": "Weather Watchers",
+    "title": "Start of Spring",
+    "text": "The sun is bright and flowers grow. I see bees buzz in the garden. The cold days are gone. I like this start of spring.",
+    "tags": { "complexity": { "caps": true, "punct": true }, "phonics": ["ks1-phonics-ar"] },
+    "meta": { "est_chars": 139 }
+  },
+  {
+    "id": "ks1_weather-wind_show_v1",
+    "stage": "KS1",
+    "theme": "Weather Watchers",
+    "title": "Wind Show",
+    "text": "The wind blows hard. Trees bend and sway. We hold our hats tight. The clouds move fast to show a blue sky again.",
+    "tags": { "complexity": { "caps": true, "punct": true }, "phonics": ["ks1-phonics-ow"] },
+    "meta": { "est_chars": 135 }
+  },
+  {
+    "id": "ks1_toybox-fun_toy_v1",
+    "stage": "KS1",
+    "theme": "Toy Box",
+    "title": "A Fun Toy",
+    "text": "I have a new toy. It can spin fast. I play with it all day. It brings me so much joy to see it roll and glow.",
+    "tags": { "complexity": { "caps": true, "punct": true }, "phonics": ["ks1-phonics-oy"] },
+    "meta": { "est_chars": 139 }
+  },
+  {
+    "id": "ks1_toybox-boy_and_toy_v1",
+    "stage": "KS1",
+    "theme": "Toy Box",
+    "title": "The Boy and His Toy",
+    "text": "The boy plays with his toy car. It zooms fast on the floor. He laughs and claps. Mum smiles as he enjoys his play.",
+    "tags": { "complexity": { "caps": true, "punct": true }, "phonics": ["ks1-phonics-oy"] },
+    "meta": { "est_chars": 139 }
+  },
+  {
+    "id": "ks1_toybox-joy_in_play_v1",
+    "stage": "KS1",
+    "theme": "Toy Box",
+    "title": "Joy in Play",
+    "text": "We play with all our toys. The dolls talk and the cars race. We laugh with joy and make up a fun story together.",
+    "tags": { "complexity": { "caps": true, "punct": true }, "phonics": ["ks1-phonics-oy"] },
+    "meta": { "est_chars": 138 }
+  },
+  {
+    "id": "ks1_toybox-enjoy_game_v1",
+    "stage": "KS1",
+    "theme": "Toy Box",
+    "title": "Enjoy the Game",
+    "text": "I enjoy the game with my friends. We roll the ball and cheer. We take turns to win. It is such a happy day!",
+    "tags": { "complexity": { "caps": true, "punct": true }, "phonics": ["ks1-phonics-oy"] },
+    "meta": { "est_chars": 134 }
+  },
+  {
+    "id": "ks1_toybox-roy_toy_train_v1",
+    "stage": "KS1",
+    "theme": "Toy Box",
+    "title": "Roy’s Toy Train",
+    "text": "Roy has a red toy train. It goes choo choo down the track. He enjoys making it go round and round the rug.",
+    "tags": { "complexity": { "caps": true, "punct": true }, "phonics": ["ks1-phonics-oy"] },
+    "meta": { "est_chars": 137 }
+  },
+  {
+    "id": "ks1_toybox-ball_game_v1",
+    "stage": "KS1",
+    "theme": "Toy Box",
+    "title": "Ball Game",
+    "text": "We play a ball game in the park. I throw it and you catch. The ball rolls away, and we both run to get it back!",
+    "tags": { "complexity": { "caps": true, "punct": true }, "phonics": ["ks1-phonics-all"] },
+    "meta": { "est_chars": 136 }
+  },
+  {
+    "id": "ks1_toybox-small_doll_v1",
+    "stage": "KS1",
+    "theme": "Toy Box",
+    "title": "Small Doll",
+    "text": "My small doll wears a pink hat. She sits on my bed. I brush her hair and call her Meg. She is my best toy!",
+    "tags": { "complexity": { "caps": true, "punct": true }, "phonics": ["ks1-phonics-all"] },
+    "meta": { "est_chars": 131 }
+  },
+  {
+    "id": "ks1_toybox-fall_down_v1",
+    "stage": "KS1",
+    "theme": "Toy Box",
+    "title": "Fall Down",
+    "text": "The ball hits the wall and I fall down. I laugh and stand up fast. We play again and roll the ball to each other.",
+    "tags": { "complexity": { "caps": true, "punct": true }, "phonics": ["ks1-phonics-all"] },
+    "meta": { "est_chars": 133 }
+  },
+  {
+    "id": "ks1_toybox-call_for_help_v1",
+    "stage": "KS1",
+    "theme": "Toy Box",
+    "title": "Call for Help",
+    "text": "My toy car is stuck under the bed. I call Dad for help. He lifts the bed up. I grab the car and smile wide.",
+    "tags": { "complexity": { "caps": true, "punct": true }, "phonics": ["ks1-phonics-all"] },
+    "meta": { "est_chars": 131 }
+  },
+  {
+    "id": "ks1_toybox-wall_of_blocks_v1",
+    "stage": "KS1",
+    "theme": "Toy Box",
+    "title": "Wall of Blocks",
+    "text": "I build a wall with blocks. It is tall and wide. Then I roll my ball and knock it down. We laugh so loud!",
+    "tags": { "complexity": { "caps": true, "punct": true }, "phonics": ["ks1-phonics-all"] },
+    "meta": { "est_chars": 129 }
+  },
+  {
+    "id": "ks1_toybox-play_drum_v1",
+    "stage": "KS1",
+    "theme": "Toy Box",
+    "title": "Play the Drum",
+    "text": "I play my toy drum and tap to the beat. Mum claps along. The sound fills the room. It makes me so happy!",
+    "tags": { "complexity": { "caps": true, "punct": true }, "phonics": ["ks1-phonics-oy"] },
+    "meta": { "est_chars": 133 }
+  },
+  {
+    "id": "ks1_toybox-fun_in_park_v1",
+    "stage": "KS1",
+    "theme": "Toy Box",
+    "title": "Fun in the Park",
+    "text": "We take the ball to the park. I roll it down the hill. The boy runs fast to catch it. We laugh and play again.",
+    "tags": { "complexity": { "caps": true, "punct": true }, "phonics": ["ks1-phonics-all"] },
+    "meta": { "est_chars": 132 }
+  },
+  {
+    "id": "ks1_toybox-enjoy_kite_v1",
+    "stage": "KS1",
+    "theme": "Toy Box",
+    "title": "Enjoy the Kite",
+    "text": "I fly my kite high in the sky. The wind pulls and it soars. I enjoy the bright tail that waves as clouds go by.",
+    "tags": { "complexity": { "caps": true, "punct": true }, "phonics": ["ks1-phonics-oy"] },
+    "meta": { "est_chars": 135 }
+  },
+  {
+    "id": "ks1_toybox-small_box_v1",
+    "stage": "KS1",
+    "theme": "Toy Box",
+    "title": "Small Box",
+    "text": "My toys fit in a small box. I keep them neat. I open it each day to play. The box is full of fun and joy.",
+    "tags": { "complexity": { "caps": true, "punct": true }, "phonics": ["ks1-phonics-all"] },
+    "meta": { "est_chars": 130 }
+  },
+  {
+    "id": "ks1_toybox-boy_in_room_v1",
+    "stage": "KS1",
+    "theme": "Toy Box",
+    "title": "Boy in the Room",
+    "text": "The boy plays with his ball and car. He rolls them on the mat. Mum calls him for tea. He grins and runs to eat!",
+    "tags": { "complexity": { "caps": true, "punct": true }, "phonics": ["ks1-phonics-oy"] },
+    "meta": { "est_chars": 134 }
+  },
+  {
+    "id": "ks1_school-morning_bell_v1",
+    "stage": "KS1",
+    "theme": "School Day",
+    "title": "The Morning Bell",
+    "text": "The bell rings for school. We line up at the door. The teacher smiles and says good morning. We go to our class.",
+    "tags": { "complexity": { "caps": true, "punct": true }, "phonics": ["ks1-phonics-or"] },
+    "meta": { "est_chars": 138 }
+  },
+  {
+    "id": "ks1_school-meet_teacher_v1",
+    "stage": "KS1",
+    "theme": "School Day",
+    "title": "Meet the Teacher",
+    "text": "Our teacher is kind and fun. She helps us read a new book. We write a letter on paper and draw a big red apple.",
+    "tags": { "complexity": { "caps": true, "punct": true }, "phonics": ["ks1-phonics-er"] },
+    "meta": { "est_chars": 138 }
+  },
+  {
+    "id": "ks1_school-story_time_v1",
+    "stage": "KS1",
+    "theme": "School Day",
+    "title": "Story Time",
+    "text": "We sit on the floor for story time. The story is short but sweet. The teacher reads and we all listen quietly.",
+    "tags": { "complexity": { "caps": true, "punct": true }, "phonics": ["ks1-phonics-or"] },
+    "meta": { "est_chars": 136 }
+  },
+  {
+    "id": "ks1_school-write_letter_v1",
+    "stage": "KS1",
+    "theme": "School Day",
+    "title": "Write a Letter",
+    "text": "I write a letter to Mum. I use paper and a pencil. The teacher helps me spell each word. I draw hearts on top.",
+    "tags": { "complexity": { "caps": true, "punct": true }, "phonics": ["ks1-phonics-er"] },
+    "meta": { "est_chars": 136 }
+  },
+  {
+    "id": "ks1_school-maths_fun_v1",
+    "stage": "KS1",
+    "theme": "School Day",
+    "title": "Maths is Fun",
+    "text": "We count blocks on the desk. The teacher shows us more. We add and take away. Maths can be fun when we learn together.",
+    "tags": { "complexity": { "caps": true, "punct": true }, "phonics": ["ks1-phonics-er"] },
+    "meta": { "est_chars": 141 }
+  },
+  {
+    "id": "ks1_school-break_time_v1",
+    "stage": "KS1",
+    "theme": "School Day",
+    "title": "Break Time",
+    "text": "The bell rings for break. We run to the yard. The boys play ball and the girls skip rope. It is bright and warm.",
+    "tags": { "complexity": { "caps": true, "punct": true }, "phonics": ["ks1-phonics-or"] },
+    "meta": { "est_chars": 138 }
+  },
+  {
+    "id": "ks1_school-art_class_v1",
+    "stage": "KS1",
+    "theme": "School Day",
+    "title": "Art Class",
+    "text": "We paint in art class. My paper is full of red and blue. The teacher hangs our work on the wall for all to see.",
+    "tags": { "complexity": { "caps": true, "punct": true }, "phonics": ["ks1-phonics-er"] },
+    "meta": { "est_chars": 139 }
+  },
+  {
+    "id": "ks1_school-short_song_v1",
+    "stage": "KS1",
+    "theme": "School Day",
+    "title": "A Short Song",
+    "text": "We sing a short song in music. The tune is soft and slow. I clap my hands and tap my feet. It makes me smile.",
+    "tags": { "complexity": { "caps": true, "punct": true }, "phonics": ["ks1-phonics-or"] },
+    "meta": { "est_chars": 134 }
+  },
+  {
+    "id": "ks1_school-paper_chain_v1",
+    "stage": "KS1",
+    "theme": "School Day",
+    "title": "Paper Chain",
+    "text": "We cut paper to make a chain. Each link is bright and long. The teacher helps us hang it up across the board.",
+    "tags": { "complexity": { "caps": true, "punct": true }, "phonics": ["ks1-phonics-er"] },
+    "meta": { "est_chars": 136 }
+  },
+  {
+    "id": "ks1_school-morning_work_v1",
+    "stage": "KS1",
+    "theme": "School Day",
+    "title": "Morning Work",
+    "text": "In the morning we write on the board. The teacher shows us new words. We read them out loud and clap the sounds.",
+    "tags": { "complexity": { "caps": true, "punct": true }, "phonics": ["ks1-phonics-or"] },
+    "meta": { "est_chars": 134 }
+  },
+  {
+    "id": "ks1_school-science_time_v1",
+    "stage": "KS1",
+    "theme": "School Day",
+    "title": "Science Time",
+    "text": "We mix water and sand in science. It feels soft and wet. The teacher says we can pour it slow to see what happens.",
+    "tags": { "complexity": { "caps": true, "punct": true }, "phonics": ["ks1-phonics-or"] },
+    "meta": { "est_chars": 140 }
+  },
+  {
+    "id": "ks1_school-clean_corner_v1",
+    "stage": "KS1",
+    "theme": "School Day",
+    "title": "Clean the Corner",
+    "text": "We clean the art corner before lunch. I pick up paper and put pens away. The teacher says thank you for helping out.",
+    "tags": { "complexity": { "caps": true, "punct": true }, "phonics": ["ks1-phonics-er"] },
+    "meta": { "est_chars": 141 }
+  },
+  {
+    "id": "ks1_school-floor_game_v1",
+    "stage": "KS1",
+    "theme": "School Day",
+    "title": "Floor Game",
+    "text": "We sit on the floor to play a word game. The teacher says a sound. We clap when we hear it in a short word.",
+    "tags": { "complexity": { "caps": true, "punct": true }, "phonics": ["ks1-phonics-or"] },
+    "meta": { "est_chars": 136 }
+  },
+  {
+    "id": "ks1_school-letter_home_v1",
+    "stage": "KS1",
+    "theme": "School Day",
+    "title": "Letter Home",
+    "text": "I get a letter for Mum. It says I did well in class. The teacher smiles as I read it out. I feel so proud.",
+    "tags": { "complexity": { "caps": true, "punct": true }, "phonics": ["ks1-phonics-er"] },
+    "meta": { "est_chars": 135 }
+  },
+  {
+    "id": "ks1_school-end_of_day_v1",
+    "stage": "KS1",
+    "theme": "School Day",
+    "title": "End of the Day",
+    "text": "The bell rings for home. We pack up our books and bags. The teacher waves goodbye. I smile and walk with my friends.",
+    "tags": { "complexity": { "caps": true, "punct": true }, "phonics": ["ks1-phonics-er"] },
+    "meta": { "est_chars": 135 }
+  },
+  {
+    "id": "ks1_monsters-night_party_v1",
+    "stage": "KS1",
+    "theme": "Silly Monsters",
+    "title": "Monster Night Party",
+    "text": "The monsters dance at night. They spin under the bright light. Their eyes shine high in the sky. It is such a funny sight!",
+    "tags": { "complexity": { "caps": true, "punct": true }, "phonics": ["ks1-phonics-igh"] },
+    "meta": { "est_chars": 142 }
+  },
+  {
+    "id": "ks1_monsters-high_jump_v1",
+    "stage": "KS1",
+    "theme": "Silly Monsters",
+    "title": "High Jump",
+    "text": "A tall monster can jump so high. He leaps over the wall and waves his tail. His claws flash in the light as he lands softly.",
+    "tags": { "complexity": { "caps": true, "punct": true }, "phonics": ["ks1-phonics-igh"] },
+    "meta": { "est_chars": 140 }
+  },
+  {
+    "id": "ks1_monsters-bright_smiles_v1",
+    "stage": "KS1",
+    "theme": "Silly Monsters",
+    "title": "Bright Smiles",
+    "text": "The monsters smile bright and wide. Their teeth shine in the moonlight. They giggle and roar and play tag all night long!",
+    "tags": { "complexity": { "caps": true, "punct": true }, "phonics": ["ks1-phonics-igh"] },
+    "meta": { "est_chars": 136 }
+  },
+  {
+    "id": "ks1_monsters-night_roar_v1",
+    "stage": "KS1",
+    "theme": "Silly Monsters",
+    "title": "A Night Roar",
+    "text": "It is a dark night. A big blue monster lets out a roar. The noise is loud but not scary. It makes the trees shake!",
+    "tags": { "complexity": { "caps": true, "punct": true }, "phonics": ["ks1-phonics-igh"] },
+    "meta": { "est_chars": 133 }
+  },
+  {
+    "id": "ks1_monsters-funny_sight_v1",
+    "stage": "KS1",
+    "theme": "Silly Monsters",
+    "title": "A Funny Sight",
+    "text": "I see a monster with four eyes and a green hat. He waves at me from the bright street light. I laugh so hard I fall down!",
+    "tags": { "complexity": { "caps": true, "punct": true }, "phonics": ["ks1-phonics-igh"] },
+    "meta": { "est_chars": 141 }
+  },
+  {
+    "id": "ks1_monsters-purple_fur_v1",
+    "stage": "KS1",
+    "theme": "Silly Monsters",
+    "title": "Purple Fur",
+    "text": "The little monster has purple fur. It looks soft and warm. She curls up on a rug and hums a silly tune before bed.",
+    "tags": { "complexity": { "caps": true, "punct": true }, "phonics": ["ks1-phonics-ur"] },
+    "meta": { "est_chars": 135 }
+  },
+  {
+    "id": "ks1_monsters-burping_game_v1",
+    "stage": "KS1",
+    "theme": "Silly Monsters",
+    "title": "The Burping Game",
+    "text": "Two monsters play a burping game. They take turns and laugh. The sound makes the birds fly off the trees in a hurry!",
+    "tags": { "complexity": { "caps": true, "punct": true }, "phonics": ["ks1-phonics-ur"] },
+    "meta": { "est_chars": 137 }
+  },
+  {
+    "id": "ks1_monsters-fuzzy_fur_v1",
+    "stage": "KS1",
+    "theme": "Silly Monsters",
+    "title": "Fuzzy Fur",
+    "text": "My monster friend has pink fuzzy fur. It sticks out when she spins. I brush it down but she makes it messy again and giggles.",
+    "tags": { "complexity": { "caps": true, "punct": true }, "phonics": ["ks1-phonics-ur"] },
+    "meta": { "est_chars": 144 }
+  },
+  {
+    "id": "ks1_monsters-purrr_sound_v1",
+    "stage": "KS1",
+    "theme": "Silly Monsters",
+    "title": "The Purrr Sound",
+    "text": "The furry monster sits by the fire and makes a purrr sound. It curls up like a cat. I pat its head and it smiles softly.",
+    "tags": { "complexity": { "caps": true, "punct": true }, "phonics": ["ks1-phonics-ur"] },
+    "meta": { "est_chars": 141 }
+  },
+  {
+    "id": "ks1_monsters-curl_up_v1",
+    "stage": "KS1",
+    "theme": "Silly Monsters",
+    "title": "Curl Up",
+    "text": "When the night is cold, the monsters curl up together. Their purple fur keeps them warm. They snore and dream of more fun!",
+    "tags": { "complexity": { "caps": true, "punct": true }, "phonics": ["ks1-phonics-ur"] },
+    "meta": { "est_chars": 137 }
+  },
+  {
+    "id": "ks1_monsters-light_show_v1",
+    "stage": "KS1",
+    "theme": "Silly Monsters",
+    "title": "Light Show",
+    "text": "The monsters make a light show with fireflies. They clap and spin. The bright dots dance in the air like tiny stars in the sky.",
+    "tags": { "complexity": { "caps": true, "punct": true }, "phonics": ["ks1-phonics-igh"] },
+    "meta": { "est_chars": 143 }
+  },
+  {
+    "id": "ks1_monsters-monster_party_v1",
+    "stage": "KS1",
+    "theme": "Silly Monsters",
+    "title": "Monster Party",
+    "text": "It is party night! The monsters stomp and dance. One burps and one jumps high. The lights flash bright and everyone cheers loud!",
+    "tags": { "complexity": { "caps": true, "punct": true }, "phonics": ["ks1-phonics-igh"] },
+    "meta": { "est_chars": 141 }
+  },
+  {
+    "id": "ks1_monsters-night_song_v1",
+    "stage": "KS1",
+    "theme": "Silly Monsters",
+    "title": "Night Song",
+    "text": "At night, the monsters sing a song. Their voices hum in the dark. The stars glow bright and the moon smiles down on them.",
+    "tags": { "complexity": { "caps": true, "punct": true }, "phonics": ["ks1-phonics-igh"] },
+    "meta": { "est_chars": 139 }
+  },
+  {
+    "id": "ks1_monsters-paint_purple_v1",
+    "stage": "KS1",
+    "theme": "Silly Monsters",
+    "title": "Paint It Purple",
+    "text": "The monsters paint their cave purple. The walls sparkle in the light. They get paint on their fur and laugh until they fall down!",
+    "tags": { "complexity": { "caps": true, "punct": true }, "phonics": ["ks1-phonics-ur"] },
+    "meta": { "est_chars": 143 }
+  },
+  {
+    "id": "ks1_monsters-silly_dance_v1",
+    "stage": "KS1",
+    "theme": "Silly Monsters",
+    "title": "Silly Dance",
+    "text": "The monsters do a silly dance under the moonlight. They spin, roar, and hop on one foot. Their shadows jump high on the walls!",
+    "tags": { "complexity": { "caps": true, "punct": true }, "phonics": ["ks1-phonics-igh"] },
+    "meta": { "est_chars": 141 }
+  },
+  {
+    "id": "ks1_town-my_town_v1",
+    "stage": "KS1",
+    "theme": "My Town",
+    "title": "My Town",
+    "text": "I live in a small town. It has a park, a shop, and a school. We walk down the road to see friends and buy some bread.",
+    "tags": { "complexity": { "caps": true, "punct": true }, "phonics": ["ks1-phonics-ow"] },
+    "meta": { "est_chars": 145 }
+  },
+  {
+    "id": "ks1_town-go_downhill_v1",
+    "stage": "KS1",
+    "theme": "My Town",
+    "title": "Go Downhill",
+    "text": "I ride my bike down the hill to the park. The wind blows on my face. I stop to see ducks in the pond near the gate.",
+    "tags": { "complexity": { "caps": true, "punct": true }, "phonics": ["ks1-phonics-ow"] },
+    "meta": { "est_chars": 141 }
+  },
+  {
+    "id": "ks1_town-town_clown_v1",
+    "stage": "KS1",
+    "theme": "My Town",
+    "title": "The Town Clown",
+    "text": "A clown comes to our town fair. He has a big red nose and a funny hat. We laugh when he falls down in a big brown puddle!",
+    "tags": { "complexity": { "caps": true, "punct": true }, "phonics": ["ks1-phonics-ow"] },
+    "meta": { "est_chars": 144 }
+  },
+  {
+    "id": "ks1_town-crown_shop_v1",
+    "stage": "KS1",
+    "theme": "My Town",
+    "title": "The Crown Shop",
+    "text": "In the toy shop, I see a crown. It is gold and shiny. I try it on and feel like a king. Mum says it looks great on me!",
+    "tags": { "complexity": { "caps": true, "punct": true }, "phonics": ["ks1-phonics-ow"] },
+    "meta": { "est_chars": 142 }
+  },
+  {
+    "id": "ks1_town-brown_bus_v1",
+    "stage": "KS1",
+    "theme": "My Town",
+    "title": "The Brown Bus",
+    "text": "A big brown bus goes by my house. It stops by the shop to pick up people. I wave to the driver and he waves back to me.",
+    "tags": { "complexity": { "caps": true, "punct": true }, "phonics": ["ks1-phonics-ow"] },
+    "meta": { "est_chars": 144 }
+  },
+  {
+    "id": "ks1_town-first_stop_v1",
+    "stage": "KS1",
+    "theme": "My Town",
+    "title": "First Stop",
+    "text": "The bus stops first at the post office. The driver smiles. A girl gets on with her dad. She wears a pink shirt and a big grin.",
+    "tags": { "complexity": { "caps": true, "punct": true }, "phonics": ["ks1-phonics-ir"] },
+    "meta": { "est_chars": 142 }
+  },
+  {
+    "id": "ks1_town-bird_in_park_v1",
+    "stage": "KS1",
+    "theme": "My Town",
+    "title": "Bird in the Park",
+    "text": "A bird sings in the park tree. I sit on the bench and listen. It makes a soft sound that fills the warm morning air.",
+    "tags": { "complexity": { "caps": true, "punct": true }, "phonics": ["ks1-phonics-ir"] },
+    "meta": { "est_chars": 138 }
+  },
+  {
+    "id": "ks1_town-girl_and_bike_v1",
+    "stage": "KS1",
+    "theme": "My Town",
+    "title": "Girl and Bike",
+    "text": "A girl rides her bike to school. She wears a red shirt and a big smile. The bell rings as she parks it near the gate.",
+    "tags": { "complexity": { "caps": true, "punct": true }, "phonics": ["ks1-phonics-ir"] },
+    "meta": { "est_chars": 138 }
+  },
+  {
+    "id": "ks1_town-third_floor_v1",
+    "stage": "KS1",
+    "theme": "My Town",
+    "title": "Third Floor",
+    "text": "I visit the library on the third floor. There are books on every shelf. I find a story about a bird that can talk and sing!",
+    "tags": { "complexity": { "caps": true, "punct": true }, "phonics": ["ks1-phonics-ir"] },
+    "meta": { "est_chars": 141 }
+  },
+  {
+    "id": "ks1_town-shirt_shop_v1",
+    "stage": "KS1",
+    "theme": "My Town",
+    "title": "Shirt from the Shop",
+    "text": "Dad buys me a new shirt from the shop. It is blue with stars. I wear it to school and my friends say it looks so cool!",
+    "tags": { "complexity": { "caps": true, "punct": true }, "phonics": ["ks1-phonics-ir"] },
+    "meta": { "est_chars": 138 }
+  },
+  {
+    "id": "ks1_town-town_train_v1",
+    "stage": "KS1",
+    "theme": "My Town",
+    "title": "Town Train",
+    "text": "The train comes to our town. It is long and loud. We sit by the window and watch as trees and houses go by so fast!",
+    "tags": { "complexity": { "caps": true, "punct": true }, "phonics": ["ks1-phonics-ow"] },
+    "meta": { "est_chars": 136 }
+  },
+  {
+    "id": "ks1_town-market_day_v1",
+    "stage": "KS1",
+    "theme": "My Town",
+    "title": "Market Day",
+    "text": "It is market day in town. People sell fruit, bread, and toys. I help Mum carry a bag. We walk down the street in the sun.",
+    "tags": { "complexity": { "caps": true, "punct": true }, "phonics": ["ks1-phonics-ow"] },
+    "meta": { "est_chars": 142 }
+  },
+  {
+    "id": "ks1_town-first_train_v1",
+    "stage": "KS1",
+    "theme": "My Town",
+    "title": "My First Train Ride",
+    "text": "It is my first time on the train. I sit by the window with Dad. We watch cows in fields and birds in the sky fly by fast.",
+    "tags": { "complexity": { "caps": true, "punct": true }, "phonics": ["ks1-phonics-ir"] },
+    "meta": { "est_chars": 141 }
+  },
+  {
+    "id": "ks1_town-down_to_school_v1",
+    "stage": "KS1",
+    "theme": "My Town",
+    "title": "Down to School",
+    "text": "We walk down the road to school. I see cars and bikes go by. The bell rings when we get there. The day can start now!",
+    "tags": { "complexity": { "caps": true, "punct": true }, "phonics": ["ks1-phonics-ow"] },
+    "meta": { "est_chars": 137 }
+  },
+  {
+    "id": "ks1_town-bird_and_clown_v1",
+    "stage": "KS1",
+    "theme": "My Town",
+    "title": "Bird and Clown",
+    "text": "At the fair, a clown tosses his hat. A bird lands on it! Everyone laughs as they spin and dance around the big brown tent.",
+    "tags": { "complexity": { "caps": true, "punct": true }, "phonics": ["ks1-phonics-ir"] },
+    "meta": { "est_chars": 142 }
+  },
+  {
+    "id": "ks1_bedtime-quiet_night_v1",
+    "stage": "KS1",
+    "theme": "Bedtime Stories",
+    "title": "A Quiet Night",
+    "text": "It was a quiet night. The stars shone bright in the sky. A small bear curled up to sleep under the big silver moon.",
+    "tags": { "complexity": { "caps": true, "punct": true }, "phonics": ["ks1-phonics-qu"] },
+    "meta": { "est_chars": 140 }
+  },
+  {
+    "id": "ks1_bedtime-quick_dragon_v1",
+    "stage": "KS1",
+    "theme": "Bedtime Stories",
+    "title": "The Quick Dragon",
+    "text": "A quick dragon flew past the moon. Its wings flapped fast. It looked for the castle where the kind queen was waiting to sleep.",
+    "tags": { "complexity": { "caps": true, "punct": true }, "phonics": ["ks1-phonics-qu"] },
+    "meta": { "est_chars": 143 }
+  },
+  {
+    "id": "ks1_bedtime-queen_crown_v1",
+    "stage": "KS1",
+    "theme": "Bedtime Stories",
+    "title": "The Queen’s Crown",
+    "text": "The queen had a gold crown. She placed it on her bed stand. ‘Good night,’ she said softly, and the lights went out quick and quiet.",
+    "tags": { "complexity": { "caps": true, "punct": true }, "phonics": ["ks1-phonics-qu"] },
+    "meta": { "est_chars": 144 }
+  },
+  {
+    "id": "ks1_bedtime-quiet_castle_v1",
+    "stage": "KS1",
+    "theme": "Bedtime Stories",
+    "title": "The Quiet Castle",
+    "text": "The castle was quiet at night. The king and queen were asleep. Only the moonlight filled the hall and made it shine like silver snow.",
+    "tags": { "complexity": { "caps": true, "punct": true }, "phonics": ["ks1-phonics-qu"] },
+    "meta": { "est_chars": 146 }
+  },
+  {
+    "id": "ks1_bedtime-quack_song_v1",
+    "stage": "KS1",
+    "theme": "Bedtime Stories",
+    "title": "The Quack Song",
+    "text": "Down by the pond, the ducks sang their quack song. They splashed and danced under the stars. It was time for bed after a long day.",
+    "tags": { "complexity": { "caps": true, "punct": true }, "phonics": ["ks1-phonics-qu"] },
+    "meta": { "est_chars": 144 }
+  },
+  {
+    "id": "ks1_bedtime-king_song_v1",
+    "stage": "KS1",
+    "theme": "Bedtime Stories",
+    "title": "The King’s Song",
+    "text": "The king sat by the fire. He began to sing a soft song. The sound filled the room, and the guards smiled as they went to rest.",
+    "tags": { "complexity": { "caps": true, "punct": true }, "phonics": ["ks1-phonics-ng"] },
+    "meta": { "est_chars": 138 }
+  },
+  {
+    "id": "ks1_bedtime-fairy_ring_v1",
+    "stage": "KS1",
+    "theme": "Bedtime Stories",
+    "title": "The Fairy Ring",
+    "text": "Tiny fairies danced in a ring. They sang a happy tune. The moon glowed above them as they spun round and round in the grass.",
+    "tags": { "complexity": { "caps": true, "punct": true }, "phonics": ["ks1-phonics-ng"] },
+    "meta": { "est_chars": 141 }
+  },
+  {
+    "id": "ks1_bedtime-long_sleep_v1",
+    "stage": "KS1",
+    "theme": "Bedtime Stories",
+    "title": "The Long Sleep",
+    "text": "The dragon yawned and lay down. It had been a long day. It closed its eyes and dreamed of flying high over mountains and stars.",
+    "tags": { "complexity": { "caps": true, "punct": true }, "phonics": ["ks1-phonics-ng"] },
+    "meta": { "est_chars": 142 }
+  },
+  {
+    "id": "ks1_bedtime-sing_moon_v1",
+    "stage": "KS1",
+    "theme": "Bedtime Stories",
+    "title": "Sing to the Moon",
+    "text": "A girl sat by her window. She began to sing to the moon. The night wind hummed along, and her soft voice filled the dark sky.",
+    "tags": { "complexity": { "caps": true, "punct": true }, "phonics": ["ks1-phonics-ng"] },
+    "meta": { "est_chars": 141 }
+  },
+  {
+    "id": "ks1_bedtime-ring_story_v1",
+    "stage": "KS1",
+    "theme": "Bedtime Stories",
+    "title": "The Magic Ring",
+    "text": "A wizard found a magic ring. When he put it on, stars began to sing! He smiled and said, ‘This will make a fine bedtime tale.’",
+    "tags": { "complexity": { "caps": true, "punct": true }, "phonics": ["ks1-phonics-ng"] },
+    "meta": { "est_chars": 140 }
+  },
+  {
+    "id": "ks1_bedtime-princess_song_v1",
+    "stage": "KS1",
+    "theme": "Bedtime Stories",
+    "title": "Princess Song",
+    "text": "The princess sang a song for her doll. Her voice was soft and sweet. The king smiled as he said, ‘Good night, my lovely girl.’",
+    "tags": { "complexity": { "caps": true, "punct": true }, "phonics": ["ks1-phonics-ng"] },
+    "meta": { "est_chars": 139 }
+  },
+  {
+    "id": "ks1_bedtime-quiet_story_v1",
+    "stage": "KS1",
+    "theme": "Bedtime Stories",
+    "title": "A Quiet Story",
+    "text": "Mum read a quiet story by the bed. The lights were dim, and the room was warm. Soon, I was asleep and dreaming of kings and queens.",
+    "tags": { "complexity": { "caps": true, "punct": true }, "phonics": ["ks1-phonics-qu"] },
+    "meta": { "est_chars": 144 }
+  },
+  {
+    "id": "ks1_bedtime-night_song_v1",
+    "stage": "KS1",
+    "theme": "Bedtime Stories",
+    "title": "The Night Song",
+    "text": "The stars twinkled bright. The moon sang a gentle tune. The long night passed as children dreamed of dragons, fairies, and happy kings.",
+    "tags": { "complexity": { "caps": true, "punct": true }, "phonics": ["ks1-phonics-ng"] },
+    "meta": { "est_chars": 140 }
+  },
+  {
+    "id": "ks1_bedtime-queen_and_king_v1",
+    "stage": "KS1",
+    "theme": "Bedtime Stories",
+    "title": "The Queen and the King",
+    "text": "The queen and the king sat by the fire. They told a story about a songbird that could sing all night long without resting once.",
+    "tags": { "complexity": { "caps": true, "punct": true }, "phonics": ["ks1-phonics-ng"] },
+    "meta": { "est_chars": 141 }
+  },
+  {
+    "id": "ks1_bedtime-quick_sleep_v1",
+    "stage": "KS1",
+    "theme": "Bedtime Stories",
+    "title": "Quick to Sleep",
+    "text": "The bear brushed his fur and got into bed. He was quick to sleep after his long walk. The stars shone as he began to dream.",
+    "tags": { "complexity": { "caps": true, "punct": true }, "phonics": ["ks1-phonics-qu"] },
+    "meta": { "est_chars": 142 }
+  }
 ]

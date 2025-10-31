@@ -1,63 +1,142 @@
 [
-    {
-        "id": "pattern_oi_oy",
-        "stage": "KS1",
-        "name": "oi vs oy",
-        "items": [
-            "coin",
-            "join",
-            "noise",
-            "point",
-            "boy",
-            "toy",
-            "enjoy",
-            "royal"
-        ],
-        "tags": {
-            "phonics": [
-                "oi/oy"
-            ]
-        }
-    },
-    {
-        "id": "pattern_dge_ge",
-        "stage": "KS1",
-        "name": "dge vs ge",
-        "items": [
-            "badge",
-            "edge",
-            "bridge",
-            "judge",
-            "huge",
-            "cage",
-            "page",
-            "large"
-        ],
-        "tags": {
-            "phonics": [
-                "dge/ge"
-            ]
-        }
-    },
-    {
-        "id": "pattern_double_consonants_1",
-        "stage": "KS1",
-        "name": "Double Consonants",
-        "items": [
-            "apple",
-            "letter",
-            "bunny",
-            "carrot",
-            "silly",
-            "fluffy",
-            "glass",
-            "add",
-            "miss"
-        ],
-        "tags": {
-            "phonics": [
-                "double consonant"
-            ]
-        }
-    }
+  {
+    "id": "ks1_farm-sh_v1",
+    "stage": "KS1",
+    "name": "The 'sh' Sound",
+    "items": ["sheep", "shed", "shop", "shut", "ship"],
+    "tags": { "phonics": ["ks1-phonics-sh"] }
+  },
+  {
+    "id": "ks1_farm-ck_v1",
+    "stage": "KS1",
+    "name": "The 'ck' Sound",
+    "items": ["duck", "chick", "clock", "sack", "back"],
+    "tags": { "phonics": ["ks1-phonics-ck"] }
+  },
+  {
+    "id": "ks1_garden-ee_v1",
+    "stage": "KS1",
+    "name": "The 'ee' Sound",
+    "items": ["bee", "seed", "green", "tree", "see"],
+    "tags": { "phonics": ["ks1-phonics-ee"] }
+  },
+  {
+    "id": "ks1_garden-oo_v1",
+    "stage": "KS1",
+    "name": "The 'oo' Sound",
+    "items": ["root", "boot", "moon", "food", "room"],
+    "tags": { "phonics": ["ks1-phonics-oo"] }
+  },
+  {
+    "id": "ks1_beach-ai_v1",
+    "stage": "KS1",
+    "name": "The 'ai' Sound",
+    "items": ["sail", "pail", "rain", "train", "pain"],
+    "tags": { "phonics": ["ks1-phonics-ai"] }
+  },
+  {
+    "id": "ks1_beach-th_v1",
+    "stage": "KS1",
+    "name": "The 'th' Sound",
+    "items": ["the", "that", "with", "this", "them"],
+    "tags": { "phonics": ["ks1-phonics-th"] }
+  },
+  {
+    "id": "ks1_food-ch_v1",
+    "stage": "KS1",
+    "name": "The 'ch' Sound",
+    "items": ["chip", "chop", "lunch", "munch", "cheese"],
+    "tags": { "phonics": ["ks1-phonics-ch"] }
+  },
+  {
+    "id": "ks1_food-oa_v1",
+    "stage": "KS1",
+    "name": "The 'oa' Sound",
+    "items": ["toast", "goat", "boat", "soap", "coat"],
+    "tags": { "phonics": ["ks1-phonics-oa"] }
+  },
+  {
+    "id": "ks1_weather-ow_v1",
+    "stage": "KS1",
+    "name": "The 'ow' Sound",
+    "items": ["snow", "blow", "grow", "slow", "show"],
+    "tags": { "phonics": ["ks1-phonics-ow"] }
+  },
+  {
+    "id": "ks1_weather-ar_v1",
+    "stage": "KS1",
+    "name": "The 'ar' Sound",
+    "items": ["dark", "start", "park", "farm", "car"],
+    "tags": { "phonics": ["ks1-phonics-ar"] }
+  },
+  {
+    "id": "ks1_toybox-oy_v1",
+    "stage": "KS1",
+    "name": "The 'oy' Sound",
+    "items": ["toy", "boy", "enjoy", "joy", "roy"],
+    "tags": { "phonics": ["ks1-phonics-oy"] }
+  },
+  {
+    "id": "ks1_toybox-all_v1",
+    "stage": "KS1",
+    "name": "The 'all' Sound",
+    "items": ["ball", "fall", "small", "call", "wall"],
+    "tags": { "phonics": ["ks1-phonics-all"] }
+  },
+  {
+    "id": "ks1_school-er_v1",
+    "stage": "KS1",
+    "name": "The 'er' Sound",
+    "items": ["teacher", "letter", "paper", "corner", "supper"],
+    "tags": { "phonics": ["ks1-phonics-er"] }
+  },
+  {
+    "id": "ks1_school-or_v1",
+    "stage": "KS1",
+    "name": "The 'or' Sound",
+    "items": ["for", "short", "story", "morning", "floor"],
+    "tags": { "phonics": ["ks1-phonics-or"] }
+  },
+  {
+    "id": "ks1_monsters-igh_v1",
+    "stage": "KS1",
+    "name": "The 'igh' Sound",
+    "items": ["high", "light", "night", "bright", "sight"],
+    "tags": { "phonics": ["ks1-phonics-igh"] }
+  },
+  {
+    "id": "ks1_monsters-ur_v1",
+    "stage": "KS1",
+    "name": "The 'ur' Sound",
+    "items": ["fur", "purple", "burp", "blur", "curl"],
+    "tags": { "phonics": ["ks1-phonics-ur"] }
+  },
+  {
+    "id": "ks1_town-ow_v1",
+    "stage": "KS1",
+    "name": "The 'ow' Sound",
+    "items": ["town", "down", "clown", "brown", "crown"],
+    "tags": { "phonics": ["ks1-phonics-ow"] }
+  },
+  {
+    "id": "ks1_town-ir_v1",
+    "stage": "KS1",
+    "name": "The 'ir' Sound",
+    "items": ["bird", "girl", "first", "shirt", "third"],
+    "tags": { "phonics": ["ks1-phonics-ir"] }
+  },
+  {
+    "id": "ks1_bedtime-qu_v1",
+    "stage": "KS1",
+    "name": "The 'qu' Sound",
+    "items": ["queen", "quick", "quiet", "quack", "quiz"],
+    "tags": { "phonics": ["ks1-phonics-qu"] }
+  },
+  {
+    "id": "ks1_bedtime-ng_v1",
+    "stage": "KS1",
+    "name": "The 'ng' Sound",
+    "items": ["king", "sing", "long", "song", "ring"],
+    "tags": { "phonics": ["ks1-phonics-ng"] }
+  }
 ]
