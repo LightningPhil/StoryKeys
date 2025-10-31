@@ -1,0 +1,40 @@
+[
+    {
+        "id": "ks4_pattern_able_ible",
+        "stage": "KS4",
+        "name": "-able vs -ible (KS4)",
+        "items": [
+            "reliable",
+            "adorable",
+            "visible",
+            "possible",
+            "flexible",
+            "sensible",
+            "edible"
+        ],
+        "tags": {
+            "phonics": [
+                "-able/-ible"
+            ]
+        }
+    },
+    {
+        "id": "ks4_pattern_ance_ence",
+        "stage": "KS4",
+        "name": "-ance vs -ence (KS4)",
+        "items": [
+            "guidance",
+            "nuisance",
+            "relevance",
+            "absence",
+            "innocence",
+            "patience",
+            "silence"
+        ],
+        "tags": {
+            "phonics": [
+                "-ance/-ence"
+            ]
+        }
+    }
+]

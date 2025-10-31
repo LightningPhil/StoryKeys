@@ -1,0 +1,915 @@
+<!DOCTYPE html>
+<html lang="en-GB" class="theme-cream">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>StoryKeys</title>
+    <!--
+      StoryKeys: A single-file, dyslexia-friendly typing app.
+      Version 6.0: Final Polish & Edge-Case Fixes.
+      All data is stored locally in your browser. Nothing is sent to a server.
+    -->
+    <style>
+        /* --- GLOBAL STYLES & DYSLEXIA-FRIENDLY DEFAULTS (from PRD) --- */
+        :root {
+            --font-family-default: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+            --font-family-dyslexia: "Arial", sans-serif;
+            --base-font-size: clamp(16px, 1.8vw, 20px);
+            --border-radius: 12px;
+            --max-width: 800px;
+            --transition-speed: 200ms;
+        }
+
+        .theme-light { --color-bg: #f8f9fa; --color-text: #212529; --color-card-bg: #ffffff; --color-subtle-bg: #e9ecef; --color-border: #dee2e6; --color-accent: #3b82f6; }
+        .theme-cream { --color-bg: #FAF9F4; --color-text: #1a1a1a; --color-card-bg: #ffffff; --color-subtle-bg: #f0efe9; --color-border: #dcdad1; --color-accent: #3b82f6; }
+        .theme-dark { --color-bg: #0E1116; --color-text: #E8ECF1; --color-card-bg: #161b22; --color-subtle-bg: #21262d; --color-border: #30363d; --color-accent: #60a5fa; }
+
+        @media (prefers-reduced-motion: reduce) { * { transition: none !important; animation: none !important; } }
+
+        * { box-sizing: border-box; }
+
+        html { font-family: var(--font-family, var(--font-family-default)); font-size: var(--base-font-size); line-height: var(--line-height, 1.7); letter-spacing: var(--letter-spacing, 0.02em); background-color: var(--color-bg); color: var(--color-text); transition: background-color var(--transition-speed), color var(--transition-speed); scroll-behavior: smooth; }
+        body { margin: 0; padding: 1rem; display: flex; justify-content: center; align-items: flex-start; min-height: 100vh; }
+        #app-container { width: 100%; max-width: var(--max-width); position: relative; }
+
+        /* --- UI COMPONENTS --- */
+        .card { background-color: var(--color-card-bg); border: 1px solid var(--color-border); border-radius: var(--border-radius); padding: 1.5rem 2rem; box-shadow: 0 4px 12px rgba(0,0,0,0.05); }
+        .button { display: inline-block; font-size: 1rem; font-weight: 600; text-decoration: none; padding: 0.8rem 1.5rem; border-radius: var(--border-radius); border: 2px solid transparent; cursor: pointer; transition: all var(--transition-speed) ease; text-align: center; }
+        .button-primary { background-color: var(--color-accent); color: white; border-color: var(--color-accent);}
+        .button-primary:hover { opacity: 0.85; }
+        .button-secondary { background-color: var(--color-subtle-bg); border-color: var(--color-border); color: var(--color-text); }
+        .button-secondary:hover { background-color: var(--color-border); }
+        .button-group { display: flex; gap: 1rem; flex-wrap: wrap; }
+        .icon-button { background: none; border: none; cursor: pointer; padding: 0.5rem; border-radius: 50%; display: flex; align-items: center; justify-content: center; }
+        .icon-button:hover { background-color: var(--color-subtle-bg); }
+        .icon-button svg { width: 24px; height: 24px; fill: var(--color-text); }
+        .button:focus-visible, .icon-button:focus-visible, .toggle-switch:focus-within { outline: 3px solid var(--color-accent); outline-offset: 2px; box-shadow: 0 0 0 4px rgba(59, 130, 246, 0.2); }
+
+        h1, h2, h3 { margin: 0 0 1rem 0; line-height: 1.2; }
+        p { margin: 0 0 1rem 0; max-width: 65ch; }
+        .screen { display: none; flex-direction: column; gap: 2rem; }
+        .screen.active { display: flex; }
+        
+        /* --- HEADER & MODALS --- */
+        .app-header { display: flex; justify-content: space-between; align-items: center; padding: 0.5rem; margin-bottom: 1rem; }
+        .app-title { font-size: 1.5rem; font-weight: bold; display: flex; align-items: center; gap: 0.5rem; }
+        .modal { position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.5); display: none; justify-content: center; align-items: center; z-index: 100; }
+        .modal.active { display: flex; }
+        .modal-content { background: var(--color-card-bg); border-radius: var(--border-radius); padding: 2rem; max-width: 95%; width: 600px; max-height: 90vh; overflow-y: auto; display: flex; flex-direction: column; }
+        .modal-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 1.5rem; flex-shrink: 0; }
+        
+        /* --- HOME SCREEN --- */
+        .home-header { text-align: center; margin-bottom: 1rem; }
+        .home-header h1 { font-size: 2.5rem; }
+        .home-header p { font-size: 1.1rem; opacity: 0.8; max-width: 45ch; margin: auto; }
+        .home-card { text-align: center; }
+        .home-card p { opacity: 0.7; }
+        .progress-card { display: flex; align-items: center; justify-content: center; gap: 1.5rem; text-align: left; }
+        .progress-pet { font-size: 3rem; }
+
+        /* --- TYPING & DRILL SCREENS --- */
+        .typing-target { font-size: 1.5rem; background-color: var(--color-subtle-bg); padding: 1rem; border-radius: var(--border-radius); margin-bottom: 1rem; line-height: 1.8; letter-spacing: 0.05em; white-space: pre-wrap; word-break: break-word; }
+        .typing-target.focus-line-active .line:not(.current-line) { opacity: 0.5; }
+        .typing-target .line { transition: opacity 0.2s; }
+        .typing-target .char { transition: color 0.1s, background-color 0.1s; }
+        .char.correct { color: #16a34a; }
+        .char.incorrect { color: #ef4444; text-decoration: underline wavy #ef4444; text-decoration-thickness: 2px; text-underline-offset: 3px; }
+        .char.current { background-color: rgba(59, 130, 246, 0.2); border-radius: 3px; }
+        .typing-input { width: 100%; font-family: inherit; font-size: 1.5rem; line-height: 1.8; letter-spacing: 0.05em; padding: 1rem; border: 2px solid var(--color-border); border-radius: var(--border-radius); outline: none; resize: none; background-color: var(--color-card-bg); color: var(--color-text); }
+        .typing-input:focus { border-color: var(--color-accent); }
+        .typing-controls { display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 1rem; margin-bottom: 1rem; }
+        .next-key-bubble { display: inline-block; background-color: var(--color-text); color: var(--color-bg); padding: 0.4rem 1rem; border-radius: 2rem; font-weight: bold; font-size: 1rem; }
+        .timer-chip { font-size: 1.2rem; font-weight: bold; background-color: var(--color-subtle-bg); padding: 0.5rem 1rem; border-radius: 2rem; }
+        .toggle-switch { display: flex; align-items: center; gap: 0.5rem; cursor: pointer; user-select: none; border-radius: 99px; padding: 0.25rem; }
+        .toggle-switch input { position: absolute; opacity: 0; width: 0; height: 0; }
+        .toggle-switch .slider { width: 34px; height: 20px; background-color: #ccc; border-radius: 10px; position: relative; transition: background-color 0.2s; }
+        .toggle-switch .slider::before { content: ''; position: absolute; width: 16px; height: 16px; border-radius: 50%; background-color: white; top: 2px; left: 2px; transition: transform 0.2s; }
+        .toggle-switch input:checked + .slider { background-color: var(--color-accent); }
+        .toggle-switch input:checked + .slider::before { transform: translateX(14px); }
+
+        /* --- SUMMARY & BADGES --- */
+        .summary-metrics { display: grid; grid-template-columns: repeat(auto-fit, minmax(120px, 1fr)); gap: 1.5rem; text-align: center; margin: 2rem 0; }
+        .metric-item .value { font-size: 2.5rem; font-weight: bold; }
+        .summary-feedback ul { list-style-type: none; padding: 0; margin: 0; display: flex; flex-wrap: wrap; gap: 0.5rem; }
+        .summary-feedback li { background-color: var(--color-subtle-bg); padding: 0.25rem 0.75rem; border-radius: 1rem; }
+        .badge-earned { position: relative; border: 2px solid #f59e0b; padding: 1rem; text-align: center; border-radius: var(--border-radius); background-color: var(--color-subtle-bg); overflow: hidden; animation: badge-pulse 1s; }
+        @keyframes badge-pulse { 0% { transform: scale(1); } 50% { transform: scale(1.05); } 100% { transform: scale(1); } }
+        
+        /* --- KEYBOARD HINT --- */
+        #keyboard-hint { margin-top: 2rem; padding: 0.5rem; background: var(--color-subtle-bg); border-radius: var(--border-radius); user-select: none; }
+        .keyboard-row { display: flex; justify-content: center; margin: 5px 0; }
+        .key { display: inline-block; min-width: 50px; height: 50px; line-height: 50px; text-align: center; border: 1px solid var(--color-border); background: var(--color-card-bg); margin: 2px; border-radius: 5px; font-size: 1rem; transition: all 0.1s; }
+        .key.space { width: 280px; }
+        .key.highlight { background-color: var(--color-accent); color: white; transform: scale(1.1); }
+        
+        /* --- CONFETTI & TOAST --- */
+        .confetti { position: absolute; width: 10px; height: 10px; background-color: var(--color-accent); opacity: 0; animation: confetti-fall 2s ease-out forwards; }
+        @keyframes confetti-fall { 0% { transform: translateY(-100px) rotate(0deg); opacity: 1; } 100% { transform: translateY(100px) rotate(360deg); opacity: 0; } }
+        .toast { position:fixed; bottom:1rem; left:50%; transform:translateX(-50%); background:var(--color-text); color:var(--color-bg); padding:.5rem 1rem; border-radius:999px; z-index: 101; }
+        
+        /* --- POLISHED MODAL STYLES --- */
+        .tabs { display: flex; border-bottom: 1px solid var(--color-border); margin-bottom: 1.5rem; }
+        .tab-button { padding: 0.75rem 1rem; border: none; background: none; cursor: pointer; font-size: 1rem; border-bottom: 3px solid transparent; color: var(--color-text); opacity: 0.6; }
+        .tab-button.active { border-bottom-color: var(--color-accent); font-weight: bold; opacity: 1; }
+        .lesson-list { flex-grow: 1; overflow-y: auto; }
+        .lesson-item { display: flex; gap: 1rem; align-items: center; padding: 1rem; border-radius: var(--border-radius); margin-bottom: 0.5rem; cursor: pointer; transition: background-color var(--transition-speed); }
+        .lesson-item:hover { background-color: var(--color-subtle-bg); }
+        .lesson-icon { font-size: 1.5rem; flex-shrink: 0; }
+        .lesson-details { flex-grow: 1; }
+        .lesson-details b { display: block; }
+        .lesson-meta { display: flex; gap: 0.5rem; font-size: 0.8rem; opacity: 0.7; margin-top: 0.25rem; }
+        .meta-chip { background-color: var(--color-subtle-bg); padding: 0.1rem 0.5rem; border-radius: 99px; }
+        .filter-group { display: flex; gap: 1rem; align-items: center; margin-bottom: 1.5rem; }
+        .filter-group label { font-weight: bold; }
+        .stage-filter .button { padding: 0.5rem 1rem; }
+        .stage-filter .button.active { background-color: var(--color-accent); color: white; }
+        .settings-section { margin-bottom: 1rem; border-top: 1px solid var(--color-border); padding-top: 1.5rem; }
+        .settings-section summary { font-weight: bold; font-size: 1.2rem; cursor: pointer; list-style: none; }
+        .settings-section summary::-webkit-details-marker { display: none; }
+        .setting-item { display: flex; justify-content: space-between; align-items: center; padding: 1rem 0; }
+        .setting-item p { margin: 0; opacity: 0.7; font-size: 0.9rem; }
+    </style>
+</head>
+<body>
+    <div id="app-container">
+        <header class="app-header">
+            <div class="app-title"><span id="progress-pet"></span> StoryKeys</div>
+            <div class="button-group">
+                <button id="settings-btn" class="icon-button" title="Settings"><svg viewBox="0 0 24 24"><path d="M19.14,12.94c0.04-0.3,0.06-0.61,0.06-0.94c0-0.32-0.02-0.64-0.07-0.94l2.03-1.58c0.18-0.14,0.23-0.41,0.12-0.61 l-1.92-3.32c-0.12-0.22-0.37-0.29-0.59-0.22l-2.39,0.96c-0.5-0.38-1.03-0.7-1.62-0.94L14.4,2.81c-0.04-0.24-0.24-0.41-0.48-0.41 h-3.84c-0.24,0-0.44,0.17-0.48,0.41L9.22,5.25C8.63,5.5,8.1,5.82,7.6,6.2L5.21,5.24C4.99,5.16,4.74,5.23,4.62,5.45L2.7,8.77 c-0.12,0.21-0.07,0.47,0.12,0.61l2.03,1.58C4.82,11.36,4.8,11.68,4.8,12s0.02,0.64,0.07,0.94l-2.03,1.58 c-0.18,0.14-0.23,0.41-0.12,0.61l1.92,3.32c0.12,0.22,0.37,0.29,0.59,0.22l2.39-0.96c0.5,0.38,1.03,0.7,1.62,0.94l0.38,2.44 c0.04,0.24,0.24,0.41,0.48,0.41h3.84c0.24,0,0.44-0.17-0.48,0.41l0.38-2.44c0.59-0.24,1.13-0.56,1.62-0.94l2.39,0.96 c0.22,0.08,0.47,0.01,0.59-0.22l1.92-3.32c0.12-0.2,0.07-0.47-0.12-0.61L19.14,12.94z M12,15.6c-1.98,0-3.6-1.62-3.6-3.6 s1.62-3.6,3.6-3.6s3.6,1.62,3.6,3.6S13.98,15.6,12,15.6z"></path></svg></button>
+                <button id="parent-btn" class="icon-button" title="Parent Glance"><svg viewBox="0 0 24 24"><path d="M12,12c2.21,0,4-1.79,4-4s-1.79-4-4-4S8,5.79,8,8S9.79,12,12,12z M12,14c-2.67,0-8,1.34-8,4v2h16v-2 C20,15.34,14.67,14,12,14z"></path></svg></button>
+            </div>
+        </header>
+        <main id="main-content"></main>
+        <div id="modal-container"></div>
+    </div>
+    
+    <!-- EMBEDDED JSON DATA (ALL SECTIONS) -->
+    <script type="application/json" id="storykeys-wordsets">[{"id":"ks1_hf_words_core_1","stage":"KS1","theme":"Core","name":"High-frequency Words A","words":["the","and","said","have","come","here","little","look"],"tags":{"complexity":{"caps":false,"punct":false}}},{"id":"ks1_animals_small_mammals_1","stage":"KS1","theme":"Animals","name":"Small Mammals 1","words":["rabbit","badger","otter","vole","mole","hedgehog"],"tags":{"complexity":{"caps":true,"punct":false}}},{"id":"ks1_colours_1","stage":"KS1","theme":"Core","name":"Colours","words":["red","blue","green","yellow","black","white","pink","brown"],"tags":{"complexity":{"caps":false,"punct":false}}},{"id":"ks1_cvc_words_1","stage":"KS1","theme":"Phonics","name":"Simple CVC Words","words":["cat","dog","sun","run","sit","pen","cup","pig"],"tags":{"complexity":{"caps":false,"punct":false}}},{"id":"ks1_animals_farm_1","stage":"KS1","theme":"Animals","name":"On the Farm","words":["cow","sheep","horse","duck","chick","goat"],"tags":{"complexity":{"caps":true,"punct":false}}},{"id":"ks1_nature_verbs_1","stage":"KS1","theme":"Nature","name":"Nature Actions","words":["grow","flow","fall","shine","bloom","drift"],"tags":{"complexity":{"caps":true,"punct":false}}},{"id":"ks1_body_parts_1","stage":"KS1","theme":"Core","name":"Body Parts","words":["head","hand","foot","leg","arm","face","eye","nose"],"tags":{"complexity":{"caps":false,"punct":false}}},{"id":"ks1_digraph_sh_ch_1","stage":"KS1","theme":"Phonics","name":"sh and ch","words":["ship","shop","fish","shed","chip","chin","rich","much"],"tags":{"complexity":{"caps":false,"punct":false}}},{"id":"ks1_animals_pets_1","stage":"KS1","theme":"Animals","name":"Pets at Home","words":["cat","dog","fish","hamster","mouse","snake"],"tags":{"complexity":{"caps":true,"punct":false}}},{"id":"ks1_numbers_1","stage":"KS1","theme":"Core","name":"Numbers to Ten","words":["one","two","three","four","five","six","seven","eight"],"tags":{"complexity":{"caps":false,"punct":false}}},{"id":"ks1_hf_words_core_2","stage":"KS1","theme":"Core","name":"High-frequency Words B","words":["what","when","see","out","was","you","they","all"],"tags":{"complexity":{"caps":false,"punct":false}}},{"id":"ks1_digraph_th_1","stage":"KS1","theme":"Phonics","name":"th sound","words":["this","that","then","with","moth","path","thin","thick"],"tags":{"complexity":{"caps":false,"punct":false}}},{"id":"ks1_animals_insects_1","stage":"KS1","theme":"Animals","name":"In the Garden","words":["bee","ant","fly","worm","moth","wasp","snail"],"tags":{"complexity":{"caps":true,"punct":false}}},{"id":"ks1_food_1","stage":"KS1","theme":"Core","name":"Food Items","words":["cake","milk","bread","apple","egg","fish","cheese"],"tags":{"complexity":{"caps":false,"punct":false}}},{"id":"ks1_silent_e_1","stage":"KS1","theme":"Phonics","name":"Magic e","words":["make","time","home","like","came","rule","huge","use"],"tags":{"complexity":{"caps":false,"punct":false}}},{"id":"ks1_weather_1","stage":"KS1","theme":"Nature","name":"Weather Words","words":["sun","rain","wind","snow","fog","cloud","hot","cold"],"tags":{"complexity":{"caps":false,"punct":false}}},{"id":"ks1_animals_birds_1","stage":"KS1","theme":"Animals","name":"Birds","words":["duck","hen","owl","crow","dove","gull"],"tags":{"complexity":{"caps":true,"punct":false}}},{"id":"ks1_digraph_ee_oo_1","stage":"KS1","theme":"Phonics","name":"ee and oo","words":["see","bee","feet","green","moon","boot","food","zoo"],"tags":{"complexity":{"caps":false,"punct":false}}},{"id":"ks1_feelings_1","stage":"KS1","theme":"Core","name":"Feelings","words":["happy","sad","cross","tired","kind","calm"],"tags":{"complexity":{"caps":false,"punct":false}}},{"id":"ks1_story_words_1","stage":"KS1","theme":"Core","name":"Story Words","words":["once","upon","time","king","queen","lived","story","end"],"tags":{"complexity":{"caps":true,"punct":false}}},{"id":"ks2_uk_statutory_sample_1","stage":"KS2","theme":"Statutory","name":"UK Statutory (A)","words":["favourite","colour","neighbour","centre","travelling","jewellery"],"tags":{"complexity":{"caps":true,"punct":false}}},{"id":"ks2_animals_action_verbs_1","stage":"KS2","theme":"Animals","name":"Animal Verbs","words":["pounces","scampers","ambles","swoops","grazes","dozes","nudges","pecks"],"tags":{"complexity":{"caps":true,"punct":false}}},{"id":"ks2_homophones_1","stage":"KS2","theme":"Statutory","name":"Homophones (A)","words":["there","their","they're","where","wear","were","your","you're"],"tags":{"complexity":{"caps":false,"punct":false}}},{"id":"ks2_science_terms_1","stage":"KS2","theme":"Science snips","name":"Science Terms (A)","words":["dissolve","friction","gravity","reflect","absorb","circuit","force"],"tags":{"complexity":{"caps":true,"punct":false}}},{"id":"ks2_suffix_tion_1","stage":"KS2","theme":"Phonics","name":"Suffix -tion","words":["station","fiction","motion","nation","action","lotion","option"],"tags":{"complexity":{"caps":false,"punct":false}}},{"id":"ks2_animals_habitats_1","stage":"KS2","theme":"Animals","name":"Animal Habitats","words":["forest","desert","ocean","river","jungle","meadow","tundra"],"tags":{"complexity":{"caps":true,"punct":false}}},{"id":"ks2_nature_trees_1","stage":"KS2","theme":"Nature","name":"British Trees","words":["oak","ash","beech","birch","willow","holly","sycamore"],"tags":{"complexity":{"caps":true,"punct":false}}},{"id":"ks2_uk_statutory_sample_2","stage":"KS2","theme":"Statutory","name":"UK Statutory (B)","words":["believe","bicycle","business","calendar","caught","centre","century"],"tags":{"complexity":{"caps":true,"punct":false}}},{"id":"ks2_silent_letters_1","stage":"KS2","theme":"Phonics","name":"Silent Letters","words":["knock","write","gnome","doubt","island","listen","autumn"],"tags":{"complexity":{"caps":false,"punct":false}}},{"id":"ks2_history_vikings_1","stage":"KS2","theme":"History","name":"The Vikings","words":["Viking","longship","explore","settle","invade","Norse","raid"],"tags":{"complexity":{"caps":true,"punct":false}}},{"id":"ks2_homophones_2","stage":"KS2","theme":"Statutory","name":"Homophones (B)","words":["to","too","two","see","sea","son","sun","for","four"],"tags":{"complexity":{"caps":false,"punct":false}}},{"id":"ks2_animals_adjectives_1","stage":"KS2","theme":"Animals","name":"Animal Adjectives","words":["cunning","majestic","fierce","gentle","playful","swift","loyal"],"tags":{"complexity":{"caps":false,"punct":false}}},{"id":"ks2_prefix_un_dis_1","stage":"KS2","theme":"Phonics","name":"Prefixes un- and dis-","words":["undo","unfair","unhappy","unzip","dislike","disagree","dishonest"],"tags":{"complexity":{"caps":false,"punct":false}}},{"id":"ks2_geography_uk_1","stage":"KS2","theme":"Geography","name":"UK Geography","words":["England","Scotland","Wales","London","river","mountain","coast"],"tags":{"complexity":{"caps":true,"punct":false}}},{"id":"ks2_uk_statutory_sample_3","stage":"KS2","theme":"Statutory","name":"UK Statutory (C)","words":["different","difficult","disappear","early","earth","eighth","enough"],"tags":{"complexity":{"caps":true,"punct":false}}},{"id":"ks2_nature_rocks_1","stage":"KS2","theme":"Nature","name":"Types of Rock","words":["igneous","sedimentary","metamorphic","granite","slate","fossil"],"tags":{"complexity":{"caps":true,"punct":false}}},{"id":"ks2_suffix_ous_1","stage":"KS2","theme":"Phonics","name":"Suffix -ous","words":["famous","nervous","dangerous","enormous","fabulous","joyous"],"tags":{"complexity":{"caps":false,"punct":false}}},{"id":"ks2_mythology_1","stage":"KS2","theme":"Myths","name":"Greek Myths","words":["Zeus","Hera","myth","legend","goddess","monster","hero"],"tags":{"complexity":{"caps":true,"punct":false}}},{"id":"ks2_science_space_1","stage":"KS2","theme":"Science snips","name":"The Solar System","words":["planet","star","orbit","galaxy","asteroid","comet","universe"],"tags":{"complexity":{"caps":true,"punct":false}}},{"id":"ks2_uk_statutory_sample_4","stage":"KS2","theme":"Statutory","name":"UK Statutory (D)","words":["exercise","experience","extreme","famous","February","forward"],"tags":{"complexity":{"caps":true,"punct":false}}},{"id":"ks3_connectors_academic_1","stage":"KS3","theme":"Academic","name":"Connectors (A)","words":["however","therefore","consequently","moreover","nevertheless","furthermore"],"tags":{"complexity":{"caps":true,"punct":false}}},{"id":"ks3_mythology_creatures_1","stage":"KS3","theme":"Myths","name":"Mythical Creatures","words":["phoenix","centaur","minotaur","cyclops","gorgon","chimera","hydra"],"tags":{"complexity":{"caps":true,"punct":false}}},{"id":"ks3_science_biology_1","stage":"KS3","theme":"Science snips","name":"Biology Terms","words":["organism","photosynthesis","respiration","ecosystem","nucleus","chromosome"],"tags":{"complexity":{"caps":true,"punct":false}}},{"id":"ks3_literature_terms_1","stage":"KS3","theme":"Academic","name":"Literary Terms","words":["metaphor","simile","onomatopoeia","alliteration","protagonist","symbolism"],"tags":{"complexity":{"caps":true,"punct":false}}},{"id":"ks3_suffix_able_ible_1","stage":"KS3","theme":"Phonics","name":"-able vs -ible","words":["reliable","adorable","visible","possible","flexible","sensible","edible"],"tags":{"complexity":{"caps":false,"punct":false}}},{"id":"ks3_history_medieval_1","stage":"KS3","theme":"History","name":"Medieval Life","words":["medieval","feudalism","monarchy","cathedral","knight","peasant","castle"],"tags":{"complexity":{"caps":true,"punct":false}}},{"id":"ks3_connectors_academic_2","stage":"KS3","theme":"Academic","name":"Connectors (B)","words":["meanwhile","alternatively","subsequently","similarly","contrastingly"],"tags":{"complexity":{"caps":true,"punct":false}}},{"id":"ks3_geography_physical_1","stage":"KS3","theme":"Geography","name":"Physical Geography","words":["tectonic","erosion","glacier","peninsula","archipelago","hemisphere"],"tags":{"complexity":{"caps":true,"punct":false}}},{"id":"ks3_science_chemistry_1","stage":"KS3","theme":"Science snips","name":"Chemistry Terms","words":["molecule","catalyst","element","compound","reaction","solution","acid"],"tags":{"complexity":{"caps":true,"punct":false}}},{"id":"ks3_government_1","stage":"KS3","theme":"Academic","name":"Government","words":["parliament","democracy","election","government","judiciary","legislation"],"tags":{"complexity":{"caps":true,"punct":false}}},{"id":"ks3_tricky_spellings_1","stage":"KS3","theme":"Statutory","name":"Tricky Spellings (A)","words":["accommodate","committee","embarrass","necessary","privilege","rhythm"],"tags":{"complexity":{"caps":false,"punct":false}}},{"id":"ks3_science_physics_1","stage":"KS3","theme":"Science snips","name":"Physics Terms","words":["velocity","acceleration","momentum","friction","spectrum","refraction"],"tags":{"complexity":{"caps":true,"punct":false}}},{"id":"ks3_history_industrial_1","stage":"KS3","theme":"History","name":"Industrial Revolution","words":["industrial","revolution","factory","steam","engine","textile","innovation"],"tags":{"complexity":{"caps":true,"punct":false}}},{"id":"ks3_analysis_verbs_1","stage":"KS3","theme":"Academic","name":"Analysis Verbs","words":["analyse","evaluate","interpret","juxtapose","convey","emphasise","imply"],"tags":{"complexity":{"caps":false,"punct":false}}},{"id":"ks3_tricky_spellings_2","stage":"KS3","theme":"Statutory","name":"Tricky Spellings (B)","words":["conscience","definitely","guarantee","mischievous","occasionally"],"tags":{"complexity":{"caps":false,"punct":false}}},{"id":"ks3_geography_weather_1","stage":"KS3","theme":"Geography","name":"Weather & Climate","words":["atmosphere","precipitation","humidity","climate","cyclone","anticyclone"],"tags":{"complexity":{"caps":true,"punct":false}}},{"id":"ks3_mathematics_1","stage":"KS3","theme":"Academic","name":"Mathematics Terms","words":["algebra","geometry","probability","equation","integer","coefficient"],"tags":{"complexity":{"caps":false,"punct":false}}},{"id":"ks3_suffix_ance_ence_1","stage":"KS3","theme":"Phonics","name":"-ance vs -ence","words":["guidance","nuisance","relevance","absence","innocence","patience"],"tags":{"complexity":{"caps":false,"punct":false}}},{"id":"ks3_art_history_1","stage":"KS3","theme":"History","name":"Art Movements","words":["renaissance","baroque","impressionism","cubism","surrealism"],"tags":{"complexity":{"caps":true,"punct":false}}},{"id":"ks3_tricky_spellings_3","stage":"KS3","theme":"Statutory","name":"Tricky Spellings (C)","words":["separate","sincerely","twelfth","cemetery","desperate","existence"],"tags":{"complexity":{"caps":false,"punct":false}}}]</script>
+    <script type="application/json" id="storykeys-passages">[{"id":"ks1_animals_curious_cat_1","stage":"KS1","theme":"Animals","title":"Curious Cat","text":"The cat taps the glass and blinks. A goldfish waggles past. They both stare, as if planning tea.","tags":{"complexity":{"caps":true,"punct":true}},"meta":{"est_chars":121}},{"id":"ks1_silly_duck_1","stage":"KS1","theme":"Silly Stories","title":"A Silly Duck","text":"A duck wears a top hat. He tips it to a big green frog. The frog just looks confused.","tags":{"complexity":{"caps":true,"punct":true}},"meta":{"est_chars":105}},{"id":"ks1_animals_sleeping_fox_1","stage":"KS1","theme":"Animals","title":"Sleeping Fox","text":"The small fox curls up in the sun. His tail is a warm blanket. He dreams of chasing mice.","tags":{"complexity":{"caps":true,"punct":true}},"meta":{"est_chars":109}},{"id":"ks1_nature_gentle_rain_1","stage":"KS1","theme":"Nature","title":"Gentle Rain","text":"Raindrops tap on the green leaves. A little worm peeks out from the soil to say hello.","tags":{"complexity":{"caps":true,"punct":true}},"meta":{"est_chars":97}},{"id":"ks1_animals_busy_squirrel_1","stage":"KS1","theme":"Animals","title":"Busy Squirrel","text":"A red squirrel buries a nut. He must remember the spot for winter. It is very important work.","tags":{"complexity":{"caps":true,"punct":true}},"meta":{"est_chars":108}},{"id":"ks1_silly_snail_1","stage":"KS1","theme":"Silly Stories","title":"A Fast Snail","text":"A snail paints a bright red racing stripe on his shell. Now he feels much faster than before.","tags":{"complexity":{"caps":true,"punct":true}},"meta":{"est_chars":106}},{"id":"ks1_animals_happy_dog_1","stage":"KS1","theme":"Animals","title":"Happy Dog","text":"The dog wags his tail so hard that his whole body wiggles. He has found his favourite squeaky toy.","tags":{"complexity":{"caps":true,"punct":true}},"meta":{"est_chars":111}},{"id":"ks1_nature_the_moon_1","stage":"KS1","theme":"Nature","title":"The Moon","text":"The big moon shines in the dark sky. It looks like a bright silver coin watching over the town.","tags":{"complexity":{"caps":true,"punct":true}},"meta":{"est_chars":108}},{"id":"ks1_animals_small_mouse_1","stage":"KS1","theme":"Animals","title":"A Small Mouse","text":"A tiny mouse finds a big crumb of cheese. It is too heavy to carry, so he must eat it all now.","tags":{"complexity":{"caps":true,"punct":true}},"meta":{"est_chars":113}},{"id":"ks1_silly_bird_1","stage":"KS1","theme":"Silly Stories","title":"Singing Bird","text":"A little bird sings a song for his friends. He forgets the words and just hums the rest.","tags":{"complexity":{"caps":true,"punct":true}},"meta":{"est_chars":102}},{"id":"ks1_nature_tall_tree_1","stage":"KS1","theme":"Nature","title":"Tall Tree","text":"A tall tree reaches for the sky. Its leaves dance in the wind. Many birds have a home here.","tags":{"complexity":{"caps":true,"punct":true}},"meta":{"est_chars":105}},{"id":"ks1_animals_wise_owl_1","stage":"KS1","theme":"Animals","title":"A Wise Owl","text":"An owl sits on a branch at night. He has big round eyes. He looks very clever and wise.","tags":{"complexity":{"caps":true,"punct":true}},"meta":{"est_chars":101}},{"id":"ks1_silly_fish_1","stage":"KS1","theme":"Silly Stories","title":"Bubble Trouble","text":"A tiny fish blows a big bubble. It lifts him right out of the water. What a surprise!","tags":{"complexity":{"caps":true,"punct":true}},"meta":{"est_chars":94}},{"id":"ks1_animals_slow_tortoise_1","stage":"KS1","theme":"Animals","title":"Slow Tortoise","text":"A tortoise walks slowly across the grass. He is not in a hurry. He has all day to get there.","tags":{"complexity":{"caps":true,"punct":true}},"meta":{"est_chars":109}},{"id":"ks1_nature_the_sun_1","stage":"KS1","theme":"Nature","title":"The Sun","text":"The sun warms the sleepy ground. Flowers open up to feel its yellow light on their petals.","tags":{"complexity":{"caps":true,"punct":true}},"meta":{"est_chars":99}},{"id":"ks1_silly_cat_nap_1","stage":"KS1","theme":"Silly Stories","title":"A Cat Nap","text":"My cat can sleep anywhere. Today he is sleeping in the clean washing basket. Oh dear.","tags":{"complexity":{"caps":true,"punct":true}},"meta":{"est_chars":93}},{"id":"ks1_animals_garden_frog_1","stage":"KS1","theme":"Animals","title":"Garden Frog","text":"A fat green frog sits on a lily pad. He catches a fly with his long, sticky tongue. Yum!","tags":{"complexity":{"caps":true,"punct":true}},"meta":{"est_chars":97}},{"id":"ks1_nature_a_cloud_1","stage":"KS1","theme":"Nature","title":"A Cloud","text":"A fluffy white cloud floats by. It looks just like a big sheep grazing in a blue field.","tags":{"complexity":{"caps":true,"punct":true}},"meta":{"est_chars":96}},{"id":"ks1_silly_pig_1","stage":"KS1","theme":"Silly Stories","title":"A Clean Pig","text":"A pig decides he hates mud. He has a lovely bath with lots of bubbles and feels very fancy.","tags":{"complexity":{"caps":true,"punct":true}},"meta":{"est_chars":105}},{"id":"ks1_animals_bee_1","stage":"KS1","theme":"Animals","title":"A Busy Bee","text":"A fuzzy bee buzzes from flower to flower. She is collecting sweet nectar to take back home.","tags":{"complexity":{"caps":true,"punct":true}},"meta":{"est_chars":104}},{"id":"ks1_animals_bunny_tail_1","stage":"KS1","theme":"Animals","title":"The Fluffy Tail","text":"Barnaby the bunny saw his own fluffy tail. He spun round and round to catch it. Oh dear, now he was very dizzy!","tags":{"complexity":{"caps":true,"punct":true},"phonics":["double consonant"]},"meta":{"est_chars":125}},{"id":"ks1_animals_bunny_carrot_1","stage":"KS1","theme":"Animals","title":"The Giant Carrot","text":"A bunny found a big carrot. It was too big for her hole. She pushed and pushed but it would not move. So she just sat and nibbled the end all day.","tags":{"complexity":{"caps":true,"punct":true},"phonics":["double consonant"]},"meta":{"est_chars":141}},{"id":"ks2_animals_otter_nonsense_1","stage":"KS2","theme":"Animals","title":"Otter Nonsense","text":"The otter balances a pebble like a tiny crown. It twirls, drops it, and looks very pleased with itself.","tags":{"complexity":{"caps":true,"punct":true}},"meta":{"est_chars":132}},{"id":"ks2_nature_small_weather_1","stage":"KS2","theme":"Nature","title":"A British Breeze","text":"A small breeze hustles the leaves along the path. Clouds shuffle over the sun, then think better of it.","tags":{"complexity":{"caps":true,"punct":true}},"meta":{"est_chars":136}},{"id":"ks2_animals_silly_fox_1","stage":"KS2","theme":"Silly Stories","title":"The Fox’s Plan","text":"The fox draws a map with a muddy paw, then forgets which way is north and asks a friendly crow.","tags":{"complexity":{"caps":true,"punct":true}},"meta":{"est_chars":125}},{"id":"ks2_science_snip_1","stage":"KS2","theme":"Science snips","title":"Water Cycle","text":"Water evaporates from the sea, forms clouds, and then falls as rain. It's a journey with no end.","tags":{"complexity":{"caps":true,"punct":true}},"meta":{"est_chars":119}},{"id":"ks2_myths_griffin_guard_1","stage":"KS2","theme":"Myths","title":"The Griffin's Guard","text":"The griffin, with its lion's body and eagle's head, guarded a treasure of pure gold. Few dared to challenge it.","tags":{"complexity":{"caps":true,"punct":true}},"meta":{"est_chars":149}},{"id":"ks2_silly_stories_detective_badger_1","stage":"KS2","theme":"Silly Stories","title":"Detective Badger","text":"Badger put on his favourite tweed cap. 'The case of the missing jam tart,' he mumbled, 'is my most difficult yet!'","tags":{"complexity":{"caps":true,"punct":true}},"meta":{"est_chars":149}},{"id":"ks2_animals_hedgehog_defence_1","stage":"KS2","theme":"Animals","title":"Hedgehog Defence","text":"At the first sign of danger, the hedgehog curls into a tight, spiky ball. It is a simple but effective defence.","tags":{"complexity":{"caps":true,"punct":true}},"meta":{"est_chars":128}},{"id":"ks2_nature_ancient_oak_1","stage":"KS2","theme":"Nature","title":"The Ancient Oak","text":"An ancient oak tree stood on the hill, its branches like gnarled fingers pointing at the travelling clouds.","tags":{"complexity":{"caps":true,"punct":true}},"meta":{"est_chars":135}},{"id":"ks2_silly_stories_pigeon_post_1","stage":"KS2","theme":"Silly Stories","title":"Pigeon Post","text":"A pigeon tries to deliver a letter, but he gets distracted by a shiny bottle cap and forgets the address.","tags":{"complexity":{"caps":true,"punct":true}},"meta":{"est_chars":126}},{"id":"ks2_science_rainbows_1","stage":"KS2","theme":"Science snips","title":"How Rainbows Form","text":"Sunlight shining through raindrops is split into its different colours, creating a beautiful arc in the sky.","tags":{"complexity":{"caps":true,"punct":true}},"meta":{"est_chars":136}},{"id":"ks2_animals_bat_sonar_1","stage":"KS2","theme":"Animals","title":"Bat Sonar","text":"A bat navigates in the dark by emitting high-pitched squeaks. The echoes create a map of its surroundings.","tags":{"complexity":{"caps":true,"punct":true}},"meta":{"est_chars":143}},{"id":"ks2_myths_cerberus_1","stage":"KS2","theme":"Myths","title":"Cerberus","text":"Cerberus, the three-headed dog, guarded the entrance to the underworld. He was fearsome but loyal to his master.","tags":{"complexity":{"caps":true,"punct":true}},"meta":{"est_chars":141}},{"id":"ks2_silly_stories_squirrel_meeting_1","stage":"KS2","theme":"Silly Stories","title":"Squirrel Meeting","text":"The squirrels held an urgent meeting. The topic: how to get the 'impossible' nuts from the new bird feeder.","tags":{"complexity":{"caps":true,"punct":true}},"meta":{"est_chars":131}},{"id":"ks2_nature_river_journey_1","stage":"KS2","theme":"Nature","title":"River's Journey","text":"The river starts as a tiny trickle in the hills. It grows stronger and wider on its long journey to the sea.","tags":{"complexity":{"caps":true,"punct":true}},"meta":{"est_chars":132}},{"id":"ks2_animals_chameleon_1","stage":"KS2","theme":"Animals","title":"The Chameleon","text":"A chameleon can change its skin colour to match its background. It's the ultimate game of hide-and-seek.","tags":{"complexity":{"caps":true,"punct":true}},"meta":{"est_chars":129}},{"id":"ks2_science_magnets_1","stage":"KS2","theme":"Science snips","title":"Magnets","text":"Every magnet has a north and a south pole. Opposite poles attract, while identical poles repel each other.","tags":{"complexity":{"caps":true,"punct":true}},"meta":{"est_chars":128}},{"id":"ks2_silly_stories_formal_frog_1","stage":"KS2","theme":"Silly Stories","title":"A Formal Frog","text":"A frog insists on wearing a tiny bow tie. He thinks it makes him look more distinguished when catching flies.","tags":{"complexity":{"caps":true,"punct":true}},"meta":{"est_chars":132}},{"id":"ks2_myths_pegasus_1","stage":"KS2","theme":"Myths","title":"Pegasus","text":"Pegasus was a magnificent winged horse. With a beat of his hooves, he could create a spring of fresh water.","tags":{"complexity":{"caps":true,"punct":true}},"meta":{"est_chars":133}},{"id":"ks2_nature_spider_web_1","stage":"KS2","theme":"Nature","title":"Spider's Web","text":"The spider's web, a marvel of engineering, glistens with morning dew. It is both a home and a clever trap.","tags":{"complexity":{"caps":true,"punct":true}},"meta":{"est_chars":134}},{"id":"ks2_animals_clever_crows_1","stage":"KS2","theme":"Animals","title":"Clever Crows","text":"Crows are incredibly intelligent birds. They can use tools, solve puzzles, and even remember human faces.","tags":{"complexity":{"caps":true,"punct":true}},"meta":{"est_chars":133}},{"id":"ks2_silly_flying_bunny_1","stage":"KS2","theme":"Silly Stories","title":"Barnaby's Big Idea","text":"Barnaby had a brilliant, if silly, idea. He would learn to fly! He strapped two large cabbage leaves to his back and leapt from a small log. He did not fly, but he did perform a spectacular tumble.","tags":{"complexity":{"caps":true,"punct":true},"phonics":["double consonant","ea/ee"]},"meta":{"est_chars":176}},{"id":"ks2_silly_bunny_detective_1","stage":"KS2","theme":"Silly Stories","title":"The Dandelion Detective","text":"One perfect dandelion was missing from the patch. Beatrice Bunny, detective extraordinaire, examined the scene. The only clue? A trail of crumbs leading straight to the sleepy badger's den.","tags":{"complexity":{"caps":true,"punct":true},"phonics":["double consonant","ea/ee"]},"meta":{"est_chars":185}},{"id":"ks3_academic_quiet_lab_1","stage":"KS3","theme":"Science snips","title":"Quiet Lab","text":"In the quiet lab, the solution turns a pale green; however, the reaction itself remains quite unremarkable.","tags":{"complexity":{"caps":true,"punct":true}},"meta":{"est_chars":138}},{"id":"ks3_myths_icarus_1","stage":"KS3","theme":"Myths","title":"Icarus's Flight","text":"He fashioned wings of feather and wax, ignoring his father's advice. The sun, however, had other ideas.","tags":{"complexity":{"caps":true,"punct":true}},"meta":{"est_chars":132}},{"id":"ks3_science_photosynthesis_1","stage":"KS3","theme":"Science snips","title":"Photosynthesis","text":"Photosynthesis is a remarkable process. Plants use sunlight to convert carbon dioxide and water into their own food.","tags":{"complexity":{"caps":true,"punct":true}},"meta":{"est_chars":148}},{"id":"ks3_academic_hypothesis_1","stage":"KS3","theme":"Academic","title":"The Hypothesis","text":"The experiment produced an unexpected result. Therefore, the initial hypothesis had to be re-evaluated completely.","tags":{"complexity":{"caps":true,"punct":true}},"meta":{"est_chars":139}},{"id":"ks3_myths_perseus_medusa_1","stage":"KS3","theme":"Myths","title":"Perseus and Medusa","text":"Although Medusa's gaze could turn a man to stone, Perseus was clever; he used his polished shield as a mirror.","tags":{"complexity":{"caps":true,"punct":true}},"meta":{"est_chars":141}},{"id":"ks3_nature_ecosystem_1","stage":"KS3","theme":"Nature","title":"Ecosystem Balance","text":"Every organism in an ecosystem has a specific role. The removal of one species can have unforeseen consequences.","tags":{"complexity":{"caps":true,"punct":true}},"meta":{"est_chars":139}},{"id":"ks3_science_gravity_1","stage":"KS3","theme":"Science snips","title":"Universal Gravity","text":"Newton realised that the force keeping the moon in orbit was the same force that makes an apple fall to the ground.","tags":{"complexity":{"caps":true,"punct":true}},"meta":{"est_chars":142}},{"id":"ks3_academic_source_critique_1","stage":"KS3","theme":"Academic","title":"Source Critique","text":"When studying history, it's crucial to analyse the reliability of a source, considering its origin and potential bias.","tags":{"complexity":{"caps":true,"punct":true}},"meta":{"est_chars":147}},{"id":"ks3_myths_pandora_box_1","stage":"KS3","theme":"Myths","title":"Pandora's Box","text":"She was warned never to open the box. Her curiosity, however, proved too strong and she unleashed chaos upon the world.","tags":{"complexity":{"caps":true,"punct":true}},"meta":{"est_chars":149}},{"id":"ks3_nature_plate_tectonics_1","stage":"KS3","theme":"Nature","title":"Plate Tectonics","text":"The Earth's crust is not a single piece, but is composed of several tectonic plates that are in constant, slow motion.","tags":{"complexity":{"caps":true,"punct":true}},"meta":{"est_chars":146}},{"id":"ks3_science_dna_1","stage":"KS3","theme":"Science snips","title":"DNA","text":"DNA, the blueprint of life, is a complex molecule shaped like a twisted ladder, known as a double helix.","tags":{"complexity":{"caps":true,"punct":true}},"meta":{"est_chars":126}},{"id":"ks3_academic_argument_1","stage":"KS3","theme":"Academic","title":"Building an Argument","text":"A strong argument requires a clear thesis, supported by credible evidence and logical reasoning. Without these, it fails.","tags":{"complexity":{"caps":true,"punct":true}},"meta":{"est_chars":144}},{"id":"ks3_myths_king_midas_1","stage":"KS3","theme":"Myths","title":"King Midas","text":"King Midas wished that everything he touched would turn to gold. He soon discovered his wish was a terrible curse.","tags":{"complexity":{"caps":true,"punct":true}},"meta":{"est_chars":142}},{"id":"ks3_nature_evolution_1","stage":"KS3","theme":"Nature","title":"Natural Selection","text":"Natural selection is the process where organisms better adapted to their environment tend to survive and reproduce.","tags":{"complexity":{"caps":true,"punct":true}},"meta":{"est_chars":140}},{"id":"ks3_science_black_hole_1","stage":"KS3","theme":"Science snips","title":"Black Holes","text":"A black hole is a region of spacetime where gravity is so strong that nothing—not even light—can escape its pull.","tags":{"complexity":{"caps":true,"punct":true}},"meta":{"est_chars":141}},{"id":"ks3_myths_prometheus_1","stage":"KS3","theme":"Myths","title":"Prometheus","text":"Prometheus defied the gods by stealing fire and giving it to humanity, an act for which he was severely punished.","tags":{"complexity":{"caps":true,"punct":true}},"meta":{"est_chars":139}},{"id":"ks3_academic_shakespeare_1","stage":"KS3","theme":"Academic","title":"Shakespearean Language","text":"Though initially challenging, Shakespeare's language is rich with metaphor and wordplay that rewards careful reading.","tags":{"complexity":{"caps":true,"punct":true}},"meta":{"est_chars":148}},{"id":"ks3_nature_volcano_1","stage":"KS3","theme":"Nature","title":"Volcanic Eruption","text":"Pressure builds deep within the Earth until molten rock, or magma, is forced to the surface in a volcanic eruption.","tags":{"complexity":{"caps":true,"punct":true}},"meta":{"est_chars":144}},{"id":"ks3_myths_theseus_minotaur_1","stage":"KS3","theme":"Myths","title":"Theseus and the Minotaur","text":"Theseus navigated the labyrinth using a ball of thread, faced the fearsome Minotaur, and emerged victorious.","tags":{"complexity":{"caps":true,"punct":true}},"meta":{"est_chars":140}},{"id":"ks3_science_relativity_1","stage":"KS3","theme":"Science snips","title":"Relativity","text":"Einstein's theory of relativity fundamentally changed our understanding of space, time, and the nature of gravity.","tags":{"complexity":{"caps":true,"punct":true}},"meta":{"est_chars":141}},{"id":"ks3_silly_poet_bunny_1","stage":"KS3","theme":"Silly Stories","title":"The Poet Rabbit","text":"Bartholomew considered the sunset. 'Oh, sky of pink and...' he mumbled, searching for a suitable rhyme. His stomach rumbled loudly. Consequently, the poem was abandoned in favour of some delicious clover.","tags":{"complexity":{"caps":true,"punct":true},"phonics":["ow/ou"]},"meta":{"est_chars":201}},{"id":"ks3_science_bunny_crunch_1","stage":"KS3","theme":"Science snips","title":"A Scientific Crunch","text":"Professor Bunstable's experiment was simple: to determine which vegetable had the optimal crunch factor. His hypothesis favoured the carrot; however, his research was frequently compromised by him eating the evidence.","tags":{"complexity":{"caps":true,"punct":true},"phonics":["double consonant","ow/ou"]},"meta":{"est_chars":214}}]</script>
+    <script type="application/json" id="storykeys-patterns">[{"id":"pattern_tion","stage":"KS2","name":"Suffix -tion","items":["station","action","portion","motion","caution","question","nation","fiction"],"tags":{"phonics":["-tion"]}},{"id":"pattern_sion","stage":"KS2","name":"Suffix -sion","items":["television","division","collision","decision","confusion","explosion"],"tags":{"phonics":["-sion"]}},{"id":"pattern_ssion","stage":"KS2","name":"Suffix -ssion","items":["mission","passion","discussion","expression","impression","permission"],"tags":{"phonics":["-ssion"]}},{"id":"pattern_cian","stage":"KS2","name":"Suffix -cian","items":["musician","magician","electrician","politician","optician","technician"],"tags":{"phonics":["-cian"]}},{"id":"pattern_able_ible","stage":"KS3","name":"-able vs -ible","items":["reliable","adorable","visible","possible","flexible","sensible","edible"],"tags":{"phonics":["-able/-ible"]}},{"id":"pattern_ance_ence","stage":"KS3","name":"-ance vs -ence","items":["guidance","nuisance","relevance","absence","innocence","patience","silence"],"tags":{"phonics":["-ance/-ence"]}},{"id":"pattern_ous","stage":"KS2","name":"Suffix -ous","items":["famous","nervous","dangerous","enormous","fabulous","joyous","various"],"tags":{"phonics":["-ous"]}},{"id":"pattern_ful_less","stage":"KS2","name":"-ful vs -less","items":["careful","hopeful","painful","careless","hopeless","painless","useful"],"tags":{"phonics":["-ful/-less"]}},{"id":"pattern_ough_variants","stage":"KS2","name":"ough variants","items":["though","through","thought","bough","rough","cough","enough"],"tags":{"phonics":["ough variants"]}},{"id":"pattern_ea_ee","stage":"KS2","name":"ea vs ee","items":["bread","head","beach","teach","knees","queen","dream","sleep"],"tags":{"phonics":["ea/ee"]}},{"id":"pattern_ai_ay","stage":"KS2","name":"ai vs ay","items":["rain","train","paint","brain","play","stay","today","away"],"tags":{"phonics":["ai/ay"]}},{"id":"pattern_ie_ei","stage":"KS2","name":"ie vs ei (British)","items":["believe","field","piece","thief","receive","ceiling","deceive","either"],"tags":{"phonics":["ie/ei"]}},{"id":"pattern_oi_oy","stage":"KS1","name":"oi vs oy","items":["coin","join","noise","point","boy","toy","enjoy","royal"],"tags":{"phonics":["oi/oy"]}},{"id":"pattern_ow_ou","stage":"KS2","name":"ow vs ou","items":["clown","brown","how","now","cloud","found","house","mouse"],"tags":{"phonics":["ow/ou"]}},{"id":"pattern_silent_k_gn_wr","stage":"KS2","name":"silent k/g/w","items":["knock","knee","gnome","gnash","write","wring","wrong","known"],"tags":{"phonics":["silent k","silent g","silent w"]}},{"id":"pattern_silent_b_t","stage":"KS2","name":"silent b/t","items":["doubt","debt","thumb","climb","listen","castle","whistle","often"],"tags":{"phonics":["silent b","silent t"]}},{"id":"pattern_soft_c_g","stage":"KS2","name":"soft c and g","items":["city","cell","ice","space","gem","giant","magic","danger"],"tags":{"phonics":["soft c","soft g"]}},{"id":"pattern_dge_ge","stage":"KS1","name":"dge vs ge","items":["badge","edge","bridge","judge","huge","cage","page","large"],"tags":{"phonics":["dge/ge"]}},{"id":"pattern_prefix_un","stage":"KS2","name":"Prefix un-","items":["undo","unfair","unhappy","unzip","unlucky","unusual","unable"],"tags":{"morphology":["prefix un-"]}},{"id":"pattern_prefix_dis","stage":"KS2","name":"Prefix dis-","items":["dislike","disagree","dishonest","disappear","disobey","discover"],"tags":{"morphology":["prefix dis-"]}},{"id":"pattern_double_consonants_1","stage":"KS1","name":"Double Consonants","items":["apple","letter","bunny","carrot","silly","fluffy","glass","add","miss"],"tags":{"phonics":["double consonant"]}},{"id":"pattern_prefix_re","stage":"KS2","name":"Prefix re-","items":["redo","replay","rebuild","return","review","rewrite","reappear"],"tags":{"morphology":["prefix re-"]}}]</script>
+    <script type="application/json" id="storykeys-badges">[{"id":"steady_95","label":"Steady 95","desc":"Complete three sessions at 95%+ accuracy."},{"id":"accuracy_ace_98","label":"Accuracy Ace","desc":"Achieve 98%+ accuracy in a session."},{"id":"perfectionist_100","label":"Perfectionist","desc":"Finish a session with 100% accuracy."},{"id":"calm_careful","label":"Calm & Careful","desc":"Finish with zero errors in lockstep mode."},{"id":"punct_pro","label":"Punctuation Pro","desc":"Finish a passage with punctuation at 95%+ accuracy."},{"id":"explorer","label":"Explorer","desc":"Try three different themes."},{"id":"genre_hopper","label":"Genre Hopper","desc":"Complete a passage from Animals, Nature, and Science."},{"id":"stage_scholar","label":"Stage Scholar","desc":"Complete one lesson from KS1, KS2, and KS3."},{"id":"routine","label":"Routine","desc":"Type on three different days this week."},{"id":"five_day_streak","label":"5-Day Streak","desc":"Complete a session on five consecutive days."},{"id":"early_bird","label":"Early Bird","desc":"Complete a session before 9 AM."},{"id":"night_owl","label":"Night Owl","desc":"Complete a session after 9 PM."},{"id":"word_wizard_1k","label":"Word Wizard","desc":"Type a total of 1,000 words."},{"id":"typing_titan_30","label":"Typing Titan","desc":"Accumulate 30 minutes of total typing time."},{"id":"marathoner_60","label":"Marathoner","desc":"Accumulate 60 minutes of total typing time."}]</script>
+    <script type="application/json" id="storykeys-keymap">[{"key":"a","name":"a","hand":"left","finger":"pinky"},{"key":"b","name":"b","hand":"left","finger":"index"},{"key":"c","name":"c","hand":"left","finger":"middle"},{"key":"d","name":"d","hand":"left","finger":"middle"},{"key":"e","name":"e","hand":"left","finger":"middle"},{"key":"f","name":"f","hand":"left","finger":"index"},{"key":"g","name":"g","hand":"left","finger":"index"},{"key":"h","name":"h","hand":"right","finger":"index"},{"key":"i","name":"i","hand":"right","finger":"middle"},{"key":"j","name":"j","hand":"right","finger":"index"},{"key":"k","name":"k","hand":"right","finger":"middle"},{"key":"l","name":"l","hand":"right","finger":"ring"},{"key":"m","name":"m","hand":"right","finger":"index"},{"key":"n","name":"n","hand":"right","finger":"index"},{"key":"o","name":"o","hand":"right","finger":"ring"},{"key":"p","name":"p","hand":"right","finger":"pinky"},{"key":"q","name":"q","hand":"left","finger":"pinky"},{"key":"r","name":"r","hand":"left","finger":"index"},{"key":"s","name":"s","hand":"left","finger":"ring"},{"key":"t","name":"t","hand":"left","finger":"index"},{"key":"u","name":"u","hand":"right","finger":"index"},{"key":"v","name":"v","hand":"left","finger":"index"},{"key":"w","name":"w","hand":"left","finger":"ring"},{"key":"x","name":"x","hand":"left","finger":"ring"},{"key":"y","name":"y","hand":"right","finger":"index"},{"key":"z","name":"z","hand":"left","finger":"pinky"},{"key":" ","name":"Space","hand":"thumbs","finger":"thumb"},{"key":".","name":".","hand":"right","finger":"ring"},{"key":",","name":",","hand":"right","finger":"middle"},{"key":";","name":";","hand":"right","finger":"pinky"},{"key":"'","name":"'","hand":"right","finger":"pinky"},{"key":"-","name":"-","hand":"right","finger":"pinky"},{"key":"\"","name":"\"","hand":"right","finger":"pinky"},{"key":"Enter","name":"Enter","hand":"right","finger":"pinky"}]</script>
+    <script type="application/json" id="storykeys-copy">{"appTitle":"StoryKeys","tagline":"Tiny animal tales. Calm, careful typing.","homeStart":"Start a story","homeChangeLesson":"Choose something to type","tipAccuracyFirst":"Accuracy first. Speed is something you can add later.","typingHeaderReady":"Ready when you are","lockstepOn":"Lockstep","focusLineOn":"Focus Line","metricAccuracy":"Accuracy","metricNetWPM":"Net WPM","metricTime":"Time","metricErrors":"Errors","nextKeyLabel":"Next:","spaceName":"Space","enterName":"Enter","summaryNiceWork":"Lovely typing!","summaryReplay":"Try again","summaryHome":"Home","summaryDrill":"Start Focus Drill","summaryHardestKeys":"Hardest keys","summaryTrickyWords":"Tricky words","pasteBlocked":"Typing practice works best without pasting.","encourageGentle":["Nice and steady.","Great focus.","Calm and careful.","That looked smooth.","Brilliant effort!"]}</script>
+
+    <script>
+    // StoryKeys App: Version 6.0 - IIFE to encapsulate the entire application
+    (function() {
+        'use strict';
+        const APP_VERSION = "6.0.0";
+        const SCHEMA_VERSION = 1;
+        // --- 1. DATA & STATE INITIALIZATION ---
+        const DATA = {
+            WORDSETS: JSON.parse(document.getElementById('storykeys-wordsets').textContent),
+            PASSAGES: JSON.parse(document.getElementById('storykeys-passages').textContent),
+            PATTERNS: JSON.parse(document.getElementById('storykeys-patterns').textContent),
+            BADGES: JSON.parse(document.getElementById('storykeys-badges').textContent),
+            KEYMAP: JSON.parse(document.getElementById('storykeys-keymap').textContent),
+            COPY: JSON.parse(document.getElementById('storykeys-copy').textContent),
+        };
+        const PET_LEVELS = ['💠', '🐣', '🐤', '🐔', '🦖', '🐉'];
+        const THEME_ICONS = { "Animals": "🐾", "Silly Stories": "🤪", "Nature": "🌿", "Core": "📚", "Phonics": "🔤", "Statutory": "📜", "Science snips": "🔬", "Myths": "🦄", "Academic": "🎓", "History": "🏛️", "Geography": "🗺️" };
+
+        let state = {
+            settings: { font: 'default', lineHeight: 1.7, letterSpacing: 2, theme: 'cream', lockstepDefault: true, focusLineDefault: false, keyboardHintDefault: false, defaultStage: 'KS2', pin: null },
+            progress: { minutesTotal: 0, wordsTotal: 0, badges: [], themesCompleted: {}, stagesCompleted: {}, lastPlayed: null, consecutiveDays: 0 },
+            sessions: [],
+            ui: { currentScreen: 'home', modal: null, lastFocus: null },
+            runtime: {},
+        };
+        
+        // --- 2. DOM ELEMENT REFERENCES ---
+        const mainContent = document.getElementById('main-content');
+        const modalContainer = document.getElementById('modal-container');
+        const htmlEl = document.documentElement;
+
+        // --- 3. STATE MANAGEMENT (LocalStorage) ---
+        function saveState() { localStorage.setItem('storykeys_state', JSON.stringify({ ...state, _v: SCHEMA_VERSION })); }
+        function loadState() {
+            const raw = localStorage.getItem('storykeys_state');
+            if (!raw) return;
+            const parsed = JSON.parse(raw);
+            state.settings = { ...state.settings, ...parsed.settings };
+            state.progress = { ...state.progress, ...parsed.progress };
+            state.sessions = parsed.sessions || [];
+        }
+        
+        // --- 4. CORE LOGIC & HELPERS ---
+        const PUNCT_NORM = { '’': "'", '‘': "'", '“': '"', '”': '"', '–': '-', '—': '-', '…': '...', '\u00A0': ' ' };
+        function normaliseChar(ch) { return PUNCT_NORM[ch] ?? ch; }
+        function normaliseString(s) { return s.split('').map(normaliseChar).join(''); }
+        function transformText(text) { return text.replace(/\s+/g, ' ').trim(); }
+        
+        async function sha256Hex(s) {
+            const buf = new TextEncoder().encode(s);
+            const hash = await crypto.subtle.digest('SHA-256', buf);
+            return Array.from(new Uint8Array(hash)).map(b=>b.toString(16).padStart(2,'0')).join('');
+        }
+
+        function rawTrimToNormLen(raw, normLimit) {
+            let acc = 0, out = '';
+            for (const ch of raw) {
+                acc += normaliseChar(ch).length;
+                if (acc > normLimit) break;
+                out += ch;
+            }
+            return out;
+        }
+
+        function getTrickyWords(targetText, userInput) {
+            const t = normaliseString(targetText).split(/\s+/);
+            const u = normaliseString(userInput).split(/\s+/);
+            const tricky = new Set();
+            for (let i = 0; i < t.length; i++) if (t[i] !== (u[i] || '')) tricky.add(t[i].replace(/[.,;:!?'"“”’‘()-]/g,'').toLowerCase());
+            return Array.from(tricky);
+        }
+        
+        function calculateMetrics(finalInput) {
+            const { targetTextNorm, startTime, flags, runtimeErrors } = state.runtime;
+            const finalInputNorm = normaliseString(finalInput);
+            const durationSec = (new Date() - startTime) / 1000;
+            const wordsTyped = targetTextNorm.length / 5;
+            
+            let finalErrors = 0;
+            if (flags.lockstep) {
+                finalErrors = runtimeErrors;
+            } else {
+                for (let i = 0; i < targetTextNorm.length; i++) if (finalInputNorm[i] !== targetTextNorm[i]) finalErrors++;
+            }
+
+            const grossWPM = wordsTyped / (durationSec / 60);
+            const netWPM = grossWPM - (finalErrors / 5) / (durationSec / 60);
+            return { accuracy: Math.round(100 * (targetTextNorm.length - finalErrors) / targetTextNorm.length), durationSec: parseFloat(durationSec.toFixed(1)), errors: finalErrors, netWPM: Math.max(0, Math.round(netWPM)), hardestKeys: Object.entries(state.runtime.hardestKeys).sort(([,a],[,b]) => b - a).slice(0, 3).map(([k]) => k), trickyWords: getTrickyWords(state.runtime.targetText, finalInput).slice(0, 3) };
+        }
+
+        function checkAndAwardBadges(results) {
+            const newBadges = [];
+            const hasBadge = (id) => state.progress.badges.some(b => b.id === id);
+            const award = (id) => { if (!hasBadge(id)) newBadges.push(id); };
+            const sessionHour = state.runtime.startTime.getHours();
+
+            if (results.accuracy >= 98) award('accuracy_ace_98');
+            if (results.accuracy === 100) award('perfectionist_100');
+            if (state.sessions.filter(s => s.accuracy >= 95).length >= 2 && results.accuracy >= 95) award('steady_95');
+            if (results.errors === 0 && state.runtime.flags.lockstep) award('calm_careful');
+            if (results.accuracy >= 95 && state.runtime.flags.punct) award('punct_pro');
+            
+            const theme = state.runtime.lesson.data.theme;
+            if(theme) state.progress.themesCompleted[theme] = true;
+            if (Object.keys(state.progress.themesCompleted).length >= 3) award('explorer');
+            if (state.progress.themesCompleted['Animals'] && state.progress.themesCompleted['Nature'] && state.progress.themesCompleted['Science snips']) award('genre_hopper');
+
+            const stage = state.runtime.lesson.data.stage;
+            if(stage) state.progress.stagesCompleted[stage] = true;
+            if (state.progress.stagesCompleted['KS1'] && state.progress.stagesCompleted['KS2'] && state.progress.stagesCompleted['KS3']) award('stage_scholar');
+
+            const now = new Date();
+            const today = now.toDateString();
+            if (state.progress.lastPlayed !== today) {
+                const yesterday = new Date(now);
+                yesterday.setDate(now.getDate() - 1);
+                state.progress.consecutiveDays = state.progress.lastPlayed === yesterday.toDateString() ? (state.progress.consecutiveDays || 1) + 1 : 1;
+                state.progress.lastPlayed = today;
+            }
+            if (state.progress.consecutiveDays >= 3) award('routine');
+            if (state.progress.consecutiveDays >= 5) award('five_day_streak');
+            if (sessionHour < 9) award('early_bird');
+            if (sessionHour >= 21) award('night_owl');
+
+            if (state.progress.wordsTotal >= 1000) award('word_wizard_1k');
+            if (state.progress.minutesTotal >= 30) award('typing_titan_30');
+            if (state.progress.minutesTotal >= 60) award('marathoner_60');
+            
+            if (newBadges.length > 0) newBadges.forEach(id => state.progress.badges.push({ id, earnedAt: new Date().toISOString() }));
+            return newBadges;
+        }
+
+        function startSession(lesson) {
+            if (!lesson || !lesson.data) return;
+            const isDrill = lesson.type === 'drill';
+            const sourceText = lesson.data.text || lesson.data.words.join(' ');
+            const targetText = transformText(sourceText);
+            
+            state.runtime = {
+                lesson, targetText, targetTextNorm: normaliseString(targetText), startTime: new Date(), runtimeErrors: 0, hardestKeys: {}, flags: { lockstep: state.settings.lockstepDefault, focusLine: state.settings.focusLineDefault, keyboardHint: state.settings.keyboardHintDefault, timer: isDrill || lesson.withTimer, punct: lesson.data.tags?.complexity?.punct ?? true }, isDrill, timer: { handle: null, paused: false, remaining: 60 },
+                lineElements: [], // Will be populated by calculateVisualLines
+            };
+            showScreen('typing');
+        }
+
+        function endSession(finalInput) {
+            if (state.runtime.timer.handle) clearInterval(state.runtime.timer.handle);
+            const results = calculateMetrics(finalInput);
+            const newBadges = checkAndAwardBadges(results);
+            
+            state.progress.wordsTotal += state.runtime.targetTextNorm.length / 5;
+            state.progress.minutesTotal += results.durationSec / 60;
+            
+            if (!state.runtime.isDrill) {
+                state.sessions.push({ id: `sess_${Date.now()}`, ts: new Date().toISOString(), contentId: state.runtime.lesson.data.id, contentType: state.runtime.lesson.type, ...results, flags: state.runtime.flags });
+                if (state.sessions.length > 500) state.sessions.shift();
+            }
+            
+            saveState();
+            state.runtime.summaryResults = { ...results, newBadges, isDrill: state.runtime.isDrill };
+            showScreen('summary');
+        }
+
+        // --- 5. UI RENDERING & ROUTING ---
+        function showScreen(screenName) {
+            state.ui.currentScreen = screenName;
+            mainContent.innerHTML = getScreenHtml(screenName);
+            bindScreenEvents(screenName);
+            if(screenName === 'summary' && state.runtime.summaryResults.newBadges.length > 0) { triggerConfetti(); }
+            window.scrollTo(0, 0);
+        }
+
+        function showModal(modalName) {
+            state.ui.lastFocus = document.activeElement;
+            state.ui.modal = modalName;
+            modalContainer.innerHTML = getModalHtml(modalName);
+            bindModalEvents(modalName);
+            modalContainer.querySelector('.modal').classList.add('active');
+            const firstInput = modalContainer.querySelector('input, select, button');
+            if (firstInput) firstInput.focus();
+        }
+
+        function closeModal() {
+            const modalEl = modalContainer.querySelector('.modal');
+            if (modalEl) {
+                modalEl.classList.remove('active');
+                setTimeout(() => { 
+                    modalContainer.innerHTML = ''; state.ui.modal = null; 
+                    if (state.ui.lastFocus) state.ui.lastFocus.focus();
+                }, 200);
+            }
+        }
+        
+        function applySettings() {
+            htmlEl.classList.remove('theme-light', 'theme-cream', 'theme-dark');
+            htmlEl.classList.add(`theme-${state.settings.theme}`);
+            htmlEl.style.setProperty('--font-family', state.settings.font === 'dyslexia' ? 'var(--font-family-dyslexia)' : 'var(--font-family-default)');
+            htmlEl.style.setProperty('--line-height', state.settings.lineHeight);
+            htmlEl.style.setProperty('--letter-spacing', `${state.settings.letterSpacing / 100}em`);
+            const petIndex = Math.min(PET_LEVELS.length - 1, Math.floor(state.progress.minutesTotal / 30));
+            document.getElementById('progress-pet').textContent = PET_LEVELS[petIndex];
+            
+            // If we're on the typing screen, re-measure lines after style changes.
+            if (state.ui.currentScreen === 'typing') {
+              requestAnimationFrame(() => calculateVisualLines());
+            }
+        }
+
+        function getScreenHtml(screenName) {
+            switch(screenName) {
+                case 'home':
+                    const petIndex = Math.min(PET_LEVELS.length - 1, Math.floor(state.progress.minutesTotal / 30));
+                    const currentPet = PET_LEVELS[petIndex];
+                    return `
+                    <div id="home-screen" class="screen active">
+                        <div class="home-header">
+                            <h1>Welcome to StoryKeys</h1>
+                            <p>Your calm and friendly space to practice typing.</p>
+                        </div>
+
+                        <div class="card home-card">
+                            <h2>Quick Start</h2>
+                            <p>Jump right into a random story from your stage to get you typing instantly.</p>
+                            <button id="start-random-btn" class="button button-primary" style="font-size: 1.2rem; padding: 1rem 2rem;">Begin a New Story</button>
+                        </div>
+                        
+                        <div class="card home-card">
+                            <h2>Explore the Library</h2>
+                            <p>Choose from a collection of passages, word sets, and phonics drills tailored to your learning stage.</p>
+                            <button id="browse-lessons-btn" class="button button-secondary">Browse Lessons</button>
+                        </div>
+
+                        <div class="card progress-card">
+                            <div class="progress-pet">${currentPet}</div>
+                            <div>
+                                <h3>Your Progress</h3>
+                                <p style="margin: 0;">You've practiced for <b>${Math.round(state.progress.minutesTotal)} minutes</b> in total. Keep it up!</p>
+                            </div>
+                        </div>
+                    </div>`;
+                case 'typing': 
+                    // Render all characters into a single block. The browser will wrap them.
+                    // The calculateVisualLines() function will then group them into proper line divs.
+                    const initialHtml = state.runtime.targetText.split('').map((char, idx) => 
+                        `<span class="char" data-idx="${idx}">${char}</span>`
+                    ).join('');
+
+                    const keyboardLayout = [ ['q','w','e','r','t','y','u','i','o','p'], ['a','s','d','f','g','h','j','k','l', ';'], ['z','x','c','v','b','n','m',',','.'] ];
+                    const keyboardHtml = state.runtime.flags.keyboardHint ? `<div id="keyboard-hint">${keyboardLayout.map(row => `<div class="keyboard-row">${row.map(key => `<div class="key" data-key="${key}">${key}</div>`).join('')}</div>`).join('')}<div class="keyboard-row"><div class="key space" data-key=" ">Space</div></div></div>` : '';
+                    return `
+                    <div id="typing-screen" class="screen active">
+                        <div class="card">
+                            <div class="typing-controls">
+                                <button id="back-to-home-btn" class="icon-button" title="Back to Home"><svg viewBox="0 0 24 24"><path d="M10 20v-6h4v6h5v-8h3L12 3 2 12h3v8z"></path></svg></button>
+                                <div style="text-align: center; flex-grow: 1;"><h2>${state.runtime.lesson.data.title || state.runtime.lesson.data.name}</h2></div>
+                                <div class="button-group">
+                                    ${state.runtime.flags.timer ? `<div id="timer-chip" class="timer-chip">--:--</div>` : ''}
+                                    <label class="toggle-switch">${DATA.COPY.lockstepOn}<input type="checkbox" id="lockstep-toggle" ${state.runtime.flags.lockstep ? 'checked' : ''}><span class="slider"></span></label>
+                                    <label class="toggle-switch">${DATA.COPY.focusLineOn}<input type="checkbox" id="focusline-toggle" ${state.runtime.flags.focusLine ? 'checked' : ''}><span class="slider"></span></label>
+                                </div>
+                            </div>
+                            <p>${DATA.COPY.typingHeaderReady} <span id="next-key-bubble" class="next-key-bubble"></span></p>
+                            <div id="typing-target" class="typing-target ${state.runtime.flags.focusLine ? 'focus-line-active' : ''}">${initialHtml}</div>
+                            <textarea id="typing-input" class="typing-input" rows="3" spellcheck="false" autocomplete="off" autocorrect="off" autocapitalize="off"></textarea>
+                            ${keyboardHtml}
+                        </div>
+                    </div>`;
+                case 'summary':
+                    const { accuracy, durationSec, errors, netWPM, hardestKeys, trickyWords, newBadges, isDrill } = state.runtime.summaryResults;
+                    const allowWPM = () => {
+                        if (state.runtime.flags.timer) return true;
+                        const recent = state.sessions.slice(-3);
+                        const count95 = recent.filter(s => s.accuracy >= 95).length;
+                        return count95 >= 2 && accuracy >= 95;
+                    };
+                    const showWpm = allowWPM();
+                    const drillBtnHtml = !isDrill && (hardestKeys.length > 0 || trickyWords.length > 0) ? `<button id="start-drill-btn" class="button button-secondary">${DATA.COPY.summaryDrill}</button>` : '';
+                    const prettyKeyName = (k) => k === ' ' ? 'Space' : k;
+                    return `
+                    <div id="summary-screen" class="screen active">
+                        <div class="card">
+                            <div style="text-align: center;"><h1>${isDrill ? 'Drill Complete!' : DATA.COPY.summaryNiceWork}</h1><p>${DATA.COPY.encourageGentle[Math.floor(Math.random()*DATA.COPY.encourageGentle.length)]}</p></div>
+                            ${newBadges.map(id => { const badge = DATA.BADGES.find(b=>b.id===id); return `<div class="badge-earned"><h3>Badge Earned: ${badge.label}!</h3><p>${badge.desc}</p></div>`; }).join('')}
+                            <div class="summary-metrics">
+                                <div class="metric-item"><h3>${DATA.COPY.metricAccuracy}</h3><div class="value">${accuracy}%</div></div>
+                                ${showWpm ? `<div class="metric-item"><h3>${DATA.COPY.metricNetWPM}</h3><div class="value">${netWPM}</div></div>` : ''}
+                                <div class="metric-item"><h3>${DATA.COPY.metricTime}</h3><div class="value">${durationSec}s</div></div>
+                                <div class="metric-item"><h3>${DATA.COPY.metricErrors}</h3><div class="value">${errors}</div></div>
+                            </div>
+                            <div class="summary-feedback" style="display: flex; gap: 2rem; flex-wrap: wrap; justify-content: center;">
+                                ${hardestKeys.length > 0 ? `<div><h3>${DATA.COPY.summaryHardestKeys}</h3><ul>${hardestKeys.map(k=>`<li>'${prettyKeyName(k)}'</li>`).join('')}</ul></div>` : ''}
+                                ${trickyWords.length > 0 ? `<div><h3>${DATA.COPY.summaryTrickyWords}</h3><ul>${trickyWords.map(w=>`<li>${w}</li>`).join('')}</ul></div>` : ''}
+                            </div>
+                            <div class="button-group" style="margin-top: 2rem; justify-content: center;">
+                                ${!isDrill ? `<button id="replay-btn" class="button button-primary">${DATA.COPY.summaryReplay}</button>` : ''}
+                                ${drillBtnHtml}
+                                <button id="home-btn" class="button button-secondary">${DATA.COPY.summaryHome}</button>
+                            </div>
+                        </div>
+                    </div>`;
+                default: return `<h1>Error</h1>`;
+            }
+        }
+        
+        function getModalHtml(modalName) {
+            const closeModalBtn = `<button id="close-modal-btn" class="icon-button" title="Close"><svg viewBox="0 0 24 24"><path d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"></path></svg></button>`;
+            switch(modalName) {
+                case 'lessonPicker': return `
+                    <div class="modal"><div class="modal-content">
+                        <div class="modal-header"><h2>${DATA.COPY.homeChangeLesson}</h2>${closeModalBtn}</div>
+                        <div class="tabs"><button class="tab-button active" data-type="passage">Passages</button><button class="tab-button" data-type="wordset">Word Sets</button></div>
+                        <div class="filter-group">
+                            <label>Stage:</label>
+                            <div class="stage-filter button-group">
+                                <button class="button button-secondary" data-stage="KS1">KS1</button>
+                                <button class="button button-secondary" data-stage="KS2">KS2</button>
+                                <button class="button button-secondary" data-stage="KS3">KS3</button>
+                            </div>
+                        </div>
+                        <div class="lesson-list"></div>
+                        <div style="margin-top: 1.5rem; border-top: 1px solid var(--color-border); padding-top: 1rem;">
+                            <label class="toggle-switch"><input type="checkbox" id="option-timer"><span class="slider"></span> Start with timer</label>
+                        </div>
+                    </div></div>`;
+                case 'settings': return `
+                    <div class="modal"><div class="modal-content">
+                        <div class="modal-header"><h2>Settings</h2>${closeModalBtn}</div>
+                        <details class="settings-section" open>
+                            <summary>Readability</summary>
+                            <div class="setting-item"><div><b>Theme</b><p>Change the app's colour scheme.</p></div><select id="setting-theme" class="button button-secondary"><option value="cream">Cream</option><option value="light">Light</option><option value="dark">Dark</option></select></div>
+                            <div class="setting-item"><div><b>Font</b><p>Choose a standard or clearer font.</p></div><select id="setting-font" class="button button-secondary"><option value="default">Default</option><option value="dyslexia">Clear</option></select></div>
+                            <div class="setting-item"><div><b>Line Height: <span id="lh-val"></span></b><p>Increase space between lines.</p></div><input type="range" id="setting-line-height" min="1.4" max="2.0" step="0.1"></div>
+                            <div class="setting-item"><div><b>Letter Spacing: <span id="ls-val"></span></b><p>Increase space between letters.</p></div><input type="range" id="setting-letter-spacing" min="0" max="8" step="1"></div>
+                        </details>
+                        <details class="settings-section" open>
+                            <summary>Behaviour</summary>
+                            <div class="setting-item"><div><b>Lockstep Default</b><p>Prevent errors before they are typed.</p></div><label class="toggle-switch"><input type="checkbox" id="setting-lockstep"><span class="slider"></span></label></div>
+                            <div class="setting-item"><div><b>Focus Line Default</b><p>Highlight the current line of text.</p></div><label class="toggle-switch"><input type="checkbox" id="setting-focusline"><span class="slider"></span></label></div>
+                            <div class="setting-item"><div><b>Keyboard Hint Default</b><p>Show an on-screen keyboard guide.</p></div><label class="toggle-switch"><input type="checkbox" id="setting-keyboard"><span class="slider"></span></label></div>
+                        </details>
+                        <details class="settings-section">
+                            <summary>Privacy</summary>
+                             <div class="setting-item"><div><b>Set Parent PIN</b><p>Set a 4-digit PIN to protect Parent Glance.</p></div><input type="password" id="setting-pin" maxlength="4" placeholder="4 digits" style="width:100px; text-align:center;"></div>
+                        </details>
+                        <div style="margin-top:2rem; text-align:center;"><button id="save-settings-btn" class="button button-primary">Close & Save</button></div>
+                    </div></div>`;
+                case 'parent':
+                    const weeklySessions = state.sessions.filter(s => (new Date() - new Date(s.ts)) < 7 * 24 * 60 * 60 * 1000);
+                    const avgAccuracy = weeklySessions.length ? Math.round(weeklySessions.reduce((acc, s) => acc + s.accuracy, 0) / weeklySessions.length) : 'N/A';
+                    return `
+                    <div class="modal"><div class="modal-content">
+                        <div class="modal-header"><h2>Parent Glance</h2>${closeModalBtn}</div>
+                        <h3>This Week</h3><p>Sessions: ${weeklySessions.length} | Avg. Accuracy: ${avgAccuracy}%</p>
+                        <h3>All Time</h3><p>Total Minutes: ${Math.round(state.progress.minutesTotal)}</p>
+                        <h3>Recent Sessions</h3><div style="max-height: 200px; overflow-y: auto; border: 1px solid var(--color-border); padding: 0.5rem; border-radius: var(--border-radius);">${state.sessions.slice(-10).reverse().map(s=>`<p style="font-size: 0.9rem; margin-bottom: 0.5rem;">${new Date(s.ts).toLocaleString()}: ${s.accuracy}% acc</p>`).join('') || '<p>No sessions yet.</p>'}</div>
+                        <div class="button-group" style="margin-top: 1.5rem;"><button id="export-btn" class="button button-secondary">Export Data</button><button id="clear-data-btn" class="button" style="background-color: #c12121; color: white;">Clear All Data</button></div>
+                    </div></div>`;
+                case 'pin': return `<div class="modal"><div class="modal-content" style="text-align: center;"><h2>Enter PIN</h2><input type="password" id="pin-input" maxlength="4" style="text-align: center; font-size: 2rem; width:100px; margin-bottom:1rem;"><br><button id="pin-submit-btn" class="button button-primary">Unlock</button></div></div>`;
+            }
+            return '';
+        }
+
+        // --- 6. EVENT BINDING & HANDLING ---
+        function bindAppEvents() {
+            document.getElementById('settings-btn').addEventListener('click', () => showModal('settings'));
+            document.getElementById('parent-btn').addEventListener('click', () => { (state.settings.pin) ? showModal('pin') : showModal('parent'); });
+            window.addEventListener('keydown', e => { if (e.key === 'Escape' && state.ui.modal) closeModal(); });
+            window.addEventListener('blur', () => { if (state.runtime && state.runtime.timer) state.runtime.timer.paused = true; });
+            window.addEventListener('focus', () => { if (state.runtime && state.runtime.timer) state.runtime.timer.paused = false; });
+        }
+        
+        // --- FOCUS LINE: DYNAMIC LINE CALCULATION (fixed) ---
+        function calculateVisualLines() {
+            const container = document.getElementById('typing-target');
+            if (!container) return;
+
+            // If lines already wrapped, unwrap so browser can reflow before measuring.
+            const existingLines = Array.from(container.querySelectorAll('.line'));
+            if (existingLines.length) {
+                const frag = document.createDocumentFragment();
+                existingLines.forEach(line => {
+                const charsInLine = Array.from(line.querySelectorAll('.char'));
+                charsInLine.forEach(ch => frag.appendChild(ch));
+                });
+                container.innerHTML = '';
+                container.appendChild(frag);
+            }
+
+            // Wait one frame so layout is accurate.
+            requestAnimationFrame(() => {
+                const chars = Array.from(container.querySelectorAll('.char'));
+                if (!chars.length) return;
+
+                // Group by visual line via offsetTop.
+                const groups = [];
+                let lastTop = null;
+                chars.forEach(ch => {
+                const top = ch.offsetTop;
+                if (lastTop === null || top !== lastTop) {
+                    groups.push([]);
+                    lastTop = top;
+                }
+                groups[groups.length - 1].push(ch);
+                });
+
+                // Build line wrappers.
+                const frag2 = document.createDocumentFragment();
+                const lineEls = [];
+                groups.forEach(group => {
+                const div = document.createElement('div');
+                div.className = 'line';
+                group.forEach(ch => div.appendChild(ch));
+                frag2.appendChild(div);
+                lineEls.push(div);
+                });
+
+                container.innerHTML = '';
+                container.appendChild(frag2);
+                state.runtime.lineElements = lineEls;
+
+                // Re-apply highlight after rebuilding.
+                const inputEl = document.getElementById('typing-input');
+                updateTypingDisplay(inputEl ? inputEl.value : '');
+            });
+        }
+
+        function debounce(func, wait) {
+            let timeout;
+            return function executedFunction(...args) {
+                const later = () => {
+                    clearTimeout(timeout);
+                    func(...args);
+                };
+                clearTimeout(timeout);
+                timeout = setTimeout(later, wait);
+            };
+        }
+        
+        function bindScreenEvents(screenName) {
+            if (screenName === 'home') {
+                document.getElementById('start-random-btn').addEventListener('click', () => {
+                    const pool = DATA.PASSAGES.filter(l => l.stage === state.settings.defaultStage);
+                    const lesson = { type: 'passage', data: pool[Math.floor(Math.random() * pool.length)] };
+                    startSession(lesson);
+                });
+                document.getElementById('browse-lessons-btn').addEventListener('click', () => showModal('lessonPicker'));
+            }
+            if (screenName === 'typing') {
+                // Defer line calculation until after the browser has rendered the DOM.
+                requestAnimationFrame(() => {
+                    calculateVisualLines(); // This function now self-updates the highlight.
+                });
+                
+                // Re-calculate lines on window resize to keep it responsive.
+                window.addEventListener('resize', debounce(calculateVisualLines, 250));
+
+                const input = document.getElementById('typing-input');
+                input.addEventListener('input', handleTypingInput);
+                input.addEventListener('paste', e => { e.preventDefault(); toast(DATA.COPY.pasteBlocked); });
+                document.getElementById('lockstep-toggle').addEventListener('change', e => { state.runtime.flags.lockstep = e.target.checked; });
+                document.getElementById('focusline-toggle').addEventListener('change', e => { state.runtime.flags.focusLine = e.target.checked; document.getElementById('typing-target').classList.toggle('focus-line-active', e.target.checked); });
+                document.getElementById('back-to-home-btn').addEventListener('click', () => {
+                    if (confirm('Are you sure you want to exit? Your progress in this session will be lost.')) {
+                        showScreen('home');
+                    }
+                });
+                input.focus();
+                
+                if (state.runtime.flags.timer) {
+                    const chip = document.getElementById('timer-chip');
+                    const tick = () => {
+                        if (state.runtime.timer.paused) return;
+                        if (state.runtime.isDrill) {
+                            state.runtime.timer.remaining--;
+                            chip.textContent = `00:${String(state.runtime.timer.remaining).padStart(2,'0')}`;
+                            if (state.runtime.timer.remaining <= 0) { clearInterval(state.runtime.timer.handle); endSession(input.value); }
+                        } else {
+                            const sec = Math.floor((new Date() - state.runtime.startTime)/1000);
+                            const m = String(Math.floor(sec/60)).padStart(2,'0');
+                            const s = String(sec%60).padStart(2,'0');
+                            chip.textContent = `${m}:${s}`;
+                        }
+                    };
+                    state.runtime.timer.handle = setInterval(tick, 1000);
+                    tick();
+                }
+            }
+            if (screenName === 'summary') {
+                const replayBtn = document.getElementById('replay-btn');
+                if (replayBtn) replayBtn.addEventListener('click', () => startSession(state.runtime.lesson));
+                const drillBtn = document.getElementById('start-drill-btn');
+                if (drillBtn) drillBtn.addEventListener('click', startFocusDrill);
+                document.getElementById('home-btn').addEventListener('click', () => showScreen('home'));
+            }
+        }
+        
+        function bindModalEvents(modalName) {
+            const closeModalBtn = modalContainer.querySelector('#close-modal-btn');
+            if (closeModalBtn) closeModalBtn.addEventListener('click', closeModal);
+            const modal = modalContainer.querySelector('.modal');
+            const content = modal.querySelector('.modal-content');
+            if (modal && content) {
+                content.setAttribute('role','dialog'); content.setAttribute('aria-modal','true');
+                modal.addEventListener('click', e => { if (e.target === modal) closeModal(); });
+                const focusables = Array.from(content.querySelectorAll('button, [href], input, select, textarea, [tabindex]:not([tabindex="-1"])'));
+                if (focusables.length > 0) {
+                    const first = focusables[0], last = focusables[focusables.length - 1];
+                    content.addEventListener('keydown', e => {
+                        if (e.key === 'Tab') {
+                            if (e.shiftKey && document.activeElement === first) { e.preventDefault(); last.focus(); }
+                            else if (!e.shiftKey && document.activeElement === last) { e.preventDefault(); first.focus(); }
+                        }
+                    });
+                }
+            }
+
+            if (modalName === 'lessonPicker') {
+                const stageFilter = modalContainer.querySelector('.stage-filter');
+                const renderList = () => {
+                    const type = modalContainer.querySelector('.tab-button.active').dataset.type;
+                    const stage = stageFilter.querySelector('.button.active').dataset.stage;
+                    const pool = type === 'passage' ? DATA.PASSAGES : DATA.WORDSETS;
+                    const filtered = pool.filter(l => l.stage === stage);
+                    modalContainer.querySelector('.lesson-list').innerHTML = filtered.map(l => {
+                        const len = l.words ? l.words.length + ' words' : (l.text ? l.text.length + ' chars' : '');
+                        return `<div class="lesson-item" data-id="${l.id}" data-type="${type}">
+                            <div class="lesson-icon">${THEME_ICONS[l.theme] || '📝'}</div>
+                            <div class="lesson-details">
+                                <b>${l.title||l.name}</b>
+                                <div class="lesson-meta"><span class="meta-chip">${l.stage}</span><span class="meta-chip">${len}</span></div>
+                            </div>
+                        </div>`;
+                    }).join('');
+                };
+                modalContainer.querySelectorAll('.tab-button, .stage-filter .button').forEach(b => b.addEventListener('click', (e) => {
+                    const group = e.target.closest('.button-group, .tabs');
+                    group.querySelector('.active').classList.remove('active');
+                    e.target.classList.add('active'); 
+                    renderList();
+                }));
+                modalContainer.querySelector('.lesson-list').addEventListener('click', (e) => {
+                    const item = e.target.closest('.lesson-item');
+                    if (item) {
+                        const { id, type } = item.dataset;
+                        const pool = type === 'passage' ? DATA.PASSAGES : DATA.WORDSETS;
+                        const lesson = { type, data: pool.find(l => l.id === id), withTimer: modalContainer.querySelector('#option-timer').checked };
+                        closeModal();
+                        startSession(lesson);
+                    }
+                });
+                stageFilter.querySelector(`[data-stage="${state.settings.defaultStage}"]`).classList.add('active');
+                renderList();
+            }
+            if (modalName === 'settings') {
+                const s = state.settings;
+                const lhInput = document.getElementById('setting-line-height'), lsInput = document.getElementById('setting-letter-spacing');
+                const lhVal = document.getElementById('lh-val'), lsVal = document.getElementById('ls-val');
+                lhVal.textContent = s.lineHeight; lsVal.textContent = `+${s.letterSpacing}%`;
+                document.getElementById('setting-theme').value = s.theme;
+                document.getElementById('setting-font').value = s.font;
+                lhInput.value = s.lineHeight; lsInput.value = s.letterSpacing;
+                document.getElementById('setting-lockstep').checked = s.lockstepDefault;
+                document.getElementById('setting-focusline').checked = s.focusLineDefault;
+                document.getElementById('setting-keyboard').checked = s.keyboardHintDefault;
+                
+                let settingsTimeout;
+                const updateSetting = (key, value, displayEl, displayFormat) => {
+                    if(displayEl) displayEl.textContent = displayFormat(value);
+                    clearTimeout(settingsTimeout);
+                    settingsTimeout = setTimeout(() => { state.settings[key] = value; applySettings(); }, 150);
+                };
+                
+                lhInput.addEventListener('input', e => updateSetting('lineHeight', e.target.value, lhVal, v => v));
+                lsInput.addEventListener('input', e => updateSetting('letterSpacing', e.target.value, lsVal, v => `+${v}%`));
+
+                document.getElementById('save-settings-btn').addEventListener('click', async () => {
+                    s.theme = document.getElementById('setting-theme').value;
+                    s.font = document.getElementById('setting-font').value;
+                    s.lockstepDefault = document.getElementById('setting-lockstep').checked;
+                    s.focusLineDefault = document.getElementById('setting-focusline').checked;
+                    s.keyboardHintDefault = document.getElementById('setting-keyboard').checked;
+                    const newPin = document.getElementById('setting-pin').value;
+                    if (/^\d{4}$/.test(newPin)) s.pin = await sha256Hex(newPin);
+                    applySettings(); saveState(); closeModal();
+                });
+            }
+            if (modalName === 'parent') {
+                document.getElementById('export-btn').addEventListener('click', () => {
+                    const timestamp = new Date().toISOString().slice(0,16).replace(/[T:]/g,'-');
+                    const dataStr = JSON.stringify({ _v: SCHEMA_VERSION, appVersion: APP_VERSION, settings: state.settings, progress: state.progress, sessions: state.sessions}, null, 2);
+                    const blob = new Blob([dataStr], {type: "application/json"});
+                    const url = URL.createObjectURL(blob);
+                    const a = document.createElement('a');
+                    a.href = url; a.download = `storykeys-backup-${timestamp}.json`;
+                    a.click(); URL.revokeObjectURL(url);
+                });
+                document.getElementById('clear-data-btn').addEventListener('click', () => {
+                    if (confirm('Really clear all progress? This cannot be undone.')) { localStorage.removeItem('storykeys_state'); location.reload(); }
+                });
+            }
+            if (modalName === 'pin') {
+                const pinInput = document.getElementById('pin-input');
+                pinInput.focus();
+                const submit = async () => {
+                    const ok = state.settings.pin && await sha256Hex(pinInput.value) === state.settings.pin;
+                    if (ok) { closeModal(); showModal('parent'); } else { alert('Incorrect PIN.'); pinInput.value = ''; pinInput.focus(); }
+                };
+                pinInput.addEventListener('input', () => { if(pinInput.value.length === 4) submit(); });
+                document.getElementById('pin-submit-btn').addEventListener('click', submit);
+            }
+        }
+        
+        function handleTypingInput(e) {
+            if (!state.runtime || !state.runtime.targetTextNorm) return;
+            updateTypingDisplay(e.target.value);
+            if (normaliseString(e.target.value).length >= state.runtime.targetTextNorm.length) {
+                e.target.disabled = true;
+                const finalInput = rawTrimToNormLen(e.target.value, state.runtime.targetTextNorm.length);
+                setTimeout(() => endSession(finalInput), 100);
+            }
+        }
+
+        function updateTypingDisplay(userInput) {
+            const { targetTextNorm, flags, hardestKeys, lineElements } = state.runtime;
+            const targetEl = document.getElementById('typing-target');
+            if(!targetEl) return;
+            const userInputNorm = normaliseString(userInput);
+            
+            if (flags.lockstep && userInputNorm.length > 0 && userInputNorm.slice(-1) !== targetTextNorm[userInputNorm.length - 1]) {
+                const inputEl = document.getElementById('typing-input');
+                inputEl.value = userInput.slice(0, -1);
+                state.runtime.runtimeErrors++;
+                const key = targetTextNorm[userInputNorm.length-1];
+                if (key && key !== ' ') hardestKeys[key] = (hardestKeys[key] || 0) + 1;
+                inputEl.style.borderColor = '#ef4444';
+                setTimeout(() => { inputEl.style.borderColor = '' }, 200);
+                return;
+            }
+            
+            if (!flags.lockstep && userInputNorm.length > 0) {
+                const lastIndex = userInputNorm.length - 1;
+                if (userInputNorm[lastIndex] !== targetTextNorm[lastIndex]) {
+                    const key = targetTextNorm[lastIndex];
+                    if (key && key !== ' ') hardestKeys[key] = (hardestKeys[key] || 0) + 1;
+                }
+            }
+
+            const nextIdx = userInputNorm.length;
+
+            // Update line highlighting based on the robust, dynamic structure
+            if (lineElements && lineElements.length > 0) {
+                lineElements.forEach(el => el.classList.remove('current-line'));
+                
+                let currentLine = null;
+                // Find the line containing the *next* character to be typed.
+                if (nextIdx < state.runtime.targetTextNorm.length) {
+                    const nextCharEl = targetEl.querySelector(`.char[data-idx="${nextIdx}"]`);
+                    if (nextCharEl) {
+                        currentLine = nextCharEl.parentElement;
+                    }
+                } else if (lineElements.length > 0) {
+                    // If we're at the very end, the "current" line is simply the last one.
+                    currentLine = lineElements[lineElements.length - 1];
+                }
+
+                if (currentLine) {
+                    currentLine.classList.add('current-line');
+                }
+            }
+
+            const chars = Array.from(targetEl.querySelectorAll('.char'));
+            chars.forEach((span) => {
+                const i = parseInt(span.dataset.idx);
+                span.className = 'char';
+                if (i < userInputNorm.length) span.classList.add(userInputNorm[i] === targetTextNorm[i] ? 'correct' : 'incorrect');
+                if (i === nextIdx) span.classList.add('current');
+            });
+            
+            const nextKey = nextIdx < targetTextNorm.length ? targetTextNorm[nextIdx] : null;
+            const bubble = document.getElementById('next-key-bubble');
+            if (nextKey && bubble) {
+                const prettyKeyName = (ch) => {
+                    if (ch === ' ') return DATA.COPY.spaceName || 'Space';
+                    if (ch === '\n') return DATA.COPY.enterName || 'Enter';
+                    const entry = DATA.KEYMAP.find(k => k.key === ch.toLowerCase());
+                    return entry ? (entry.name || ch) : ch;
+                };
+                const label = prettyKeyName(nextKey);
+                const keyInfo = DATA.KEYMAP.find(k => k.key === nextKey.toLowerCase());
+                bubble.innerHTML = `${label} <small style="opacity:.7">${keyInfo ? `– ${keyInfo.hand} ${keyInfo.finger}` : ''}</small>`;
+                if (flags.keyboardHint) {
+                    const keyboardEl = document.getElementById('keyboard-hint');
+                    const currentHighlight = keyboardEl.querySelector('.key.highlight');
+                    if (currentHighlight) currentHighlight.classList.remove('highlight');
+                    const nextKeyEl = keyboardEl.querySelector(`.key[data-key="${nextKey.toLowerCase()}"]`);
+                    if (nextKeyEl) nextKeyEl.classList.add('highlight');
+                }
+            } else if (bubble) { bubble.innerHTML = '🎉'; }
+        }
+
+        function startFocusDrill() {
+            const { trickyWords, hardestKeys } = state.runtime.summaryResults;
+            let drillLesson = null;
+            
+            if (trickyWords.length > 0) {
+                const tagsForWord = (word) => {
+                    for (const ws of DATA.WORDSETS) if (ws.words?.includes(word)) return ws.tags?.phonics || [];
+                    for (const p of DATA.PASSAGES) if (p.text && p.text.toLowerCase().split(/\W+/).includes(word)) return p.tags?.phonics || [];
+                    return [];
+                };
+                const patterns = new Map();
+                for (const tw of trickyWords) {
+                    for (const tag of tagsForWord(tw)) {
+                        const pack = DATA.PATTERNS.find(pp => pp.tags?.phonics?.includes(tag));
+                        if (pack) patterns.set(pack.name, pack.items);
+                    }
+                }
+                if (patterns.size) {
+                    const [name, items] = patterns.entries().next().value;
+                    drillLesson = { type:'drill', data: { name: `Focus on: ${name}`, words: items }, withTimer: true };
+                }
+            }
+            if (!drillLesson && trickyWords.length > 0) {
+                drillLesson = { type: 'drill', data: { name: "Focus on: Tricky Words", words: [...trickyWords, ...trickyWords] }, withTimer: true };
+            } else if (!drillLesson && hardestKeys.length > 0) {
+                const key = hardestKeys[0];
+                const words = [...DATA.WORDSETS, ...DATA.PASSAGES].flatMap(d => d.words || d.text.split(' ')).filter(w => normaliseString(w).toLowerCase().includes(key));
+                const drillWords = [...new Set(words)].filter(w => w.length > 2).sort(() => 0.5 - Math.random()).slice(0, 10);
+                if(drillWords.length > 4) drillLesson = { type: 'drill', data: { name: `Focus on: '${key}' key`, words: drillWords }, withTimer: true };
+            }
+            if (drillLesson) startSession(drillLesson); else toast("No specific drill available for that session.");
+        }
+
+        function triggerConfetti() {
+            const container = document.querySelector('.badge-earned');
+            if (!container) return;
+            for (let i = 0; i < 30; i++) {
+                const confetti = document.createElement('div');
+                confetti.className = 'confetti';
+                confetti.style.left = `${Math.random() * 100}%`;
+                confetti.style.animationDelay = `${Math.random() * 2}s`;
+                confetti.style.backgroundColor = ['#3b82f6', '#16a34a', '#f59e0b', '#ef4444'][Math.floor(Math.random() * 4)];
+                container.appendChild(confetti);
+            }
+        }
+        
+        function toast(msg) {
+            const t = document.createElement('div');
+            t.className = 'toast';
+            t.textContent = msg;
+            document.body.appendChild(t);
+            setTimeout(()=>t.remove(), 2500);
+        }
+
+        // --- 7. APP INITIALIZATION ---
+        function init() { loadState(); applySettings(); showScreen('home'); bindAppEvents(); }
+        document.addEventListener('DOMContentLoaded', init);
+
+    })(); // End of IIFE
+    </script>
+</body>
+</html>

@@ -1,0 +1,98 @@
+[
+    {
+        "id": "ks4_academic_quiet_lab_1",
+        "stage": "KS4",
+        "theme": "Science snips",
+        "title": "Quiet Lab (KS4)",
+        "text": "In the quiet lab, the solution turns a pale green; however, the reaction itself remains quite unremarkable.",
+        "tags": {
+            "complexity": {
+                "caps": true,
+                "punct": true
+            }
+        },
+        "meta": {
+            "est_chars": 138
+        }
+    },
+    {
+        "id": "ks4_myths_icarus_1",
+        "stage": "KS4",
+        "theme": "Myths",
+        "title": "Icarus's Flight (KS4)",
+        "text": "He fashioned wings of feather and wax, ignoring his father's advice. The sun, however, had other ideas.",
+        "tags": {
+            "complexity": {
+                "caps": true,
+                "punct": true
+            }
+        },
+        "meta": {
+            "est_chars": 132
+        }
+    },
+    {
+        "id": "ks4_science_photosynthesis_1",
+        "stage": "KS4",
+        "theme": "Science snips",
+        "title": "Photosynthesis (KS4)",
+        "text": "Photosynthesis is a remarkable process. Plants use sunlight to convert carbon dioxide and water into their own food.",
+        "tags": {
+            "complexity": {
+                "caps": true,
+                "punct": true
+            }
+        },
+        "meta": {
+            "est_chars": 148
+        }
+    },
+    {
+        "id": "ks4_academic_hypothesis_1",
+        "stage": "KS4",
+        "theme": "Academic",
+        "title": "The Hypothesis (KS4)",
+        "text": "The experiment produced an unexpected result. Therefore, the initial hypothesis had to be re-evaluated completely.",
+        "tags": {
+            "complexity": {
+                "caps": true,
+                "punct": true
+            }
+        },
+        "meta": {
+            "est_chars": 139
+        }
+    },
+    {
+        "id": "ks4_myths_perseus_medusa_1",
+        "stage": "KS4",
+        "theme": "Myths",
+        "title": "Perseus and Medusa (KS4)",
+        "text": "Although Medusa's gaze could turn a man to stone, Perseus was clever; he used his polished shield as a mirror.",
+        "tags": {
+            "complexity": {
+                "caps": true,
+                "punct": true
+            }
+        },
+        "meta": {
+            "est_chars": 141
+        }
+    },
+    {
+        "id": "ks4_nature_ecosystem_1",
+        "stage": "KS4",
+        "theme": "Nature",
+        "title": "Ecosystem Balance (KS4)",
+        "text": "Every organism in an ecosystem has a specific role. The removal of one species can have unforeseen consequences.",
+        "tags": {
+            "complexity": {
+                "caps": true,
+                "punct": true
+            }
+        },
+        "meta": {
+            "est_chars": 139
+        }
+    }
+]

@@ -1,0 +1,422 @@
+[
+    {
+        "id": "ks2_uk_statutory_sample_1",
+        "stage": "KS2",
+        "theme": "Statutory",
+        "name": "UK Statutory (A)",
+        "words": [
+            "favourite",
+            "colour",
+            "neighbour",
+            "centre",
+            "travelling",
+            "jewellery"
+        ],
+        "tags": {
+            "complexity": {
+                "caps": true,
+                "punct": false
+            }
+        }
+    },
+    {
+        "id": "ks2_animals_action_verbs_1",
+        "stage": "KS2",
+        "theme": "Animals",
+        "name": "Animal Verbs",
+        "words": [
+            "pounces",
+            "scampers",
+            "ambles",
+            "swoops",
+            "grazes",
+            "dozes",
+            "nudges",
+            "pecks"
+        ],
+        "tags": {
+            "complexity": {
+                "caps": true,
+                "punct": false
+            }
+        }
+    },
+    {
+        "id": "ks2_homophones_1",
+        "stage": "KS2",
+        "theme": "Statutory",
+        "name": "Homophones (A)",
+        "words": [
+            "there",
+            "their",
+            "they're",
+            "where",
+            "wear",
+            "were",
+            "your",
+            "you're"
+        ],
+        "tags": {
+            "complexity": {
+                "caps": false,
+                "punct": false
+            }
+        }
+    },
+    {
+        "id": "ks2_science_terms_1",
+        "stage": "KS2",
+        "theme": "Science snips",
+        "name": "Science Terms (A)",
+        "words": [
+            "dissolve",
+            "friction",
+            "gravity",
+            "reflect",
+            "absorb",
+            "circuit",
+            "force"
+        ],
+        "tags": {
+            "complexity": {
+                "caps": true,
+                "punct": false
+            }
+        }
+    },
+    {
+        "id": "ks2_suffix_tion_1",
+        "stage": "KS2",
+        "theme": "Phonics",
+        "name": "Suffix -tion",
+        "words": [
+            "station",
+            "fiction",
+            "motion",
+            "nation",
+            "action",
+            "lotion",
+            "option"
+        ],
+        "tags": {
+            "complexity": {
+                "caps": false,
+                "punct": false
+            }
+        }
+    },
+    {
+        "id": "ks2_animals_habitats_1",
+        "stage": "KS2",
+        "theme": "Animals",
+        "name": "Animal Habitats",
+        "words": [
+            "forest",
+            "desert",
+            "ocean",
+            "river",
+            "jungle",
+            "meadow",
+            "tundra"
+        ],
+        "tags": {
+            "complexity": {
+                "caps": true,
+                "punct": false
+            }
+        }
+    },
+    {
+        "id": "ks2_nature_trees_1",
+        "stage": "KS2",
+        "theme": "Nature",
+        "name": "British Trees",
+        "words": [
+            "oak",
+            "ash",
+            "beech",
+            "birch",
+            "willow",
+            "holly",
+            "sycamore"
+        ],
+        "tags": {
+            "complexity": {
+                "caps": true,
+                "punct": false
+            }
+        }
+    },
+    {
+        "id": "ks2_uk_statutory_sample_2",
+        "stage": "KS2",
+        "theme": "Statutory",
+        "name": "UK Statutory (B)",
+        "words": [
+            "believe",
+            "bicycle",
+            "business",
+            "calendar",
+            "caught",
+            "centre",
+            "century"
+        ],
+        "tags": {
+            "complexity": {
+                "caps": true,
+                "punct": false
+            }
+        }
+    },
+    {
+        "id": "ks2_silent_letters_1",
+        "stage": "KS2",
+        "theme": "Phonics",
+        "name": "Silent Letters",
+        "words": [
+            "knock",
+            "write",
+            "gnome",
+            "doubt",
+            "island",
+            "listen",
+            "autumn"
+        ],
+        "tags": {
+            "complexity": {
+                "caps": false,
+                "punct": false
+            }
+        }
+    },
+    {
+        "id": "ks2_history_vikings_1",
+        "stage": "KS2",
+        "theme": "History",
+        "name": "The Vikings",
+        "words": [
+            "Viking",
+            "longship",
+            "explore",
+            "settle",
+            "invade",
+            "Norse",
+            "raid"
+        ],
+        "tags": {
+            "complexity": {
+                "caps": true,
+                "punct": false
+            }
+        }
+    },
+    {
+        "id": "ks2_homophones_2",
+        "stage": "KS2",
+        "theme": "Statutory",
+        "name": "Homophones (B)",
+        "words": [
+            "to",
+            "too",
+            "two",
+            "see",
+            "sea",
+            "son",
+            "sun",
+            "for",
+            "four"
+        ],
+        "tags": {
+            "complexity": {
+                "caps": false,
+                "punct": false
+            }
+        }
+    },
+    {
+        "id": "ks2_animals_adjectives_1",
+        "stage": "KS2",
+        "theme": "Animals",
+        "name": "Animal Adjectives",
+        "words": [
+            "cunning",
+            "majestic",
+            "fierce",
+            "gentle",
+            "playful",
+            "swift",
+            "loyal"
+        ],
+        "tags": {
+            "complexity": {
+                "caps": false,
+                "punct": false
+            }
+        }
+    },
+    {
+        "id": "ks2_prefix_un_dis_1",
+        "stage": "KS2",
+        "theme": "Phonics",
+        "name": "Prefixes un- and dis-",
+        "words": [
+            "undo",
+            "unfair",
+            "unhappy",
+            "unzip",
+            "dislike",
+            "disagree",
+            "dishonest"
+        ],
+        "tags": {
+            "complexity": {
+                "caps": false,
+                "punct": false
+            }
+        }
+    },
+    {
+        "id": "ks2_geography_uk_1",
+        "stage": "KS2",
+        "theme": "Geography",
+        "name": "UK Geography",
+        "words": [
+            "England",
+            "Scotland",
+            "Wales",
+            "London",
+            "river",
+            "mountain",
+            "coast"
+        ],
+        "tags": {
+            "complexity": {
+                "caps": true,
+                "punct": false
+            }
+        }
+    },
+    {
+        "id": "ks2_uk_statutory_sample_3",
+        "stage": "KS2",
+        "theme": "Statutory",
+        "name": "UK Statutory (C)",
+        "words": [
+            "different",
+            "difficult",
+            "disappear",
+            "early",
+            "earth",
+            "eighth",
+            "enough"
+        ],
+        "tags": {
+            "complexity": {
+                "caps": true,
+                "punct": false
+            }
+        }
+    },
+    {
+        "id": "ks2_nature_rocks_1",
+        "stage": "KS2",
+        "theme": "Nature",
+        "name": "Types of Rock",
+        "words": [
+            "igneous",
+            "sedimentary",
+            "metamorphic",
+            "granite",
+            "slate",
+            "fossil"
+        ],
+        "tags": {
+            "complexity": {
+                "caps": true,
+                "punct": false
+            }
+        }
+    },
+    {
+        "id": "ks2_suffix_ous_1",
+        "stage": "KS2",
+        "theme": "Phonics",
+        "name": "Suffix -ous",
+        "words": [
+            "famous",
+            "nervous",
+            "dangerous",
+            "enormous",
+            "fabulous",
+            "joyous"
+        ],
+        "tags": {
+            "complexity": {
+                "caps": false,
+                "punct": false
+            }
+        }
+    },
+    {
+        "id": "ks2_mythology_1",
+        "stage": "KS2",
+        "theme": "Myths",
+        "name": "Greek Myths",
+        "words": [
+            "Zeus",
+            "Hera",
+            "myth",
+            "legend",
+            "goddess",
+            "monster",
+            "hero"
+        ],
+        "tags": {
+            "complexity": {
+                "caps": true,
+                "punct": false
+            }
+        }
+    },
+    {
+        "id": "ks2_science_space_1",
+        "stage": "KS2",
+        "theme": "Science snips",
+        "name": "The Solar System",
+        "words": [
+            "planet",
+            "star",
+            "orbit",
+            "galaxy",
+            "asteroid",
+            "comet",
+            "universe"
+        ],
+        "tags": {
+            "complexity": {
+                "caps": true,
+                "punct": false
+            }
+        }
+    },
+    {
+        "id": "ks2_uk_statutory_sample_4",
+        "stage": "KS2",
+        "theme": "Statutory",
+        "name": "UK Statutory (D)",
+        "words": [
+            "exercise",
+            "experience",
+            "extreme",
+            "famous",
+            "February",
+            "forward"
+        ],
+        "tags": {
+            "complexity": {
+                "caps": true,
+                "punct": false
+            }
+        }
+    }
+]

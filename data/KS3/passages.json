@@ -1,0 +1,361 @@
+[
+    {
+        "id": "ks3_academic_quiet_lab_1",
+        "stage": "KS3",
+        "theme": "Science snips",
+        "title": "Quiet Lab",
+        "text": "In the quiet lab, the solution turns a pale green; however, the reaction itself remains quite unremarkable.",
+        "tags": {
+            "complexity": {
+                "caps": true,
+                "punct": true
+            }
+        },
+        "meta": {
+            "est_chars": 138
+        }
+    },
+    {
+        "id": "ks3_myths_icarus_1",
+        "stage": "KS3",
+        "theme": "Myths",
+        "title": "Icarus's Flight",
+        "text": "He fashioned wings of feather and wax, ignoring his father's advice. The sun, however, had other ideas.",
+        "tags": {
+            "complexity": {
+                "caps": true,
+                "punct": true
+            }
+        },
+        "meta": {
+            "est_chars": 132
+        }
+    },
+    {
+        "id": "ks3_science_photosynthesis_1",
+        "stage": "KS3",
+        "theme": "Science snips",
+        "title": "Photosynthesis",
+        "text": "Photosynthesis is a remarkable process. Plants use sunlight to convert carbon dioxide and water into their own food.",
+        "tags": {
+            "complexity": {
+                "caps": true,
+                "punct": true
+            }
+        },
+        "meta": {
+            "est_chars": 148
+        }
+    },
+    {
+        "id": "ks3_academic_hypothesis_1",
+        "stage": "KS3",
+        "theme": "Academic",
+        "title": "The Hypothesis",
+        "text": "The experiment produced an unexpected result. Therefore, the initial hypothesis had to be re-evaluated completely.",
+        "tags": {
+            "complexity": {
+                "caps": true,
+                "punct": true
+            }
+        },
+        "meta": {
+            "est_chars": 139
+        }
+    },
+    {
+        "id": "ks3_myths_perseus_medusa_1",
+        "stage": "KS3",
+        "theme": "Myths",
+        "title": "Perseus and Medusa",
+        "text": "Although Medusa's gaze could turn a man to stone, Perseus was clever; he used his polished shield as a mirror.",
+        "tags": {
+            "complexity": {
+                "caps": true,
+                "punct": true
+            }
+        },
+        "meta": {
+            "est_chars": 141
+        }
+    },
+    {
+        "id": "ks3_nature_ecosystem_1",
+        "stage": "KS3",
+        "theme": "Nature",
+        "title": "Ecosystem Balance",
+        "text": "Every organism in an ecosystem has a specific role. The removal of one species can have unforeseen consequences.",
+        "tags": {
+            "complexity": {
+                "caps": true,
+                "punct": true
+            }
+        },
+        "meta": {
+            "est_chars": 139
+        }
+    },
+    {
+        "id": "ks3_science_gravity_1",
+        "stage": "KS3",
+        "theme": "Science snips",
+        "title": "Universal Gravity",
+        "text": "Newton realised that the force keeping the moon in orbit was the same force that makes an apple fall to the ground.",
+        "tags": {
+            "complexity": {
+                "caps": true,
+                "punct": true
+            }
+        },
+        "meta": {
+            "est_chars": 142
+        }
+    },
+    {
+        "id": "ks3_academic_source_critique_1",
+        "stage": "KS3",
+        "theme": "Academic",
+        "title": "Source Critique",
+        "text": "When studying history, it's crucial to analyse the reliability of a source, considering its origin and potential bias.",
+        "tags": {
+            "complexity": {
+                "caps": true,
+                "punct": true
+            }
+        },
+        "meta": {
+            "est_chars": 147
+        }
+    },
+    {
+        "id": "ks3_myths_pandora_box_1",
+        "stage": "KS3",
+        "theme": "Myths",
+        "title": "Pandora's Box",
+        "text": "She was warned never to open the box. Her curiosity, however, proved too strong and she unleashed chaos upon the world.",
+        "tags": {
+            "complexity": {
+                "caps": true,
+                "punct": true
+            }
+        },
+        "meta": {
+            "est_chars": 149
+        }
+    },
+    {
+        "id": "ks3_nature_plate_tectonics_1",
+        "stage": "KS3",
+        "theme": "Nature",
+        "title": "Plate Tectonics",
+        "text": "The Earth's crust is not a single piece, but is composed of several tectonic plates that are in constant, slow motion.",
+        "tags": {
+            "complexity": {
+                "caps": true,
+                "punct": true
+            }
+        },
+        "meta": {
+            "est_chars": 146
+        }
+    },
+    {
+        "id": "ks3_science_dna_1",
+        "stage": "KS3",
+        "theme": "Science snips",
+        "title": "DNA",
+        "text": "DNA, the blueprint of life, is a complex molecule shaped like a twisted ladder, known as a double helix.",
+        "tags": {
+            "complexity": {
+                "caps": true,
+                "punct": true
+            }
+        },
+        "meta": {
+            "est_chars": 126
+        }
+    },
+    {
+        "id": "ks3_academic_argument_1",
+        "stage": "KS3",
+        "theme": "Academic",
+        "title": "Building an Argument",
+        "text": "A strong argument requires a clear thesis, supported by credible evidence and logical reasoning. Without these, it fails.",
+        "tags": {
+            "complexity": {
+                "caps": true,
+                "punct": true
+            }
+        },
+        "meta": {
+            "est_chars": 144
+        }
+    },
+    {
+        "id": "ks3_myths_king_midas_1",
+        "stage": "KS3",
+        "theme": "Myths",
+        "title": "King Midas",
+        "text": "King Midas wished that everything he touched would turn to gold. He soon discovered his wish was a terrible curse.",
+        "tags": {
+            "complexity": {
+                "caps": true,
+                "punct": true
+            }
+        },
+        "meta": {
+            "est_chars": 142
+        }
+    },
+    {
+        "id": "ks3_nature_evolution_1",
+        "stage": "KS3",
+        "theme": "Nature",
+        "title": "Natural Selection",
+        "text": "Natural selection is the process where organisms better adapted to their environment tend to survive and reproduce.",
+        "tags": {
+            "complexity": {
+                "caps": true,
+                "punct": true
+            }
+        },
+        "meta": {
+            "est_chars": 140
+        }
+    },
+    {
+        "id": "ks3_science_black_hole_1",
+        "stage": "KS3",
+        "theme": "Science snips",
+        "title": "Black Holes",
+        "text": "A black hole is a region of spacetime where gravity is so strong that nothing—not even light—can escape its pull.",
+        "tags": {
+            "complexity": {
+                "caps": true,
+                "punct": true
+            }
+        },
+        "meta": {
+            "est_chars": 141
+        }
+    },
+    {
+        "id": "ks3_myths_prometheus_1",
+        "stage": "KS3",
+        "theme": "Myths",
+        "title": "Prometheus",
+        "text": "Prometheus defied the gods by stealing fire and giving it to humanity, an act for which he was severely punished.",
+        "tags": {
+            "complexity": {
+                "caps": true,
+                "punct": true
+            }
+        },
+        "meta": {
+            "est_chars": 139
+        }
+    },
+    {
+        "id": "ks3_academic_shakespeare_1",
+        "stage": "KS3",
+        "theme": "Academic",
+        "title": "Shakespearean Language",
+        "text": "Though initially challenging, Shakespeare's language is rich with metaphor and wordplay that rewards careful reading.",
+        "tags": {
+            "complexity": {
+                "caps": true,
+                "punct": true
+            }
+        },
+        "meta": {
+            "est_chars": 148
+        }
+    },
+    {
+        "id": "ks3_nature_volcano_1",
+        "stage": "KS3",
+        "theme": "Nature",
+        "title": "Volcanic Eruption",
+        "text": "Pressure builds deep within the Earth until molten rock, or magma, is forced to the surface in a volcanic eruption.",
+        "tags": {
+            "complexity": {
+                "caps": true,
+                "punct": true
+            }
+        },
+        "meta": {
+            "est_chars": 144
+        }
+    },
+    {
+        "id": "ks3_myths_theseus_minotaur_1",
+        "stage": "KS3",
+        "theme": "Myths",
+        "title": "Theseus and the Minotaur",
+        "text": "Theseus navigated the labyrinth using a ball of thread, faced the fearsome Minotaur, and emerged victorious.",
+        "tags": {
+            "complexity": {
+                "caps": true,
+                "punct": true
+            }
+        },
+        "meta": {
+            "est_chars": 140
+        }
+    },
+    {
+        "id": "ks3_science_relativity_1",
+        "stage": "KS3",
+        "theme": "Science snips",
+        "title": "Relativity",
+        "text": "Einstein's theory of relativity fundamentally changed our understanding of space, time, and the nature of gravity.",
+        "tags": {
+            "complexity": {
+                "caps": true,
+                "punct": true
+            }
+        },
+        "meta": {
+            "est_chars": 141
+        }
+    },
+    {
+        "id": "ks3_silly_poet_bunny_1",
+        "stage": "KS3",
+        "theme": "Silly Stories",
+        "title": "The Poet Rabbit",
+        "text": "Bartholomew considered the sunset. 'Oh, sky of pink and...' he mumbled, searching for a suitable rhyme. His stomach rumbled loudly. Consequently, the poem was abandoned in favour of some delicious clover.",
+        "tags": {
+            "complexity": {
+                "caps": true,
+                "punct": true
+            },
+            "phonics": [
+                "ow/ou"
+            ]
+        },
+        "meta": {
+            "est_chars": 201
+        }
+    },
+    {
+        "id": "ks3_science_bunny_crunch_1",
+        "stage": "KS3",
+        "theme": "Science snips",
+        "title": "A Scientific Crunch",
+        "text": "Professor Bunstable's experiment was simple: to determine which vegetable had the optimal crunch factor. His hypothesis favoured the carrot; however, his research was frequently compromised by him eating the evidence.",
+        "tags": {
+            "complexity": {
+                "caps": true,
+                "punct": true
+            },
+            "phonics": [
+                "double consonant",
+                "ow/ou"
+            ]
+        },
+        "meta": {
+            "est_chars": 214
+        }
+    }
+]

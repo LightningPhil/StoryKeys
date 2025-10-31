@@ -1,0 +1,362 @@
+[
+    {
+        "id": "ks2_animals_otter_nonsense_1",
+        "stage": "KS2",
+        "theme": "Animals",
+        "title": "Otter Nonsense",
+        "text": "The otter balances a pebble like a tiny crown. It twirls, drops it, and looks very pleased with itself.",
+        "tags": {
+            "complexity": {
+                "caps": true,
+                "punct": true
+            }
+        },
+        "meta": {
+            "est_chars": 132
+        }
+    },
+    {
+        "id": "ks2_nature_small_weather_1",
+        "stage": "KS2",
+        "theme": "Nature",
+        "title": "A British Breeze",
+        "text": "A small breeze hustles the leaves along the path. Clouds shuffle over the sun, then think better of it.",
+        "tags": {
+            "complexity": {
+                "caps": true,
+                "punct": true
+            }
+        },
+        "meta": {
+            "est_chars": 136
+        }
+    },
+    {
+        "id": "ks2_animals_silly_fox_1",
+        "stage": "KS2",
+        "theme": "Silly Stories",
+        "title": "The Fox’s Plan",
+        "text": "The fox draws a map with a muddy paw, then forgets which way is north and asks a friendly crow.",
+        "tags": {
+            "complexity": {
+                "caps": true,
+                "punct": true
+            }
+        },
+        "meta": {
+            "est_chars": 125
+        }
+    },
+    {
+        "id": "ks2_science_snip_1",
+        "stage": "KS2",
+        "theme": "Science snips",
+        "title": "Water Cycle",
+        "text": "Water evaporates from the sea, forms clouds, and then falls as rain. It's a journey with no end.",
+        "tags": {
+            "complexity": {
+                "caps": true,
+                "punct": true
+            }
+        },
+        "meta": {
+            "est_chars": 119
+        }
+    },
+    {
+        "id": "ks2_myths_griffin_guard_1",
+        "stage": "KS2",
+        "theme": "Myths",
+        "title": "The Griffin's Guard",
+        "text": "The griffin, with its lion's body and eagle's head, guarded a treasure of pure gold. Few dared to challenge it.",
+        "tags": {
+            "complexity": {
+                "caps": true,
+                "punct": true
+            }
+        },
+        "meta": {
+            "est_chars": 149
+        }
+    },
+    {
+        "id": "ks2_silly_stories_detective_badger_1",
+        "stage": "KS2",
+        "theme": "Silly Stories",
+        "title": "Detective Badger",
+        "text": "Badger put on his favourite tweed cap. 'The case of the missing jam tart,' he mumbled, 'is my most difficult yet!'",
+        "tags": {
+            "complexity": {
+                "caps": true,
+                "punct": true
+            }
+        },
+        "meta": {
+            "est_chars": 149
+        }
+    },
+    {
+        "id": "ks2_animals_hedgehog_defence_1",
+        "stage": "KS2",
+        "theme": "Animals",
+        "title": "Hedgehog Defence",
+        "text": "At the first sign of danger, the hedgehog curls into a tight, spiky ball. It is a simple but effective defence.",
+        "tags": {
+            "complexity": {
+                "caps": true,
+                "punct": true
+            }
+        },
+        "meta": {
+            "est_chars": 128
+        }
+    },
+    {
+        "id": "ks2_nature_ancient_oak_1",
+        "stage": "KS2",
+        "theme": "Nature",
+        "title": "The Ancient Oak",
+        "text": "An ancient oak tree stood on the hill, its branches like gnarled fingers pointing at the travelling clouds.",
+        "tags": {
+            "complexity": {
+                "caps": true,
+                "punct": true
+            }
+        },
+        "meta": {
+            "est_chars": 135
+        }
+    },
+    {
+        "id": "ks2_silly_stories_pigeon_post_1",
+        "stage": "KS2",
+        "theme": "Silly Stories",
+        "title": "Pigeon Post",
+        "text": "A pigeon tries to deliver a letter, but he gets distracted by a shiny bottle cap and forgets the address.",
+        "tags": {
+            "complexity": {
+                "caps": true,
+                "punct": true
+            }
+        },
+        "meta": {
+            "est_chars": 126
+        }
+    },
+    {
+        "id": "ks2_science_rainbows_1",
+        "stage": "KS2",
+        "theme": "Science snips",
+        "title": "How Rainbows Form",
+        "text": "Sunlight shining through raindrops is split into its different colours, creating a beautiful arc in the sky.",
+        "tags": {
+            "complexity": {
+                "caps": true,
+                "punct": true
+            }
+        },
+        "meta": {
+            "est_chars": 136
+        }
+    },
+    {
+        "id": "ks2_animals_bat_sonar_1",
+        "stage": "KS2",
+        "theme": "Animals",
+        "title": "Bat Sonar",
+        "text": "A bat navigates in the dark by emitting high-pitched squeaks. The echoes create a map of its surroundings.",
+        "tags": {
+            "complexity": {
+                "caps": true,
+                "punct": true
+            }
+        },
+        "meta": {
+            "est_chars": 143
+        }
+    },
+    {
+        "id": "ks2_myths_cerberus_1",
+        "stage": "KS2",
+        "theme": "Myths",
+        "title": "Cerberus",
+        "text": "Cerberus, the three-headed dog, guarded the entrance to the underworld. He was fearsome but loyal to his master.",
+        "tags": {
+            "complexity": {
+                "caps": true,
+                "punct": true
+            }
+        },
+        "meta": {
+            "est_chars": 141
+        }
+    },
+    {
+        "id": "ks2_silly_stories_squirrel_meeting_1",
+        "stage": "KS2",
+        "theme": "Silly Stories",
+        "title": "Squirrel Meeting",
+        "text": "The squirrels held an urgent meeting. The topic: how to get the 'impossible' nuts from the new bird feeder.",
+        "tags": {
+            "complexity": {
+                "caps": true,
+                "punct": true
+            }
+        },
+        "meta": {
+            "est_chars": 131
+        }
+    },
+    {
+        "id": "ks2_nature_river_journey_1",
+        "stage": "KS2",
+        "theme": "Nature",
+        "title": "River's Journey",
+        "text": "The river starts as a tiny trickle in the hills. It grows stronger and wider on its long journey to the sea.",
+        "tags": {
+            "complexity": {
+                "caps": true,
+                "punct": true
+            }
+        },
+        "meta": {
+            "est_chars": 132
+        }
+    },
+    {
+        "id": "ks2_animals_chameleon_1",
+        "stage": "KS2",
+        "theme": "Animals",
+        "title": "The Chameleon",
+        "text": "A chameleon can change its skin colour to match its background. It's the ultimate game of hide-and-seek.",
+        "tags": {
+            "complexity": {
+                "caps": true,
+                "punct": true
+            }
+        },
+        "meta": {
+            "est_chars": 129
+        }
+    },
+    {
+        "id": "ks2_science_magnets_1",
+        "stage": "KS2",
+        "theme": "Science snips",
+        "title": "Magnets",
+        "text": "Every magnet has a north and a south pole. Opposite poles attract, while identical poles repel each other.",
+        "tags": {
+            "complexity": {
+                "caps": true,
+                "punct": true
+            }
+        },
+        "meta": {
+            "est_chars": 128
+        }
+    },
+    {
+        "id": "ks2_silly_stories_formal_frog_1",
+        "stage": "KS2",
+        "theme": "Silly Stories",
+        "title": "A Formal Frog",
+        "text": "A frog insists on wearing a tiny bow tie. He thinks it makes him look more distinguished when catching flies.",
+        "tags": {
+            "complexity": {
+                "caps": true,
+                "punct": true
+            }
+        },
+        "meta": {
+            "est_chars": 132
+        }
+    },
+    {
+        "id": "ks2_myths_pegasus_1",
+        "stage": "KS2",
+        "theme": "Myths",
+        "title": "Pegasus",
+        "text": "Pegasus was a magnificent winged horse. With a beat of his hooves, he could create a spring of fresh water.",
+        "tags": {
+            "complexity": {
+                "caps": true,
+                "punct": true
+            }
+        },
+        "meta": {
+            "est_chars": 133
+        }
+    },
+    {
+        "id": "ks2_nature_spider_web_1",
+        "stage": "KS2",
+        "theme": "Nature",
+        "title": "Spider's Web",
+        "text": "The spider's web, a marvel of engineering, glistens with morning dew. It is both a home and a clever trap.",
+        "tags": {
+            "complexity": {
+                "caps": true,
+                "punct": true
+            }
+        },
+        "meta": {
+            "est_chars": 134
+        }
+    },
+    {
+        "id": "ks2_animals_clever_crows_1",
+        "stage": "KS2",
+        "theme": "Animals",
+        "title": "Clever Crows",
+        "text": "Crows are incredibly intelligent birds. They can use tools, solve puzzles, and even remember human faces.",
+        "tags": {
+            "complexity": {
+                "caps": true,
+                "punct": true
+            }
+        },
+        "meta": {
+            "est_chars": 133
+        }
+    },
+    {
+        "id": "ks2_silly_flying_bunny_1",
+        "stage": "KS2",
+        "theme": "Silly Stories",
+        "title": "Barnaby's Big Idea",
+        "text": "Barnaby had a brilliant, if silly, idea. He would learn to fly! He strapped two large cabbage leaves to his back and leapt from a small log. He did not fly, but he did perform a spectacular tumble.",
+        "tags": {
+            "complexity": {
+                "caps": true,
+                "punct": true
+            },
+            "phonics": [
+                "double consonant",
+                "ea/ee"
+            ]
+        },
+        "meta": {
+            "est_chars": 176
+        }
+    },
+    {
+        "id": "ks2_silly_bunny_detective_1",
+        "stage": "KS2",
+        "theme": "Silly Stories",
+        "title": "The Dandelion Detective",
+        "text": "One perfect dandelion was missing from the patch. Beatrice Bunny, detective extraordinaire, examined the scene. The only clue? A trail of crumbs leading straight to the sleepy badger's den.",
+        "tags": {
+            "complexity": {
+                "caps": true,
+                "punct": true
+            },
+            "phonics": [
+                "double consonant",
+                "ea/ee"
+            ]
+        },
+        "meta": {
+            "est_chars": 185
+        }
+    }
+]

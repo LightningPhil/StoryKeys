@@ -1,0 +1,405 @@
+[
+    {
+        "id": "ks3_connectors_academic_1",
+        "stage": "KS3",
+        "theme": "Academic",
+        "name": "Connectors (A)",
+        "words": [
+            "however",
+            "therefore",
+            "consequently",
+            "moreover",
+            "nevertheless",
+            "furthermore"
+        ],
+        "tags": {
+            "complexity": {
+                "caps": true,
+                "punct": false
+            }
+        }
+    },
+    {
+        "id": "ks3_mythology_creatures_1",
+        "stage": "KS3",
+        "theme": "Myths",
+        "name": "Mythical Creatures",
+        "words": [
+            "phoenix",
+            "centaur",
+            "minotaur",
+            "cyclops",
+            "gorgon",
+            "chimera",
+            "hydra"
+        ],
+        "tags": {
+            "complexity": {
+                "caps": true,
+                "punct": false
+            }
+        }
+    },
+    {
+        "id": "ks3_science_biology_1",
+        "stage": "KS3",
+        "theme": "Science snips",
+        "name": "Biology Terms",
+        "words": [
+            "organism",
+            "photosynthesis",
+            "respiration",
+            "ecosystem",
+            "nucleus",
+            "chromosome"
+        ],
+        "tags": {
+            "complexity": {
+                "caps": true,
+                "punct": false
+            }
+        }
+    },
+    {
+        "id": "ks3_literature_terms_1",
+        "stage": "KS3",
+        "theme": "Academic",
+        "name": "Literary Terms",
+        "words": [
+            "metaphor",
+            "simile",
+            "onomatopoeia",
+            "alliteration",
+            "protagonist",
+            "symbolism"
+        ],
+        "tags": {
+            "complexity": {
+                "caps": true,
+                "punct": false
+            }
+        }
+    },
+    {
+        "id": "ks3_suffix_able_ible_1",
+        "stage": "KS3",
+        "theme": "Phonics",
+        "name": "-able vs -ible",
+        "words": [
+            "reliable",
+            "adorable",
+            "visible",
+            "possible",
+            "flexible",
+            "sensible",
+            "edible"
+        ],
+        "tags": {
+            "complexity": {
+                "caps": false,
+                "punct": false
+            }
+        }
+    },
+    {
+        "id": "ks3_history_medieval_1",
+        "stage": "KS3",
+        "theme": "History",
+        "name": "Medieval Life",
+        "words": [
+            "medieval",
+            "feudalism",
+            "monarchy",
+            "cathedral",
+            "knight",
+            "peasant",
+            "castle"
+        ],
+        "tags": {
+            "complexity": {
+                "caps": true,
+                "punct": false
+            }
+        }
+    },
+    {
+        "id": "ks3_connectors_academic_2",
+        "stage": "KS3",
+        "theme": "Academic",
+        "name": "Connectors (B)",
+        "words": [
+            "meanwhile",
+            "alternatively",
+            "subsequently",
+            "similarly",
+            "contrastingly"
+        ],
+        "tags": {
+            "complexity": {
+                "caps": true,
+                "punct": false
+            }
+        }
+    },
+    {
+        "id": "ks3_geography_physical_1",
+        "stage": "KS3",
+        "theme": "Geography",
+        "name": "Physical Geography",
+        "words": [
+            "tectonic",
+            "erosion",
+            "glacier",
+            "peninsula",
+            "archipelago",
+            "hemisphere"
+        ],
+        "tags": {
+            "complexity": {
+                "caps": true,
+                "punct": false
+            }
+        }
+    },
+    {
+        "id": "ks3_science_chemistry_1",
+        "stage": "KS3",
+        "theme": "Science snips",
+        "name": "Chemistry Terms",
+        "words": [
+            "molecule",
+            "catalyst",
+            "element",
+            "compound",
+            "reaction",
+            "solution",
+            "acid"
+        ],
+        "tags": {
+            "complexity": {
+                "caps": true,
+                "punct": false
+            }
+        }
+    },
+    {
+        "id": "ks3_government_1",
+        "stage": "KS3",
+        "theme": "Academic",
+        "name": "Government",
+        "words": [
+            "parliament",
+            "democracy",
+            "election",
+            "government",
+            "judiciary",
+            "legislation"
+        ],
+        "tags": {
+            "complexity": {
+                "caps": true,
+                "punct": false
+            }
+        }
+    },
+    {
+        "id": "ks3_tricky_spellings_1",
+        "stage": "KS3",
+        "theme": "Statutory",
+        "name": "Tricky Spellings (A)",
+        "words": [
+            "accommodate",
+            "committee",
+            "embarrass",
+            "necessary",
+            "privilege",
+            "rhythm"
+        ],
+        "tags": {
+            "complexity": {
+                "caps": false,
+                "punct": false
+            }
+        }
+    },
+    {
+        "id": "ks3_science_physics_1",
+        "stage": "KS3",
+        "theme": "Science snips",
+        "name": "Physics Terms",
+        "words": [
+            "velocity",
+            "acceleration",
+            "momentum",
+            "friction",
+            "spectrum",
+            "refraction"
+        ],
+        "tags": {
+            "complexity": {
+                "caps": true,
+                "punct": false
+            }
+        }
+    },
+    {
+        "id": "ks3_history_industrial_1",
+        "stage": "KS3",
+        "theme": "History",
+        "name": "Industrial Revolution",
+        "words": [
+            "industrial",
+            "revolution",
+            "factory",
+            "steam",
+            "engine",
+            "textile",
+            "innovation"
+        ],
+        "tags": {
+            "complexity": {
+                "caps": true,
+                "punct": false
+            }
+        }
+    },
+    {
+        "id": "ks3_analysis_verbs_1",
+        "stage": "KS3",
+        "theme": "Academic",
+        "name": "Analysis Verbs",
+        "words": [
+            "analyse",
+            "evaluate",
+            "interpret",
+            "juxtapose",
+            "convey",
+            "emphasise",
+            "imply"
+        ],
+        "tags": {
+            "complexity": {
+                "caps": false,
+                "punct": false
+            }
+        }
+    },
+    {
+        "id": "ks3_tricky_spellings_2",
+        "stage": "KS3",
+        "theme": "Statutory",
+        "name": "Tricky Spellings (B)",
+        "words": [
+            "conscience",
+            "definitely",
+            "guarantee",
+            "mischievous",
+            "occasionally"
+        ],
+        "tags": {
+            "complexity": {
+                "caps": false,
+                "punct": false
+            }
+        }
+    },
+    {
+        "id": "ks3_geography_weather_1",
+        "stage": "KS3",
+        "theme": "Geography",
+        "name": "Weather & Climate",
+        "words": [
+            "atmosphere",
+            "precipitation",
+            "humidity",
+            "climate",
+            "cyclone",
+            "anticyclone"
+        ],
+        "tags": {
+            "complexity": {
+                "caps": true,
+                "punct": false
+            }
+        }
+    },
+    {
+        "id": "ks3_mathematics_1",
+        "stage": "KS3",
+        "theme": "Academic",
+        "name": "Mathematics Terms",
+        "words": [
+            "algebra",
+            "geometry",
+            "probability",
+            "equation",
+            "integer",
+            "coefficient"
+        ],
+        "tags": {
+            "complexity": {
+                "caps": false,
+                "punct": false
+            }
+        }
+    },
+    {
+        "id": "ks3_suffix_ance_ence_1",
+        "stage": "KS3",
+        "theme": "Phonics",
+        "name": "-ance vs -ence",
+        "words": [
+            "guidance",
+            "nuisance",
+            "relevance",
+            "absence",
+            "innocence",
+            "patience"
+        ],
+        "tags": {
+            "complexity": {
+                "caps": false,
+                "punct": false
+            }
+        }
+    },
+    {
+        "id": "ks3_art_history_1",
+        "stage": "KS3",
+        "theme": "History",
+        "name": "Art Movements",
+        "words": [
+            "renaissance",
+            "baroque",
+            "impressionism",
+            "cubism",
+            "surrealism"
+        ],
+        "tags": {
+            "complexity": {
+                "caps": true,
+                "punct": false
+            }
+        }
+    },
+    {
+        "id": "ks3_tricky_spellings_3",
+        "stage": "KS3",
+        "theme": "Statutory",
+        "name": "Tricky Spellings (C)",
+        "words": [
+            "separate",
+            "sincerely",
+            "twelfth",
+            "cemetery",
+            "desperate",
+            "existence"
+        ],
+        "tags": {
+            "complexity": {
+                "caps": false,
+                "punct": false
+            }
+        }
+    }
+]

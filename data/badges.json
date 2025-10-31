@@ -1,0 +1,77 @@
+[
+    {
+        "id": "steady_95",
+        "label": "Steady 95",
+        "desc": "Complete three sessions at 95%+ accuracy."
+    },
+    {
+        "id": "accuracy_ace_98",
+        "label": "Accuracy Ace",
+        "desc": "Achieve 98%+ accuracy in a session."
+    },
+    {
+        "id": "perfectionist_100",
+        "label": "Perfectionist",
+        "desc": "Finish a session with 100% accuracy."
+    },
+    {
+        "id": "calm_careful",
+        "label": "Calm & Careful",
+        "desc": "Finish with zero errors in lockstep mode."
+    },
+    {
+        "id": "punct_pro",
+        "label": "Punctuation Pro",
+        "desc": "Finish a passage with punctuation at 95%+ accuracy."
+    },
+    {
+        "id": "explorer",
+        "label": "Explorer",
+        "desc": "Try three different themes."
+    },
+    {
+        "id": "genre_hopper",
+        "label": "Genre Hopper",
+        "desc": "Complete a passage from Animals, Nature, and Science."
+    },
+    {
+        "id": "stage_scholar",
+        "label": "Stage Scholar",
+        "desc": "Complete one lesson from KS1, KS2, and KS3."
+    },
+    {
+        "id": "routine",
+        "label": "Routine",
+        "desc": "Type on three different days this week."
+    },
+    {
+        "id": "five_day_streak",
+        "label": "5-Day Streak",
+        "desc": "Complete a session on five consecutive days."
+    },
+    {
+        "id": "early_bird",
+        "label": "Early Bird",
+        "desc": "Complete a session before 9 AM."
+    },
+    {
+        "id": "night_owl",
+        "label": "Night Owl",
+        "desc": "Complete a session after 9 PM."
+    },
+    {
+        "id": "word_wizard_1k",
+        "label": "Word Wizard",
+        "desc": "Type a total of 1,000 words."
+    },
+    {
+        "id": "typing_titan_30",
+        "label": "Typing Titan",
+        "desc": "Accumulate 30 minutes of total typing time."
+    },
+    {
+        "id": "marathoner_60",
+        "label": "Marathoner",
+        "desc": "Accumulate 60 minutes of total typing time."
+    }
+]

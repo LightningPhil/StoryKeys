@@ -1,0 +1,31 @@
+{
+    "appTitle": "StoryKeys",
+    "tagline": "Tiny animal tales. Calm, careful typing.",
+    "homeStart": "Start a story",
+    "homeChangeLesson": "Choose something to type",
+    "tipAccuracyFirst": "Accuracy first. Speed is something you can add later.",
+    "typingHeaderReady": "Ready when you are",
+    "lockstepOn": "Lockstep",
+    "focusLineOn": "Focus Line",
+    "metricAccuracy": "Accuracy",
+    "metricNetWPM": "Net WPM",
+    "metricTime": "Time",
+    "metricErrors": "Errors",
+    "nextKeyLabel": "Next:",
+    "spaceName": "Space",
+    "enterName": "Enter",
+    "summaryNiceWork": "Lovely typing!",
+    "summaryReplay": "Try again",
+    "summaryHome": "Home",
+    "summaryDrill": "Start Focus Drill",
+    "summaryHardestKeys": "Hardest keys",
+    "summaryTrickyWords": "Tricky words",
+    "pasteBlocked": "Typing practice works best without pasting.",
+    "encourageGentle": [
+        "Nice and steady.",
+        "Great focus.",
+        "Calm and careful.",
+        "That looked smooth.",
+        "Brilliant effort!"
+    ]
+}

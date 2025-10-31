@@ -1,0 +1,172 @@
+# Designing a Fantastic Dyslexia-Friendly Web App for an 11-Year-Old (Markdown Edition)
+
+## Purpose & Audience
+
+* **Primary user:** 11-year-old dyslexic beginner/intermediate typist who loves animals and humorous, Grimm-style (friendly) stories.
+* **Secondary user:** Parent/carer who wants safety, visibility, and no accounts.
+* **Core goal:** Make copy-typing feel like playful reading practice; build **accuracy and confidence first**, then gently introduce speed (optional timing).
+
+---
+
+## Design Principles
+
+1. **Approachable first-run:** zero configuration, one big “Start” action, instant success bias.
+2. **Low cognitive load:** generous spacing, consistent layout, minimal chrome, no moving text.
+3. **Dyslexia-friendly defaults:** larger text, increased line/letter spacing, off-white backgrounds, optional dyslexia-oriented font; avoid italics/underlines.
+4. **Effort over speed:** praise accuracy and perseverance; speed is opt-in and personal (“beat your best”).
+5. **Self-paced micro-scaffolding:** short passages (80–160 chars), bite-size word sets, explicit pattern focus.
+6. **Kind, specific feedback:** highlight what to do next rather than what went wrong.
+7. **No accounts, no tracking:** all data local; parent view is read-only; export JSON.
+
+---
+
+## Pedagogical Approach
+
+* **Copy-typing ? familiarity:** reduce spelling burden while increasing exposure to correct forms (British spellings).
+* **Accuracy before speed:** show accuracy and error cues; unlock speed metrics only after stable accuracy (e.g., =95% across recent sessions).
+* **Phonics & morphology tagging:** group content by patterns (ea/ee, ough variants), prefixes/suffixes (-tion/-sion, -able/-ible).
+* **Deliberate practice:** end-of-session “focus drills” target top weak keys/words/patterns in 45–60s bursts.
+* **Chunked progression:** KS1 ? KS2 ? KS3 filters and themes (Animals, Silly Stories, Nature, Science snips, Myths).
+
+---
+
+## Content Strategy (UK, British spellings)
+
+* **Key Stages:** KS1, KS2, KS3 filters affect wordlists, passage complexity, and reading level labels (Y1–Y9).
+* **Passages:** 70–160 characters, animal-centric, lightly humorous, age-appropriate; flags for `caps/punct/numbers`.
+* **Word Sets:** 4–16 words per set tuned to patterns or topics; quick wins.
+* **Pattern Packs:** targeted lists (6–12 words) for drills (e.g., *-tion*, *ough* variants, silent letters, *-able/-ible*).
+* **Custom text (optional):** parent paste box with basic profanity/length checks.
+
+---
+
+## Dyslexia-Friendly UI/UX
+
+* **Typography:** sans-serif default; optional dyslexia-oriented font; base size 16–18px; line height 1.6–1.8; letter spacing +2–6%.
+* **Colour/contrast:** off-white or pale cream backgrounds to reduce glare; dark text; accessible contrast in both light and dark themes.
+* **Layout:** single primary action per view; 60–70ch line length; never justify; no hyphenation; large hit targets (=44px).
+* **Error display:** soft wavy underline for mismatches; green tint for matches; no flashing or punitive cues.
+* **Focus aids:** focus-line mode (soft highlight on current line), optional on-screen keyboard hint with colour-zoned finger areas.
+* **Motion:** limited, gentle (=150ms). Respect “reduce motion” OS preference.
+
+---
+
+## Keeping It Fun (Without Pressure)
+
+* **Mascot companion:** subtle reactions only; no noisy animations.
+* **Visual progress worlds:** sessions “light up” parts of a scene (effort-driven, not speed-driven).
+* **Badges:** effort and habit focused (e.g., “Steady 95”, “Routine”, “Punctuation Pro”, “Explorer”).
+* **Themes & choice:** child picks Animals/Silly Stories/Nature/etc. to feel agency.
+* **Short bursts:** main sessions 2–3 min; optional 45–60s mini-drills.
+* **Optional timer:** hidden by default; when enabled, it’s gentle, never punitive, and purely personal best tracking.
+
+---
+
+## Core Feature Set (Complete)
+
+* **Copy-typing workspace:** target text above; input below; real-time per-char matching; optional lockstep (must match next char).
+* **Next-key bubble:** large glyph (e.g., `;`, `? Space`, `? Enter`) with simple finger hint.
+* **Mini-metrics (max 4 on screen):** Accuracy %, Errors, Time (if enabled), Net WPM (only when accuracy mastery achieved or timer chosen).
+* **Lesson Picker:** tabs for *Words*, *Passages*, *Focus Drills*; filters for Stage/Theme/Complexity; snippet previews.
+* **Session Summary:** celebratory headline; accuracy dial; (net) WPM if eligible; duration; errors; top 3 hardest keys; top 3 tricky words; actionable drill suggestion.
+* **Focus Drills:** Keys (most-errored characters), Words (recent misses), Pattern (inferred phonics/suffix set).
+* **Parent Glance (local):** this week (sessions, minutes, best/avg accuracy, trend); last 20 sessions table; export JSON; clear data; optional PIN.
+* **Settings:** readability (font, spacing, background, dark mode), behaviour (lockstep/timer/hints), content defaults (Stage/Theme), privacy (PIN, clear).
+
+---
+
+## Session Flow
+
+1. **Home ? Start (2 min):** auto-recommended content (Stage/Theme defaults).
+2. **Typing:** copy-type with live feedback; lockstep optional; timer optional; next-key bubble visible.
+3. **Completion:** on exact match (transformed by complexity flags), compute metrics and recommendations.
+4. **Summary:** praise + one specific tip + one-tap drill (keys/words/pattern).
+5. **Return to Home** or continue with drill/new story.
+
+---
+
+## Metrics & Logic
+
+* **Correct characters:** positions where `typed[i] === target[i]`.
+* **Accuracy %:** `round(100 * correct / typed.length)`; show 100% until first keystroke.
+* **Gross WPM:** `(typed.length / 5) / minutes`.
+* **Net WPM:** `Gross * Accuracy%`; **hidden** until accuracy mastery or timer enabled.
+* **Errors:** lockstep: blocked mismatches; non-lockstep: mismatched positions at end.
+* **Hardest keys:** top 3 target characters most involved in mismatches.
+* **Tricky words:** words containing mismatches; normalised (letters/apostrophes).
+* **Adaptive suggestions:**
+
+  * If accuracy < 90%: suggest shorter/less complex variant (lowercase/no punct).
+  * If accuracy = 95% in current and =2 of last 3: allow net WPM and offer speed mode.
+  * If repeated pattern (e.g., *-tion*) across last 3 sessions: surface pattern drill.
+
+---
+
+## Data Model (Embedded; all British)
+
+* **Word Sets:** `{ id, stage, theme, name, words[], tags{ phonics[], morphology[], complexity{caps,punct,numbers} }, meta{ est_chars, reading_level, notes } }`
+* **Passages:** `{ id, stage, theme, title, text, tags{ phonics[], morphology[], complexity{} }, meta{ est_chars, reading_level, humour } }`
+* **Pattern Packs:** `{ id, stage, theme, name, items[], tags{ phonics[], complexity{} }, meta{ est_chars, notes } }`
+* **Transform rules (runtime):** lower-casing, punctuation removal, number stripping based on toggles; collapse multiple spaces; trim.
+* **Keyboard hints map:** key ? friendly name + hand/finger.
+
+---
+
+## Storage, Privacy, Offline
+
+* **Local only (`localStorage`):** settings, progress (minutes, badges), sessions (append-only, prune oldest beyond 500).
+* **Export:** JSON bundle (settings/progress/sessions) for parent backup; no PII by default.
+* **PIN (optional):** to gate Parent Glance and destructive actions (store a simple hash).
+* **Offline:** single-file app works once loaded; no external fetch; inline SVG only.
+
+---
+
+## Accessibility & Inclusivity
+
+* **Keyboard accessible UI;** visible focus rings; ARIA live region for feedback.
+* **Contrast AA+;** dark/light/cream modes; respects `prefers-reduced-motion`.
+* **No italics/underlines;** use bold/colour for emphasis; avoid justified text.
+* **Optional focus-line highlight** and on-screen keyboard hints for spatial mapping.
+
+---
+
+## Copy Tone (Examples)
+
+* Encouragement: “Nice and steady.” / “Great focus.” / “Calm and careful.” / “Brilliant effort!”
+* Suggestions: “Fancy a 60-second *-tion* drill?”
+* Summary praise: “Lovely typing!”
+
+---
+
+## Risks & Mitigations
+
+* **Speed chasing:** gate WPM behind accuracy mastery; frame speed as optional personal bests.
+* **Frustration with lockstep:** default on but clearly toggleable; explain benefits.
+* **Overwhelm:** tight scope per screen; surface only 3–4 metrics max.
+* **Reading level mismatches:** Stage filters + preview snippets; keep passages short; humour/light tone.
+
+---
+
+## Implementation Notes (non-binding)
+
+* **Single-file architecture:** embedded CSS, JS modules (or IIFEs) and JSON datasets in `<script type="application/json">` blocks.
+* **Rendering:** batch DOM writes; avoid layout thrash; clamp lines/width for readability.
+* **Performance:** under 16ms input-to-paint; no heavy media; limit animations.
+* **Extensibility:** datasets are append-only; deterministic adaptive rules; no opaque ML.
+
+---
+
+## Acceptance Checklist
+
+* Runs offline, single HTML file, no external requests.
+* Home/Picker/Typing/Summary/Parent/Settings implemented as described.
+* Dyslexia aids adjustable and persisted.
+* British spellings enforced in datasets; Key Stage filters working.
+* Copy-typing with live feedback, next-key bubble, optional lockstep/timer.
+* Metrics and recommendations computed; focus drills work.
+* Badges award conditions respected; parent export present; PIN optional.
+* Paste blocked; gentle visuals; respects reduced-motion preference.
+
+---
+
+**Outcome:** A calm, joyful typing-as-reading experience that aligns with UK Key Stages, supports dyslexic needs by design, and keeps motivation high through humour, animals, and visible personal progress—without pressure.

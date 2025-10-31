@@ -1,0 +1,63 @@
+[
+    {
+        "id": "pattern_oi_oy",
+        "stage": "KS1",
+        "name": "oi vs oy",
+        "items": [
+            "coin",
+            "join",
+            "noise",
+            "point",
+            "boy",
+            "toy",
+            "enjoy",
+            "royal"
+        ],
+        "tags": {
+            "phonics": [
+                "oi/oy"
+            ]
+        }
+    },
+    {
+        "id": "pattern_dge_ge",
+        "stage": "KS1",
+        "name": "dge vs ge",
+        "items": [
+            "badge",
+            "edge",
+            "bridge",
+            "judge",
+            "huge",
+            "cage",
+            "page",
+            "large"
+        ],
+        "tags": {
+            "phonics": [
+                "dge/ge"
+            ]
+        }
+    },
+    {
+        "id": "pattern_double_consonants_1",
+        "stage": "KS1",
+        "name": "Double Consonants",
+        "items": [
+            "apple",
+            "letter",
+            "bunny",
+            "carrot",
+            "silly",
+            "fluffy",
+            "glass",
+            "add",
+            "miss"
+        ],
+        "tags": {
+            "phonics": [
+                "double consonant"
+            ]
+        }
+    }
+]

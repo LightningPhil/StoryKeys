@@ -1,0 +1,360 @@
+[
+    {
+        "id": "ks1_animals_curious_cat_1",
+        "stage": "KS1",
+        "theme": "Animals",
+        "title": "Curious Cat",
+        "text": "The cat taps the glass and blinks. A goldfish waggles past. They both stare, as if planning tea.",
+        "tags": {
+            "complexity": {
+                "caps": true,
+                "punct": true
+            }
+        },
+        "meta": {
+            "est_chars": 121
+        }
+    },
+    {
+        "id": "ks1_silly_duck_1",
+        "stage": "KS1",
+        "theme": "Silly Stories",
+        "title": "A Silly Duck",
+        "text": "A duck wears a top hat. He tips it to a big green frog. The frog just looks confused.",
+        "tags": {
+            "complexity": {
+                "caps": true,
+                "punct": true
+            }
+        },
+        "meta": {
+            "est_chars": 105
+        }
+    },
+    {
+        "id": "ks1_animals_sleeping_fox_1",
+        "stage": "KS1",
+        "theme": "Animals",
+        "title": "Sleeping Fox",
+        "text": "The small fox curls up in the sun. His tail is a warm blanket. He dreams of chasing mice.",
+        "tags": {
+            "complexity": {
+                "caps": true,
+                "punct": true
+            }
+        },
+        "meta": {
+            "est_chars": 109
+        }
+    },
+    {
+        "id": "ks1_nature_gentle_rain_1",
+        "stage": "KS1",
+        "theme": "Nature",
+        "title": "Gentle Rain",
+        "text": "Raindrops tap on the green leaves. A little worm peeks out from the soil to say hello.",
+        "tags": {
+            "complexity": {
+                "caps": true,
+                "punct": true
+            }
+        },
+        "meta": {
+            "est_chars": 97
+        }
+    },
+    {
+        "id": "ks1_animals_busy_squirrel_1",
+        "stage": "KS1",
+        "theme": "Animals",
+        "title": "Busy Squirrel",
+        "text": "A red squirrel buries a nut. He must remember the spot for winter. It is very important work.",
+        "tags": {
+            "complexity": {
+                "caps": true,
+                "punct": true
+            }
+        },
+        "meta": {
+            "est_chars": 108
+        }
+    },
+    {
+        "id": "ks1_silly_snail_1",
+        "stage": "KS1",
+        "theme": "Silly Stories",
+        "title": "A Fast Snail",
+        "text": "A snail paints a bright red racing stripe on his shell. Now he feels much faster than before.",
+        "tags": {
+            "complexity": {
+                "caps": true,
+                "punct": true
+            }
+        },
+        "meta": {
+            "est_chars": 106
+        }
+    },
+    {
+        "id": "ks1_animals_happy_dog_1",
+        "stage": "KS1",
+        "theme": "Animals",
+        "title": "Happy Dog",
+        "text": "The dog wags his tail so hard that his whole body wiggles. He has found his favourite squeaky toy.",
+        "tags": {
+            "complexity": {
+                "caps": true,
+                "punct": true
+            }
+        },
+        "meta": {
+            "est_chars": 111
+        }
+    },
+    {
+        "id": "ks1_nature_the_moon_1",
+        "stage": "KS1",
+        "theme": "Nature",
+        "title": "The Moon",
+        "text": "The big moon shines in the dark sky. It looks like a bright silver coin watching over the town.",
+        "tags": {
+            "complexity": {
+                "caps": true,
+                "punct": true
+            }
+        },
+        "meta": {
+            "est_chars": 108
+        }
+    },
+    {
+        "id": "ks1_animals_small_mouse_1",
+        "stage": "KS1",
+        "theme": "Animals",
+        "title": "A Small Mouse",
+        "text": "A tiny mouse finds a big crumb of cheese. It is too heavy to carry, so he must eat it all now.",
+        "tags": {
+            "complexity": {
+                "caps": true,
+                "punct": true
+            }
+        },
+        "meta": {
+            "est_chars": 113
+        }
+    },
+    {
+        "id": "ks1_silly_bird_1",
+        "stage": "KS1",
+        "theme": "Silly Stories",
+        "title": "Singing Bird",
+        "text": "A little bird sings a song for his friends. He forgets the words and just hums the rest.",
+        "tags": {
+            "complexity": {
+                "caps": true,
+                "punct": true
+            }
+        },
+        "meta": {
+            "est_chars": 102
+        }
+    },
+    {
+        "id": "ks1_nature_tall_tree_1",
+        "stage": "KS1",
+        "theme": "Nature",
+        "title": "Tall Tree",
+        "text": "A tall tree reaches for the sky. Its leaves dance in the wind. Many birds have a home here.",
+        "tags": {
+            "complexity": {
+                "caps": true,
+                "punct": true
+            }
+        },
+        "meta": {
+            "est_chars": 105
+        }
+    },
+    {
+        "id": "ks1_animals_wise_owl_1",
+        "stage": "KS1",
+        "theme": "Animals",
+        "title": "A Wise Owl",
+        "text": "An owl sits on a branch at night. He has big round eyes. He looks very clever and wise.",
+        "tags": {
+            "complexity": {
+                "caps": true,
+                "punct": true
+            }
+        },
+        "meta": {
+            "est_chars": 101
+        }
+    },
+    {
+        "id": "ks1_silly_fish_1",
+        "stage": "KS1",
+        "theme": "Silly Stories",
+        "title": "Bubble Trouble",
+        "text": "A tiny fish blows a big bubble. It lifts him right out of the water. What a surprise!",
+        "tags": {
+            "complexity": {
+                "caps": true,
+                "punct": true
+            }
+        },
+        "meta": {
+            "est_chars": 94
+        }
+    },
+    {
+        "id": "ks1_animals_slow_tortoise_1",
+        "stage": "KS1",
+        "theme": "Animals",
+        "title": "Slow Tortoise",
+        "text": "A tortoise walks slowly across the grass. He is not in a hurry. He has all day to get there.",
+        "tags": {
+            "complexity": {
+                "caps": true,
+                "punct": true
+            }
+        },
+        "meta": {
+            "est_chars": 109
+        }
+    },
+    {
+        "id": "ks1_nature_the_sun_1",
+        "stage": "KS1",
+        "theme": "Nature",
+        "title": "The Sun",
+        "text": "The sun warms the sleepy ground. Flowers open up to feel its yellow light on their petals.",
+        "tags": {
+            "complexity": {
+                "caps": true,
+                "punct": true
+            }
+        },
+        "meta": {
+            "est_chars": 99
+        }
+    },
+    {
+        "id": "ks1_silly_cat_nap_1",
+        "stage": "KS1",
+        "theme": "Silly Stories",
+        "title": "A Cat Nap",
+        "text": "My cat can sleep anywhere. Today he is sleeping in the clean washing basket. Oh dear.",
+        "tags": {
+            "complexity": {
+                "caps": true,
+                "punct": true
+            }
+        },
+        "meta": {
+            "est_chars": 93
+        }
+    },
+    {
+        "id": "ks1_animals_garden_frog_1",
+        "stage": "KS1",
+        "theme": "Animals",
+        "title": "Garden Frog",
+        "text": "A fat green frog sits on a lily pad. He catches a fly with his long, sticky tongue. Yum!",
+        "tags": {
+            "complexity": {
+                "caps": true,
+                "punct": true
+            }
+        },
+        "meta": {
+            "est_chars": 97
+        }
+    },
+    {
+        "id": "ks1_nature_a_cloud_1",
+        "stage": "KS1",
+        "theme": "Nature",
+        "title": "A Cloud",
+        "text": "A fluffy white cloud floats by. It looks just like a big sheep grazing in a blue field.",
+        "tags": {
+            "complexity": {
+                "caps": true,
+                "punct": true
+            }
+        },
+        "meta": {
+            "est_chars": 96
+        }
+    },
+    {
+        "id": "ks1_silly_pig_1",
+        "stage": "KS1",
+        "theme": "Silly Stories",
+        "title": "A Clean Pig",
+        "text": "A pig decides he hates mud. He has a lovely bath with lots of bubbles and feels very fancy.",
+        "tags": {
+            "complexity": {
+                "caps": true,
+                "punct": true
+            }
+        },
+        "meta": {
+            "est_chars": 105
+        }
+    },
+    {
+        "id": "ks1_animals_bee_1",
+        "stage": "KS1",
+        "theme": "Animals",
+        "title": "A Busy Bee",
+        "text": "A fuzzy bee buzzes from flower to flower. She is collecting sweet nectar to take back home.",
+        "tags": {
+            "complexity": {
+                "caps": true,
+                "punct": true
+            }
+        },
+        "meta": {
+            "est_chars": 104
+        }
+    },
+    {
+        "id": "ks1_animals_bunny_tail_1",
+        "stage": "KS1",
+        "theme": "Animals",
+        "title": "The Fluffy Tail",
+        "text": "Barnaby the bunny saw his own fluffy tail. He spun round and round to catch it. Oh dear, now he was very dizzy!",
+        "tags": {
+            "complexity": {
+                "caps": true,
+                "punct": true
+            },
+            "phonics": [
+                "double consonant"
+            ]
+        },
+        "meta": {
+            "est_chars": 125
+        }
+    },
+    {
+        "id": "ks1_animals_bunny_carrot_1",
+        "stage": "KS1",
+        "theme": "Animals",
+        "title": "The Giant Carrot",
+        "text": "A bunny found a big carrot. It was too big for her hole. She pushed and pushed but it would not move. So she just sat and nibbled the end all day.",
+        "tags": {
+            "complexity": {
+                "caps": true,
+                "punct": true
+            },
+            "phonics": [
+                "double consonant"
+            ]
+        },
+        "meta": {
+            "est_chars": 141
+        }
+    }
+]

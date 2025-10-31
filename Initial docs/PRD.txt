@@ -1,0 +1,551 @@
+# PRD — “StoryKeys”
+
+*A single-file HTML/CSS/JavaScript web app for an 11-year-old dyslexic learner who loves animals and witty stories. UK Key Stages 1–3, British spellings, lightweight, offline-friendly (no audio).*
+
+---
+
+## 1) Product Summary
+
+**Purpose:**
+Help a dyslexic 11-year-old build confident, accurate typing and familiarise with UK spelling patterns through copy-typing short, engaging, animal-themed passages and word sets. The app is intentionally calm, playful, and supportive—never punitive.
+
+**Form factor:**
+One self-contained `.html` file containing embedded CSS and JavaScript (no build tools or external libraries). Runs fully client-side, stores progress in `localStorage`. Works offline once opened.
+
+**Tone:**
+Friendly, humorous, British-kid satire vibes. “Coach” copy celebrates effort, not speed.
+
+---
+
+## 2) User & Constraints
+
+* **Primary user:** 11-year-old dyslexic child, beginner-to-intermediate typing skill, enjoys animals and funny stories.
+* **Secondary user:** Parent/carer who wants visibility into progress without accounts or data sharing.
+* **Constraints:**
+
+  * No audio (lightweight).
+  * British spellings throughout.
+  * Optional timing—never shown early by default.
+  * Dyslexia-friendly readability options built-in.
+
+---
+
+## 3) Goals & Non-Goals
+
+**Goals**
+
+* Make copy-typing feel like reading playful stories with animals.
+* Build accuracy first; introduce speed gently and optionally.
+* Provide immediate, kind, specific feedback.
+* Surface bite-size, targeted drills (keys/words/patterns).
+* Offer a transparent “Parent Glance” view (local only).
+
+**Non-Goals**
+
+* No cloud sync, accounts, or external analytics.
+* No competitive leaderboards.
+* No dictation or speech features (future-compatible but out of scope).
+
+---
+
+## 4) UX Principles
+
+* **Approachable:** One big primary action per screen.
+* **Low cognitive load:** Minimal chrome; generous spacing; consistent layout.
+* **Dyslexia-friendly:** Adjustable line height/letter spacing; optional dyslexia-oriented font; off-white backgrounds; no moving text; calm animations only.
+* **Effort over speed:** Metrics emphasise accuracy and consistency; speed is opt-in.
+* **Kid agency:** Child can choose themes (animals, silly tales).
+* **No dead ends:** Always a gentle suggestion: “Try a 60-second focus drill?” or “Read another animal tale?”
+
+---
+
+## 5) Complete Feature List
+
+### 5.1 Core Typing Experience
+
+* Copy-typing target shown above editable field (never scrolls horizontally; wraps cleanly).
+* Real-time per-character feedback:
+
+  * Correct characters tinted green.
+  * Mismatches get a soft wavy underline (not harsh red fill).
+* **Lockstep toggle:** When on, next character must match; prevents skipping ahead.
+* “Next key” bubble: single, large glyph of the next character, including space/enter cue.
+* Optional on-screen keyboard overlay (minimal): highlights the row/finger area for the next key (colour-zoned rings, not a full 3D keyboard).
+* Optional timer (off by default, on per session): gentle, small countdown chip; no sound, no penalty on expiry—purely records elapsed time.
+
+### 5.2 Sessions & Flow
+
+* **Home:** One-tap “Start session (2 min)” with auto-recommended content; small “Change lesson” button opens Lesson Picker.
+* **Lesson Picker:**
+
+  * Tabs: *Words*, *Passages*, *Focus Drills*.
+  * Filters: Key Stage (KS1/KS2/KS3), Theme (Animals, Silly Stories, Nature), Complexity (No caps/punct → Caps → Punct → Numbers).
+  * Preview snippet, metadata (chars, est. time, tags).
+  * “Use this” starts session immediately.
+* **Summary Screen (post-session):**
+
+  * Big celebratory headline.
+  * Metrics: Accuracy %, Net WPM (only visible if timer on or once accuracy ≥95% baseline met in prior sessions), Duration, Error count.
+  * “Hardest keys” (top 3) with tiny heat chips; “Tricky words” (top 3).
+  * One-tap suggested focus drill (≤60s).
+  * Stickers/badges earned row.
+  * Buttons: *Replay*, *Try focus drill*, *Home*.
+
+### 5.3 Feedback & Motivation
+
+* **Badges (effort-centric):**
+
+  * “Steady 95%+”, “Three sessions this week”, “Punctuation Pro”, “Calm & Careful (no red marks)”, “Explorer (tried 3 themes)”.
+* **Calm confetti sparkle** on milestone unlocks.
+* **Progress pet** (non-distracting): a tiny animal icon on Home that levels up based on *minutes typed*, not speed.
+
+### 5.4 Dyslexia Aids
+
+* Readability panel (in Settings):
+
+  * Font choice: System Sans / Dyslexia-oriented font.
+  * Line height slider (1.4–2.0).
+  * Letter spacing slider (+0% to +8%).
+  * Background: Off-white, Light pastel (blue/cream), Dark mode with high contrast.
+  * Disable italics globally; use bold/colour instead.
+* **Focus line mode:** softly highlight the current line of the target text.
+* **No animated text:** caret blinks gently; other motion ≤150ms, ease-in-out.
+
+### 5.5 Key Stage Alignment (UK, British spellings)
+
+* **Word Sets (KS1/KS2/KS3):** Curated lists tagged by phonics patterns, morphology (prefix/suffix), frequency, and difficulty.
+* **Passage Sets:** Short, humorous, animal-centric passages aligned to Key Stage reading levels, with British spellings, capitals/punctuation complexity flags.
+* **Filters:** Stage, Theme, Pattern, Complexity.
+
+### 5.6 Focus Drills (Auto-Generated)
+
+* **Keys Drill:** 45–60s minimal UI that cycles words/chunks using the top 2–3 most-errored keys.
+* **Words Drill:** 8–12 words that were mismatched in the last sessions (balanced for variety).
+* **Pattern Drill:** If error words map to a phonics/morphology tag (e.g., “-tion”), surface a short, tag-matched set.
+
+### 5.7 Parent Glance (Local)
+
+* Weekly rollup: sessions count, total mins, best accuracy, accuracy trend arrow, focus keys/words.
+* Session table (last 20): date/time, accuracy, (net) WPM if shown, content label.
+* Export JSON (download): anonymised local progress for backup.
+
+### 5.8 Settings
+
+* Readability options (see 5.4).
+* Behaviour toggles: Lockstep (default on), Show timer (default off), Show on-screen keyboard hint (default off).
+* Content preferences: default Stage, preferred Themes, hide Numbers until chosen.
+* Privacy: “Clear progress” button (with confirm).
+* PIN-guard for Parent Glance and destructive actions (optional 4-digit).
+
+### 5.9 Offline & Storage
+
+* Single-file app uses `localStorage` for settings, badges, and session logs.
+* “Install tip” card (browser’s “Add to Home Screen” guidance, no service worker required).
+* All content embedded; no external fetch.
+
+### 5.10 Error Handling & Edge Cases
+
+* Paste into typing field disabled (prevents skipping practice).
+* Long lines wrap; viewport never horizontal scrolls.
+* If child deletes characters: stats recalc without penalty; we track final results, not raw keystrokes for “score”.
+* If tab sleeps/loses focus during timed mode: elapsed pauses until return.
+* If storage quota exceeded: show friendly guidance to export JSON and clear older runs.
+
+---
+
+## 6) UI Specification (Pixel-Level, Component-Level Descriptions)
+
+### 6.1 Global Layout & Styles
+
+* **Canvas width:** max 1080px, centered, 16–24px base font size (responsive clamp).
+* **Grid:** Two columns on ≥1024px: Main (2/3), Side (1/3). Stack on smaller.
+* **Colour tokens:**
+
+  * Text: #0A0D12 (light) / #E8ECF1 (dark)
+  * Background: #FAFAF4 off-white (light) / #0E1116 slate (dark)
+  * Accent: #22C55E (success), #60A5FA (link), #F59E0B (warn), #EF4444 (error underlines only)
+* **Spacing:** 8-point system; controls ≥44px touch targets; line height default 1.6 (user-adjustable).
+
+### 6.2 Home Screen
+
+* **Header row:**
+
+  * Left: App title “StoryKeys” + tiny progress pet (static SVG with subtle idle blink every ~8s).
+  * Right: Icons (Settings ⚙️, Parent 👤) with labels and visible focus rings.
+* **Primary card (Main column):**
+
+  * Big title: “Ready to type a tiny story?”
+  * Primary button (filled): “Start session (2 min)”. Subtext: “We’ll pick a fun animal passage.”
+  * Secondary ghost button: “Change lesson”.
+  * Small tip line: “Accuracy first. You can add a timer later.”
+* **Side card (Right column):**
+
+  * “This Week” mini dashboard:
+
+    * Badges row (tiny, grayscale until earned).
+    * 4 stats: Sessions, Minutes, Best Accuracy, Trend arrow (accuracy vs last week).
+  * “Last results” compact: “Yesterday · 96% accuracy · Theme: Animals”
+
+### 6.3 Lesson Picker (Modal sheet)
+
+* **Tabs:** Words | Passages | Focus Drills.
+* **Filters row:** Stage (KS1/KS2/KS3 dropdown), Theme (chips), Complexity (caps/punct/numbers toggles).
+* **List items:**
+
+  * Title (e.g., “Animals – Funny Descriptions 1”)
+  * Meta chips: chars, est. time, tags (e.g., *-tion*, *KS2*, *caps*).
+  * 1–2 line snippet preview.
+  * Action: “Use this” (primary), “Preview full” (ghost expands inline).
+* **Footer:** “Close” (esc), “Start with selection”.
+
+### 6.4 Typing Screen
+
+* **Top bar:**
+
+  * Left: Breadcrumb (Theme > Title).
+  * Center: Optional timer chip (if enabled): “01:30” ticking down; subtle grey; turns to soft green on complete.
+  * Right: Toggles inline: Lockstep [on/off], Focus line [on/off].
+* **Target panel (non-editable):**
+
+  * Mono-spaced or well-spaced sans font; line width ~60–70 chars; never justified; hyphenation off.
+  * Real-time per-character spans: correct → green tint; incorrect → text-colour kept but wavy underline (error colour); untouched → normal.
+  * **Focus line** (if on): current line gets a soft background (e.g., #E6F7FF 20% alpha).
+* **Next-key bubble:** pill with a large glyph (e.g., “;”) and a hint label (“Right pinky”). Space shows “␣ Space”. Enter shows “↵ Enter”.
+* **Input area (editable):**
+
+  * Large textarea with same width as target; no spellcheck; paste disabled; Esc clears current attempt with confirmation.
+  * Live character count vs target (quiet, tiny).
+* **On-screen keyboard hint (optional):**
+
+  * Minimal 3-row grid; just colour zones and labels (LF/RF etc.); highlight the needed key tile softly; no animations.
+* **Live mini-metrics (only 4 items):** Accuracy %, Net WPM (hidden until eligible), Time elapsed, Errors.
+
+  * Net WPM shown only if: (a) timer is on this session OR (b) child has previously reached ≥95% accuracy milestone; until then, replaced with “Streak” count (longest correct run).
+
+### 6.5 Summary Screen
+
+* **Header:** “Lovely typing!” (or varied praise lines).
+* **Big accuracy dial:** semi-circular gauge with percentage & short verdict (“Accuracy first—nice job!”).
+* **Stats row:**
+
+  * Accuracy % (big), Net WPM (if eligible), Duration, Errors.
+* **Hardest keys:** top 3 with small heat counters; tap to queue a Keys Drill.
+* **Tricky words:** top 3 chips; tap to view syllable split and queue a Words Drill.
+* **Suggested action card:** “60-second focus on *-tion* words?” with Start button.
+* **Badges earned row:** animated reveal of any new stickers.
+* **Buttons:** *Replay*, *Try focus drill*, *Home*.
+
+### 6.6 Parent Glance (PIN optional)
+
+* **This week:** Sessions, Minutes, Best Accuracy, Average Accuracy (+/– vs last week).
+* **Focus recommendations:** top patterns (e.g., “-tion”, “ea/ee”) + “Start drill” link.
+* **Sessions table (last 20):** Date, Content name, Accuracy, (Net WPM if shown), Duration.
+* **Actions:** Export JSON, Clear data (confirm), Set PIN.
+
+### 6.7 Settings
+
+* **Readability:** font, line height, letter spacing, theme (light/cream/dark).
+* **Behaviour:** lockstep default, timer default, keyboard hint default.
+* **Content defaults:** stage, preferred themes, show numbers.
+* **Privacy:** set/clear PIN, clear data (with two-step confirmation).
+
+---
+
+## 7) Functional Specification
+
+### 7.1 State Model
+
+* **App Settings** (readability, behaviour, defaults).
+* **User Profile Lite** (minutes typed total, badges unlocked).
+* **Content Index** (embedded datasets: word sets, passages, drills metadata).
+* **Session Runtime** (current target text, cursor index, timer state, per-char correctness flags).
+* **Results Log** (append-only sessions with computed metrics & error summaries).
+
+### 7.2 Session Lifecycle
+
+1. **Start:** From Home (auto-recommend) or Lesson Picker. Build *Target* string from dataset item + active complexity flags (strip punctuation/caps if toggled off).
+2. **Typing:**
+
+   * On key input:
+
+     * If lockstep and char mismatches → reject input, increment error count, flash gentle border.
+     * If non-lockstep → accept input; mark mismatch spans but do not advance “correct” streak.
+   * Update correctness array, correct streak, heat map counters, next-key bubble.
+   * Timer (if on) counts down; hitting zero does nothing except stop the countdown; session can continue or end manually.
+3. **Complete condition:** `typed === target` (string equality). Finalise metrics; write `Results Log` entry; compute recommendations.
+4. **Summary:** Render visuals and suggestion card. Offer drills or replay.
+
+### 7.3 Metrics & Algorithms
+
+* **Correct characters:** count positions where `typed[i] === target[i]`.
+* **Accuracy %:** `Math.round(100 * correct / typed.length)`; if `typed.length === 0`, show 100% until first input.
+* **Gross WPM:** `(typed.length / 5) / minutes`.
+* **Net WPM:** `GrossWPM * (Accuracy / 100)`. Only displayed when eligible.
+* **Errors:** For lockstep: count prevented mismatches. For non-lockstep: count mismatched positions on completion.
+* **Hardest keys:** top 3 characters with highest error involvement (see “Error Attribution”).
+* **Tricky words:** split target and typed by whitespace; collect words with any char mismatch (normalized to letters/apostrophes).
+* **Error Attribution:**
+
+  * For each mismatch position `i`, increment key frequency for `target[i]`.
+  * Map words containing mismatches to their normalized form; increment counts.
+
+### 7.4 Adaptive Suggestions (Deterministic)
+
+* If **Accuracy < 90%** → propose “No caps/punct” variant of the same passage next, or shorter passage.
+* If **Accuracy ≥ 95%** in current and ≥2 of last 3 sessions → permit showing Net WPM and suggest “Speed Mode (Optional)”.
+* If **Top pattern** (e.g., “-tion”) appears in ≥2 tricky words across the last 3 sessions → suggest Pattern Drill.
+
+### 7.5 Badges Logic
+
+* **Steady 95:** achieve ≥95% accuracy 3 times (not necessarily consecutive).
+* **Punctuation Pro:** finish a passage with punctuation enabled and ≥95% accuracy.
+* **Calm & Careful:** finish with 0 errors (lockstep on).
+* **Explorer:** complete one item in each of 3 distinct themes.
+* **Routine:** 3 sessions on 3 distinct days in the same week.
+* Badges are timestamped and stored; duplicates not re-awarded.
+
+### 7.6 Privacy & Storage
+
+* Everything is stored locally in `localStorage`.
+* **Schema (keys):**
+
+  * `sk.settings` → JSON (readability, behaviour, defaults).
+  * `sk.progress` → JSON (minutes, badges array).
+  * `sk.sessions` → JSON array (bounded to last 500 entries; oldest trimmed).
+  * `sk.pin` → hashed PIN (simple SHA-256; no salt required locally but can be added).
+* **Export:** Downloads a `.json` file with the above objects; no PII beyond what the parent may optionally add (none by default).
+* **Clear:** Wipes all `sk.*` keys.
+
+### 7.7 Performance
+
+* Single paint per input tick; no layout thrash (batch DOM updates).
+* Dataset access is in-memory after initial parse from embedded JSON.
+* Images: inline SVGs only; no raster textures.
+* No timers running when not needed; requestAnimationFrame used for subtle confetti only.
+
+---
+
+## 8) Datasets (Embedded, Detailed)
+
+> All content is **British English** and tagged for **Key Stage alignment**. The app embeds JSON datasets in a `<script type="application/json" id="…">` block and parses into memory on load.
+
+### 8.1 Data Objects Overview
+
+#### 8.1.1 Word Set
+
+```json
+{
+  "id": "ks2_animals_mammals_1",
+  "stage": "KS2",
+  "theme": "Animals",
+  "name": "Mammals 1",
+  "words": ["badger", "otter", "weasel", "hedgehog", "squirrel", "rabbit"],
+  "tags": {
+    "phonics": ["dge/ger", "er/ar/or endings"],
+    "morphology": [],
+    "complexity": {"caps": true, "punct": false, "numbers": false}
+  },
+  "meta": {"est_chars": 48, "reading_level": "Y4-5", "notes": "Animal nouns"}
+}
+```
+
+#### 8.1.2 Passage
+
+```json
+{
+  "id": "ks2_animals_funny_descriptions_1",
+  "stage": "KS2",
+  "theme": "Animals",
+  "title": "Otter Nonsense",
+  "text": "The otter balances a pebble like a tiny crown. It twirls, drops it, and looks very pleased with itself.",
+  "tags": {
+    "phonics": ["-le ending", "ow as /aʊ/ vs /oʊ/ (British)"],
+    "morphology": ["-ed past"],
+    "complexity": {"caps": true, "punct": true, "numbers": false}
+  },
+  "meta": {"est_chars": 132, "reading_level": "Y5", "humour": true}
+}
+```
+
+#### 8.1.3 Pattern Pack (for Focus Drills)
+
+```json
+{
+  "id": "pattern_tion_ks2",
+  "stage": "KS2",
+  "theme": "Patterns",
+  "name": "-tion words",
+  "items": ["station", "action", "portion", "motion", "caution", "question"],
+  "tags": {"phonics": ["-tion"], "complexity": {"caps": false, "punct": false, "numbers": false}},
+  "meta": {"est_chars": 45, "notes": "Common -tion"}
+}
+```
+
+### 8.2 Tagging Dimensions
+
+* **stage:** “KS1” | “KS2” | “KS3”.
+* **theme:** “Animals”, “Silly Stories”, “Nature”, “Myths”, “Science snips”.
+* **phonics:** patterns like “ea/ee”, “ough”, “-tion/-sion”, “-able/-ible”, “silent k/gn/wr”, “dge/ge”, “-le ending”, “double consonants”, etc.
+* **morphology:** prefixes (un-, dis-, re-, mis-) and suffixes (-ly, -ness, -ment, -ful, -less, -tion, -sion).
+* **complexity:** `{caps:boolean, punct:boolean, numbers:boolean}` flags.
+* **reading_level:** “Y1–Y2”, “Y3–Y4”, “Y5–Y6”, “Y7–Y9”.
+* **meta:** `est_chars` (to fit short sessions), `humour` boolean.
+
+### 8.3 Derived/Runtime Datasets
+
+* **Session Target** = source text transformed by active complexity flags:
+
+  * If `caps=false` → lower-case text.
+  * If `punct=false` → strip `.,;:!?-"’()`.
+  * If `numbers=false` → strip digits and numeric tokens.
+* **Focus Drill Queue** generated from recent sessions:
+
+  * Keys: characters with highest mismatch frequency.
+  * Words: words with any mismatch, de-duplicated and prioritised by recency & count.
+  * Patterns: inferred via dictionary lookup from `phonics` tags of matched words.
+
+### 8.4 Minimal Seed Content (examples to ship inside file)
+
+* **KS1 Words:** high-frequency and CVC (e.g., “the”, “and”, “it”, “cat”, “dog”, “run”, “big”, “said”, “have”, “like”).
+* **KS2 Words:** statutory word list samples (British spellings), plus animal nouns, nature verbs, science kids’ vocab.
+* **KS3 Words:** academic connectors and discipline words (e.g., “however”, “therefore”, “consequently”, “photosynthesis”, “medieval”).
+* **Passages:** 30–60 passages total across stages and themes (short, 70–160 chars, humorous animal vignettes).
+* **Pattern Packs:** 10–15 common patterns (-tion/-sion, -able/-ible, ough variants, double consonants, ea/ee, ie/ei with British conventions, -le endings, silent letters, -ous/-ious).
+
+> **Note:** This PRD defines the schema and representative content. The full lists are embedded at build time by the author (you) to stay single-file and offline.
+
+---
+
+## 9) Data Structures (Storage)
+
+```ts
+type Settings = {
+  font: "system" | "dyslexia",
+  lineHeight: number,          // 1.4–2.0
+  letterSpacingPct: number,    // 0–8
+  theme: "light" | "cream" | "dark",
+  lockstepDefault: boolean,
+  timerDefault: boolean,
+  keyboardHintDefault: boolean,
+  defaultStage: "KS1" | "KS2" | "KS3",
+  preferredThemes: string[],
+  showNumbers: boolean
+}
+
+type SessionResult = {
+  id: string,                  // uuid
+  ts: string,                  // ISO date
+  contentId: string,           // dataset id
+  contentType: "words" | "passage" | "pattern",
+  stage: "KS1" | "KS2" | "KS3",
+  theme: string,
+  chars: number,
+  accuracy: number,            // %
+  grossWPM: number,
+  netWPM: number,
+  durationSec: number,
+  errors: number,
+  hardestKeys: Array<{k:string, c:number}>,
+  trickyWords: string[],
+  flags: {caps:boolean, punct:boolean, numbers:boolean, timer:boolean, lockstep:boolean}
+}
+
+type Progress = {
+  minutesTotal: number,
+  badges: string[],            // badge ids
+  lastWeekAccuracyAvg?: number // cached for trend
+}
+
+type Secure = { pinHash?: string }
+```
+
+---
+
+## 10) Controls & Interactions
+
+* **Typing textarea**
+
+  * Blocks paste (Ctrl/Cmd+V) with tooltip “Typing practice works best without pasting.”
+  * `Esc` → prompt to clear current attempt.
+  * Backspace always allowed; metrics recompute on every input.
+* **Timer chip**
+
+  * Tap toggles between elapsed and remaining; long-press hides it.
+* **Next key bubble**
+
+  * Shows printable character or named token (Space/Enter), plus “left index / right pinky” hint on hover/tap.
+* **On-screen keyboard hint**
+
+  * Toggle in top bar; colour-zones: left hand (pink), right hand (blue); active key glows softly.
+* **Parent Glance**
+
+  * Optional PIN: set once in Settings; required to open Parent view and destructive actions.
+
+---
+
+## 11) Accessibility
+
+* **Keyboard navigation:** every control reachable; visible focus rings.
+* **ARIA:**
+
+  * Live region for feedback summaries (“Nice streak!”).
+  * Labels for toggles and metrics.
+* **Motion:** prefers-reduced-motion honoured; confetti degrades to static sparkle.
+* **Contrast:** all text ≥ WCAG AA; error underline wavy but high contrast against background.
+
+---
+
+## 12) Copy Guidelines (Examples)
+
+* Encouragement: “Nice and steady!”, “Great focus on punctuation.”
+* Suggestions: “Fancy a 60-second *-tion* drill?”
+* Badges: “Calm & Careful”, “Explorer”, “Punctuation Pro”, “Steady 95”.
+
+---
+
+## 13) Quality, Testing, & Edge Conditions
+
+* **Typing latency:** input to paint under 16ms on mid-range laptops/tablets.
+* **Large content safety:** enforce target max ~400 chars to avoid vertical scroll fatigue.
+* **Storage bounds:** keep last 500 sessions; show banner if pruning occurs.
+* **Data integrity:** schema versioning key; migrate on load if needed.
+
+---
+
+## 14) Acceptance Criteria (All Features In)
+
+* Single `.html` file loads and runs offline after first open; no external requests.
+* Home/Picker/Typing/Summary/Parent/Settings screens per spec, responsive.
+* Lockstep, next-key, focus line, keyboard hint work as described.
+* Dyslexia aids (font, spacing, background, dark mode) adjustable and persisted.
+* Word sets, passages, and pattern packs are filterable by Stage/Theme/Complexity; all British spellings.
+* Metrics: accuracy, gross & net WPM (when eligible), errors; hardest keys & tricky words computed.
+* Focus drills generated from recent results and from pattern packs.
+* Badges awarded correctly; progress pet increments with minutes.
+* Parent Glance shows weekly stats, sessions table, export JSON; optional PIN enforced.
+* Paste blocked; timer optional; no audio; animations gentle and disable-able by OS setting.
+
+---
+
+## 15) Implementation Notes (non-binding, for clarity)
+
+* **Modules-in-one:** Organise in one file as IIFEs or ES modules embedded via `<script type=module>`; no imports.
+* **Render strategy:** Build virtual fragments; batch DOM writes.
+* **Styling:** CSS variables for theme; prefers-color-scheme support.
+* **Security:** PIN hash via Web Crypto.
+* **No telemetry.** Only local aggregates.
+
+---
+
+### Appendix A — Example Embedded JSON Block Stubs
+
+* `<script id="storykeys-wordsets" type="application/json">…</script>`
+* `<script id="storykeys-passages" type="application/json">…</script>`
+* `<script id="storykeys-patterns" type="application/json">…</script>`
+
+Each contains arrays of the objects specified in §8 with at least:
+
+* KS1: 10+ word sets, 10+ passages
+* KS2: 15+ word sets, 20+ passages
+* KS3: 10+ word sets, 15+ passages
+* Patterns: 12+ packs spanning common UK orthography/phonics patterns.

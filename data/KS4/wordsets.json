@@ -1,0 +1,103 @@
+[
+    {
+        "id": "ks4_connectors_academic_1",
+        "stage": "KS4",
+        "theme": "Academic",
+        "name": "Connectors (A) (KS4)",
+        "words": [
+            "however",
+            "therefore",
+            "consequently",
+            "moreover",
+            "nevertheless",
+            "furthermore"
+        ],
+        "tags": {
+            "complexity": {
+                "caps": true,
+                "punct": false
+            }
+        }
+    },
+    {
+        "id": "ks4_mythology_creatures_1",
+        "stage": "KS4",
+        "theme": "Myths",
+        "name": "Mythical Creatures (KS4)",
+        "words": [
+            "phoenix",
+            "centaur",
+            "minotaur",
+            "cyclops",
+            "gorgon",
+            "chimera",
+            "hydra"
+        ],
+        "tags": {
+            "complexity": {
+                "caps": true,
+                "punct": false
+            }
+        }
+    },
+    {
+        "id": "ks4_science_biology_1",
+        "stage": "KS4",
+        "theme": "Science snips",
+        "name": "Biology Terms (KS4)",
+        "words": [
+            "organism",
+            "photosynthesis",
+            "respiration",
+            "ecosystem",
+            "nucleus",
+            "chromosome"
+        ],
+        "tags": {
+            "complexity": {
+                "caps": true,
+                "punct": false
+            }
+        }
+    },
+    {
+        "id": "ks4_literature_terms_1",
+        "stage": "KS4",
+        "theme": "Academic",
+        "name": "Literary Terms (KS4)",
+        "words": [
+            "metaphor",
+            "simile",
+            "onomatopoeia",
+            "alliteration",
+            "protagonist",
+            "symbolism"
+        ],
+        "tags": {
+            "complexity": {
+                "caps": true,
+                "punct": false
+            }
+        }
+    },
+    {
+        "id": "ks4_tricky_spellings_1",
+        "stage": "KS4",
+        "theme": "Statutory",
+        "name": "Tricky Spellings (A) (KS4)",
+        "words": [
+            "accommodate",
+            "committee",
+            "embarrass",
+            "necessary",
+            "privilege",
+            "rhythm"
+        ],
+        "tags": {
+            "complexity": {
+                "caps": false,
+                "punct": false
+            }
+        }
+    }
+]

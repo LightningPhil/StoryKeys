@@ -1,0 +1,428 @@
+[
+    {
+        "id": "ks1_hf_words_core_1",
+        "stage": "KS1",
+        "theme": "Core",
+        "name": "High-frequency Words A",
+        "words": [
+            "the",
+            "and",
+            "said",
+            "have",
+            "come",
+            "here",
+            "little",
+            "look"
+        ],
+        "tags": {
+            "complexity": {
+                "caps": false,
+                "punct": false
+            }
+        }
+    },
+    {
+        "id": "ks1_animals_small_mammals_1",
+        "stage": "KS1",
+        "theme": "Animals",
+        "name": "Small Mammals 1",
+        "words": [
+            "rabbit",
+            "badger",
+            "otter",
+            "vole",
+            "mole",
+            "hedgehog"
+        ],
+        "tags": {
+            "complexity": {
+                "caps": true,
+                "punct": false
+            }
+        }
+    },
+    {
+        "id": "ks1_colours_1",
+        "stage": "KS1",
+        "theme": "Core",
+        "name": "Colours",
+        "words": [
+            "red",
+            "blue",
+            "green",
+            "yellow",
+            "black",
+            "white",
+            "pink",
+            "brown"
+        ],
+        "tags": {
+            "complexity": {
+                "caps": false,
+                "punct": false
+            }
+        }
+    },
+    {
+        "id": "ks1_cvc_words_1",
+        "stage": "KS1",
+        "theme": "Phonics",
+        "name": "Simple CVC Words",
+        "words": [
+            "cat",
+            "dog",
+            "sun",
+            "run",
+            "sit",
+            "pen",
+            "cup",
+            "pig"
+        ],
+        "tags": {
+            "complexity": {
+                "caps": false,
+                "punct": false
+            }
+        }
+    },
+    {
+        "id": "ks1_animals_farm_1",
+        "stage": "KS1",
+        "theme": "Animals",
+        "name": "On the Farm",
+        "words": [
+            "cow",
+            "sheep",
+            "horse",
+            "duck",
+            "chick",
+            "goat"
+        ],
+        "tags": {
+            "complexity": {
+                "caps": true,
+                "punct": false
+            }
+        }
+    },
+    {
+        "id": "ks1_nature_verbs_1",
+        "stage": "KS1",
+        "theme": "Nature",
+        "name": "Nature Actions",
+        "words": [
+            "grow",
+            "flow",
+            "fall",
+            "shine",
+            "bloom",
+            "drift"
+        ],
+        "tags": {
+            "complexity": {
+                "caps": true,
+                "punct": false
+            }
+        }
+    },
+    {
+        "id": "ks1_body_parts_1",
+        "stage": "KS1",
+        "theme": "Core",
+        "name": "Body Parts",
+        "words": [
+            "head",
+            "hand",
+            "foot",
+            "leg",
+            "arm",
+            "face",
+            "eye",
+            "nose"
+        ],
+        "tags": {
+            "complexity": {
+                "caps": false,
+                "punct": false
+            }
+        }
+    },
+    {
+        "id": "ks1_digraph_sh_ch_1",
+        "stage": "KS1",
+        "theme": "Phonics",
+        "name": "sh and ch",
+        "words": [
+            "ship",
+            "shop",
+            "fish",
+            "shed",
+            "chip",
+            "chin",
+            "rich",
+            "much"
+        ],
+        "tags": {
+            "complexity": {
+                "caps": false,
+                "punct": false
+            }
+        }
+    },
+    {
+        "id": "ks1_animals_pets_1",
+        "stage": "KS1",
+        "theme": "Animals",
+        "name": "Pets at Home",
+        "words": [
+            "cat",
+            "dog",
+            "fish",
+            "hamster",
+            "mouse",
+            "snake"
+        ],
+        "tags": {
+            "complexity": {
+                "caps": true,
+                "punct": false
+            }
+        }
+    },
+    {
+        "id": "ks1_numbers_1",
+        "stage": "KS1",
+        "theme": "Core",
+        "name": "Numbers to Ten",
+        "words": [
+            "one",
+            "two",
+            "three",
+            "four",
+            "five",
+            "six",
+            "seven",
+            "eight"
+        ],
+        "tags": {
+            "complexity": {
+                "caps": false,
+                "punct": false
+            }
+        }
+    },
+    {
+        "id": "ks1_hf_words_core_2",
+        "stage": "KS1",
+        "theme": "Core",
+        "name": "High-frequency Words B",
+        "words": [
+            "what",
+            "when",
+            "see",
+            "out",
+            "was",
+            "you",
+            "they",
+            "all"
+        ],
+        "tags": {
+            "complexity": {
+                "caps": false,
+                "punct": false
+            }
+        }
+    },
+    {
+        "id": "ks1_digraph_th_1",
+        "stage": "KS1",
+        "theme": "Phonics",
+        "name": "th sound",
+        "words": [
+            "this",
+            "that",
+            "then",
+            "with",
+            "moth",
+            "path",
+            "thin",
+            "thick"
+        ],
+        "tags": {
+            "complexity": {
+                "caps": false,
+                "punct": false
+            }
+        }
+    },
+    {
+        "id": "ks1_animals_insects_1",
+        "stage": "KS1",
+        "theme": "Animals",
+        "name": "In the Garden",
+        "words": [
+            "bee",
+            "ant",
+            "fly",
+            "worm",
+            "moth",
+            "wasp",
+            "snail"
+        ],
+        "tags": {
+            "complexity": {
+                "caps": true,
+                "punct": false
+            }
+        }
+    },
+    {
+        "id": "ks1_food_1",
+        "stage": "KS1",
+        "theme": "Core",
+        "name": "Food Items",
+        "words": [
+            "cake",
+            "milk",
+            "bread",
+            "apple",
+            "egg",
+            "fish",
+            "cheese"
+        ],
+        "tags": {
+            "complexity": {
+                "caps": false,
+                "punct": false
+            }
+        }
+    },
+    {
+        "id": "ks1_silent_e_1",
+        "stage": "KS1",
+        "theme": "Phonics",
+        "name": "Magic e",
+        "words": [
+            "make",
+            "time",
+            "home",
+            "like",
+            "came",
+            "rule",
+            "huge",
+            "use"
+        ],
+        "tags": {
+            "complexity": {
+                "caps": false,
+                "punct": false
+            }
+        }
+    },
+    {
+        "id": "ks1_weather_1",
+        "stage": "KS1",
+        "theme": "Nature",
+        "name": "Weather Words",
+        "words": [
+            "sun",
+            "rain",
+            "wind",
+            "snow",
+            "fog",
+            "cloud",
+            "hot",
+            "cold"
+        ],
+        "tags": {
+            "complexity": {
+                "caps": false,
+                "punct": false
+            }
+        }
+    },
+    {
+        "id": "ks1_animals_birds_1",
+        "stage": "KS1",
+        "theme": "Animals",
+        "name": "Birds",
+        "words": [
+            "duck",
+            "hen",
+            "owl",
+            "crow",
+            "dove",
+            "gull"
+        ],
+        "tags": {
+            "complexity": {
+                "caps": true,
+                "punct": false
+            }
+        }
+    },
+    {
+        "id": "ks1_digraph_ee_oo_1",
+        "stage": "KS1",
+        "theme": "Phonics",
+        "name": "ee and oo",
+        "words": [
+            "see",
+            "bee",
+            "feet",
+            "green",
+            "moon",
+            "boot",
+            "food",
+            "zoo"
+        ],
+        "tags": {
+            "complexity": {
+                "caps": false,
+                "punct": false
+            }
+        }
+    },
+    {
+        "id": "ks1_feelings_1",
+        "stage": "KS1",
+        "theme": "Core",
+        "name": "Feelings",
+        "words": [
+            "happy",
+            "sad",
+            "cross",
+            "tired",
+            "kind",
+            "calm"
+        ],
+        "tags": {
+            "complexity": {
+                "caps": false,
+                "punct": false
+            }
+        }
+    },
+    {
+        "id": "ks1_story_words_1",
+        "stage": "KS1",
+        "theme": "Core",
+        "name": "Story Words",
+        "words": [
+            "once",
+            "upon",
+            "time",
+            "king",
+            "queen",
+            "lived",
+            "story",
+            "end"
+        ],
+        "tags": {
+            "complexity": {
+                "caps": true,
+                "punct": false
+            }
+        }
+    }
+]

@@ -1,0 +1,40 @@
+[
+    {
+        "id": "pattern_able_ible",
+        "stage": "KS3",
+        "name": "-able vs -ible",
+        "items": [
+            "reliable",
+            "adorable",
+            "visible",
+            "possible",
+            "flexible",
+            "sensible",
+            "edible"
+        ],
+        "tags": {
+            "phonics": [
+                "-able/-ible"
+            ]
+        }
+    },
+    {
+        "id": "pattern_ance_ence",
+        "stage": "KS3",
+        "name": "-ance vs -ence",
+        "items": [
+            "guidance",
+            "nuisance",
+            "relevance",
+            "absence",
+            "innocence",
+            "patience",
+            "silence"
+        ],
+        "tags": {
+            "phonics": [
+                "-ance/-ence"
+            ]
+        }
+    }
+]

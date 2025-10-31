@@ -1,0 +1,778 @@
+# StoryKeys — Data Scaffolds & Explained JSON (Single Markdown File)
+
+This file gives you **ready-to-paste JSON blocks** (with examples) and **clear explanations** for each dataset your single-file app will embed. Copy the code blocks directly into `<script type="application/json" id="…">` tags inside your HTML. Everything is **British English**, **Key Stage–tagged**, dyslexia-friendly in spirit, and sized for **short, confidence-building sessions**.
+
+---
+
+## How to use this file
+
+1. Create three `<script type="application/json">` blocks in your HTML with IDs:
+
+   * `storykeys-wordsets`
+   * `storykeys-passages`
+   * `storykeys-patterns`
+2. Optionally add two more blocks for app strings and badge catalogue:
+
+   * `storykeys-copy`
+   * `storykeys-badges`
+3. Parse them once on load:
+
+   ```js
+   const WORDSETS = JSON.parse(document.getElementById('storykeys-wordsets').textContent);
+   const PASSAGES = JSON.parse(document.getElementById('storykeys-passages').textContent);
+   const PATTERNS = JSON.parse(document.getElementById('storykeys-patterns').textContent);
+   const COPY = JSON.parse(document.getElementById('storykeys-copy').textContent);
+   const BADGES = JSON.parse(document.getElementById('storykeys-badges').textContent);
+   ```
+
+Each block below has:
+
+* **What it is** (purpose)
+* **Validation rules** (so you can sanity-check)
+* **JSON scaffold** with **3–5 realistic examples** (Key Stages 1–3)
+
+---
+
+## 1) Word Sets (`storykeys-wordsets`)
+
+**What it is:**
+Short, focused **lists of words** for copy-typing practice. Perfect for quick wins and **phonics/morphology** reinforcement. Use them to build themed sessions (animals, nature) and to tag by **Key Stage** and **pattern**.
+
+**Validation rules:**
+
+* `id` unique, kebab/snake case only (`[a-z0-9_/-]`).
+* `stage`: `"KS1" | "KS2" | "KS3"`.
+* `words`: 4–16 items; all **British spellings**; plain ASCII plus apostrophes where appropriate.
+* `tags.complexity`: flags the *default* form (you’ll still transform at runtime).
+* `meta.est_chars`: sum of word lengths + spaces; keep ≤ 140 for short bursts.
+
+```json
+[
+  {
+    "id": "ks1_animals_small_mammals_1",
+    "stage": "KS1",
+    "theme": "Animals",
+    "name": "Small Mammals 1",
+    "words": ["rabbit", "badger", "otter", "vole", "mole", "hedgehog"],
+    "tags": {
+      "phonics": ["short vowels", "dge/ge"],
+      "morphology": [],
+      "complexity": { "caps": true, "punct": false, "numbers": false }
+    },
+    "meta": { "est_chars": 42, "reading_level": "Y1–Y2", "notes": "Animal nouns; gentle consonant clusters" }
+  },
+  {
+    "id": "ks1_hf_words_core_1",
+    "stage": "KS1",
+    "theme": "Core",
+    "name": "High-frequency Words A",
+    "words": ["the", "and", "said", "have", "come", "here", "little", "look"],
+    "tags": {
+      "phonics": ["high frequency"],
+      "morphology": [],
+      "complexity": { "caps": false, "punct": false, "numbers": false }
+    },
+    "meta": { "est_chars": 40, "reading_level": "Y1", "notes": "Very short words; confidence builder" }
+  },
+  {
+    "id": "ks2_animals_action_verbs_1",
+    "stage": "KS2",
+    "theme": "Animals",
+    "name": "Animal Verbs",
+    "words": ["pounces", "scampers", "ambles", "swoops", "grazes", "dozes", "nudges", "pecks"],
+    "tags": {
+      "phonics": ["suffix -s/-es", "soft c/s"],
+      "morphology": ["-s 3rd person"],
+      "complexity": { "caps": true, "punct": false, "numbers": false }
+    },
+    "meta": { "est_chars": 55, "reading_level": "Y4–Y5", "notes": "Verbs support sentence building later" }
+  },
+  {
+    "id": "ks2_uk_statutory_sample_1",
+    "stage": "KS2",
+    "theme": "Statutory",
+    "name": "UK Statutory (Sample A)",
+    "words": ["favourite", "colour", "neighbour", "centre", "travelling", "jewellery"],
+    "tags": {
+      "phonics": ["our/our", "re/er (British)"],
+      "morphology": ["double consonants", "-our variants"],
+      "complexity": { "caps": true, "punct": false, "numbers": false }
+    },
+    "meta": { "est_chars": 57, "reading_level": "Y5–Y6", "notes": "Explicit British spellings" }
+  },
+  {
+    "id": "ks3_connectors_academic_1",
+    "stage": "KS3",
+    "theme": "Academic",
+    "name": "Connectors 1",
+    "words": ["however", "therefore", "consequently", "moreover", "nevertheless", "furthermore"],
+    "tags": {
+      "phonics": ["multi-syllable"],
+      "morphology": [],
+      "complexity": { "caps": true, "punct": false, "numbers": false }
+    },
+    "meta": { "est_chars": 65, "reading_level": "Y7–Y9", "notes": "For paragraph cohesion" }
+  }
+]
+```
+
+---
+
+## 2) Passages (`storykeys-passages`)
+
+**What it is:**
+Very short **animal-themed vignettes** or funny lines (70–160 characters) tuned for **copy-typing**. Tag by **Key Stage**, **theme**, and **complexity** (caps, punctuation, numbers). Use for main sessions.
+
+**Validation rules:**
+
+* `text` length target 70–160 chars (fits on small screens, no scrolling if possible).
+* Tone: friendly, lightly humorous, age-appropriate.
+* British punctuation/quotation conventions; avoid Americanisms (“favourite”, not “favorite”).
+* `meta.humour` boolean helps choose “lighter” content early.
+
+```json
+[
+  {
+    "id": "ks1_animals_curious_cat_1",
+    "stage": "KS1",
+    "theme": "Animals",
+    "title": "Curious Cat",
+    "text": "The cat taps the glass and blinks. A goldfish waggles past. They both stare, as if planning tea.",
+    "tags": {
+      "phonics": ["short vowels", "silent e (past)"],
+      "morphology": ["-s present", "-ed past"],
+      "complexity": { "caps": true, "punct": true, "numbers": false }
+    },
+    "meta": { "est_chars": 121, "reading_level": "Y1–Y2", "humour": true }
+  },
+  {
+    "id": "ks2_animals_otter_nonsense_1",
+    "stage": "KS2",
+    "theme": "Animals",
+    "title": "Otter Nonsense",
+    "text": "The otter balances a pebble like a tiny crown. It twirls, drops it, and looks very pleased with itself.",
+    "tags": {
+      "phonics": ["-le ending"],
+      "morphology": ["-s present", "-ed past"],
+      "complexity": { "caps": true, "punct": true, "numbers": false }
+    },
+    "meta": { "est_chars": 132, "reading_level": "Y5", "humour": true }
+  },
+  {
+    "id": "ks2_nature_small_weather_1",
+    "stage": "KS2",
+    "theme": "Nature",
+    "title": "A British Breeze",
+    "text": "A small breeze hustles the leaves along the path. Clouds shuffle over the sun, then think better of it.",
+    "tags": {
+      "phonics": ["ou/ow variants"],
+      "morphology": ["-s present"],
+      "complexity": { "caps": true, "punct": true, "numbers": false }
+    },
+    "meta": { "est_chars": 136, "reading_level": "Y4–Y5", "humour": true }
+  },
+  {
+    "id": "ks3_academic_quiet_lab_1",
+    "stage": "KS3",
+    "theme": "Science snips",
+    "title": "Quiet Lab",
+    "text": "In the quiet lab, the solution turns a pale green; however, the reaction itself remains quite unremarkable.",
+    "tags": {
+      "phonics": ["multi-syllable"],
+      "morphology": ["connectors"],
+      "complexity": { "caps": true, "punct": true, "numbers": false }
+    },
+    "meta": { "est_chars": 138, "reading_level": "Y7–Y8", "humour": false }
+  },
+  {
+    "id": "ks2_animals_silly_fox_1",
+    "stage": "KS2",
+    "theme": "Silly Stories",
+    "title": "The Fox’s Plan",
+    "text": "The fox draws a map with a muddy paw, then forgets which way is north and asks a friendly crow.",
+    "tags": {
+      "phonics": ["ow as /o/"],
+      "morphology": [],
+      "complexity": { "caps": true, "punct": true, "numbers": false }
+    },
+    "meta": { "est_chars": 125, "reading_level": "Y4–Y6", "humour": true }
+  }
+]
+```
+
+---
+
+## 3) Pattern Packs (`storykeys-patterns`)
+
+**What it is:**
+Compact lists used for **focus drills** when the app detects repeated errors on certain **phonics/morphology patterns** (e.g., `-tion`, `ea/ee`, silent letters). Keep each to 6–12 items.
+
+**Validation rules:**
+
+* `items` are single words (lowercase) unless proper nouns are essential (generally avoid).
+* `tags.phonics` must name the specific pattern; keep consistent label strings across datasets.
+
+```json
+[
+  {
+    "id": "pattern_tion_ks2",
+    "stage": "KS2",
+    "theme": "Patterns",
+    "name": "-tion words",
+    "items": ["station", "action", "portion", "motion", "caution", "question"],
+    "tags": {
+      "phonics": ["-tion"],
+      "complexity": { "caps": false, "punct": false, "numbers": false }
+    },
+    "meta": { "est_chars": 45, "notes": "Common -tion" }
+  },
+  {
+    "id": "pattern_ough_variants_ks2",
+    "stage": "KS2",
+    "theme": "Patterns",
+    "name": "ough variants",
+    "items": ["though", "through", "thought", "bough", "rough", "cough"],
+    "tags": {
+      "phonics": ["ough variants"],
+      "complexity": { "caps": false, "punct": false, "numbers": false }
+    },
+    "meta": { "est_chars": 36, "notes": "Different pronunciations; British usage" }
+  },
+  {
+    "id": "pattern_ea_ee_ks2",
+    "stage": "KS2",
+    "theme": "Patterns",
+    "name": "ea vs ee",
+    "items": ["bread", "head", "beach", "teach", "knees", "queen"],
+    "tags": {
+      "phonics": ["ea/ee"],
+      "complexity": { "caps": false, "punct": false, "numbers": false }
+    },
+    "meta": { "est_chars": 30, "notes": "Contrasting vowel teams" }
+  },
+  {
+    "id": "pattern_silent_k_gn_wr_ks2",
+    "stage": "KS2",
+    "theme": "Patterns",
+    "name": "silent k/gn/wr",
+    "items": ["knock", "knee", "gnome", "gnash", "write", "wring"],
+    "tags": {
+      "phonics": ["silent k", "silent g", "silent w"],
+      "complexity": { "caps": false, "punct": false, "numbers": false }
+    },
+    "meta": { "est_chars": 30, "notes": "Initial silent letters" }
+  },
+  {
+    "id": "pattern_able_ible_ks3",
+    "stage": "KS3",
+    "theme": "Patterns",
+    "name": "-able vs -ible",
+    "items": ["reliable", "adorable", "visible", "possible", "flexible", "sensible"],
+    "tags": {
+      "phonics": ["-able/-ible"],
+      "complexity": { "caps": false, "punct": false, "numbers": false }
+    },
+    "meta": { "est_chars": 48, "notes": "Suffix contrast" }
+  }
+]
+```
+
+---
+
+## 4) Badge Catalogue (`storykeys-badges`)
+
+**What it is:**
+Declarative definitions for **effort-centric rewards**. App logic awards these; the catalogue only describes **id**, **label**, and **description**. Store earned badges in user progress.
+
+**Validation rules:**
+
+* `id` string unique.
+* Keep labels short and positive.
+* No speed-only badges; accuracy/streak/consistency first.
+
+```json
+[
+  { "id": "steady_95", "label": "Steady 95", "desc": "Three sessions at 95%+ accuracy." },
+  { "id": "punct_pro", "label": "Punctuation Pro", "desc": "Finish a passage with punctuation enabled at 95%+." },
+  { "id": "calm_careful", "label": "Calm & Careful", "desc": "Finish with zero errors in lockstep." },
+  { "id": "explorer", "label": "Explorer", "desc": "Try three different themes." },
+  { "id": "routine", "label": "Routine", "desc": "Type on three different days this week." }
+]
+```
+
+---
+
+## 5) Copy & UI Strings (`storykeys-copy`)
+
+**What it is:**
+All the **user-facing text** so it’s consistent, localisable later, and easy to tweak for tone. Keep it short, kind, and British in flavour.
+
+**Validation rules:**
+
+* Keys are stable; values can vary with `{placeholders}`.
+* Avoid sarcasm or anything that could read as negative.
+
+```json
+{
+  "appTitle": "StoryKeys",
+  "tagline": "Tiny animal tales. Calm, careful typing.",
+  "homeStart": "Start session (2 min)",
+  "homeChangeLesson": "Change lesson",
+  "tipAccuracyFirst": "Accuracy first. You can add a timer later.",
+  "pickerTitle": "Choose something fun to type",
+  "filtersStage": "Stage",
+  "filtersTheme": "Theme",
+  "filtersComplexity": "Complexity",
+  "typingHeaderReady": "Ready when you are",
+  "typingLockstepOn": "Lockstep on",
+  "typingFocusLineOn": "Focus line on",
+  "metricAccuracy": "Accuracy",
+  "metricNetWPM": "Net WPM",
+  "metricTime": "Time",
+  "metricErrors": "Errors",
+  "nextKeyLabel": "Next key",
+  "spaceName": "Space",
+  "enterName": "Enter",
+  "summaryNiceWork": "Lovely typing!",
+  "summaryReplay": "Replay",
+  "summaryTryDrill": "Try focus drill",
+  "summaryHome": "Home",
+  "summaryHardestKeys": "Hardest keys",
+  "summaryTrickyWords": "Tricky words",
+  "suggestionDrill": "60-second focus on {pattern}?",
+  "parentTitle": "Parent glance",
+  "parentThisWeek": "This week",
+  "parentExport": "Export progress",
+  "parentClear": "Clear data",
+  "settingsTitle": "Settings",
+  "settingsReadability": "Readability",
+  "settingsBehaviour": "Behaviour",
+  "settingsContent": "Content defaults",
+  "settingsPrivacy": "Privacy",
+  "confirmClear": "Really clear all progress? This cannot be undone.",
+  "pasteBlocked": "Typing practice works best without pasting.",
+  "encourageGentle": [
+    "Nice and steady.",
+    "Great focus.",
+    "Calm and careful.",
+    "That looked smooth.",
+    "Brilliant effort!"
+  ]
+}
+```
+
+---
+
+## 6) Runtime Transformation Rules (for developers)
+
+**What it is:**
+Deterministic rules that take a dataset item and produce a **Target string** for the session based on user toggles (caps/punct/numbers). Keep this logic centralised.
+
+**Rules (apply in order):**
+
+1. Start with `text` (passage) **or** `words.join(" ")` (word set) **or** `items.join(" ")` (pattern pack).
+2. If `includeCapitals === false` → **lowercase** entire string.
+3. If `includePunctuation === false` → strip regex `[.,;:!?“”\"'()\\[\\]{}\\-–—]` (maintain spaces).
+4. If `includeNumbers === false` → remove `\\b\\d+[\\d,\\.]*\\b`.
+5. Collapse multiple spaces to single; trim.
+
+*(Do not mutate the source dataset; transform on the fly.)*
+
+---
+
+## 7) Keyboard Token Glossary (for hints)
+
+**What it is:**
+A simple mapping to display a friendly name and hand/finger hint for the **next-key bubble** and optional keyboard overlay. UK layout assumptions.
+
+```json
+[
+  { "key": " ", "name": "Space", "hand": "thumbs" },
+  { "key": "Enter", "name": "Enter", "hand": "right pinky" },
+  { "key": ";", "name": ";", "hand": "right pinky" },
+  { "key": ":", "name": ":", "hand": "right pinky (Shift)" },
+  { "key": ",", "name": ",", "hand": "right middle" },
+  { "key": ".", "name": ".", "hand": "right ring" },
+  { "key": "/", "name": "/", "hand": "right pinky" },
+  { "key": "’", "name": "apostrophe", "hand": "right pinky" },
+  { "key": "-", "name": "hyphen", "hand": "right pinky" }
+]
+```
+
+*(For letters  a–z, compute hand/finger from a static map or by row.)*
+
+---
+
+## 8) Example Export Payload (Parent Glance → JSON)
+
+**What it is:**
+A representative shape for the **local export** so parents can back up progress. This mirrors your internal `sk.settings`, `sk.progress`, and `sk.sessions`.
+
+```json
+{
+  "version": "1.0.0",
+  "exportedAt": "2025-10-21T09:00:00Z",
+  "settings": {
+    "font": "dyslexia",
+    "lineHeight": 1.7,
+    "letterSpacingPct": 6,
+    "theme": "cream",
+    "lockstepDefault": true,
+    "timerDefault": false,
+    "keyboardHintDefault": false,
+    "defaultStage": "KS2",
+    "preferredThemes": ["Animals", "Silly Stories"],
+    "showNumbers": false
+  },
+  "progress": {
+    "minutesTotal": 124,
+    "badges": ["steady_95", "explorer"],
+    "lastWeekAccuracyAvg": 93
+  },
+  "sessions": [
+    {
+      "id": "sess_01",
+      "ts": "2025-10-18T16:20:00Z",
+      "contentId": "ks2_animals_otter_nonsense_1",
+      "contentType": "passage",
+      "stage": "KS2",
+      "theme": "Animals",
+      "chars": 132,
+      "accuracy": 96,
+      "grossWPM": 26,
+      "netWPM": 25,
+      "durationSec": 140,
+      "errors": 2,
+      "hardestKeys": [{"k":";","c":3},{"k":"o","c":2},{"k":"t","c":2}],
+      "trickyWords": ["balances","pebble"],
+      "flags": {"caps": true, "punct": true, "numbers": false, "timer": true, "lockstep": true}
+    }
+  ]
+}
+```
+
+---
+
+## 9) Minimal Validation Checklist (pseudocode)
+
+**What it is:**
+Quick guards you can run once after parsing JSON to catch content mistakes early.
+
+```js
+function validateWordset(ws) {
+  if (!/^ks[123]_[a-z0-9_/-]+$/.test(ws.id)) throw "bad id";
+  if (!["KS1","KS2","KS3"].includes(ws.stage)) throw "bad stage";
+  if (!Array.isArray(ws.words) || ws.words.length < 4 || ws.words.length > 16) throw "bad words length";
+  if (ws.meta.est_chars > 140) console.warn(ws.id, "long set");
+}
+
+function validatePassage(p) {
+  const len = p.text.length;
+  if (len < 70 || len > 160) console.warn(p.id, "passage length out of range");
+}
+
+function validatePattern(pp) {
+  if (!pp.items || pp.items.length < 6 || pp.items.length > 12) console.warn(pp.id, "pattern size");
+}
+```
+
+---
+
+## 10) Ready-to-Embed Blocks (copy these into your HTML)
+
+### 10.1 `storykeys-wordsets`
+
+```html
+<script type="application/json" id="storykeys-wordsets">
+[
+  {
+    "id": "ks1_animals_small_mammals_1",
+    "stage": "KS1",
+    "theme": "Animals",
+    "name": "Small Mammals 1",
+    "words": ["rabbit", "badger", "otter", "vole", "mole", "hedgehog"],
+    "tags": {
+      "phonics": ["short vowels", "dge/ge"],
+      "morphology": [],
+      "complexity": { "caps": true, "punct": false, "numbers": false }
+    },
+    "meta": { "est_chars": 42, "reading_level": "Y1–Y2", "notes": "Animal nouns; gentle consonant clusters" }
+  },
+  {
+    "id": "ks1_hf_words_core_1",
+    "stage": "KS1",
+    "theme": "Core",
+    "name": "High-frequency Words A",
+    "words": ["the", "and", "said", "have", "come", "here", "little", "look"],
+    "tags": {
+      "phonics": ["high frequency"],
+      "morphology": [],
+      "complexity": { "caps": false, "punct": false, "numbers": false }
+    },
+    "meta": { "est_chars": 40, "reading_level": "Y1", "notes": "Very short words; confidence builder" }
+  },
+  {
+    "id": "ks2_animals_action_verbs_1",
+    "stage": "KS2",
+    "theme": "Animals",
+    "name": "Animal Verbs",
+    "words": ["pounces", "scampers", "ambles", "swoops", "grazes", "dozes", "nudges", "pecks"],
+    "tags": {
+      "phonics": ["suffix -s/-es", "soft c/s"],
+      "morphology": ["-s 3rd person"],
+      "complexity": { "caps": true, "punct": false, "numbers": false }
+    },
+    "meta": { "est_chars": 55, "reading_level": "Y4–Y5", "notes": "Verbs support sentence building later" }
+  },
+  {
+    "id": "ks2_uk_statutory_sample_1",
+    "stage": "KS2",
+    "theme": "Statutory",
+    "name": "UK Statutory (Sample A)",
+    "words": ["favourite", "colour", "neighbour", "centre", "travelling", "jewellery"],
+    "tags": {
+      "phonics": ["our/our", "re/er (British)"],
+      "morphology": ["double consonants", "-our variants"],
+      "complexity": { "caps": true, "punct": false, "numbers": false }
+    },
+    "meta": { "est_chars": 57, "reading_level": "Y5–Y6", "notes": "Explicit British spellings" }
+  },
+  {
+    "id": "ks3_connectors_academic_1",
+    "stage": "KS3",
+    "theme": "Academic",
+    "name": "Connectors 1",
+    "words": ["however", "therefore", "consequently", "moreover", "nevertheless", "furthermore"],
+    "tags": {
+      "phonics": ["multi-syllable"],
+      "morphology": [],
+      "complexity": { "caps": true, "punct": false, "numbers": false }
+    },
+    "meta": { "est_chars": 65, "reading_level": "Y7–Y9", "notes": "For paragraph cohesion" }
+  }
+]
+</script>
+```
+
+### 10.2 `storykeys-passages`
+
+```html
+<script type="application/json" id="storykeys-passages">
+[
+  {
+    "id": "ks1_animals_curious_cat_1",
+    "stage": "KS1",
+    "theme": "Animals",
+    "title": "Curious Cat",
+    "text": "The cat taps the glass and blinks. A goldfish waggles past. They both stare, as if planning tea.",
+    "tags": {
+      "phonics": ["short vowels", "silent e (past)"],
+      "morphology": ["-s present", "-ed past"],
+      "complexity": { "caps": true, "punct": true, "numbers": false }
+    },
+    "meta": { "est_chars": 121, "reading_level": "Y1–Y2", "humour": true }
+  },
+  {
+    "id": "ks2_animals_otter_nonsense_1",
+    "stage": "KS2",
+    "theme": "Animals",
+    "title": "Otter Nonsense",
+    "text": "The otter balances a pebble like a tiny crown. It twirls, drops it, and looks very pleased with itself.",
+    "tags": {
+      "phonics": ["-le ending"],
+      "morphology": ["-s present", "-ed past"],
+      "complexity": { "caps": true, "punct": true, "numbers": false }
+    },
+    "meta": { "est_chars": 132, "reading_level": "Y5", "humour": true }
+  },
+  {
+    "id": "ks2_nature_small_weather_1",
+    "stage": "KS2",
+    "theme": "Nature",
+    "title": "A British Breeze",
+    "text": "A small breeze hustles the leaves along the path. Clouds shuffle over the sun, then think better of it.",
+    "tags": {
+      "phonics": ["ou/ow variants"],
+      "morphology": ["-s present"],
+      "complexity": { "caps": true, "punct": true, "numbers": false }
+    },
+    "meta": { "est_chars": 136, "reading_level": "Y4–Y5", "humour": true }
+  },
+  {
+    "id": "ks3_academic_quiet_lab_1",
+    "stage": "KS3",
+    "theme": "Science snips",
+    "title": "Quiet Lab",
+    "text": "In the quiet lab, the solution turns a pale green; however, the reaction itself remains quite unremarkable.",
+    "tags": {
+      "phonics": ["multi-syllable"],
+      "morphology": ["connectors"],
+      "complexity": { "caps": true, "punct": true, "numbers": false }
+    },
+    "meta": { "est_chars": 138, "reading_level": "Y7–Y8", "humour": false }
+  },
+  {
+    "id": "ks2_animals_silly_fox_1",
+    "stage": "KS2",
+    "theme": "Silly Stories",
+    "title": "The Fox’s Plan",
+    "text": "The fox draws a map with a muddy paw, then forgets which way is north and asks a friendly crow.",
+    "tags": {
+      "phonics": ["ow as /o/"],
+      "morphology": [],
+      "complexity": { "caps": true, "punct": true, "numbers": false }
+    },
+    "meta": { "est_chars": 125, "reading_level": "Y4–Y6", "humour": true }
+  }
+]
+</script>
+```
+
+### 10.3 `storykeys-patterns`
+
+```html
+<script type="application/json" id="storykeys-patterns">
+[
+  {
+    "id": "pattern_tion_ks2",
+    "stage": "KS2",
+    "theme": "Patterns",
+    "name": "-tion words",
+    "items": ["station", "action", "portion", "motion", "caution", "question"],
+    "tags": {
+      "phonics": ["-tion"],
+      "complexity": { "caps": false, "punct": false, "numbers": false }
+    },
+    "meta": { "est_chars": 45, "notes": "Common -tion" }
+  },
+  {
+    "id": "pattern_ough_variants_ks2",
+    "stage": "KS2",
+    "theme": "Patterns",
+    "name": "ough variants",
+    "items": ["though", "through", "thought", "bough", "rough", "cough"],
+    "tags": {
+      "phonics": ["ough variants"],
+      "complexity": { "caps": false, "punct": false, "numbers": false }
+    },
+    "meta": { "est_chars": 36, "notes": "Different pronunciations; British usage" }
+  },
+  {
+    "id": "pattern_ea_ee_ks2",
+    "stage": "KS2",
+    "theme": "Patterns",
+    "name": "ea vs ee",
+    "items": ["bread", "head", "beach", "teach", "knees", "queen"],
+    "tags": {
+      "phonics": ["ea/ee"],
+      "complexity": { "caps": false, "punct": false, "numbers": false }
+    },
+    "meta": { "est_chars": 30, "notes": "Contrasting vowel teams" }
+  },
+  {
+    "id": "pattern_silent_k_gn_wr_ks2",
+    "stage": "KS2",
+    "theme": "Patterns",
+    "name": "silent k/gn/wr",
+    "items": ["knock", "knee", "gnome", "gnash", "write", "wring"],
+    "tags": {
+      "phonics": ["silent k", "silent g", "silent w"],
+      "complexity": { "caps": false, "punct": false, "numbers": false }
+    },
+    "meta": { "est_chars": 30, "notes": "Initial silent letters" }
+  },
+  {
+    "id": "pattern_able_ible_ks3",
+    "stage": "KS3",
+    "theme": "Patterns",
+    "name": "-able vs -ible",
+    "items": ["reliable", "adorable", "visible", "possible", "flexible", "sensible"],
+    "tags": {
+      "phonics": ["-able/-ible"],
+      "complexity": { "caps": false, "punct": false, "numbers": false }
+    },
+    "meta": { "est_chars": 48, "notes": "Suffix contrast" }
+  }
+]
+</script>
+```
+
+### 10.4 `storykeys-badges`
+
+```html
+<script type="application/json" id="storykeys-badges">
+[
+  { "id": "steady_95", "label": "Steady 95", "desc": "Three sessions at 95%+ accuracy." },
+  { "id": "punct_pro", "label": "Punctuation Pro", "desc": "Finish a passage with punctuation enabled at 95%+." },
+  { "id": "calm_careful", "label": "Calm & Careful", "desc": "Finish with zero errors in lockstep." },
+  { "id": "explorer", "label": "Explorer", "desc": "Try three different themes." },
+  { "id": "routine", "label": "Routine", "desc": "Type on three different days this week." }
+]
+</script>
+```
+
+### 10.5 `storykeys-copy`
+
+```html
+<script type="application/json" id="storykeys-copy">
+{
+  "appTitle": "StoryKeys",
+  "tagline": "Tiny animal tales. Calm, careful typing.",
+  "homeStart": "Start session (2 min)",
+  "homeChangeLesson": "Change lesson",
+  "tipAccuracyFirst": "Accuracy first. You can add a timer later.",
+  "pickerTitle": "Choose something fun to type",
+  "filtersStage": "Stage",
+  "filtersTheme": "Theme",
+  "filtersComplexity": "Complexity",
+  "typingHeaderReady": "Ready when you are",
+  "typingLockstepOn": "Lockstep on",
+  "typingFocusLineOn": "Focus line on",
+  "metricAccuracy": "Accuracy",
+  "metricNetWPM": "Net WPM",
+  "metricTime": "Time",
+  "metricErrors": "Errors",
+  "nextKeyLabel": "Next key",
+  "spaceName": "Space",
+  "enterName": "Enter",
+  "summaryNiceWork": "Lovely typing!",
+  "summaryReplay": "Replay",
+  "summaryTryDrill": "Try focus drill",
+  "summaryHome": "Home",
+  "summaryHardestKeys": "Hardest keys",
+  "summaryTrickyWords": "Tricky words",
+  "suggestionDrill": "60-second focus on {pattern}?",
+  "parentTitle": "Parent glance",
+  "parentThisWeek": "This week",
+  "parentExport": "Export progress",
+  "parentClear": "Clear data",
+  "settingsTitle": "Settings",
+  "settingsReadability": "Readability",
+  "settingsBehaviour": "Behaviour",
+  "settingsContent": "Content defaults",
+  "settingsPrivacy": "Privacy",
+  "confirmClear": "Really clear all progress? This cannot be undone.",
+  "pasteBlocked": "Typing practice works best without pasting.",
+  "encourageGentle": [
+    "Nice and steady.",
+    "Great focus.",
+    "Calm and careful.",
+    "That looked smooth.",
+    "Brilliant effort!"
+  ]
+}
+</script>
+```
+
+---
+
+## 11) Notes on Expansion
+
+* **Scaling content:** add more entries to each array; IDs must remain unique.
+* **Theme variety:** “Silly Stories”, “Animals”, “Nature”, “Myths”, “Science snips” give you broad coverage with age-appropriate tone.
+* **Key Stage filters:** drive UI filtering directly from each object’s `stage` field.
+* **British spellings:** when adding words, prefer UK forms (e.g., *favourite, colour, travelling, centre, jewellery*).
+
+---
+
+If you want, I can also produce a **generator script** that validates CSV/TSV wordlists and outputs these JSON shapes—handy when you scale up the content.
