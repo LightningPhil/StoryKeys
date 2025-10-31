@@ -1,362 +1,1874 @@
 [
     {
-        "id": "ks2_animals_otter_nonsense_1",
-        "stage": "KS2",
-        "theme": "Animals",
-        "title": "Otter Nonsense",
-        "text": "The otter balances a pebble like a tiny crown. It twirls, drops it, and looks very pleased with itself.",
-        "tags": {
-            "complexity": {
-                "caps": true,
-                "punct": true
-            }
-        },
-        "meta": {
-            "est_chars": 132
-        }
+    "id": "ks2_romans_camp_musician_v1",
+    "stage": "KS2",
+    "theme": "The Romans",
+    "title": "The Camp Musician",
+    "text": "In every Roman camp, there was a musician who played a curved horn called a cornu. His music signalled soldiers to march, rest, or prepare for battle. The sound echoed through the barracks and across the hills of Britain.",
+    "tags": {
+      "complexity": { "caps": true, "punct": true },
+      "phonics": ["ks2-cian-suffix"]
     },
-    {
-        "id": "ks2_nature_small_weather_1",
-        "stage": "KS2",
-        "theme": "Nature",
-        "title": "A British Breeze",
-        "text": "A small breeze hustles the leaves along the path. Clouds shuffle over the sun, then think better of it.",
-        "tags": {
-            "complexity": {
-                "caps": true,
-                "punct": true
-            }
-        },
-        "meta": {
-            "est_chars": 136
-        }
+    "meta": { "est_chars": 259 }
+  },
+  {
+    "id": "ks2_romans_magician_market_v1",
+    "stage": "KS2",
+    "theme": "The Romans",
+    "title": "A Magician in the Market",
+    "text": "At the bustling Roman market, a magician amazed children with tricks. He made coins vanish and appear behind ears, while traders laughed and cheered. Even the patrician passing by smiled at the spectacle.",
+    "tags": {
+      "complexity": { "caps": true, "punct": true },
+      "phonics": ["ks2-cian-suffix"]
     },
-    {
-        "id": "ks2_animals_silly_fox_1",
-        "stage": "KS2",
-        "theme": "Silly Stories",
-        "title": "The Fox’s Plan",
-        "text": "The fox draws a map with a muddy paw, then forgets which way is north and asks a friendly crow.",
-        "tags": {
-            "complexity": {
-                "caps": true,
-                "punct": true
-            }
-        },
-        "meta": {
-            "est_chars": 125
-        }
+    "meta": { "est_chars": 234 }
+  },
+  {
+    "id": "ks2_romans_physician_v1",
+    "stage": "KS2",
+    "theme": "The Romans",
+    "title": "The Roman Physician",
+    "text": "A skilled physician in Rome studied herbs, wounds, and fevers. Using oil, honey, and bandages, he treated soldiers after fierce battles. His reputation grew across the empire for wisdom and careful healing.",
+    "tags": {
+      "complexity": { "caps": true, "punct": true },
+      "phonics": ["ks2-cian-suffix"]
     },
-    {
-        "id": "ks2_science_snip_1",
-        "stage": "KS2",
-        "theme": "Science snips",
-        "title": "Water Cycle",
-        "text": "Water evaporates from the sea, forms clouds, and then falls as rain. It's a journey with no end.",
-        "tags": {
-            "complexity": {
-                "caps": true,
-                "punct": true
-            }
-        },
-        "meta": {
-            "est_chars": 119
-        }
+    "meta": { "est_chars": 233 }
+  },
+  {
+    "id": "ks2_romans_patrician_house_v1",
+    "stage": "KS2",
+    "theme": "The Romans",
+    "title": "The Patrician’s House",
+    "text": "The patrician’s house was large and bright, with mosaics and fountains. Servants hurried through tunnels beneath the courtyard. At dinner, musicians played softly while guests reclined on couches to feast.",
+    "tags": {
+      "complexity": { "caps": true, "punct": true },
+      "phonics": ["ks2-cian-suffix"]
     },
-    {
-        "id": "ks2_myths_griffin_guard_1",
-        "stage": "KS2",
-        "theme": "Myths",
-        "title": "The Griffin's Guard",
-        "text": "The griffin, with its lion's body and eagle's head, guarded a treasure of pure gold. Few dared to challenge it.",
-        "tags": {
-            "complexity": {
-                "caps": true,
-                "punct": true
-            }
-        },
-        "meta": {
-            "est_chars": 149
-        }
+    "meta": { "est_chars": 248 }
+  },
+  {
+    "id": "ks2_romans_politician_forum_v1",
+    "stage": "KS2",
+    "theme": "The Romans",
+    "title": "The Forum Politician",
+    "text": "In the grand Roman Forum, a politician spoke proudly to the crowd. He promised new roads and fair taxes. Citizens cheered, waving laurel leaves in the bright Mediterranean sun.",
+    "tags": {
+      "complexity": { "caps": true, "punct": true },
+      "phonics": ["ks2-cian-suffix"]
     },
-    {
-        "id": "ks2_silly_stories_detective_badger_1",
-        "stage": "KS2",
-        "theme": "Silly Stories",
-        "title": "Detective Badger",
-        "text": "Badger put on his favourite tweed cap. 'The case of the missing jam tart,' he mumbled, 'is my most difficult yet!'",
-        "tags": {
-            "complexity": {
-                "caps": true,
-                "punct": true
-            }
-        },
-        "meta": {
-            "est_chars": 149
-        }
+    "meta": { "est_chars": 216 }
+  },
+  {
+    "id": "ks2_romans_battle_preparation_v1",
+    "stage": "KS2",
+    "theme": "The Romans",
+    "title": "Battle Preparation",
+    "text": "The Roman soldiers gathered at dawn, polishing shields and checking their armour. They marched through tunnels beneath the fortress to the colossal gates, ready for the coming battle against the rebels.",
+    "tags": {
+      "complexity": { "caps": true, "punct": true },
+      "phonics": ["ks2-double-consonants"]
     },
-    {
-        "id": "ks2_animals_hedgehog_defence_1",
-        "stage": "KS2",
-        "theme": "Animals",
-        "title": "Hedgehog Defence",
-        "text": "At the first sign of danger, the hedgehog curls into a tight, spiky ball. It is a simple but effective defence.",
-        "tags": {
-            "complexity": {
-                "caps": true,
-                "punct": true
-            }
-        },
-        "meta": {
-            "est_chars": 128
-        }
+    "meta": { "est_chars": 236 }
+  },
+  {
+    "id": "ks2_romans_barracks_life_v1",
+    "stage": "KS2",
+    "theme": "The Romans",
+    "title": "Life in the Barracks",
+    "text": "Inside the barracks, soldiers trained every day. They repaired armour, cooked bread, and told stories by the fire. The strict centurion inspected every weapon before nightfall to ensure discipline and order.",
+    "tags": {
+      "complexity": { "caps": true, "punct": true },
+      "phonics": ["ks2-double-consonants"]
     },
-    {
-        "id": "ks2_nature_ancient_oak_1",
-        "stage": "KS2",
-        "theme": "Nature",
-        "title": "The Ancient Oak",
-        "text": "An ancient oak tree stood on the hill, its branches like gnarled fingers pointing at the travelling clouds.",
-        "tags": {
-            "complexity": {
-                "caps": true,
-                "punct": true
-            }
-        },
-        "meta": {
-            "est_chars": 135
-        }
+    "meta": { "est_chars": 244 }
+  },
+  {
+    "id": "ks2_romans_tunnel_escape_v1",
+    "stage": "KS2",
+    "theme": "The Romans",
+    "title": "The Tunnel Escape",
+    "text": "Under the city of Pompeii, a hidden tunnel led from a baker’s shop to the harbour. When ash began to fall, people rushed through the narrow passage, clutching their treasures as the volcano roared above.",
+    "tags": {
+      "complexity": { "caps": true, "punct": true },
+      "phonics": ["ks2-double-consonants"]
     },
-    {
-        "id": "ks2_silly_stories_pigeon_post_1",
-        "stage": "KS2",
-        "theme": "Silly Stories",
-        "title": "Pigeon Post",
-        "text": "A pigeon tries to deliver a letter, but he gets distracted by a shiny bottle cap and forgets the address.",
-        "tags": {
-            "complexity": {
-                "caps": true,
-                "punct": true
-            }
-        },
-        "meta": {
-            "est_chars": 126
-        }
+    "meta": { "est_chars": 254 }
+  },
+  {
+    "id": "ks2_romans_gladiator_battle_v1",
+    "stage": "KS2",
+    "theme": "The Romans",
+    "title": "The Gladiator’s Battle",
+    "text": "In the arena, the crowd cheered as two gladiators faced each other. The clash of shields echoed around the colossal walls. One slipped, but rose again, refusing to surrender before the emperor’s gaze.",
+    "tags": {
+      "complexity": { "caps": true, "punct": true },
+      "phonics": ["ks2-double-consonants"]
     },
-    {
-        "id": "ks2_science_rainbows_1",
-        "stage": "KS2",
-        "theme": "Science snips",
-        "title": "How Rainbows Form",
-        "text": "Sunlight shining through raindrops is split into its different colours, creating a beautiful arc in the sky.",
-        "tags": {
-            "complexity": {
-                "caps": true,
-                "punct": true
-            }
-        },
-        "meta": {
-            "est_chars": 136
-        }
+    "meta": { "est_chars": 250 }
+  },
+  {
+    "id": "ks2_romans_chariot_race_v1",
+    "stage": "KS2",
+    "theme": "The Romans",
+    "title": "The Chariot Race",
+    "text": "The chariots thundered around the track, wheels rattling on the stones. Horses snorted and strained at their reins. Spectators shouted as the victor raised his arm, triumphant at the finish line.",
+    "tags": {
+      "complexity": { "caps": true, "punct": true },
+      "phonics": ["ks2-double-consonants"]
     },
-    {
-        "id": "ks2_animals_bat_sonar_1",
-        "stage": "KS2",
-        "theme": "Animals",
-        "title": "Bat Sonar",
-        "text": "A bat navigates in the dark by emitting high-pitched squeaks. The echoes create a map of its surroundings.",
-        "tags": {
-            "complexity": {
-                "caps": true,
-                "punct": true
-            }
-        },
-        "meta": {
-            "est_chars": 143
-        }
+    "meta": { "est_chars": 233 }
+  },
+  {
+    "id": "ks2_romans_legion_march_v1",
+    "stage": "KS2",
+    "theme": "The Romans",
+    "title": "The Legion’s March",
+    "text": "The legion moved steadily across the muddy road. Each man carried his shield and spear with pride. Drums beat a rhythm that echoed across the valley, guiding their disciplined footsteps toward the next camp.",
+    "tags": {
+      "complexity": { "caps": true, "punct": true },
+      "phonics": ["ks2-double-consonants"]
     },
-    {
-        "id": "ks2_myths_cerberus_1",
-        "stage": "KS2",
-        "theme": "Myths",
-        "title": "Cerberus",
-        "text": "Cerberus, the three-headed dog, guarded the entrance to the underworld. He was fearsome but loyal to his master.",
-        "tags": {
-            "complexity": {
-                "caps": true,
-                "punct": true
-            }
-        },
-        "meta": {
-            "est_chars": 141
-        }
+    "meta": { "est_chars": 252 }
+  },
+  {
+    "id": "ks2_romans_gods_temple_v1",
+    "stage": "KS2",
+    "theme": "The Romans",
+    "title": "Temple of the Gods",
+    "text": "At dawn, smoke rose from the temple of Jupiter. Priests prayed for victory in battle, offering golden coins and olive branches. The people knelt, believing the gods would guide the empire’s destiny.",
+    "tags": {
+      "complexity": { "caps": true, "punct": true },
+      "phonics": ["ks2-cian-suffix"]
     },
-    {
-        "id": "ks2_silly_stories_squirrel_meeting_1",
-        "stage": "KS2",
-        "theme": "Silly Stories",
-        "title": "Squirrel Meeting",
-        "text": "The squirrels held an urgent meeting. The topic: how to get the 'impossible' nuts from the new bird feeder.",
-        "tags": {
-            "complexity": {
-                "caps": true,
-                "punct": true
-            }
-        },
-        "meta": {
-            "est_chars": 131
-        }
+    "meta": { "est_chars": 243 }
+  },
+  {
+    "id": "ks2_romans_venus_festival_v1",
+    "stage": "KS2",
+    "theme": "The Romans",
+    "title": "Festival of Venus",
+    "text": "The streets filled with garlands and laughter as the festival of Venus began. Women carried flowers to the temple, while children sang. The air shimmered with music and the scent of sweet perfume.",
+    "tags": {
+      "complexity": { "caps": true, "punct": true },
+      "phonics": ["ks2-cian-suffix"]
     },
-    {
-        "id": "ks2_nature_river_journey_1",
-        "stage": "KS2",
-        "theme": "Nature",
-        "title": "River's Journey",
-        "text": "The river starts as a tiny trickle in the hills. It grows stronger and wider on its long journey to the sea.",
-        "tags": {
-            "complexity": {
-                "caps": true,
-                "punct": true
-            }
-        },
-        "meta": {
-            "est_chars": 132
-        }
+    "meta": { "est_chars": 243 }
+  },
+  {
+    "id": "ks2_romans_mars_prayer_v1",
+    "stage": "KS2",
+    "theme": "The Romans",
+    "title": "A Prayer to Mars",
+    "text": "Before each battle, soldiers raised their swords to Mars, the god of war. They whispered prayers for courage and strength. The red banners fluttered as sunlight glinted on polished helmets and shields.",
+    "tags": {
+      "complexity": { "caps": true, "punct": true },
+      "phonics": ["ks2-double-consonants"]
     },
-    {
-        "id": "ks2_animals_chameleon_1",
-        "stage": "KS2",
-        "theme": "Animals",
-        "title": "The Chameleon",
-        "text": "A chameleon can change its skin colour to match its background. It's the ultimate game of hide-and-seek.",
-        "tags": {
-            "complexity": {
-                "caps": true,
-                "punct": true
-            }
-        },
-        "meta": {
-            "est_chars": 129
-        }
+    "meta": { "est_chars": 246 }
+  },
+  {
+    "id": "ks2_romans_diana_forest_v1",
+    "stage": "KS2",
+    "theme": "The Romans",
+    "title": "Diana of the Forest",
+    "text": "In the moonlit woods, the goddess Diana was said to wander with her hounds. Hunters left gifts by the trees, hoping for luck. Her silver light glimmered across the silent leaves and streams.",
+    "tags": {
+      "complexity": { "caps": true, "punct": true },
+      "phonics": ["ks2-cian-suffix"]
     },
-    {
-        "id": "ks2_science_magnets_1",
-        "stage": "KS2",
-        "theme": "Science snips",
-        "title": "Magnets",
-        "text": "Every magnet has a north and a south pole. Opposite poles attract, while identical poles repel each other.",
-        "tags": {
-            "complexity": {
-                "caps": true,
-                "punct": true
-            }
-        },
-        "meta": {
-            "est_chars": 128
-        }
+    "meta": { "est_chars": 248 }
+  },
+  {
+    "id": "ks2_egypt_pharaoh_palace_v1",
+    "stage": "KS2",
+    "theme": "Ancient Egypt",
+    "title": "The Pharaoh’s Palace",
+    "text": "The pharaoh lived in a grand palace beside the River Nile. His servants carried fans to cool him, and musicians played soft tunes. Golden hieroglyphs decorated the walls, telling stories of power and gods.",
+    "tags": {
+      "complexity": { "caps": true, "punct": true },
+      "phonics": ["ks2-ph-digraph"]
     },
-    {
-        "id": "ks2_silly_stories_formal_frog_1",
-        "stage": "KS2",
-        "theme": "Silly Stories",
-        "title": "A Formal Frog",
-        "text": "A frog insists on wearing a tiny bow tie. He thinks it makes him look more distinguished when catching flies.",
-        "tags": {
-            "complexity": {
-                "caps": true,
-                "punct": true
-            }
-        },
-        "meta": {
-            "est_chars": 132
-        }
+    "meta": { "est_chars": 250 }
+  },
+  {
+    "id": "ks2_egypt_sphinx_secret_v1",
+    "stage": "KS2",
+    "theme": "Ancient Egypt",
+    "title": "The Sphinx’s Secret",
+    "text": "The Sphinx watched over the desert with calm eyes. It guarded the tombs of kings and queens. People whispered that beneath its paws lay hidden tunnels filled with treasures of the ancient pharaohs.",
+    "tags": {
+      "complexity": { "caps": true, "punct": true },
+      "phonics": ["ks2-ph-digraph"]
     },
-    {
-        "id": "ks2_myths_pegasus_1",
-        "stage": "KS2",
-        "theme": "Myths",
-        "title": "Pegasus",
-        "text": "Pegasus was a magnificent winged horse. With a beat of his hooves, he could create a spring of fresh water.",
-        "tags": {
-            "complexity": {
-                "caps": true,
-                "punct": true
-            }
-        },
-        "meta": {
-            "est_chars": 133
-        }
+    "meta": { "est_chars": 243 }
+  },
+  {
+    "id": "ks2_egypt_hieroglyphs_message_v1",
+    "stage": "KS2",
+    "theme": "Ancient Egypt",
+    "title": "The Hieroglyph Message",
+    "text": "Carved deep into stone, hieroglyphs told the story of a mighty king. Scholars studied each symbol carefully. They discovered a message of peace, asking the gods to bless the land with gentle floods.",
+    "tags": {
+      "complexity": { "caps": true, "punct": true },
+      "phonics": ["ks2-ph-digraph"]
     },
-    {
-        "id": "ks2_nature_spider_web_1",
-        "stage": "KS2",
-        "theme": "Nature",
-        "title": "Spider's Web",
-        "text": "The spider's web, a marvel of engineering, glistens with morning dew. It is both a home and a clever trap.",
-        "tags": {
-            "complexity": {
-                "caps": true,
-                "punct": true
-            }
-        },
-        "meta": {
-            "est_chars": 134
-        }
+    "meta": { "est_chars": 245 }
+  },
+  {
+    "id": "ks2_egypt_treasure_trophy_v1",
+    "stage": "KS2",
+    "theme": "Ancient Egypt",
+    "title": "The Treasure Trophy",
+    "text": "Inside the tomb, the explorers found a golden trophy shaped like a falcon. Its wings shimmered in the torchlight. It was an offering to Horus, the sky god, who watched over every pharaoh’s journey to the afterlife.",
+    "tags": {
+      "complexity": { "caps": true, "punct": true },
+      "phonics": ["ks2-ph-digraph"]
     },
-    {
-        "id": "ks2_animals_clever_crows_1",
-        "stage": "KS2",
-        "theme": "Animals",
-        "title": "Clever Crows",
-        "text": "Crows are incredibly intelligent birds. They can use tools, solve puzzles, and even remember human faces.",
-        "tags": {
-            "complexity": {
-                "caps": true,
-                "punct": true
-            }
-        },
-        "meta": {
-            "est_chars": 133
-        }
+    "meta": { "est_chars": 255 }
+  },
+  {
+    "id": "ks2_egypt_alphabet_secret_v1",
+    "stage": "KS2",
+    "theme": "Ancient Egypt",
+    "title": "The Alphabet of Symbols",
+    "text": "Thoth, the god of wisdom, was said to invent the first alphabet. Each sign in the hieroglyphic script had a meaning or sound. Scribes trained for years to master the art of writing upon smooth papyrus scrolls.",
+    "tags": {
+      "complexity": { "caps": true, "punct": true },
+      "phonics": ["ks2-ph-digraph"]
     },
-    {
-        "id": "ks2_silly_flying_bunny_1",
-        "stage": "KS2",
-        "theme": "Silly Stories",
-        "title": "Barnaby's Big Idea",
-        "text": "Barnaby had a brilliant, if silly, idea. He would learn to fly! He strapped two large cabbage leaves to his back and leapt from a small log. He did not fly, but he did perform a spectacular tumble.",
-        "tags": {
-            "complexity": {
-                "caps": true,
-                "punct": true
-            },
-            "phonics": [
-                "double consonant",
-                "ea/ee"
-            ]
-        },
-        "meta": {
-            "est_chars": 176
-        }
+    "meta": { "est_chars": 254 }
+  },
+  {
+    "id": "ks2_egypt_century_pyramids_v1",
+    "stage": "KS2",
+    "theme": "Ancient Egypt",
+    "title": "Centuries of Pyramids",
+    "text": "For more than a century, builders toiled under the blazing sun. The pyramids rose higher each day, stone by stone. When finished, they shone like mirrors beneath the sky, guiding souls to the afterlife.",
+    "tags": {
+      "complexity": { "caps": true, "punct": true },
+      "phonics": ["ks2-soft-c"]
     },
-    {
-        "id": "ks2_silly_bunny_detective_1",
-        "stage": "KS2",
-        "theme": "Silly Stories",
-        "title": "The Dandelion Detective",
-        "text": "One perfect dandelion was missing from the patch. Beatrice Bunny, detective extraordinaire, examined the scene. The only clue? A trail of crumbs leading straight to the sleepy badger's den.",
-        "tags": {
-            "complexity": {
-                "caps": true,
-                "punct": true
-            },
-            "phonics": [
-                "double consonant",
-                "ea/ee"
-            ]
-        },
-        "meta": {
-            "est_chars": 185
-        }
-    }
+    "meta": { "est_chars": 240 }
+  },
+  {
+    "id": "ks2_egypt_ceremony_temple_v1",
+    "stage": "KS2",
+    "theme": "Ancient Egypt",
+    "title": "The Temple Ceremony",
+    "text": "At dawn, priests gathered for a sacred ceremony. Incense filled the air as they offered bread, fruit, and music to the gods. The people watched in silence, their hearts filled with ancient wonder and respect.",
+    "tags": {
+      "complexity": { "caps": true, "punct": true },
+      "phonics": ["ks2-soft-c"]
+    },
+    "meta": { "est_chars": 247 }
+  },
+  {
+    "id": "ks2_egypt_ancient_market_v1",
+    "stage": "KS2",
+    "theme": "Ancient Egypt",
+    "title": "The Ancient Market",
+    "text": "The market beside the Nile was full of colour and noise. Traders sold baskets, fish, and bright beads. Children chased goats through the crowd, laughing as the warm wind carried the scent of spices and dates.",
+    "tags": {
+      "complexity": { "caps": true, "punct": true },
+      "phonics": ["ks2-soft-c"]
+    },
+    "meta": { "est_chars": 252 }
+  },
+  {
+    "id": "ks2_egypt_peaceful_village_v1",
+    "stage": "KS2",
+    "theme": "Ancient Egypt",
+    "title": "The Peaceful Village",
+    "text": "Beside the river, a peaceful village rested in the shade of palm trees. Farmers worked the fields while children swam in the cool water. As evening came, families shared food and stories beneath the stars.",
+    "tags": {
+      "complexity": { "caps": true, "punct": true },
+      "phonics": ["ks2-soft-c"]
+    },
+    "meta": { "est_chars": 252 }
+  },
+  {
+    "id": "ks2_egypt_palace_guardians_v1",
+    "stage": "KS2",
+    "theme": "Ancient Egypt",
+    "title": "The Palace Guardians",
+    "text": "Tall stone lions guarded the palace gates. Their eyes seemed to follow every visitor. Inside, the walls were painted with scenes of harvests and battles, showing the pharaoh’s strength and his people’s devotion.",
+    "tags": {
+      "complexity": { "caps": true, "punct": true },
+      "phonics": ["ks2-soft-c"]
+    },
+    "meta": { "est_chars": 250 }
+  },
+  {
+    "id": "ks2_egypt_gods_journey_v1",
+    "stage": "KS2",
+    "theme": "Ancient Egypt",
+    "title": "Journey of the Gods",
+    "text": "Each night, the god Ra sailed through the underworld. Osiris judged the souls of the dead while Anubis watched over their hearts. When morning came, the sun god rose again to bring light to the earth.",
+    "tags": {
+      "complexity": { "caps": true, "punct": true },
+      "phonics": ["ks2-ph-digraph"]
+    },
+    "meta": { "est_chars": 248 }
+  },
+  {
+    "id": "ks2_egypt_flood_nile_v1",
+    "stage": "KS2",
+    "theme": "Ancient Egypt",
+    "title": "The Flood of the Nile",
+    "text": "Each year, the Nile flooded its banks, leaving behind rich soil. Farmers celebrated the harvest and thanked the gods. Without the gentle flood, the villages could not survive in the dry desert lands.",
+    "tags": {
+      "complexity": { "caps": true, "punct": true },
+      "phonics": ["ks2-soft-c"]
+    },
+    "meta": { "est_chars": 242 }
+  },
+  {
+    "id": "ks2_egypt_thoth_wisdom_v1",
+    "stage": "KS2",
+    "theme": "Ancient Egypt",
+    "title": "Thoth and Wisdom",
+    "text": "Thoth was the wise god of writing and knowledge. He recorded the names of every pharaoh and kept the alphabet of the gods. Scribes prayed to him for memory and skill before beginning their careful work.",
+    "tags": {
+      "complexity": { "caps": true, "punct": true },
+      "phonics": ["ks2-ph-digraph"]
+    },
+    "meta": { "est_chars": 248 }
+  },
+  {
+    "id": "ks2_egypt_horus_eye_v1",
+    "stage": "KS2",
+    "theme": "Ancient Egypt",
+    "title": "The Eye of Horus",
+    "text": "The Eye of Horus was a symbol of protection and healing. Sailors painted it on their boats to guard them from storms. It was said to watch over the pharaohs and bring peace to their kingdom.",
+    "tags": {
+      "complexity": { "caps": true, "punct": true },
+      "phonics": ["ks2-soft-c"]
+    },
+    "meta": { "est_chars": 246 }
+  },
+  {
+    "id": "ks2_egypt_final_ceremony_v1",
+    "stage": "KS2",
+    "theme": "Ancient Egypt",
+    "title": "The Final Ceremony",
+    "text": "At the end of a pharaoh’s reign, priests held a grand ceremony. Candles flickered and chants filled the air. They believed the ruler’s spirit would rise to join the gods and live forever among the stars.",
+    "tags": {
+      "complexity": { "caps": true, "punct": true },
+      "phonics": ["ks2-soft-c"]
+    },
+    "meta": { "est_chars": 255 }
+  },
+  {
+    "id": "ks2_solar_star_light_v1",
+    "stage": "KS2",
+    "theme": "The Solar System",
+    "title": "Star Light",
+    "text": "Every night, the sky glitters with millions of stars. Each star burns brightly in the dark space beyond our world. Some are large, some are small, but all send their light across the galaxy.",
+    "tags": {
+      "complexity": { "caps": true, "punct": true },
+      "phonics": ["ks2-ar-sound"]
+    },
+    "meta": { "est_chars": 254 }
+  },
+  {
+    "id": "ks2_solar_mission_to_mars_v1",
+    "stage": "KS2",
+    "theme": "The Solar System",
+    "title": "Mission to Mars",
+    "text": "A red dust storm swept across Mars as a robot rover rolled forward. Scientists watched from Earth, excited to learn more about the planet’s large valleys and ancient riverbeds hidden in the dark sand.",
+    "tags": {
+      "complexity": { "caps": true, "punct": true },
+      "phonics": ["ks2-ar-sound"]
+    },
+    "meta": { "est_chars": 259 }
+  },
+  {
+    "id": "ks2_solar_dark_space_v1",
+    "stage": "KS2",
+    "theme": "The Solar System",
+    "title": "The Dark of Space",
+    "text": "Far beyond the planets lies the dark, silent space between the stars. Here, enormous clouds of gas swirl and spark as new suns are born, lighting up the universe like glowing lanterns in the night.",
+    "tags": {
+      "complexity": { "caps": true, "punct": true },
+      "phonics": ["ks2-ar-sound"]
+    },
+    "meta": { "est_chars": 257 }
+  },
+  {
+    "id": "ks2_solar_large_planet_v1",
+    "stage": "KS2",
+    "theme": "The Solar System",
+    "title": "A Large Planet",
+    "text": "Jupiter is the largest planet in our Solar System. Its storms are so large they could swallow Earth. The dark stripes and swirling clouds mark the surface of this gas giant like giant painted rings.",
+    "tags": {
+      "complexity": { "caps": true, "punct": true },
+      "phonics": ["ks2-ar-sound"]
+    },
+    "meta": { "est_chars": 252 }
+  },
+  {
+    "id": "ks2_solar_starlight_journey_v1",
+    "stage": "KS2",
+    "theme": "The Solar System",
+    "title": "A Journey by Starlight",
+    "text": "An astronaut gazed from the rocket window as starlight shimmered on her helmet. Beyond the dark horizon, Mars glowed like a tiny red spark. The vast silence of space stretched endlessly before her brave heart.",
+    "tags": {
+      "complexity": { "caps": true, "punct": true },
+      "phonics": ["ks2-ar-sound"]
+    },
+    "meta": { "est_chars": 257 }
+  },
+  {
+    "id": "ks2_solar_jupiter_storm_v1",
+    "stage": "KS2",
+    "theme": "The Solar System",
+    "title": "Jupiter’s Storm",
+    "text": "Jupiter spins faster than any other planet. Its Great Red Spot is a storm that has turned for centuries without rest. Winds there can burst through the clouds, stronger than any hurricane on Earth.",
+    "tags": {
+      "complexity": { "caps": true, "punct": true },
+      "phonics": ["ks2-ur-sound"]
+    },
+    "meta": { "est_chars": 252 }
+  },
+  {
+    "id": "ks2_solar_saturn_rings_v1",
+    "stage": "KS2",
+    "theme": "The Solar System",
+    "title": "Rings of Saturn",
+    "text": "Saturn is famous for its shimmering rings made of ice and dust. From a telescope, they sparkle like silver circles. Spacecraft have flown close to study the surface and learn how the rings turn and move.",
+    "tags": {
+      "complexity": { "caps": true, "punct": true },
+      "phonics": ["ks2-ur-sound"]
+    },
+    "meta": { "est_chars": 255 }
+  },
+  {
+    "id": "ks2_solar_surface_moon_v1",
+    "stage": "KS2",
+    "theme": "The Solar System",
+    "title": "The Surface of the Moon",
+    "text": "The Moon’s surface is covered with craters from meteor strikes. Astronauts once left footprints there that will last for thousands of years. In the distance, Earth shone like a bright blue marble in space.",
+    "tags": {
+      "complexity": { "caps": true, "punct": true },
+      "phonics": ["ks2-ur-sound"]
+    },
+    "meta": { "est_chars": 258 }
+  },
+  {
+    "id": "ks2_solar_turn_of_planets_v1",
+    "stage": "KS2",
+    "theme": "The Solar System",
+    "title": "Turn of the Planets",
+    "text": "Every planet turns on its axis, spinning through the endless dark. Some, like Earth, turn quickly and bring day and night. Others, like Venus, take months to complete one slow, glowing turn in space.",
+    "tags": {
+      "complexity": { "caps": true, "punct": true },
+      "phonics": ["ks2-ur-sound"]
+    },
+    "meta": { "est_chars": 257 }
+  },
+  {
+    "id": "ks2_solar_burst_of_light_v1",
+    "stage": "KS2",
+    "theme": "The Solar System",
+    "title": "A Burst of Light",
+    "text": "When a star reaches the end of its life, it may burst into a brilliant supernova. For a short time, it shines brighter than entire galaxies, scattering stardust that forms new worlds, moons, and planets.",
+    "tags": {
+      "complexity": { "caps": true, "punct": true },
+      "phonics": ["ks2-ur-sound"]
+    },
+    "meta": { "est_chars": 258 }
+  },
+  {
+    "id": "ks2_solar_mercury_heat_v1",
+    "stage": "KS2",
+    "theme": "The Solar System",
+    "title": "Mercury’s Heat",
+    "text": "Closest to the Sun, Mercury’s surface becomes hotter than an oven. Without air to keep warmth, the dark side freezes solid. Its rough surface shows craters that tell stories of fiery collisions from space.",
+    "tags": {
+      "complexity": { "caps": true, "punct": true },
+      "phonics": ["ks2-ur-sound"]
+    },
+    "meta": { "est_chars": 254 }
+  },
+  {
+    "id": "ks2_solar_astronaut_orbit_v1",
+    "stage": "KS2",
+    "theme": "The Solar System",
+    "title": "Astronaut in Orbit",
+    "text": "An astronaut floats in orbit above Earth, watching continents turn slowly below. The surface of the planet glows with city lights. Silence surrounds her as she drifts among stars and distant satellites.",
+    "tags": {
+      "complexity": { "caps": true, "punct": true },
+      "phonics": ["ks2-ur-sound"]
+    },
+    "meta": { "est_chars": 247 }
+  },
+  {
+    "id": "ks2_solar_neptune_deep_v1",
+    "stage": "KS2",
+    "theme": "The Solar System",
+    "title": "The Deep Blue of Neptune",
+    "text": "Neptune spins far from the Sun, wrapped in freezing winds. Its deep blue colour comes from methane gas swirling through its clouds. The storms there burst with power and lightning brighter than any seen on Earth.",
+    "tags": {
+      "complexity": { "caps": true, "punct": true },
+      "phonics": ["ks2-ur-sound"]
+    },
+    "meta": { "est_chars": 257 }
+  },
+  {
+    "id": "ks2_solar_galaxy_view_v1",
+    "stage": "KS2",
+    "theme": "The Solar System",
+    "title": "A View of the Galaxy",
+    "text": "From space, astronauts can see the curve of Earth against the dark. Beyond, the Milky Way stretches in a band of light. Every star, every planet, and every moon belongs to our vast, turning galaxy.",
+    "tags": {
+      "complexity": { "caps": true, "punct": true },
+      "phonics": ["ks2-ar-sound"]
+    },
+    "meta": { "est_chars": 252 }
+  },
+  {
+    "id": "ks2_solar_future_mission_v1",
+    "stage": "KS2",
+    "theme": "The Solar System",
+    "title": "The Future Mission",
+    "text": "In the future, humans may travel farther than ever before. Rockets could turn toward Mars or Saturn, exploring strange new worlds. The stars will guide their journey through the silent, glittering dark of space.",
+    "tags": {
+      "complexity": { "caps": true, "punct": true },
+      "phonics": ["ks2-ar-sound"]
+    },
+    "meta": { "est_chars": 257 }
+  },
+  {
+    "id": "ks2_livingthings_creatures_sea_v1",
+    "stage": "KS2",
+    "theme": "Living Things & Habitats",
+    "title": "Creatures of the Sea",
+    "text": "Beneath the waves, colourful sea creatures swim among coral reefs. Shoals of fish flash silver as they dart between rocks, while dolphins leap gracefully through the foam, chasing their next tasty meal.",
+    "tags": {
+      "complexity": { "caps": true, "punct": true },
+      "phonics": ["ks2-ea-digraph"]
+    },
+    "meta": { "est_chars": 253 }
+  },
+  {
+    "id": "ks2_livingthings_eagle_hunt_v1",
+    "stage": "KS2",
+    "theme": "Living Things & Habitats",
+    "title": "The Eagle’s Hunt",
+    "text": "High above the mountains, an eagle spreads its wings and soars. With sharp eyes, it spots a rabbit below. Folding its feathers close, it dives at great speed, its beak ready for the catch.",
+    "tags": {
+      "complexity": { "caps": true, "punct": true },
+      "phonics": ["ks2-ea-digraph"]
+    },
+    "meta": { "est_chars": 252 }
+  },
+  {
+    "id": "ks2_livingthings_leaf_life_v1",
+    "stage": "KS2",
+    "theme": "Living Things & Habitats",
+    "title": "Life of a Leaf",
+    "text": "A single leaf collects sunlight to make food for the tree. Tiny veins carry water from the roots, while insects crawl across its green surface. When autumn comes, the leaf falls, feeding the soil below.",
+    "tags": {
+      "complexity": { "caps": true, "punct": true },
+      "phonics": ["ks2-ea-digraph"]
+    },
+    "meta": { "est_chars": 257 }
+  },
+  {
+    "id": "ks2_livingthings_beach_creatures_v1",
+    "stage": "KS2",
+    "theme": "Living Things & Habitats",
+    "title": "Beach Creatures",
+    "text": "At low tide, children search the beach for small sea creatures. Crabs scuttle under shells, and starfish cling to rocks. The salty air carries the sound of waves breaking gently against the sand and stones.",
+    "tags": {
+      "complexity": { "caps": true, "punct": true },
+      "phonics": ["ks2-ea-digraph"]
+    },
+    "meta": { "est_chars": 258 }
+  },
+  {
+    "id": "ks2_livingthings_meadow_bees_v1",
+    "stage": "KS2",
+    "theme": "Living Things & Habitats",
+    "title": "Bees in the Meadow",
+    "text": "In the summer meadow, bees buzz busily between flowers. Their wings shimmer in the sun as they collect nectar. Each bee returns to the hive, where together they make sweet, golden honey to share.",
+    "tags": {
+      "complexity": { "caps": true, "punct": true },
+      "phonics": ["ks2-ea-digraph"]
+    },
+    "meta": { "est_chars": 254 }
+  },
+  {
+    "id": "ks2_livingthings_forest_life_v1",
+    "stage": "KS2",
+    "theme": "Living Things & Habitats",
+    "title": "Life in the Forest",
+    "text": "The forest is home to countless organisms. From tall trees to crawling beetles, each has a role to play. Even fallen logs provide homes for insects, fungi, and small animals searching for food and safety.",
+    "tags": {
+      "complexity": { "caps": true, "punct": true },
+      "phonics": ["ks2-or-sound"]
+    },
+    "meta": { "est_chars": 260 }
+  },
+  {
+    "id": "ks2_livingthings_predator_prey_v1",
+    "stage": "KS2",
+    "theme": "Living Things & Habitats",
+    "title": "Predator and Prey",
+    "text": "In every habitat, there is a balance between predator and prey. The fox hunts the rabbit, but the rabbit feeds on plants. Each organism depends on another, forming a chain that keeps the ecosystem alive.",
+    "tags": {
+      "complexity": { "caps": true, "punct": true },
+      "phonics": ["ks2-or-sound"]
+    },
+    "meta": { "est_chars": 258 }
+  },
+  {
+    "id": "ks2_livingthings_herbivore_savannah_v1",
+    "stage": "KS2",
+    "theme": "Living Things & Habitats",
+    "title": "Herbivores of the Savannah",
+    "text": "Tall giraffes and mighty elephants wander the grassy savannah. Each herbivore eats leaves, bark, or fruit from trees. Together, they shape the land by clearing paths and spreading seeds across wide open plains.",
+    "tags": {
+      "complexity": { "caps": true, "punct": true },
+      "phonics": ["ks2-or-sound"]
+    },
+    "meta": { "est_chars": 255 }
+  },
+  {
+    "id": "ks2_livingthings_carnivore_night_v1",
+    "stage": "KS2",
+    "theme": "Living Things & Habitats",
+    "title": "Carnivores of the Night",
+    "text": "When darkness falls, predators awaken. Owls glide through the forest while foxes stalk through the undergrowth. Each carnivore listens carefully for the smallest rustle, ready to pounce on a hidden meal.",
+    "tags": {
+      "complexity": { "caps": true, "punct": true },
+      "phonics": ["ks2-or-sound"]
+    },
+    "meta": { "est_chars": 251 }
+  },
+  {
+    "id": "ks2_livingthings_rainforest_sounds_v1",
+    "stage": "KS2",
+    "theme": "Living Things & Habitats",
+    "title": "Sounds of the Rainforest",
+    "text": "The rainforest never sleeps. Frogs croak, parrots call, and jaguars prowl through the dense trees. Each sound belongs to a living organism that thrives in the warm, wet air of this vibrant world of green.",
+    "tags": {
+      "complexity": { "caps": true, "punct": true },
+      "phonics": ["ks2-or-sound"]
+    },
+    "meta": { "est_chars": 259 }
+  },
+  {
+    "id": "ks2_livingthings_desert_survival_v1",
+    "stage": "KS2",
+    "theme": "Living Things & Habitats",
+    "title": "Survival in the Desert",
+    "text": "In the scorching desert, every organism must adapt. Camels store water in their humps, while snakes rest in the shade. Life here is harsh, but each creature has found a way to endure the blazing heat.",
+    "tags": {
+      "complexity": { "caps": true, "punct": true },
+      "phonics": ["ks2-or-sound"]
+    },
+    "meta": { "est_chars": 256 }
+  },
+  {
+    "id": "ks2_livingthings_forest_floor_v1",
+    "stage": "KS2",
+    "theme": "Living Things & Habitats",
+    "title": "The Forest Floor",
+    "text": "Beneath the tall trees lies the forest floor, soft with leaves and moss. Tiny creatures crawl through the soil, breaking down old wood into nutrients. This hidden world feeds the forest above and keeps it alive.",
+    "tags": {
+      "complexity": { "caps": true, "punct": true },
+      "phonics": ["ks2-or-sound"]
+    },
+    "meta": { "est_chars": 259 }
+  },
+  {
+    "id": "ks2_livingthings_frog_life_v1",
+    "stage": "KS2",
+    "theme": "Living Things & Habitats",
+    "title": "The Life of a Frog",
+    "text": "A frog begins as a jelly-like egg in a pond. Soon, a tadpole hatches and breathes through gills. Over weeks, legs grow and the tail fades. Finally, the young frog leaps onto land to hunt for food.",
+    "tags": {
+      "complexity": { "caps": true, "punct": true },
+      "phonics": ["ks2-ea-digraph"]
+    },
+    "meta": { "est_chars": 256 }
+  },
+  {
+    "id": "ks2_livingthings_arctic_animals_v1",
+    "stage": "KS2",
+    "theme": "Living Things & Habitats",
+    "title": "Arctic Animals",
+    "text": "In the frozen Arctic, creatures like polar bears and seals thrive. Each has thick fur or blubber to keep warm. Even under the sea ice, fish and plankton survive in the cold, dark depths of the ocean.",
+    "tags": {
+      "complexity": { "caps": true, "punct": true },
+      "phonics": ["ks2-ea-digraph"]
+    },
+    "meta": { "est_chars": 256 }
+  },
+  {
+    "id": "ks2_livingthings_ocean_depths_v1",
+    "stage": "KS2",
+    "theme": "Living Things & Habitats",
+    "title": "Ocean Depths",
+    "text": "Deep beneath the waves, strange creatures glow in the darkness. Some use light to attract prey, while others hide in the black depths. Scientists explore these cold waters to learn more about life below the sea.",
+    "tags": {
+      "complexity": { "caps": true, "punct": true },
+      "phonics": ["ks2-ea-digraph"]
+    },
+    "meta": { "est_chars": 257 }
+  },
+  {
+    "id": "ks2_livingthings_mangrove_forest_v1",
+    "stage": "KS2",
+    "theme": "Living Things & Habitats",
+    "title": "The Mangrove Forest",
+    "text": "Where the river meets the sea, mangrove trees grow in tangled roots. Crabs, birds, and fish share this watery forest. Each organism plays a part in keeping this special habitat strong and full of life.",
+    "tags": {
+      "complexity": { "caps": true, "punct": true },
+      "phonics": ["ks2-or-sound"]
+    },
+    "meta": { "est_chars": 254 }
+  },
+  {
+    "id": "ks2_volcanoes_eruption_v1",
+    "stage": "KS2",
+    "theme": "Volcanoes & Earthquakes",
+    "title": "The Eruption",
+    "text": "With a mighty roar, the volcano burst into eruption. Lava poured from its crater in fiery motion, while thick clouds of ash filled the air. The ground trembled beneath the force of nature’s creation and destruction.",
+    "tags": {
+      "complexity": { "caps": true, "punct": true },
+      "phonics": ["ks2-tion-suffix"]
+    },
+    "meta": { "est_chars": 258 }
+  },
+  {
+    "id": "ks2_volcanoes_destruction_v1",
+    "stage": "KS2",
+    "theme": "Volcanoes & Earthquakes",
+    "title": "Destruction and Renewal",
+    "text": "After the eruption, the village lay silent. The destruction was complete, yet new land had formed. Over time, plants would grow again in the black soil, proving that even disaster can lead to renewal and life.",
+    "tags": {
+      "complexity": { "caps": true, "punct": true },
+      "phonics": ["ks2-tion-suffix"]
+    },
+    "meta": { "est_chars": 254 }
+  },
+  {
+    "id": "ks2_volcanoes_vibration_v1",
+    "stage": "KS2",
+    "theme": "Volcanoes & Earthquakes",
+    "title": "Vibrations in the Earth",
+    "text": "Deep underground, vibrations travelled through the rocks. Scientists used machines to record each motion and detect warning signs. The smallest vibration could signal a coming earthquake, or the start of a volcanic eruption.",
+    "tags": {
+      "complexity": { "caps": true, "punct": true },
+      "phonics": ["ks2-tion-suffix"]
+    },
+    "meta": { "est_chars": 251 }
+  },
+  {
+    "id": "ks2_volcanoes_formation_v1",
+    "stage": "KS2",
+    "theme": "Volcanoes & Earthquakes",
+    "title": "Formation of Mountains",
+    "text": "Over millions of years, the slow movement of tectonic plates caused the formation of mighty mountains. Each shift in the Earth’s crust added height and shape, showing the incredible power hidden beneath our feet.",
+    "tags": {
+      "complexity": { "caps": true, "punct": true },
+      "phonics": ["ks2-tion-suffix"]
+    },
+    "meta": { "est_chars": 248 }
+  },
+  {
+    "id": "ks2_volcanoes_motion_magma_v1",
+    "stage": "KS2",
+    "theme": "Volcanoes & Earthquakes",
+    "title": "Motion of Magma",
+    "text": "Inside the Earth, hot magma moves in endless motion. Rising through cracks, it collects in chambers before an eruption. The heat and pressure build until the volcano releases its fiery power into the open sky.",
+    "tags": {
+      "complexity": { "caps": true, "punct": true },
+      "phonics": ["ks2-tion-suffix"]
+    },
+    "meta": { "est_chars": 254 }
+  },
+  {
+    "id": "ks2_volcanoes_quake_warning_v1",
+    "stage": "KS2",
+    "theme": "Volcanoes & Earthquakes",
+    "title": "The Quake Warning",
+    "text": "The ground began to quake beneath the town. Lamps shook and windows rattled. People quickly ran outside, away from buildings and walls. The earthquake lasted only seconds, but the fear it caused lasted far longer.",
+    "tags": {
+      "complexity": { "caps": true, "punct": true },
+      "phonics": ["ks2-qu-digraph"]
+    },
+    "meta": { "est_chars": 255 }
+  },
+  {
+    "id": "ks2_volcanoes_liquid_lava_v1",
+    "stage": "KS2",
+    "theme": "Volcanoes & Earthquakes",
+    "title": "Liquid Lava",
+    "text": "Streams of liquid lava glowed red as they flowed down the volcano’s side. The molten rock moved slowly but steadily, shaping the land as it cooled. New layers formed, creating islands and mountains over time.",
+    "tags": {
+      "complexity": { "caps": true, "punct": true },
+      "phonics": ["ks2-qu-digraph"]
+    },
+    "meta": { "est_chars": 250 }
+  },
+  {
+    "id": "ks2_volcanoes_quick_escape_v1",
+    "stage": "KS2",
+    "theme": "Volcanoes & Earthquakes",
+    "title": "A Quick Escape",
+    "text": "Smoke rose into the sky as the volcano rumbled. Villagers packed quickly and fled to higher ground. They could hear the roar of the mountain and see glowing lava lighting up the darkening horizon ahead.",
+    "tags": {
+      "complexity": { "caps": true, "punct": true },
+      "phonics": ["ks2-qu-digraph"]
+    },
+    "meta": { "est_chars": 254 }
+  },
+  {
+    "id": "ks2_volcanoes_equator_volcanoes_v1",
+    "stage": "KS2",
+    "theme": "Volcanoes & Earthquakes",
+    "title": "Volcanoes of the Equator",
+    "text": "Many of the world’s most active volcanoes sit near the equator. Here, the Earth’s crust is thin, allowing magma to break through. These fiery giants remind us how alive our planet truly is beneath the surface.",
+    "tags": {
+      "complexity": { "caps": true, "punct": true },
+      "phonics": ["ks2-qu-digraph"]
+    },
+    "meta": { "est_chars": 256 }
+  },
+  {
+    "id": "ks2_volcanoes_sequence_events_v1",
+    "stage": "KS2",
+    "theme": "Volcanoes & Earthquakes",
+    "title": "The Sequence of Events",
+    "text": "When scientists study eruptions, they look at the sequence of events. First come tremors, then pressure builds, and finally the explosion. Each stage tells a story of heat, gas, and the unstoppable strength of Earth.",
+    "tags": {
+      "complexity": { "caps": true, "punct": true },
+      "phonics": ["ks2-qu-digraph"]
+    },
+    "meta": { "est_chars": 255 }
+  },
+  {
+    "id": "ks2_volcanoes_ash_clouds_v1",
+    "stage": "KS2",
+    "theme": "Volcanoes & Earthquakes",
+    "title": "Ash Clouds",
+    "text": "When a volcano erupts, ash clouds rise high into the sky. They can block sunlight for days, cooling the air and darkening the land. Tiny ash particles drift across continents, spreading minerals that help new plants grow.",
+    "tags": {
+      "complexity": { "caps": true, "punct": true },
+      "phonics": ["ks2-tion-suffix"]
+    },
+    "meta": { "est_chars": 257 }
+  },
+  {
+    "id": "ks2_volcanoes_fault_lines_v1",
+    "stage": "KS2",
+    "theme": "Volcanoes & Earthquakes",
+    "title": "Fault Lines",
+    "text": "Beneath our feet, giant plates of rock press and pull against each other. Along fault lines, energy builds until it suddenly releases in a quake. These shifts can reshape valleys and even raise mountains overnight.",
+    "tags": {
+      "complexity": { "caps": true, "punct": true },
+      "phonics": ["ks2-qu-digraph"]
+    },
+    "meta": { "est_chars": 248 }
+  },
+  {
+    "id": "ks2_volcanoes_tremor_signal_v1",
+    "stage": "KS2",
+    "theme": "Volcanoes & Earthquakes",
+    "title": "The Tremor’s Signal",
+    "text": "A faint tremor rippled through the town. Scientists recorded the vibration and warned people nearby. It was a signal of an approaching eruption, giving them time to move to safety before the ground cracked apart.",
+    "tags": {
+      "complexity": { "caps": true, "punct": true },
+      "phonics": ["ks2-tion-suffix"]
+    },
+    "meta": { "est_chars": 252 }
+  },
+  {
+    "id": "ks2_volcanoes_scientists_work_v1",
+    "stage": "KS2",
+    "theme": "Volcanoes & Earthquakes",
+    "title": "Scientists at Work",
+    "text": "Geologists study volcanoes to predict eruptions. They measure heat, gas, and vibration deep underground. Using sensors, they collect data in sequence, building models to understand the forces that shape our restless planet.",
+    "tags": {
+      "complexity": { "caps": true, "punct": true },
+      "phonics": ["ks2-tion-suffix"]
+    },
+    "meta": { "est_chars": 256 }
+  },
+  {
+    "id": "ks2_volcanoes_undersea_volcano_v1",
+    "stage": "KS2",
+    "theme": "Volcanoes & Earthquakes",
+    "title": "Undersea Volcano",
+    "text": "Far below the ocean waves, undersea volcanoes release liquid fire. Their eruptions form new islands on the seabed. Strange creatures live nearby, feeding on minerals from the heat. The deep Earth never truly rests.",
+    "tags": {
+      "complexity": { "caps": true, "punct": true },
+      "phonics": ["ks2-qu-digraph"]
+    },
+    "meta": { "est_chars": 252 }
+  },
+  {
+    "id": "ks2_volcanoes_earth_power_v1",
+    "stage": "KS2",
+    "theme": "Volcanoes & Earthquakes",
+    "title": "The Power of the Earth",
+    "text": "From fiery eruptions to sudden quakes, the Earth is full of motion and energy. Its crust cracks, shifts, and rebuilds in endless cycles. Each eruption reminds us that our planet is alive, ancient, and unstoppable.",
+    "tags": {
+      "complexity": { "caps": true, "punct": true },
+      "phonics": ["ks2-tion-suffix"]
+    },
+    "meta": { "est_chars": 257 }
+  },
+  {
+    "id": "ks2_rainforest_thousand_trees_v1",
+    "stage": "KS2",
+    "theme": "Rainforests",
+    "title": "A Thousand Trees",
+    "text": "The rainforest stretches for thousands of miles, thick with life. Clouds gather above, heavy with rain. Beneath them, the ground hums with insects, frogs, and the sound of dripping leaves after another storm.",
+    "tags": {
+      "complexity": { "caps": true, "punct": true },
+      "phonics": ["ks2-ou-sound"]
+    },
+    "meta": { "est_chars": 253 }
+  },
+  {
+    "id": "ks2_rainforest_clouds_above_v1",
+    "stage": "KS2",
+    "theme": "Rainforests",
+    "title": "Clouds Above the Canopy",
+    "text": "High above the canopy, white clouds float across the sky. From this height, you can see the emerald green roof of the forest. Birds soar between branches, their bright feathers flashing against the misty air.",
+    "tags": {
+      "complexity": { "caps": true, "punct": true },
+      "phonics": ["ks2-ou-sound"]
+    },
+    "meta": { "est_chars": 252 }
+  },
+  {
+    "id": "ks2_rainforest_ground_life_v1",
+    "stage": "KS2",
+    "theme": "Rainforests",
+    "title": "Life on the Ground",
+    "text": "The forest floor is dark and damp. Ants march across the ground carrying leaves, while snakes slide silently between roots. Every sound tells a story of creatures surviving in this crowded, secret world below.",
+    "tags": {
+      "complexity": { "caps": true, "punct": true },
+      "phonics": ["ks2-ou-sound"]
+    },
+    "meta": { "est_chars": 251 }
+  },
+  {
+    "id": "ks2_rainforest_mountain_forest_v1",
+    "stage": "KS2",
+    "theme": "Rainforests",
+    "title": "The Mountain Forest",
+    "text": "Mist rolls down the mountain, covering the rainforest in silver. Waterfalls crash through deep valleys, feeding rivers below. From the mountain’s shadow to the highest branch, the rainforest glows with colour and sound.",
+    "tags": {
+      "complexity": { "caps": true, "punct": true },
+      "phonics": ["ks2-ou-sound"]
+    },
+    "meta": { "est_chars": 250 }
+  },
+  {
+    "id": "ks2_rainforest_sounds_night_v1",
+    "stage": "KS2",
+    "theme": "Rainforests",
+    "title": "Sounds of the Night",
+    "text": "When darkness falls, the rainforest comes alive with sound. Frogs croak from muddy pools, and owls hoot from the trees. The night air hums and rustles as unseen creatures move across the shadowed ground.",
+    "tags": {
+      "complexity": { "caps": true, "punct": true },
+      "phonics": ["ks2-ou-sound"]
+    },
+    "meta": { "est_chars": 249 }
+  },
+  {
+    "id": "ks2_rainforest_rain_begins_v1",
+    "stage": "KS2",
+    "theme": "Rainforests",
+    "title": "When the Rain Begins",
+    "text": "Raindrops fall softly at first, then pour down in sheets. Monkeys wait beneath leaves for shelter as the forest drinks deeply. When the storm fades, sunlight returns, sparkling on every wet branch and flower.",
+    "tags": {
+      "complexity": { "caps": true, "punct": true },
+      "phonics": ["ks2-ai-ay-sound"]
+    },
+    "meta": { "est_chars": 252 }
+  },
+  {
+    "id": "ks2_rainforest_waiting_sloth_v1",
+    "stage": "KS2",
+    "theme": "Rainforests",
+    "title": "The Waiting Sloth",
+    "text": "High in the canopy, a sloth waits patiently for the rain to stop. Its fur drips, and it blinks slowly. Even as thunder rolls, it stays still, clinging to its branch, trusting the forest to protect it.",
+    "tags": {
+      "complexity": { "caps": true, "punct": true },
+      "phonics": ["ks2-ai-ay-sound"]
+    },
+    "meta": { "est_chars": 256 }
+  },
+  {
+    "id": "ks2_rainforest_canopy_layers_v1",
+    "stage": "KS2",
+    "theme": "Rainforests",
+    "title": "Layers of Life",
+    "text": "The rainforest has many layers. The emergent trees reach the sky, while the canopy forms a thick green roof. Below, the understory waits in shadow, and on the forest floor, tiny creatures crawl and climb.",
+    "tags": {
+      "complexity": { "caps": true, "punct": true },
+      "phonics": ["ks2-ai-ay-sound"]
+    },
+    "meta": { "est_chars": 252 }
+  },
+  {
+    "id": "ks2_rainforest_parrot_call_v1",
+    "stage": "KS2",
+    "theme": "Rainforests",
+    "title": "The Parrot’s Call",
+    "text": "A parrot cries out from a high branch, its voice echoing across the trees. Its bright feathers flash in the sunlight. Other birds join in, creating a chorus that fills the air with wild, joyful noise.",
+    "tags": {
+      "complexity": { "caps": true, "punct": true },
+      "phonics": ["ks2-ai-ay-sound"]
+    },
+    "meta": { "est_chars": 254 }
+  },
+  {
+    "id": "ks2_rainforest_trail_walk_v1",
+    "stage": "KS2",
+    "theme": "Rainforests",
+    "title": "Walking the Trail",
+    "text": "A narrow trail winds through the rainforest. Every step squelches in wet earth. Ferns brush against your legs, and the smell of rain and flowers fills the air. Above, the canopy blocks most of the sunlight.",
+    "tags": {
+      "complexity": { "caps": true, "punct": true },
+      "phonics": ["ks2-ai-ay-sound"]
+    },
+    "meta": { "est_chars": 254 }
+  },
+  {
+    "id": "ks2_rainforest_toucan_song_v1",
+    "stage": "KS2",
+    "theme": "Rainforests",
+    "title": "The Toucan’s Song",
+    "text": "From a branch high in the canopy, the toucan calls loudly. Its colourful beak gleams as it throws its head back. The forest answers in echoes, as though every tree and creature joins in its happy cry.",
+    "tags": {
+      "complexity": { "caps": true, "punct": true },
+      "phonics": ["ks2-ai-ay-sound"]
+    },
+    "meta": { "est_chars": 254 }
+  },
+  {
+    "id": "ks2_rainforest_through_mist_v1",
+    "stage": "KS2",
+    "theme": "Rainforests",
+    "title": "Through the Mist",
+    "text": "Morning mist drifts through the rainforest. Sunlight filters down in golden beams, lighting droplets on leaves. Insects buzz softly, and small birds dart between branches, their wings catching flashes of colour in the haze.",
+    "tags": {
+      "complexity": { "caps": true, "punct": true },
+      "phonics": ["ks2-ou-sound"]
+    },
+    "meta": { "est_chars": 254 }
+  },
+  {
+    "id": "ks2_rainforest_frog_chorus_v1",
+    "stage": "KS2",
+    "theme": "Rainforests",
+    "title": "The Frog Chorus",
+    "text": "At dusk, frogs gather near a pool on the forest floor. Their calls echo through the trees, a deep, bubbling sound. From the ground to the canopy, the rainforest sings as night falls over the wild green world.",
+    "tags": {
+      "complexity": { "caps": true, "punct": true },
+      "phonics": ["ks2-ou-sound"]
+    },
+    "meta": { "est_chars": 256 }
+  },
+  {
+    "id": "ks2_rainforest_stay_still_v1",
+    "stage": "KS2",
+    "theme": "Rainforests",
+    "title": "Stay Still",
+    "text": "The jaguar moves silently through the shadows. It waits, watching its prey from behind a curtain of leaves. Not a sound breaks the air until it leaps—swift, silent, and sure—claiming its meal before vanishing again.",
+    "tags": {
+      "complexity": { "caps": true, "punct": true },
+      "phonics": ["ks2-ai-ay-sound"]
+    },
+    "meta": { "est_chars": 255 }
+  },
+  {
+    "id": "ks2_rainforest_forest_rain_v1",
+    "stage": "KS2",
+    "theme": "Rainforests",
+    "title": "Forest Rain",
+    "text": "Rain falls almost every day in the rainforest. The drops bounce from leaf to leaf, sounding like a soft drumbeat. Animals hide and wait beneath the thick canopy until the steady rhythm of rain fades away.",
+    "tags": {
+      "complexity": { "caps": true, "punct": true },
+      "phonics": ["ks2-ai-ay-sound"]
+    },
+    "meta": { "est_chars": 256 }
+  },
+  {
+    "id": "ks2_rainforest_undergrowth_world_v1",
+    "stage": "KS2",
+    "theme": "Rainforests",
+    "title": "The Undergrowth World",
+    "text": "Beneath the canopy, the undergrowth is full of secrets. Colourful insects crawl among roots, and tiny frogs leap from puddles. The smell of damp earth and leaves fills the air as sunlight flickers through the trees.",
+    "tags": {
+      "complexity": { "caps": true, "punct": true },
+      "phonics": ["ks2-ou-sound"]
+    },
+    "meta": { "est_chars": 254 }
+  },
+  {
+    "id": "ks2_greekmyths_creation_chaos_v1",
+    "stage": "KS2",
+    "theme": "Greek Myths",
+    "title": "Creation from Chaos",
+    "text": "In the beginning, there was only chaos, an endless void. From it came Gaia, the Earth, and Uranus, the sky. Together they created the first gods, bringing order to the universe and life to the world below.",
+    "tags": {
+      "complexity": { "caps": true, "punct": true },
+      "phonics": ["ks2-ch-k-sound"]
+    },
+    "meta": { "est_chars": 255 }
+  },
+  {
+    "id": "ks2_greekmyths_echo_nymph_v1",
+    "stage": "KS2",
+    "theme": "Greek Myths",
+    "title": "Echo the Nymph",
+    "text": "Echo was a forest nymph who loved to talk. But Hera cursed her to repeat only the words of others. When she met the proud Narcissus, her heart broke, and her voice became nothing but a faint sound in the hills.",
+    "tags": {
+      "complexity": { "caps": true, "punct": true },
+      "phonics": ["ks2-ch-k-sound"]
+    },
+    "meta": { "est_chars": 261 }
+  },
+  {
+    "id": "ks2_greekmyths_character_heracles_v1",
+    "stage": "KS2",
+    "theme": "Greek Myths",
+    "title": "The Character of Heracles",
+    "text": "Heracles was the strongest of all mortals, yet his life was filled with challenges. He fought lions, hydras, and monsters to earn forgiveness for his mistakes, proving both courage and character in every test he faced.",
+    "tags": {
+      "complexity": { "caps": true, "punct": true },
+      "phonics": ["ks2-ch-k-sound"]
+    },
+    "meta": { "est_chars": 256 }
+  },
+  {
+    "id": "ks2_greekmyths_chronicle_troy_v1",
+    "stage": "KS2",
+    "theme": "Greek Myths",
+    "title": "A Chronicle of Troy",
+    "text": "The war of Troy was one of the greatest tales in Greek history. Heroes like Achilles and Odysseus fought bravely. The chronicle of their deeds has echoed through centuries, reminding us of courage, loyalty, and fate.",
+    "tags": {
+      "complexity": { "caps": true, "punct": true },
+      "phonics": ["ks2-ch-k-sound"]
+    },
+    "meta": { "est_chars": 255 }
+  },
+  {
+    "id": "ks2_greekmyths_apollo_chord_v1",
+    "stage": "KS2",
+    "theme": "Greek Myths",
+    "title": "Apollo’s Golden Chord",
+    "text": "Apollo, the god of music, played a golden lyre with a perfect chord. The sound could calm storms or bring joy to the hearts of gods and mortals alike. Music was his gift to the world of men and gods.",
+    "tags": {
+      "complexity": { "caps": true, "punct": true },
+      "phonics": ["ks2-ch-k-sound"]
+    },
+    "meta": { "est_chars": 254 }
+  },
+  {
+    "id": "ks2_greekmyths_symbol_zeus_v1",
+    "stage": "KS2",
+    "theme": "Greek Myths",
+    "title": "The Symbol of Zeus",
+    "text": "Zeus ruled Olympus, and his symbol was the thunderbolt. He hurled lightning across the sky to show his power. The other gods respected his might, though even Zeus feared the power of fate that ruled all beings.",
+    "tags": {
+      "complexity": { "caps": true, "punct": true },
+      "phonics": ["ks2-y-vowel-sound"]
+    },
+    "meta": { "est_chars": 250 }
+  },
+  {
+    "id": "ks2_greekmyths_cyclops_forge_v1",
+    "stage": "KS2",
+    "theme": "Greek Myths",
+    "title": "The Cyclops’ Forge",
+    "text": "Beneath the mountains, the Cyclopes worked with fire and iron. These one-eyed giants forged weapons for the gods, including Zeus’s thunderbolt. Sparks flew as they hammered, their strength unmatched in all of creation.",
+    "tags": {
+      "complexity": { "caps": true, "punct": true },
+      "phonics": ["ks2-y-vowel-sound"]
+    },
+    "meta": { "est_chars": 249 }
+  },
+  {
+    "id": "ks2_greekmyths_mystery_oracle_v1",
+    "stage": "KS2",
+    "theme": "Greek Myths",
+    "title": "The Mystery of the Oracle",
+    "text": "People travelled from distant lands to speak to the Oracle of Delphi. The air was thick with mystery as she whispered her riddles. Her words, though strange, often guided kings and heroes toward their destinies.",
+    "tags": {
+      "complexity": { "caps": true, "punct": true },
+      "phonics": ["ks2-y-vowel-sound"]
+    },
+    "meta": { "est_chars": 252 }
+  },
+  {
+    "id": "ks2_greekmyths_myth_creation_v1",
+    "stage": "KS2",
+    "theme": "Greek Myths",
+    "title": "The Power of Myth",
+    "text": "Every myth told by the ancient Greeks carried a lesson. Some warned of pride, others taught courage. These stories became symbols of wisdom, showing how the gods shaped the world and how humans learned from them.",
+    "tags": {
+      "complexity": { "caps": true, "punct": true },
+      "phonics": ["ks2-y-vowel-sound"]
+    },
+    "meta": { "est_chars": 251 }
+  },
+  {
+    "id": "ks2_greekmyths_nymph_river_v1",
+    "stage": "KS2",
+    "theme": "Greek Myths",
+    "title": "The River Nymph",
+    "text": "A gentle nymph danced beside a sparkling river. Her laughter echoed through the forest, and flowers bloomed in her wake. When humans came too close, she vanished into the water, leaving only ripples behind her.",
+    "tags": {
+      "complexity": { "caps": true, "punct": true },
+      "phonics": ["ks2-y-vowel-sound"]
+    },
+    "meta": { "est_chars": 250 }
+  },
+  {
+    "id": "ks2_greekmyths_minotaur_labyrinth_v1",
+    "stage": "KS2",
+    "theme": "Greek Myths",
+    "title": "The Minotaur’s Labyrinth",
+    "text": "In Crete, a monstrous Minotaur waited in a dark labyrinth. Every year, young Athenians were sent as sacrifice. But the brave hero Theseus used his wits and courage to slay the beast and escape the maze alive.",
+    "tags": {
+      "complexity": { "caps": true, "punct": true },
+      "phonics": ["ks2-y-vowel-sound"]
+    },
+    "meta": { "est_chars": 255 }
+  },
+  {
+    "id": "ks2_greekmyths_pegasus_flight_v1",
+    "stage": "KS2",
+    "theme": "Greek Myths",
+    "title": "Pegasus Takes Flight",
+    "text": "From the blood of Medusa sprang Pegasus, the winged horse. He soared through the clouds, a symbol of freedom and courage. Heroes longed to ride him, but only the pure of heart could earn his trust and friendship.",
+    "tags": {
+      "complexity": { "caps": true, "punct": true },
+      "phonics": ["ks2-y-vowel-sound"]
+    },
+    "meta": { "est_chars": 256 }
+  },
+  {
+    "id": "ks2_greekmyths_chaos_titans_v1",
+    "stage": "KS2",
+    "theme": "Greek Myths",
+    "title": "Chaos and the Titans",
+    "text": "From the depths of chaos came the mighty Titans. They ruled before the gods, shaping mountains and seas. Their power was great, but Zeus and his siblings rose against them, ending their age and beginning a new one.",
+    "tags": {
+      "complexity": { "caps": true, "punct": true },
+      "phonics": ["ks2-ch-k-sound"]
+    },
+    "meta": { "est_chars": 258 }
+  },
+  {
+    "id": "ks2_greekmyths_hera_jealousy_v1",
+    "stage": "KS2",
+    "theme": "Greek Myths",
+    "title": "Hera’s Jealousy",
+    "text": "Hera, queen of the gods, was known for her jealousy. She often punished those who caught Zeus’s attention. Yet despite her anger, she protected marriage and women, showing that even gods had both kindness and fury.",
+    "tags": {
+      "complexity": { "caps": true, "punct": true },
+      "phonics": ["ks2-y-vowel-sound"]
+    },
+    "meta": { "est_chars": 254 }
+  },
+  {
+    "id": "ks2_greekmyths_hermes_messenger_v1",
+    "stage": "KS2",
+    "theme": "Greek Myths",
+    "title": "Hermes the Messenger",
+    "text": "Hermes flew swiftly between the worlds of gods and men. With his winged sandals, he carried messages across land and sea. Known for his cleverness, he guided souls to the underworld and brought dreams to sleeping mortals.",
+    "tags": {
+      "complexity": { "caps": true, "punct": true },
+      "phonics": ["ks2-ch-k-sound"]
+    },
+    "meta": { "est_chars": 258 }
+  },
+  {
+    "id": "ks2_greekmyths_athena_wisdom_v1",
+    "stage": "KS2",
+    "theme": "Greek Myths",
+    "title": "Athena’s Wisdom",
+    "text": "Born from Zeus’s head, Athena became the goddess of wisdom and war. She guided heroes with calm reason, teaching them strategy over strength. Her owl was a symbol of insight, and her counsel shaped the fate of Greece.",
+    "tags": {
+      "complexity": { "caps": true, "punct": true },
+      "phonics": ["ks2-y-vowel-sound"]
+    },
+    "meta": { "est_chars": 257 }
+  },
+  {
+    "id": "ks2_adventure_dangerous_path_v1",
+    "stage": "KS2",
+    "theme": "Adventure Stories",
+    "title": "The Dangerous Path",
+    "text": "The explorers stood at the edge of a dangerous cliff. Mist swirled below, hiding the forest floor. One wrong step could mean disaster, but their adventurous spirits refused to turn back now, not when treasure waited ahead.",
+    "tags": {
+      "complexity": { "caps": true, "punct": true },
+      "phonics": ["ks2-ous-suffix"]
+    },
+    "meta": { "est_chars": 262 }
+  },
+  {
+    "id": "ks2_adventure_mysterious_door_v1",
+    "stage": "KS2",
+    "theme": "Adventure Stories",
+    "title": "The Mysterious Door",
+    "text": "In the side of an old castle wall stood a mysterious door. Its hinges were rusted, and strange symbols were carved into the wood. The children felt both curious and cautious as they reached for the ancient handle.",
+    "tags": {
+      "complexity": { "caps": true, "punct": true },
+      "phonics": ["ks2-ous-suffix"]
+    },
+    "meta": { "est_chars": 260 }
+  },
+  {
+    "id": "ks2_adventure_adventurous_twins_v1",
+    "stage": "KS2",
+    "theme": "Adventure Stories",
+    "title": "The Adventurous Twins",
+    "text": "Sam and Sophie were adventurous twins who never stayed still for long. One morning, they packed their rucksacks and raced toward the forest. The map they found in the attic promised something marvellous hidden deep within the trees.",
+    "tags": {
+      "complexity": { "caps": true, "punct": true },
+      "phonics": ["ks2-ous-suffix"]
+    },
+    "meta": { "est_chars": 261 }
+  },
+  {
+    "id": "ks2_adventure_curious_castle_v1",
+    "stage": "KS2",
+    "theme": "Adventure Stories",
+    "title": "The Curious Castle",
+    "text": "At the end of the valley stood a castle that no one dared to enter. Yet Ellie, curious and brave, crept through the gates. Each echoing footstep drew her deeper into the shadows of the mysterious old halls.",
+    "tags": {
+      "complexity": { "caps": true, "punct": true },
+      "phonics": ["ks2-ous-suffix"]
+    },
+    "meta": { "est_chars": 258 }
+  },
+  {
+    "id": "ks2_adventure_marvellous_map_v1",
+    "stage": "KS2",
+    "theme": "Adventure Stories",
+    "title": "The Marvellous Map",
+    "text": "Beneath a loose floorboard, Jake discovered a marvellous map drawn in faded ink. It showed an island shaped like a dragon and a dotted path leading to an X. His heart raced—an adventure was about to begin!",
+    "tags": {
+      "complexity": { "caps": true, "punct": true },
+      "phonics": ["ks2-ous-suffix"]
+    },
+    "meta": { "est_chars": 253 }
+  },
+  {
+    "id": "ks2_adventure_treasure_cave_v1",
+    "stage": "KS2",
+    "theme": "Adventure Stories",
+    "title": "The Treasure Cave",
+    "text": "Inside the dark cave, the children found piles of gold and silver treasure. The air sparkled with mystery, and their torches flickered in the shadows. Yet a low growl warned them that something alive guarded this place.",
+    "tags": {
+      "complexity": { "caps": true, "punct": true },
+      "phonics": ["ks2-ure-suffix"]
+    },
+    "meta": { "est_chars": 257 }
+  },
+  {
+    "id": "ks2_adventure_strange_creature_v1",
+    "stage": "KS2",
+    "theme": "Adventure Stories",
+    "title": "The Strange Creature",
+    "text": "A strange creature emerged from the mist, covered in scales that shimmered like jewels. It didn’t attack but watched them closely. Was it friend or foe? They would have to measure every move carefully to survive this encounter.",
+    "tags": {
+      "complexity": { "caps": true, "punct": true },
+      "phonics": ["ks2-ure-suffix"]
+    },
+    "meta": { "est_chars": 259 }
+  },
+  {
+    "id": "ks2_adventure_future_explorer_v1",
+    "stage": "KS2",
+    "theme": "Adventure Stories",
+    "title": "The Future Explorer",
+    "text": "Luna dreamed of being an explorer in the far future. She imagined sailing across galaxies, seeking treasure among the stars. Every night she charted imaginary routes, certain that adventure awaited her somewhere beyond the clouds.",
+    "tags": {
+      "complexity": { "caps": true, "punct": true },
+      "phonics": ["ks2-ure-suffix"]
+    },
+    "meta": { "est_chars": 254 }
+  },
+  {
+    "id": "ks2_adventure_forgotten_measure_v1",
+    "stage": "KS2",
+    "theme": "Adventure Stories",
+    "title": "A Forgotten Measure",
+    "text": "Inside the dusty library, Leo found a scroll describing a forgotten measure of time. It spoke of lost worlds and heroes trapped between minutes. He realised the story wasn’t finished, and perhaps, he could write its ending himself.",
+    "tags": {
+      "complexity": { "caps": true, "punct": true },
+      "phonics": ["ks2-ure-suffix"]
+    },
+    "meta": { "est_chars": 260 }
+  },
+  {
+    "id": "ks2_adventure_hidden_adventure_v1",
+    "stage": "KS2",
+    "theme": "Adventure Stories",
+    "title": "A Hidden Adventure",
+    "text": "In an old attic full of cobwebs, Mia opened a chest labelled ‘Adventure’. Inside, she found a compass that glowed faintly. As soon as she touched it, a map appeared in mid-air, marking a path that led to wonder.",
+    "tags": {
+      "complexity": { "caps": true, "punct": true },
+      "phonics": ["ks2-ure-suffix"]
+    },
+    "meta": { "est_chars": 258 }
+  },
+  {
+    "id": "ks2_adventure_curious_cave_v1",
+    "stage": "KS2",
+    "theme": "Adventure Stories",
+    "title": "The Curious Cave",
+    "text": "The team discovered a curious cave behind the waterfall. Inside, the walls glittered like stars, and strange markings glowed faintly. Every sound echoed back in whispers, as though the mountain itself was alive and listening to them.",
+    "tags": {
+      "complexity": { "caps": true, "punct": true },
+      "phonics": ["ks2-ous-suffix"]
+    },
+    "meta": { "est_chars": 257 }
+  },
+  {
+    "id": "ks2_adventure_mysterious_ship_v1",
+    "stage": "KS2",
+    "theme": "Adventure Stories",
+    "title": "The Mysterious Ship",
+    "text": "On the horizon, a mysterious ship appeared through the fog. Its sails were torn, yet it moved swiftly across the sea. The crew could hear faint music drifting from its deck, a melody both haunting and marvellous.",
+    "tags": {
+      "complexity": { "caps": true, "punct": true },
+      "phonics": ["ks2-ous-suffix"]
+    },
+    "meta": { "est_chars": 253 }
+  },
+  {
+    "id": "ks2_adventure_creature_in_jungle_v1",
+    "stage": "KS2",
+    "theme": "Adventure Stories",
+    "title": "Creature in the Jungle",
+    "text": "In the thick jungle, the explorers heard something move. A rustle, a growl, then silence. A creature was nearby. Sweat trickled down their necks as they slowly turned their torches, unsure what ancient eyes were watching them.",
+    "tags": {
+      "complexity": { "caps": true, "punct": true },
+      "phonics": ["ks2-ure-suffix"]
+    },
+    "meta": { "est_chars": 258 }
+  },
+  {
+    "id": "ks2_adventure_marvellous_machine_v1",
+    "stage": "KS2",
+    "theme": "Adventure Stories",
+    "title": "The Marvellous Machine",
+    "text": "Hidden beneath the castle was a marvellous machine of brass and gears. When wound, it hummed and sparked with blue light. The children gasped as it began to move, unfolding wings that shimmered like sunlight on water.",
+    "tags": {
+      "complexity": { "caps": true, "punct": true },
+      "phonics": ["ks2-ous-suffix"]
+    },
+    "meta": { "est_chars": 252 }
+  },
+  {
+    "id": "ks2_adventure_treasure_island_v1",
+    "stage": "KS2",
+    "theme": "Adventure Stories",
+    "title": "Treasure Island",
+    "text": "After days of sailing, the crew spotted land. The island shimmered under the sun, and a faint trail led to the jungle’s heart. They followed it eagerly, unaware that danger and treasure often wait side by side.",
+    "tags": {
+      "complexity": { "caps": true, "punct": true },
+      "phonics": ["ks2-ure-suffix"]
+    },
+    "meta": { "est_chars": 255 }
+  },
+  {
+    "id": "ks2_adventure_adventurous_escape_v1",
+    "stage": "KS2",
+    "theme": "Adventure Stories",
+    "title": "The Adventurous Escape",
+    "text": "Trapped in the crumbling castle, the heroes made an adventurous plan. They climbed the ivy-covered walls, leapt across a gap, and slid down the rooftops to freedom. Behind them, the mysterious tower fell into the river below.",
+    "tags": {
+      "complexity": { "caps": true, "punct": true },
+      "phonics": ["ks2-ous-suffix"]
+    },
+    "meta": { "est_chars": 259 }
+  },
+   {
+    "id": "ks2_trickyspellings_knight_quest_v1",
+    "stage": "KS2",
+    "theme": "Tricky Spellings",
+    "title": "The Silent Knight’s Quest",
+    "text": "The brave knight rode silently through the forest. Though his armour shone, he made no sound. He stopped to sign his name on a map, careful not to wake the gnome sleeping by the old oak tree.",
+    "tags": {
+      "complexity": { "caps": true, "punct": true },
+      "phonics": ["ks2-silent-letters"]
+    },
+    "meta": { "est_chars": 255 }
+  },
+  {
+    "id": "ks2_trickyspellings_write_letter_v1",
+    "stage": "KS2",
+    "theme": "Tricky Spellings",
+    "title": "Write It Down",
+    "text": "Elliot wanted to write his first story. He gripped his pencil and began, but the words felt tangled like a knot. Still, he refused to give up until every sentence was perfect, even if it took all night.",
+    "tags": {
+      "complexity": { "caps": true, "punct": true },
+      "phonics": ["ks2-silent-letters"]
+    },
+    "meta": { "est_chars": 253 }
+  },
+  {
+    "id": "ks2_trickyspellings_gnome_garden_v1",
+    "stage": "KS2",
+    "theme": "Tricky Spellings",
+    "title": "The Garden Gnome",
+    "text": "Under the rose bush sat a small gnome with a broken hat. Mia knelt beside it, wondering who had placed it there. When she picked it up, she found a tiny sign beneath that said, ‘Magic lives here.’",
+    "tags": {
+      "complexity": { "caps": true, "punct": true },
+      "phonics": ["ks2-silent-letters"]
+    },
+    "meta": { "est_chars": 252 }
+  },
+  {
+    "id": "ks2_trickyspellings_wrinkle_time_v1",
+    "stage": "Tricky Spellings",
+    "theme": "Tricky Spellings",
+    "title": "A Wrinkle in Time",
+    "text": "Ben found an ancient book with a wrinkled cover. The pages were yellow, and strange writing filled every line. One word glowed faintly—‘sign’. As he touched it, the room around him began to twist and blur like smoke.",
+    "tags": {
+      "complexity": { "caps": true, "punct": true },
+      "phonics": ["ks2-silent-letters"]
+    },
+    "meta": { "est_chars": 255 }
+  },
+  {
+    "id": "ks2_trickyspellings_knee_injury_v1",
+    "stage": "KS2",
+    "theme": "Tricky Spellings",
+    "title": "A Knock to the Knee",
+    "text": "During the football match, Sara slipped and hurt her knee. Her friends ran to help her, their faces full of worry. She laughed it off, saying she would be fine—though she knew it would bruise by morning.",
+    "tags": {
+      "complexity": { "caps": true, "punct": true },
+      "phonics": ["ks2-silent-letters"]
+    },
+    "meta": { "est_chars": 250 }
+  },
+  {
+    "id": "ks2_trickyspellings_their_dog_there_v1",
+    "stage": "KS2",
+    "theme": "Tricky Spellings",
+    "title": "Their Dog Is Over There",
+    "text": "‘Where’s their dog?’ asked Tom. ‘He’s over there,’ said Lily, pointing to the field. ‘No, he’s not! They’re chasing him already!’ laughed Jack. The three friends ran through the grass, shouting and tripping as they played.",
+    "tags": {
+      "complexity": { "caps": true, "punct": true },
+      "phonics": ["ks2-common-homophones"]
+    },
+    "meta": { "est_chars": 253 }
+  },
+  {
+    "id": "ks2_trickyspellings_your_youre_turn_v1",
+    "stage": "KS2",
+    "theme": "Tricky Spellings",
+    "title": "Your Turn or You’re Turn?",
+    "text": "‘It’s your turn,’ said Ella, handing over the dice. ‘No, you’re the one who missed a go!’ giggled Finn. They argued for a moment before bursting into laughter, realising neither of them could remember the rules anyway.",
+    "tags": {
+      "complexity": { "caps": true, "punct": true },
+      "phonics": ["ks2-common-homophones"]
+    },
+    "meta": { "est_chars": 255 }
+  },
+  {
+    "id": "ks2_trickyspellings_its_tail_its_yours_v1",
+    "stage": "KS2",
+    "theme": "Tricky Spellings",
+    "title": "It’s Tail or Its Tail?",
+    "text": "The fox wagged its tail proudly. ‘It’s beautiful!’ said Noah, sketching quickly. His mum smiled. ‘Remember, no apostrophe unless it means “it is”.’ Noah groaned but kept drawing, determined to get both the picture and grammar right.",
+    "tags": {
+      "complexity": { "caps": true, "punct": true },
+      "phonics": ["ks2-common-homophones"]
+    },
+    "meta": { "est_chars": 257 }
+  },
+  {
+    "id": "ks2_trickyspellings_to_too_two_v1",
+    "stage": "KS2",
+    "theme": "Tricky Spellings",
+    "title": "To, Too, or Two?",
+    "text": "Maya packed two apples for the trip. ‘You brought too many snacks!’ laughed her brother. ‘It’s too far to carry everything.’ ‘You’re coming too!’ she said, handing him a bag and setting off down the path to school.",
+    "tags": {
+      "complexity": { "caps": true, "punct": true },
+      "phonics": ["ks2-common-homophones"]
+    },
+    "meta": { "est_chars": 257 }
+  },
+  {
+    "id": "ks2_trickyspellings_here_hear_music_v1",
+    "stage": "KS2",
+    "theme": "Tricky Spellings",
+    "title": "Hear the Music",
+    "text": "‘Can you hear that?’ asked Toby as the band started to play. ‘It’s amazing!’ said Ella. ‘I can feel the drums right here!’ The sound filled the hall, and even the teachers couldn’t help tapping their feet in time.",
+    "tags": {
+      "complexity": { "caps": true, "punct": true },
+      "phonics": ["ks2-common-homophones"]
+    },
+    "meta": { "est_chars": 257 }
+  },
+  {
+    "id": "ks2_trickyspellings_witch_or_which_v1",
+    "stage": "KS2",
+    "theme": "Tricky Spellings",
+    "title": "Witch or Which?",
+    "text": "‘Which broom is yours?’ asked the witch with a grin. ‘The one that glows blue,’ replied Hazel proudly. She climbed aboard, waved goodbye, and zoomed off into the night, her hat spinning wildly in the wind behind her.",
+    "tags": {
+      "complexity": { "caps": true, "punct": true },
+      "phonics": ["ks2-common-homophones"]
+    },
+    "meta": { "est_chars": 255 }
+  },
+  {
+    "id": "ks2_trickyspellings_because_friendship_v1",
+    "stage": "KS2",
+    "theme": "Tricky Spellings",
+    "title": "Because of Friendship",
+    "text": "Sam forgave Ben because friendship meant more than winning. Their fight over a football match seemed silly now. They shook hands and laughed, knowing that true friends always find a way to make things right again.",
+    "tags": {
+      "complexity": { "caps": true, "punct": true },
+      "phonics": ["ks2-common-homophones"]
+    },
+    "meta": { "est_chars": 250 }
+  },
+  {
+    "id": "ks2_trickyspellings_believe_magic_v1",
+    "stage": "KS2",
+    "theme": "Tricky Spellings",
+    "title": "Believe in Magic",
+    "text": "Ellie closed her eyes and made a wish. She didn’t know if magic was real, but she wanted to believe. When she opened her eyes, a tiny light flickered before her, floating like a spark in the night air.",
+    "tags": {
+      "complexity": { "caps": true, "punct": true },
+      "phonics": ["ks2-silent-letters"]
+    },
+    "meta": { "est_chars": 255 }
+  },
+  {
+    "id": "ks2_trickyspellings_enough_effort_v1",
+    "stage": "KS2",
+    "theme": "Tricky Spellings",
+    "title": "Enough Effort",
+    "text": "‘You’ve done enough,’ said Mum kindly. ‘Rest now.’ But Harry shook his head. He wanted to finish the model rocket. It took different parts and careful measure, but his effort would be worth it when it finally launched.",
+    "tags": {
+      "complexity": { "caps": true, "punct": true },
+      "phonics": ["ks2-silent-letters"]
+    },
+    "meta": { "est_chars": 255 }
+  },
+  {
+    "id": "ks2_trickyspellings_accidentally_sign_v1",
+    "stage": "KS2",
+    "theme": "Tricky Spellings",
+    "title": "Accidentally the Wrong Sign",
+    "text": "Lara accidentally painted the wrong sign for the school fair. Instead of ‘Cake Sale’, it said ‘Snake Sale’! When people arrived, they screamed until she fixed it. Luckily, her teacher laughed too—it had been a funny mistake.",
+    "tags": {
+      "complexity": { "caps": true, "punct": true },
+      "phonics": ["ks2-silent-letters"]
+    },
+    "meta": { "est_chars": 257 }
+  },
+  {
+    "id": "ks2_trickyspellings_different_day_v1",
+    "stage": "KS2",
+    "theme": "Tricky Spellings",
+    "title": "A Different Day",
+    "text": "It was a different day at school—quiet and calm. The fire alarm was broken, and everyone had to write in silence. But when the bell finally rang, the noise was louder than ever as the playground filled with laughter.",
+    "tags": {
+      "complexity": { "caps": true, "punct": true },
+      "phonics": ["ks2-common-homophones"]
+    },
+    "meta": { "est_chars": 258 }
+  },
+  {
+    "id": "ks2_wordstructure_unlock_prefixes_v1",
+    "stage": "KS2",
+    "theme": "Word Structure",
+    "title": "Unlocking Prefixes",
+    "text": "The prefix un- flips a meaning: if a task is finished, it becomes unfinished. Readers can also redo work with re-, or disconnect a plug with dis-. Spotting prefixes helps you unlock word parts quickly when reading long instructions.",
+    "tags": {
+      "complexity": { "caps": true, "punct": true },
+      "phonics": ["ks2-prefixes"]
+    },
+    "meta": { "est_chars": 232 }
+  },
+  {
+    "id": "ks2_wordstructure_helpful_cleanup_v1",
+    "stage": "KS2",
+    "theme": "Word Structure",
+    "title": "Helpful Clean-Up",
+    "text": "On the beach, Maya found a thankless job: picking litter after the picnic. Her brother was careful and helpful, collecting every bottle. Their effort made the shoreline spotless, and the wardens gave them a certificate for community improvement.",
+    "tags": {
+      "complexity": { "caps": true, "punct": true },
+      "phonics": ["ks2-suffixes"]
+    },
+    "meta": { "est_chars": 245 }
+  },
+  {
+    "id": "ks2_wordstructure_lighthouse_logbook_v1",
+    "stage": "KS2",
+    "theme": "Word Structure",
+    "title": "Lighthouse Logbook",
+    "text": "A lighthouse guards the harbour during rainfall and fog. When a bulb breaks, engineers replace it and reconnect the cables. With the beam restored, ships approach carefully, avoiding danger, while the keeper records maintenance in the logbook before sleep.",
+    "tags": {
+      "complexity": { "caps": true, "punct": true },
+      "phonics": ["ks2-prefixes"]
+    },
+    "meta": { "est_chars": 256 }
+  },
+  {
+    "id": "ks2_wordstructure_roots_meaning_v1",
+    "stage": "KS2",
+    "theme": "Word Structure",
+    "title": "Roots Carry Meaning",
+    "text": "Root words carry meanings. From port, meaning 'carry', we get transport and portable. With tele, meaning 'far', we build telephone and teleport. When you notice the root, you can predict unknown words and check whether a sentence makes sense.",
+    "tags": {
+      "complexity": { "caps": true, "punct": true },
+      "phonics": ["ks2-prefixes"]
+    },
+    "meta": { "est_chars": 242 }
+  },
+  {
+    "id": "ks2_wordstructure_retrace_route_v1",
+    "stage": "KS2",
+    "theme": "Word Structure",
+    "title": "Retrace the Route",
+    "text": "Ravi misplaced his notebook and had to retrace his route. He rechecked the classroom, then reopened his backpack. At last he discovered it under the football net. Next time, he’ll reorganise his desk to prevent repeat confusion.",
+    "tags": {
+      "complexity": { "caps": true, "punct": true },
+      "phonics": ["ks2-prefixes"]
+    },
+    "meta": { "est_chars": 228 }
+  },
+  {
+    "id": "ks2_wordstructure_suffix_power_v1",
+    "stage": "KS2",
+    "theme": "Word Structure",
+    "title": "The Power of Suffixes",
+    "text": "Leila felt fearful before the test but grew hopeful after revision. She wrote a thoughtful plan, added useful facts, and ended with a cheerful conclusion. Her teacher praised the neatness and achievement, noting remarkable improvement across the whole term.",
+    "tags": {
+      "complexity": { "caps": true, "punct": true },
+      "phonics": ["ks2-suffixes"]
+    },
+    "meta": { "est_chars": 257 }
+  },
+  {
+    "id": "ks2_wordstructure_robot_rebuild_v1",
+    "stage": "KS2",
+    "theme": "Word Structure",
+    "title": "Robot Rebuild",
+    "text": "Engineers disconnected the broken motor, then reassembled the robot with a stronger frame. They rebooted the software and retested each movement. When it malfunctioned again, they debugged the code, discovered a mismatch, and restored control before the public demonstration.",
+    "tags": {
+      "complexity": { "caps": true, "punct": true },
+      "phonics": ["ks2-prefixes"]
+    },
+    "meta": { "est_chars": 275 }
+  },
+  {
+    "id": "ks2_wordstructure_safe_sunrise_v1",
+    "stage": "KS2",
+    "theme": "Word Structure",
+    "title": "Safe at Sunrise",
+    "text": "In winter, sunrise is later, so cyclists wear headlamps on the dark cycle path. A careless rider was distracted, but a quick reminder helped refocus attention. Together, the group restarted safely and maintained steady spacing all the way home.",
+    "tags": {
+      "complexity": { "caps": true, "punct": true },
+      "phonics": ["ks2-prefixes"]
+    },
+    "meta": { "est_chars": 244 }
+  },
+  {
+    "id": "ks2_wordstructure_building_words_v1",
+    "stage": "KS2",
+    "theme": "Word Structure",
+    "title": "Building Words with -ness",
+    "text": "Ada wrote a speech about kindness. She formed fearlessness from fearless by adding -ness, showing how suffixes change a word’s job. Her examples—joyful, payment, and powerless—proved that endings can turn verbs to nouns or add feelings without changing roots.",
+    "tags": {
+      "complexity": { "caps": true, "punct": true },
+      "phonics": ["ks2-suffixes"]
+    },
+    "meta": { "est_chars": 259 }
+  },
+  {
+    "id": "ks2_wordstructure_prefix_diary_v1",
+    "stage": "KS2",
+    "theme": "Word Structure",
+    "title": "Prefix Diary",
+    "text": "Explorers reached a river and built a temporary footbridge. When rain returned, they dismantled the supports and relocated camp. Later, they recrossed the valley to resupply. Planning with prefixes like re- and dis- explains actions clearly in expedition diaries.",
+    "tags": {
+      "complexity": { "caps": true, "punct": true },
+      "phonics": ["ks2-prefixes"]
+    },
+    "meta": { "est_chars": 263 }
+  },
+  {
+    "id": "ks2_wordstructure_delightful_festival_v1",
+    "stage": "KS2",
+    "theme": "Word Structure",
+    "title": "A Delightful Festival",
+    "text": "The festival was delightful: colourful lanterns, playful music, and respectful dancers. Even a restless toddler watched, tireless for hours. Our class wrote grateful messages afterward, describing how kindness can be contagious and how careful stewards keep public spaces beautiful.",
+    "tags": {
+      "complexity": { "caps": true, "punct": true },
+      "phonics": ["ks2-suffixes"]
+    },
+    "meta": { "est_chars": 282 }
+  },
+  {
+    "id": "ks2_wordstructure_lab_periscope_v1",
+    "stage": "KS2",
+    "theme": "Word Structure",
+    "title": "Lab Periscope Fix",
+    "text": "In science club, we assembled a periscope for a cardboard submarine. When the mirror cracked, we replaced it and realigned the tube. Our teammates reorganised the table, reduced clutter, and restarted trials, recording improvements after each small adjustment.",
+    "tags": {
+      "complexity": { "caps": true, "punct": true },
+      "phonics": ["ks2-prefixes"]
+    },
+    "meta": { "est_chars": 260 }
+  },
+  {
+    "id": "ks2_wordstructure_light_writing_v1",
+    "stage": "KS2",
+    "theme": "Word Structure",
+    "title": "Light Writing",
+    "text": "Astronomers use telescopes to photograph distant galaxies. The word photo means 'light', and graph means 'write'. When combined, photograph literally means 'light writing'. Understanding roots like geo, aqua, and micro helps decode scientific terms during tricky reading passages.",
+    "tags": {
+      "complexity": { "caps": true, "punct": true },
+      "phonics": ["ks2-prefixes"]
+    },
+    "meta": { "est_chars": 280 }
+  },
+  {
+    "id": "ks2_wordstructure_goalkeeper_focus_v1",
+    "stage": "KS2",
+    "theme": "Word Structure",
+    "title": "Goalkeeper Focus",
+    "text": "The goalkeeper misjudged the bounce, but recovered quickly. She refocused, repositioned, and redirected the ball to a teammate. In the next drill, the coach reminded players to review mistakes without discouragement, then repeat the movement until muscle memory formed.",
+    "tags": {
+      "complexity": { "caps": true, "punct": true },
+      "phonics": ["ks2-prefixes"]
+    },
+    "meta": { "est_chars": 269 }
+  },
+  {
+    "id": "ks2_wordstructure_club_fundraiser_v1",
+    "stage": "KS2",
+    "theme": "Word Structure",
+    "title": "Club Fundraiser",
+    "text": "Tom felt speechless after the announcement, but his club remained hopeful. They organised a rubbish clear-up, made posters, and created a payment scheme for new kit. Their tireless, fearless attitude turned a setback into a successful, cheerful fundraiser.",
+    "tags": {
+      "complexity": { "caps": true, "punct": true },
+      "phonics": ["ks2-suffixes"]
+    },
+    "meta": { "est_chars": 256 }
+  }
 ]

@@ -1,422 +1,290 @@
 [
     {
-        "id": "ks2_uk_statutory_sample_1",
-        "stage": "KS2",
-        "theme": "Statutory",
-        "name": "UK Statutory (A)",
-        "words": [
-            "favourite",
-            "colour",
-            "neighbour",
-            "centre",
-            "travelling",
-            "jewellery"
-        ],
-        "tags": {
-            "complexity": {
-                "caps": true,
-                "punct": false
-            }
-        }
-    },
-    {
-        "id": "ks2_animals_action_verbs_1",
-        "stage": "KS2",
-        "theme": "Animals",
-        "name": "Animal Verbs",
-        "words": [
-            "pounces",
-            "scampers",
-            "ambles",
-            "swoops",
-            "grazes",
-            "dozes",
-            "nudges",
-            "pecks"
-        ],
-        "tags": {
-            "complexity": {
-                "caps": true,
-                "punct": false
-            }
-        }
-    },
-    {
-        "id": "ks2_homophones_1",
-        "stage": "KS2",
-        "theme": "Statutory",
-        "name": "Homophones (A)",
-        "words": [
-            "there",
-            "their",
-            "they're",
-            "where",
-            "wear",
-            "were",
-            "your",
-            "you're"
-        ],
-        "tags": {
-            "complexity": {
-                "caps": false,
-                "punct": false
-            }
-        }
-    },
-    {
-        "id": "ks2_science_terms_1",
-        "stage": "KS2",
-        "theme": "Science snips",
-        "name": "Science Terms (A)",
-        "words": [
-            "dissolve",
-            "friction",
-            "gravity",
-            "reflect",
-            "absorb",
-            "circuit",
-            "force"
-        ],
-        "tags": {
-            "complexity": {
-                "caps": true,
-                "punct": false
-            }
-        }
-    },
-    {
-        "id": "ks2_suffix_tion_1",
-        "stage": "KS2",
-        "theme": "Phonics",
-        "name": "Suffix -tion",
-        "words": [
-            "station",
-            "fiction",
-            "motion",
-            "nation",
-            "action",
-            "lotion",
-            "option"
-        ],
-        "tags": {
-            "complexity": {
-                "caps": false,
-                "punct": false
-            }
-        }
-    },
-    {
-        "id": "ks2_animals_habitats_1",
-        "stage": "KS2",
-        "theme": "Animals",
-        "name": "Animal Habitats",
-        "words": [
-            "forest",
-            "desert",
-            "ocean",
-            "river",
-            "jungle",
-            "meadow",
-            "tundra"
-        ],
-        "tags": {
-            "complexity": {
-                "caps": true,
-                "punct": false
-            }
-        }
-    },
-    {
-        "id": "ks2_nature_trees_1",
-        "stage": "KS2",
-        "theme": "Nature",
-        "name": "British Trees",
-        "words": [
-            "oak",
-            "ash",
-            "beech",
-            "birch",
-            "willow",
-            "holly",
-            "sycamore"
-        ],
-        "tags": {
-            "complexity": {
-                "caps": true,
-                "punct": false
-            }
-        }
-    },
-    {
-        "id": "ks2_uk_statutory_sample_2",
-        "stage": "KS2",
-        "theme": "Statutory",
-        "name": "UK Statutory (B)",
-        "words": [
-            "believe",
-            "bicycle",
-            "business",
-            "calendar",
-            "caught",
-            "centre",
-            "century"
-        ],
-        "tags": {
-            "complexity": {
-                "caps": true,
-                "punct": false
-            }
-        }
-    },
-    {
-        "id": "ks2_silent_letters_1",
-        "stage": "KS2",
-        "theme": "Phonics",
-        "name": "Silent Letters",
-        "words": [
-            "knock",
-            "write",
-            "gnome",
-            "doubt",
-            "island",
-            "listen",
-            "autumn"
-        ],
-        "tags": {
-            "complexity": {
-                "caps": false,
-                "punct": false
-            }
-        }
-    },
-    {
-        "id": "ks2_history_vikings_1",
-        "stage": "KS2",
-        "theme": "History",
-        "name": "The Vikings",
-        "words": [
-            "Viking",
-            "longship",
-            "explore",
-            "settle",
-            "invade",
-            "Norse",
-            "raid"
-        ],
-        "tags": {
-            "complexity": {
-                "caps": true,
-                "punct": false
-            }
-        }
-    },
-    {
-        "id": "ks2_homophones_2",
-        "stage": "KS2",
-        "theme": "Statutory",
-        "name": "Homophones (B)",
-        "words": [
-            "to",
-            "too",
-            "two",
-            "see",
-            "sea",
-            "son",
-            "sun",
-            "for",
-            "four"
-        ],
-        "tags": {
-            "complexity": {
-                "caps": false,
-                "punct": false
-            }
-        }
-    },
-    {
-        "id": "ks2_animals_adjectives_1",
-        "stage": "KS2",
-        "theme": "Animals",
-        "name": "Animal Adjectives",
-        "words": [
-            "cunning",
-            "majestic",
-            "fierce",
-            "gentle",
-            "playful",
-            "swift",
-            "loyal"
-        ],
-        "tags": {
-            "complexity": {
-                "caps": false,
-                "punct": false
-            }
-        }
-    },
-    {
-        "id": "ks2_prefix_un_dis_1",
-        "stage": "KS2",
-        "theme": "Phonics",
-        "name": "Prefixes un- and dis-",
-        "words": [
-            "undo",
-            "unfair",
-            "unhappy",
-            "unzip",
-            "dislike",
-            "disagree",
-            "dishonest"
-        ],
-        "tags": {
-            "complexity": {
-                "caps": false,
-                "punct": false
-            }
-        }
-    },
-    {
-        "id": "ks2_geography_uk_1",
-        "stage": "KS2",
-        "theme": "Geography",
-        "name": "UK Geography",
-        "words": [
-            "England",
-            "Scotland",
-            "Wales",
-            "London",
-            "river",
-            "mountain",
-            "coast"
-        ],
-        "tags": {
-            "complexity": {
-                "caps": true,
-                "punct": false
-            }
-        }
-    },
-    {
-        "id": "ks2_uk_statutory_sample_3",
-        "stage": "KS2",
-        "theme": "Statutory",
-        "name": "UK Statutory (C)",
-        "words": [
-            "different",
-            "difficult",
-            "disappear",
-            "early",
-            "earth",
-            "eighth",
-            "enough"
-        ],
-        "tags": {
-            "complexity": {
-                "caps": true,
-                "punct": false
-            }
-        }
-    },
-    {
-        "id": "ks2_nature_rocks_1",
-        "stage": "KS2",
-        "theme": "Nature",
-        "name": "Types of Rock",
-        "words": [
-            "igneous",
-            "sedimentary",
-            "metamorphic",
-            "granite",
-            "slate",
-            "fossil"
-        ],
-        "tags": {
-            "complexity": {
-                "caps": true,
-                "punct": false
-            }
-        }
-    },
-    {
-        "id": "ks2_suffix_ous_1",
-        "stage": "KS2",
-        "theme": "Phonics",
-        "name": "Suffix -ous",
-        "words": [
-            "famous",
-            "nervous",
-            "dangerous",
-            "enormous",
-            "fabulous",
-            "joyous"
-        ],
-        "tags": {
-            "complexity": {
-                "caps": false,
-                "punct": false
-            }
-        }
-    },
-    {
-        "id": "ks2_mythology_1",
-        "stage": "KS2",
-        "theme": "Myths",
-        "name": "Greek Myths",
-        "words": [
-            "Zeus",
-            "Hera",
-            "myth",
-            "legend",
-            "goddess",
-            "monster",
-            "hero"
-        ],
-        "tags": {
-            "complexity": {
-                "caps": true,
-                "punct": false
-            }
-        }
-    },
-    {
-        "id": "ks2_science_space_1",
-        "stage": "KS2",
-        "theme": "Science snips",
-        "name": "The Solar System",
-        "words": [
-            "planet",
-            "star",
-            "orbit",
-            "galaxy",
-            "asteroid",
-            "comet",
-            "universe"
-        ],
-        "tags": {
-            "complexity": {
-                "caps": true,
-                "punct": false
-            }
-        }
-    },
-    {
-        "id": "ks2_uk_statutory_sample_4",
-        "stage": "KS2",
-        "theme": "Statutory",
-        "name": "UK Statutory (D)",
-        "words": [
-            "exercise",
-            "experience",
-            "extreme",
-            "famous",
-            "February",
-            "forward"
-        ],
-        "tags": {
-            "complexity": {
-                "caps": true,
-                "punct": false
-            }
-        }
-    }
+    "id": "ks2_romans_cian_words_v1",
+    "stage": "KS2",
+    "theme": "The Romans",
+    "name": "Words with the '-cian' Suffix",
+    "words": ["musician", "magician", "physician", "politician", "patrician"],
+    "tags": { "complexity": { "caps": true, "punct": false } }
+  },
+  {
+    "id": "ks2_romans_double_consonants_v1",
+    "stage": "KS2",
+    "theme": "The Romans",
+    "name": "Roman Words with Double Consonants",
+    "words": ["battle", "tunnel", "barracks", "colossal", "chariot"],
+    "tags": { "complexity": { "caps": true, "punct": false } }
+  },
+  {
+    "id": "ks2_romans_army_life_v1",
+    "stage": "KS2",
+    "theme": "The Romans",
+    "name": "Roman Army Life",
+    "words": ["legion", "centurion", "shield", "spear", "march", "discipline", "camp", "helmet"],
+    "tags": { "complexity": { "caps": true, "punct": false } }
+  },
+  {
+    "id": "ks2_romans_gods_goddesses_v1",
+    "stage": "KS2",
+    "theme": "The Romans",
+    "name": "Gods and Goddesses",
+    "words": ["Jupiter", "Mars", "Venus", "Neptune", "Minerva", "Mercury", "Diana", "Pluto"],
+    "tags": { "complexity": { "caps": true, "punct": false } }
+  },
+  {
+    "id": "ks2_egypt_ph_digraph_words_v1",
+    "stage": "KS2",
+    "theme": "Ancient Egypt",
+    "name": "Words with the 'ph' Digraph",
+    "words": ["pharaoh", "sphinx", "hieroglyph", "trophy", "alphabet"],
+    "tags": { "complexity": { "caps": true, "punct": false } }
+  },
+  {
+    "id": "ks2_egypt_soft_c_words_v1",
+    "stage": "KS2",
+    "theme": "Ancient Egypt",
+    "name": "Words with the Soft 'c' Sound",
+    "words": ["century", "ceremony", "ancient", "palace", "peaceful"],
+    "tags": { "complexity": { "caps": true, "punct": false } }
+  },
+  {
+    "id": "ks2_egypt_gods_v1",
+    "stage": "KS2",
+    "theme": "Ancient Egypt",
+    "name": "Egyptian Gods",
+    "words": ["Ra", "Osiris", "Isis", "Horus", "Anubis", "Thoth", "Bastet", "Sobek"],
+    "tags": { "complexity": { "caps": true, "punct": false } }
+  },
+  {
+    "id": "ks2_egypt_life_on_nile_v1",
+    "stage": "KS2",
+    "theme": "Ancient Egypt",
+    "name": "Life on the Nile",
+    "words": ["Nile", "flood", "harvest", "papyrus", "village", "fishing", "market", "sand"],
+    "tags": { "complexity": { "caps": true, "punct": false } }
+  },
+  {
+    "id": "ks2_solar_ar_words_v1",
+    "stage": "KS2",
+    "theme": "The Solar System",
+    "name": "Words with the 'ar' Sound",
+    "words": ["star", "Mars", "large", "dark", "spark"],
+    "tags": { "complexity": { "caps": true, "punct": false } }
+  },
+  {
+    "id": "ks2_solar_ur_words_v1",
+    "stage": "KS2",
+    "theme": "The Solar System",
+    "name": "Words with the 'ur' Sound",
+    "words": ["Jupiter", "Saturn", "surface", "turn", "burst"],
+    "tags": { "complexity": { "caps": true, "punct": false } }
+  },
+  {
+    "id": "ks2_solar_planet_names_v1",
+    "stage": "KS2",
+    "theme": "The Solar System",
+    "name": "Planet Names",
+    "words": ["Mercury", "Venus", "Earth", "Mars", "Jupiter", "Saturn", "Uranus", "Neptune"],
+    "tags": { "complexity": { "caps": true, "punct": false } }
+  },
+  {
+    "id": "ks2_solar_exploration_terms_v1",
+    "stage": "KS2",
+    "theme": "The Solar System",
+    "name": "Space Exploration Terms",
+    "words": ["orbit", "galaxy", "astronaut", "rocket", "telescope", "gravity", "comet", "asteroid"],
+    "tags": { "complexity": { "caps": true, "punct": false } }
+  },
+  {
+    "id": "ks2_livingthings_ea_words_v1",
+    "stage": "KS2",
+    "theme": "Living Things & Habitats",
+    "name": "Words with the 'ea' Digraph",
+    "words": ["creature", "sea", "leaf", "eagle", "beak"],
+    "tags": { "complexity": { "caps": true, "punct": false } }
+  },
+  {
+    "id": "ks2_livingthings_or_words_v1",
+    "stage": "KS2",
+    "theme": "Living Things & Habitats",
+    "name": "Words with the 'or' Sound",
+    "words": ["forest", "predator", "herbivore", "carnivore", "organism"],
+    "tags": { "complexity": { "caps": true, "punct": false } }
+  },
+  {
+    "id": "ks2_livingthings_habitats_v1",
+    "stage": "KS2",
+    "theme": "Living Things & Habitats",
+    "name": "Types of Habitats",
+    "words": ["rainforest", "desert", "tundra", "ocean", "savannah", "grassland", "mountain", "wetland"],
+    "tags": { "complexity": { "caps": true, "punct": false } }
+  },
+  {
+    "id": "ks2_livingthings_animal_classes_v1",
+    "stage": "KS2",
+    "theme": "Living Things & Habitats",
+    "name": "Animal Classifications",
+    "words": ["mammal", "bird", "reptile", "fish", "amphibian", "insect", "arachnid", "crustacean"],
+    "tags": { "complexity": { "caps": true, "punct": false } }
+  },
+  {
+    "id": "ks2_volcanoes_tion_words_v1",
+    "stage": "KS2",
+    "theme": "Volcanoes & Earthquakes",
+    "name": "Words with the '-tion' Suffix",
+    "words": ["eruption", "destruction", "vibration", "formation", "motion"],
+    "tags": { "complexity": { "caps": true, "punct": false } }
+  },
+  {
+    "id": "ks2_volcanoes_qu_words_v1",
+    "stage": "KS2",
+    "theme": "Volcanoes & Earthquakes",
+    "name": "Words with the 'qu' Digraph",
+    "words": ["quake", "liquid", "quickly", "equator", "sequence"],
+    "tags": { "complexity": { "caps": true, "punct": false } }
+  },
+  {
+    "id": "ks2_volcanoes_volcano_terms_v1",
+    "stage": "KS2",
+    "theme": "Volcanoes & Earthquakes",
+    "name": "Volcano Terminology",
+    "words": ["magma", "lava", "crater", "ash", "vent", "pressure", "molten", "eruption"],
+    "tags": { "complexity": { "caps": true, "punct": false } }
+  },
+  {
+    "id": "ks2_volcanoes_earthquake_terms_v1",
+    "stage": "KS2",
+    "theme": "Volcanoes & Earthquakes",
+    "name": "Earthquake Terminology",
+    "words": ["tectonic", "seismic", "fault", "shockwave", "epicentre", "vibration", "magnitude", "plate"],
+    "tags": { "complexity": { "caps": true, "punct": false } }
+  },
+  {
+    "id": "ks2_rainforest_ou_words_v1",
+    "stage": "KS2",
+    "theme": "Rainforests",
+    "name": "Words with the 'ou' Sound",
+    "words": ["cloud", "ground", "thousand", "sound", "mountain"],
+    "tags": { "complexity": { "caps": true, "punct": false } }
+  },
+  {
+    "id": "ks2_rainforest_ai_ay_words_v1",
+    "stage": "KS2",
+    "theme": "Rainforests",
+    "name": "Words with the 'ai/ay' Sound",
+    "words": ["rain", "wait", "layer", "stay", "trail"],
+    "tags": { "complexity": { "caps": true, "punct": false } }
+  },
+  {
+    "id": "ks2_rainforest_layers_v1",
+    "stage": "KS2",
+    "theme": "Rainforests",
+    "name": "Rainforest Layers",
+    "words": ["emergent", "canopy", "understory", "forest floor"],
+    "tags": { "complexity": { "caps": true, "punct": false } }
+  },
+  {
+    "id": "ks2_rainforest_animals_v1",
+    "stage": "KS2",
+    "theme": "Rainforests",
+    "name": "Rainforest Animals",
+    "words": ["jaguar", "sloth", "toucan", "anaconda", "tree frog", "parrot", "monkey", "anteater"],
+    "tags": { "complexity": { "caps": true, "punct": false } }
+  },
+  {
+    "id": "ks2_greekmyths_y_vowel_words_v1",
+    "stage": "KS2",
+    "theme": "Greek Myths",
+    "name": "Words with the 'y' as a Vowel Sound",
+    "words": ["myth", "cyclops", "symbol", "mystery", "nymph"],
+    "tags": { "complexity": { "caps": true, "punct": false } }
+  },
+  {
+    "id": "ks2_greekmyths_ch_k_words_v1",
+    "stage": "KS2",
+    "theme": "Greek Myths",
+    "name": "Words with 'ch' Making the /k/ Sound",
+    "words": ["chaos", "echo", "character", "chord", "chronicle"],
+    "tags": { "complexity": { "caps": true, "punct": false } }
+  },
+  {
+    "id": "ks2_greekmyths_mythical_creatures_v1",
+    "stage": "KS2",
+    "theme": "Greek Myths",
+    "name": "Mythical Creatures",
+    "words": ["Minotaur", "Pegasus", "Hydra", "Cyclops", "Siren", "Centaur", "Cerberus", "Griffin"],
+    "tags": { "complexity": { "caps": true, "punct": false } }
+  },
+  {
+    "id": "ks2_greekmyths_gods_olympus_v1",
+    "stage": "KS2",
+    "theme": "Greek Myths",
+    "name": "Gods of Olympus",
+    "words": ["Zeus", "Hera", "Poseidon", "Athena", "Apollo", "Artemis", "Ares", "Hermes"],
+    "tags": { "complexity": { "caps": true, "punct": false } }
+  },
+  {
+    "id": "ks2_adventure_ous_words_v1",
+    "stage": "KS2",
+    "theme": "Adventure Stories",
+    "name": "Words with the '-ous' Suffix",
+    "words": ["dangerous", "adventurous", "mysterious", "curious", "marvellous"],
+    "tags": { "complexity": { "caps": true, "punct": false } }
+  },
+  {
+    "id": "ks2_adventure_ure_words_v1",
+    "stage": "KS2",
+    "theme": "Adventure Stories",
+    "name": "Words with the '-ure' Suffix",
+    "words": ["treasure", "creature", "adventure", "future", "measure"],
+    "tags": { "complexity": { "caps": true, "punct": false } }
+  },
+  {
+    "id": "ks2_adventure_verbs_v1",
+    "stage": "KS2",
+    "theme": "Adventure Stories",
+    "name": "Adventure Verbs",
+    "words": ["explored", "discovered", "climbed", "escaped", "sailed", "searched", "journeyed", "raced"],
+    "tags": { "complexity": { "caps": true, "punct": false } }
+  },
+  {
+    "id": "ks2_adventure_settings_v1",
+    "stage": "KS2",
+    "theme": "Adventure Stories",
+    "name": "Story Settings",
+    "words": ["castle", "cave", "island", "jungle", "desert", "forest", "mountain", "village"],
+    "tags": { "complexity": { "caps": true, "punct": false } }
+  },
+   {
+    "id": "ks2_wordstructure_prefix_set_v1",
+    "stage": "KS2",
+    "theme": "Word Structure",
+    "name": "Prefix Collection",
+    "words": ["unhappy", "redo", "reopen", "retrace", "disconnect", "disagree", "rebuild", "misplace"],
+    "tags": { "complexity": { "caps": true, "punct": false } }
+  },
+  {
+    "id": "ks2_wordstructure_suffix_set_v1",
+    "stage": "KS2",
+    "theme": "Word Structure",
+    "name": "Suffix Collection",
+    "words": ["helpful", "thankless", "payment", "fearless", "hopeful", "joyful", "careful", "cheerful"],
+    "tags": { "complexity": { "caps": true, "punct": false } }
+  },
+  {
+    "id": "ks2_wordstructure_compound_words_v1",
+    "stage": "KS2",
+    "theme": "Word Structure",
+    "name": "Compound Words",
+    "words": ["lighthouse", "football", "rainfall", "backpack", "notebook", "sunrise", "snowman", "toothbrush"],
+    "tags": { "complexity": { "caps": true, "punct": false } }
+  },
+  {
+    "id": "ks2_wordstructure_root_words_v1",
+    "stage": "KS2",
+    "theme": "Word Structure",
+    "name": "Root Words",
+    "words": ["port", "tele", "photo", "graph", "cycle", "micro", "aqua", "geo"],
+    "tags": { "complexity": { "caps": true, "punct": false } }
+  }
 ]

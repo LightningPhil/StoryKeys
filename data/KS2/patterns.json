@@ -1,333 +1,174 @@
 [
-    {
-        "id": "pattern_tion",
-        "stage": "KS2",
-        "name": "Suffix -tion",
-        "items": [
-            "station",
-            "action",
-            "portion",
-            "motion",
-            "caution",
-            "question",
-            "nation",
-            "fiction"
-        ],
-        "tags": {
-            "phonics": [
-                "-tion"
-            ]
-        }
-    },
-    {
-        "id": "pattern_sion",
-        "stage": "KS2",
-        "name": "Suffix -sion",
-        "items": [
-            "television",
-            "division",
-            "collision",
-            "decision",
-            "confusion",
-            "explosion"
-        ],
-        "tags": {
-            "phonics": [
-                "-sion"
-            ]
-        }
-    },
-    {
-        "id": "pattern_ssion",
-        "stage": "KS2",
-        "name": "Suffix -ssion",
-        "items": [
-            "mission",
-            "passion",
-            "discussion",
-            "expression",
-            "impression",
-            "permission"
-        ],
-        "tags": {
-            "phonics": [
-                "-ssion"
-            ]
-        }
-    },
-    {
-        "id": "pattern_cian",
-        "stage": "KS2",
-        "name": "Suffix -cian",
-        "items": [
-            "musician",
-            "magician",
-            "electrician",
-            "politician",
-            "optician",
-            "technician"
-        ],
-        "tags": {
-            "phonics": [
-                "-cian"
-            ]
-        }
-    },
-    {
-        "id": "pattern_ous",
-        "stage": "KS2",
-        "name": "Suffix -ous",
-        "items": [
-            "famous",
-            "nervous",
-            "dangerous",
-            "enormous",
-            "fabulous",
-            "joyous",
-            "various"
-        ],
-        "tags": {
-            "phonics": [
-                "-ous"
-            ]
-        }
-    },
-    {
-        "id": "pattern_ful_less",
-        "stage": "KS2",
-        "name": "-ful vs -less",
-        "items": [
-            "careful",
-            "hopeful",
-            "painful",
-            "careless",
-            "hopeless",
-            "painless",
-            "useful"
-        ],
-        "tags": {
-            "phonics": [
-                "-ful/-less"
-            ]
-        }
-    },
-    {
-        "id": "pattern_ough_variants",
-        "stage": "KS2",
-        "name": "ough variants",
-        "items": [
-            "though",
-            "through",
-            "thought",
-            "bough",
-            "rough",
-            "cough",
-            "enough"
-        ],
-        "tags": {
-            "phonics": [
-                "ough variants"
-            ]
-        }
-    },
-    {
-        "id": "pattern_ea_ee",
-        "stage": "KS2",
-        "name": "ea vs ee",
-        "items": [
-            "bread",
-            "head",
-            "beach",
-            "teach",
-            "knees",
-            "queen",
-            "dream",
-            "sleep"
-        ],
-        "tags": {
-            "phonics": [
-                "ea/ee"
-            ]
-        }
-    },
-    {
-        "id": "pattern_ai_ay",
-        "stage": "KS2",
-        "name": "ai vs ay",
-        "items": [
-            "rain",
-            "train",
-            "paint",
-            "brain",
-            "play",
-            "stay",
-            "today",
-            "away"
-        ],
-        "tags": {
-            "phonics": [
-                "ai/ay"
-            ]
-        }
-    },
-    {
-        "id": "pattern_ie_ei",
-        "stage": "KS2",
-        "name": "ie vs ei (British)",
-        "items": [
-            "believe",
-            "field",
-            "piece",
-            "thief",
-            "receive",
-            "ceiling",
-            "deceive",
-            "either"
-        ],
-        "tags": {
-            "phonics": [
-                "ie/ei"
-            ]
-        }
-    },
-    {
-        "id": "pattern_ow_ou",
-        "stage": "KS2",
-        "name": "ow vs ou",
-        "items": [
-            "clown",
-            "brown",
-            "how",
-            "now",
-            "cloud",
-            "found",
-            "house",
-            "mouse"
-        ],
-        "tags": {
-            "phonics": [
-                "ow/ou"
-            ]
-        }
-    },
-    {
-        "id": "pattern_silent_k_gn_wr",
-        "stage": "KS2",
-        "name": "silent k/g/w",
-        "items": [
-            "knock",
-            "knee",
-            "gnome",
-            "gnash",
-            "write",
-            "wring",
-            "wrong",
-            "known"
-        ],
-        "tags": {
-            "phonics": [
-                "silent k",
-                "silent g",
-                "silent w"
-            ]
-        }
-    },
-    {
-        "id": "pattern_silent_b_t",
-        "stage": "KS2",
-        "name": "silent b/t",
-        "items": [
-            "doubt",
-            "debt",
-            "thumb",
-            "climb",
-            "listen",
-            "castle",
-            "whistle",
-            "often"
-        ],
-        "tags": {
-            "phonics": [
-                "silent b",
-                "silent t"
-            ]
-        }
-    },
-    {
-        "id": "pattern_soft_c_g",
-        "stage": "KS2",
-        "name": "soft c and g",
-        "items": [
-            "city",
-            "cell",
-            "ice",
-            "space",
-            "gem",
-            "giant",
-            "magic",
-            "danger"
-        ],
-        "tags": {
-            "phonics": [
-                "soft c",
-                "soft g"
-            ]
-        }
-    },
-    {
-        "id": "pattern_prefix_un",
-        "stage": "KS2",
-        "name": "Prefix un-",
-        "items": [
-            "undo",
-            "unfair",
-            "unhappy",
-            "unzip",
-            "unlucky",
-            "unusual",
-            "unable"
-        ],
-        "tags": {
-            "morphology": [
-                "prefix un-"
-            ]
-        }
-    },
-    {
-        "id": "pattern_prefix_dis",
-        "stage": "KS2",
-        "name": "Prefix dis-",
-        "items": [
-            "dislike",
-            "disagree",
-            "dishonest",
-            "disappear",
-            "disobey",
-            "discover"
-        ],
-        "tags": {
-            "morphology": [
-                "prefix dis-"
-            ]
-        }
-    },
-    {
-        "id": "pattern_prefix_re",
-        "stage": "KS2",
-        "name": "Prefix re-",
-        "items": [
-            "redo",
-            "replay",
-            "rebuild",
-            "return",
-            "review",
-            "rewrite",
-            "reappear"
-        ],
-        "tags": {
-            "morphology": [
-                "prefix re-"
-            ]
-        }
-    }
+   {
+    "id": "pattern_cian_suffix_v1",
+    "stage": "KS2",
+    "name": "The '-cian' Suffix",
+    "items": ["musician", "magician", "physician", "politician", "patrician"],
+    "tags": { "phonics": ["ks2-cian-suffix"] }
+  },
+  {
+    "id": "pattern_double_consonants_v1",
+    "stage": "KS2",
+    "name": "Double Consonants in Roman Words",
+    "items": ["battle", "tunnel", "barracks", "colossal", "chariot"],
+    "tags": { "phonics": ["ks2-double-consonants"] }
+  },
+  {
+    "id": "pattern_ph_digraph_v1",
+    "stage": "KS2",
+    "name": "The 'ph' Digraph Making the /f/ Sound",
+    "items": ["pharaoh", "sphinx", "hieroglyph", "trophy", "alphabet"],
+    "tags": { "phonics": ["ks2-ph-digraph"] }
+  },
+  {
+    "id": "pattern_soft_c_v1",
+    "stage": "KS2",
+    "name": "The Soft 'c' Sound",
+    "items": ["century", "ceremony", "ancient", "palace", "peaceful"],
+    "tags": { "phonics": ["ks2-soft-c"] }
+  },
+  {
+    "id": "pattern_ar_sound_v1",
+    "stage": "KS2",
+    "name": "The 'ar' Sound",
+    "items": ["star", "Mars", "large", "dark", "spark"],
+    "tags": { "phonics": ["ks2-ar-sound"] }
+  },
+  {
+    "id": "pattern_ur_sound_v1",
+    "stage": "KS2",
+    "name": "The 'ur' Sound",
+    "items": ["Jupiter", "Saturn", "surface", "turn", "burst"],
+    "tags": { "phonics": ["ks2-ur-sound"] }
+  },
+  {
+    "id": "pattern_ea_digraph_v1",
+    "stage": "KS2",
+    "name": "The 'ea' Digraph",
+    "items": ["creature", "sea", "leaf", "eagle", "beak"],
+    "tags": { "phonics": ["ks2-ea-digraph"] }
+  },
+  {
+    "id": "pattern_or_sound_v1",
+    "stage": "KS2",
+    "name": "The 'or' Sound",
+    "items": ["forest", "predator", "herbivore", "carnivore", "organism"],
+    "tags": { "phonics": ["ks2-or-sound"] }
+  },
+   {
+    "id": "pattern_tion_suffix_v1",
+    "stage": "KS2",
+    "name": "The '-tion' Suffix",
+    "items": ["eruption", "destruction", "vibration", "formation", "motion"],
+    "tags": { "phonics": ["ks2-tion-suffix"] }
+  },
+  {
+    "id": "pattern_qu_digraph_v1",
+    "stage": "KS2",
+    "name": "The 'qu' Digraph",
+    "items": ["quake", "liquid", "quickly", "equator", "sequence"],
+    "tags": { "phonics": ["ks2-qu-digraph"] }
+  },
+   {
+    "id": "pattern_ou_sound_v1",
+    "stage": "KS2",
+    "name": "The 'ou' Sound",
+    "items": ["cloud", "ground", "thousand", "sound", "mountain"],
+    "tags": { "phonics": ["ks2-ou-sound"] }
+  },
+  {
+    "id": "pattern_ai_ay_sound_v1",
+    "stage": "KS2",
+    "name": "The 'ai/ay' Sound",
+    "items": ["rain", "wait", "layer", "stay", "trail"],
+    "tags": { "phonics": ["ks2-ai-ay-sound"] }
+  },
+  {
+    "id": "pattern_y_vowel_sound_v1",
+    "stage": "KS2",
+    "name": "The 'y' as a Vowel Sound",
+    "items": ["myth", "cyclops", "symbol", "mystery", "nymph"],
+    "tags": { "phonics": ["ks2-y-vowel-sound"] }
+  },
+  {
+    "id": "pattern_ch_k_sound_v1",
+    "stage": "KS2",
+    "name": "The 'ch' Making the /k/ Sound",
+    "items": ["chaos", "echo", "character", "chord", "chronicle"],
+    "tags": { "phonics": ["ks2-ch-k-sound"] }
+  },
+  {
+    "id": "pattern_ous_suffix_v1",
+    "stage": "KS2",
+    "name": "The '-ous' Suffix",
+    "items": ["dangerous", "adventurous", "mysterious", "curious", "marvellous"],
+    "tags": { "phonics": ["ks2-ous-suffix"] }
+  },
+  {
+    "id": "pattern_ure_suffix_v1",
+    "stage": "KS2",
+    "name": "The '-ure' Suffix",
+    "items": ["treasure", "creature", "adventure", "future", "measure"],
+    "tags": { "phonics": ["ks2-ure-suffix"] }
+  },
+  {
+    "id": "pattern_silent_letters_v1",
+    "stage": "KS2",
+    "name": "Silent Letters",
+    "items": ["knight", "write", "gnome", "knee", "sign"],
+    "tags": { "phonics": ["ks2-silent-letters"] }
+  },
+  {
+    "id": "pattern_common_homophones_v1",
+    "stage": "KS2",
+    "name": "Common Homophones",
+    "items": ["their", "there", "they're", "your", "you're"],
+    "tags": { "phonics": ["ks2-common-homophones"] }
+  },
+  {
+    "id": "ks2_trickyspellings_silent_letters_v1",
+    "stage": "KS2",
+    "theme": "Tricky Spellings",
+    "name": "Silent Letters",
+    "words": ["knight", "write", "knot", "gnaw", "wrinkle", "sign", "gnome", "knee"],
+    "tags": { "complexity": { "caps": true, "punct": false } }
+  },
+  {
+    "id": "ks2_trickyspellings_common_homophones_v1",
+    "stage": "KS2",
+    "theme": "Tricky Spellings",
+    "name": "Common Homophones",
+    "words": ["their", "there", "they're", "your", "you're", "its", "it's"],
+    "tags": { "complexity": { "caps": true, "punct": false } }
+  },
+  {
+    "id": "ks2_trickyspellings_more_homophones_v1",
+    "stage": "KS2",
+    "theme": "Tricky Spellings",
+    "name": "More Homophones",
+    "words": ["to", "too", "two", "here", "hear", "where", "wear", "witch", "which"],
+    "tags": { "complexity": { "caps": true, "punct": false } }
+  },
+  {
+    "id": "ks2_trickyspellings_commonly_misspelt_v1",
+    "stage": "KS2",
+    "theme": "Tricky Spellings",
+    "name": "Commonly Misspelt Words",
+    "words": ["because", "beautiful", "friend", "believe", "separate", "accidentally", "different", "enough"],
+    "tags": { "complexity": { "caps": true, "punct": false } }
+  },
+  {
+    "id": "pattern_prefixes_v1",
+    "stage": "KS2",
+    "name": "Common Prefixes (un-, dis-, re-)",
+    "items": ["unhappy", "disconnect", "redo", "replay", "disable"],
+    "tags": { "phonics": ["ks2-prefixes"] }
+  },
+  {
+    "id": "pattern_suffixes_v1",
+    "stage": "KS2",
+    "name": "Common Suffixes (-ful, -less, -ment)",
+    "items": ["hopeful", "careless", "payment", "kindness", "fearless"],
+    "tags": { "phonics": ["ks2-suffixes"] }
+  }
 ]
