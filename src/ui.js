@@ -2,10 +2,20 @@
  * @file ui.js
  * @description Handles all DOM rendering and UI manipulation for the StoryKeys app.
  */
+import { config } from './config.js';
 
 // These constants are UI-specific and belong here.
 const PET_LEVELS = ['💠', '🐣', '🐤', '🐔', '🦖', '🐉'];
 const THEME_ICONS = { "Animals": "🐾", "Silly Stories": "🤪", "Nature": "🌿", "Core": "📚", "Phonics": "🔤", "Statutory": "📜", "Science snips": "🔬", "Myths": "🦄", "Academic": "🎓", "History": "🏛️", "Geography": "🗺️" };
+
+// State specific to the lesson picker modal
+let lessonPickerState = {
+    searchTerm: '',
+    sortKey: config.DEFAULT_SORT_KEY,
+    currentPage: 1,
+    currentType: 'passage',
+    currentStage: 'KS2'
+};
 
 /**
  * Applies visual settings from the state to the document.
@@ -132,7 +142,9 @@ export function getScreenHtml(screenName, state, DATA) {
 export function getModalHtml(modalName, state, DATA) {
     const closeModalBtn = `<button id="close-modal-btn" class="icon-button" title="Close"><svg viewBox="0 0 24 24"><path d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"></path></svg></button>`;
     switch (modalName) {
-        case 'lessonPicker': return `
+        case 'lessonPicker':
+            lessonPickerState.currentStage = state.settings.defaultStage;
+            return `
             <div class="modal"><div class="modal-content">
                 <div class="modal-header"><h2>${DATA.COPY.homeChangeLesson}</h2>${closeModalBtn}</div>
                 <div class="tabs"><button class="tab-button active" data-type="passage">Passages</button><button class="tab-button" data-type="wordset">Word Sets</button></div>
@@ -145,10 +157,16 @@ export function getModalHtml(modalName, state, DATA) {
                         <button class="button button-secondary" data-stage="KS4">KS4</button>
                     </div>
                 </div>
-                <div class="lesson-list"></div>
-                <div style="margin-top: 1.5rem; border-top: 1px solid var(--color-border); padding-top: 1rem;">
-                    <label class="toggle-switch"><input type="checkbox" id="option-timer"><span class="slider"></span> Start with timer</label>
+                <div class="search-sort-container">
+                    <input type="search" id="search-input" class="search-input" placeholder="Search by title or theme...">
+                    <select id="sort-select" class="sort-select">
+                        <option value="title">Sort by Title</option>
+                        <option value="length">Sort by Length</option>
+                        <option value="theme">Sort by Theme</option>
+                    </select>
                 </div>
+                <div class="lesson-list"></div>
+                <div class="pagination-controls"></div>
             </div></div>`;
         case 'settings': return `
             <div class="modal"><div class="modal-content">
@@ -165,6 +183,7 @@ export function getModalHtml(modalName, state, DATA) {
                     <div class="setting-item"><div><b>Lockstep Default</b><p>Prevent errors before they are typed.</p></div><label class="toggle-switch"><input type="checkbox" id="setting-lockstep"><span class="slider"></span></label></div>
                     <div class="setting-item"><div><b>Focus Line Default</b><p>Highlight the current line of text.</p></div><label class="toggle-switch"><input type="checkbox" id="setting-focusline"><span class="slider"></span></label></div>
                     <div class="setting-item"><div><b>Keyboard Hint Default</b><p>Show an on-screen keyboard guide.</p></div><label class="toggle-switch"><input type="checkbox" id="setting-keyboard"><span class="slider"></span></label></div>
+                    <div class="setting-item"><div><b>Default Stage</b><p>The stage used for 'Quick Start'.</p></div><select id="setting-default-stage" class="button button-secondary"><option value="KS1">KS1</option><option value="KS2">KS2</option><option value="KS3">KS3</option><option value="KS4">KS4</option></select></div>
                 </details>
                 <details class="settings-section">
                     <summary>Privacy</summary>
@@ -188,31 +207,144 @@ export function getModalHtml(modalName, state, DATA) {
     return '';
 }
 
+/**
+ * Calculates length for sorting.
+ * @param {object} lesson - The lesson object.
+ * @returns {number} The length of the lesson content.
+ */
+function getLessonLength(lesson) {
+    if (lesson.meta?.est_chars) return lesson.meta.est_chars;
+    if (lesson.text) return lesson.text.length;
+    if (lesson.words) return lesson.words.join(' ').length;
+    return 0;
+}
 
 /**
- * Renders a list of lessons into the lesson picker modal.
- * @param {object} state - The current application state.
+ * Renders the list of lessons based on the current filters, sorting, and pagination.
  * @param {object} DATA - The global data object.
  */
-export function renderLessonList(state, DATA) {
-    const modalContainer = document.getElementById('modal-container');
-    const stageFilter = modalContainer.querySelector('.stage-filter');
-    const type = modalContainer.querySelector('.tab-button.active').dataset.type;
-    const stage = stageFilter.querySelector('.button.active').dataset.stage;
-    
-    const pool = type === 'passage' ? DATA.PASSAGES : DATA.WORDSETS;
-    const filtered = pool.filter(l => l.stage === stage);
+export function renderLessonList(DATA) {
+    const { currentType, currentStage, searchTerm, sortKey, currentPage } = lessonPickerState;
+    const pool = currentType === 'passage' ? DATA.PASSAGES : DATA.WORDSETS;
 
-    modalContainer.querySelector('.lesson-list').innerHTML = filtered.map(l => {
-        const len = l.words ? l.words.length + ' words' : (l.meta?.est_chars ? `${l.meta.est_chars} chars` : (l.text ? `${l.text.length} chars` : ''));
-        return `<div class="lesson-item" data-id="${l.id}" data-type="${type}">
-            <div class="lesson-icon">${THEME_ICONS[l.theme] || '📝'}</div>
-            <div class="lesson-details">
-                <b>${l.title || l.name}</b>
-                <div class="lesson-meta"><span class="meta-chip">${l.stage}</span><span class="meta-chip">${len}</span></div>
-            </div>
-        </div>`;
-    }).join('');
+    // 1. Filter
+    let filtered = pool.filter(l => l.stage === currentStage);
+    if (searchTerm) {
+        const term = searchTerm.toLowerCase();
+        filtered = filtered.filter(l =>
+            (l.title || l.name).toLowerCase().includes(term) ||
+            l.theme.toLowerCase().includes(term)
+        );
+    }
+
+    // 2. Sort
+    filtered.sort((a, b) => {
+        if (sortKey === 'length') {
+            return getLessonLength(a) - getLessonLength(b);
+        }
+        if (sortKey === 'theme') {
+            return (a.theme || '').localeCompare(b.theme || '');
+        }
+        // Default sort by title
+        return (a.title || a.name).localeCompare(b.title || b.name);
+    });
+
+    // 3. Paginate
+    const totalPages = Math.ceil(filtered.length / config.LESSONS_PER_PAGE);
+    const start = (currentPage - 1) * config.LESSONS_PER_PAGE;
+    const end = start + config.LESSONS_PER_PAGE;
+    const pageItems = filtered.slice(start, end);
+
+    // 4. Render
+    const listEl = document.querySelector('.lesson-list');
+    if (pageItems.length === 0) {
+        listEl.innerHTML = `<p class="no-results">No lessons found. Try adjusting your search or filters.</p>`;
+    } else {
+        listEl.innerHTML = pageItems.map(l => {
+            const len = getLessonLength(l);
+            const wordCount = l.words ? l.words.length : Math.round(len / 5);
+            const lenDisplay = `≈ ${len} chars / ${wordCount} words`;
+
+            // Default to true if complexity tags are missing
+            const tags = l.tags?.complexity ?? { caps: true, punct: true };
+
+            return `<div class="lesson-item" data-id="${l.id}" data-type="${currentType}">
+                <div class="lesson-icon">${THEME_ICONS[l.theme] || '📝'}</div>
+                <div class="lesson-details">
+                    <b>${l.title || l.name}</b>
+                    <div class="lesson-meta">
+                        <span class="meta-chip">${l.theme}</span>
+                        <span class="meta-chip">${lenDisplay}</span>
+                        ${tags.caps ? '<span class="meta-chip" title="Includes capital letters">Aa</span>' : ''}
+                        ${tags.punct ? '<span class="meta-chip" title="Includes punctuation">.,!</span>' : ''}
+                    </div>
+                </div>
+            </div>`;
+        }).join('');
+    }
+
+    renderPaginationControls(totalPages);
+    listEl.classList.remove('loading');
+}
+
+
+/**
+ * Renders the pagination controls for the lesson list.
+ * @param {number} totalPages - The total number of pages.
+ */
+function renderPaginationControls(totalPages) {
+    const { currentPage } = lessonPickerState;
+    const container = document.querySelector('.pagination-controls');
+    
+    if (totalPages <= 1) {
+        container.innerHTML = '';
+        return;
+    }
+
+    container.innerHTML = `
+        <button id="prev-page-btn" class="button button-secondary" ${currentPage === 1 ? 'disabled' : ''}>Previous</button>
+        <span>Page ${currentPage} of ${totalPages}</span>
+        <button id="next-page-btn" class="button button-secondary" ${currentPage === totalPages ? 'disabled' : ''}>Next</button>
+    `;
+
+    document.getElementById('prev-page-btn')?.addEventListener('click', () => {
+        if (lessonPickerState.currentPage > 1) {
+            lessonPickerState.currentPage--;
+            renderLessonList({ PASSAGES: [], WORDSETS: [], ...window.StoryKeys.DATA }); // Re-render
+        }
+    });
+
+    document.getElementById('next-page-btn')?.addEventListener('click', () => {
+        if (lessonPickerState.currentPage < totalPages) {
+            lessonPickerState.currentPage++;
+            renderLessonList({ PASSAGES: [], WORDSETS: [], ...window.StoryKeys.DATA }); // Re-render
+        }
+    });
+}
+
+
+/**
+ * Public function to update the lesson picker state and trigger a re-render.
+ * @param {object} updates - An object containing state updates.
+ */
+export function updateLessonPicker(updates, DATA) {
+    Object.assign(lessonPickerState, updates);
+    renderLessonList(DATA);
+}
+
+
+/**
+ * Resets the lesson picker state to its defaults.
+ * @param {string} defaultStage - The default stage from settings.
+ */
+export function resetLessonPickerState(defaultStage) {
+    lessonPickerState = {
+        searchTerm: '',
+        sortKey: config.DEFAULT_SORT_KEY,
+        currentPage: 1,
+        currentType: 'passage',
+        currentStage: defaultStage
+    };
 }
 
 

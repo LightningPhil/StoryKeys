@@ -1,19 +1,20 @@
 /**
  * @file main.js
- * @description Main application controller for the StoryKeys typing tutor.
+ * @description Main application controller for the StoryKeys typing tutor. (Version 8.0 - Stage 2)
  * This file initializes the app, manages state, and wires up event listeners,
  * delegating logic to imported modules.
  */
 
 // --- MODULE IMPORTS ---
-import { DATA, loadAllData } from './dataLoader.js';
-import { applySettings, getScreenHtml, getModalHtml, renderLessonList, triggerConfetti, toast } from './ui.js';
+import { config } from './config.js';
+import { DATA, loadInitialData, loadStageData } from './dataLoader.js';
+import { applySettings, getScreenHtml, getModalHtml, updateLessonPicker, resetLessonPickerState, triggerConfetti, toast } from './ui.js';
 import { startSession, endSession, startFocusDrill } from './lessons.js';
 import { sha256Hex, debounce } from './utils.js';
 import { handleTypingInput, calculateVisualLines } from './keyboard.js';
 
 'use strict';
-const APP_VERSION = "7.0.0";
+const APP_VERSION = "8.0.0";
 const SCHEMA_VERSION = 1;
 
 // --- 1. STATE MANAGEMENT ---
@@ -39,8 +40,6 @@ function loadState() {
         state.sessions = parsed.sessions || [];
     } catch (e) {
         console.error("Failed to parse state from localStorage:", e);
-        // Could clear the broken state here if desired:
-        // localStorage.removeItem('storykeys_state');
     }
 }
 
@@ -63,6 +62,12 @@ function showModal(modalName) {
     state.ui.lastFocus = document.activeElement;
     state.ui.modal = modalName;
     modalContainer.innerHTML = getModalHtml(modalName, state, DATA);
+    
+    // Reset lesson picker state every time it's opened
+    if (modalName === 'lessonPicker') {
+        resetLessonPickerState(state.settings.defaultStage);
+    }
+
     bindModalEvents(modalName);
     const modal = modalContainer.querySelector('.modal');
     modal.classList.add('active');
@@ -95,14 +100,27 @@ function bindAppEvents() {
 
 function bindScreenEvents(screenName) {
     if (screenName === 'home') {
-        document.getElementById('start-random-btn').addEventListener('click', () => {
-            const pool = DATA.PASSAGES.filter(l => l.stage === state.settings.defaultStage);
-            if (pool.length > 0) {
-                const lesson = { type: 'passage', data: pool[Math.floor(Math.random() * pool.length)] };
-                startSession(lesson, state, showScreen);
-            } else {
-                toast(`No passages found for stage ${state.settings.defaultStage}.`);
+        document.getElementById('start-random-btn').addEventListener('click', async () => {
+            const stage = state.settings.defaultStage;
+            await loadStageData(stage); // Ensure data is loaded
+            
+            const pool = DATA.PASSAGES.filter(l => l.stage === stage);
+            if (pool.length === 0) {
+                toast(`No passages found for stage ${stage}. Try another stage.`);
+                return;
             }
+
+            // Smarter Randomiser Logic
+            const recentIds = new Set(state.sessions.slice(-config.RANDOMISER_HISTORY_LENGTH).map(s => s.contentId));
+            let availableLessons = pool.filter(l => !recentIds.has(l.id));
+
+            // If all lessons in the pool have been played recently, fall back to the full pool
+            if (availableLessons.length === 0) {
+                availableLessons = pool;
+            }
+
+            const lessonData = availableLessons[Math.floor(Math.random() * availableLessons.length)];
+            startSession({ type: 'passage', data: lessonData }, state, showScreen);
         });
         document.getElementById('browse-lessons-btn').addEventListener('click', () => showModal('lessonPicker'));
     }
@@ -165,11 +183,9 @@ function bindModalEvents(modalName) {
     const modalEl = modalContainer.querySelector('.modal');
     const contentEl = modalEl.querySelector('.modal-content');
 
-    // Close button and background click
     modalEl.querySelector('#close-modal-btn')?.addEventListener('click', closeModal);
     modalEl.addEventListener('click', e => { if (e.target === modalEl) closeModal(); });
     
-    // Focus trapping for accessibility
     const focusables = Array.from(contentEl.querySelectorAll('button, [href], input, select, textarea, [tabindex]:not([tabindex="-1"])'));
     if (focusables.length > 0) {
         const first = focusables[0], last = focusables[focusables.length - 1];
@@ -183,27 +199,55 @@ function bindModalEvents(modalName) {
 
     if (modalName === 'lessonPicker') {
         const stageFilter = modalContainer.querySelector('.stage-filter');
-        modalContainer.querySelectorAll('.tab-button, .stage-filter .button').forEach(b => b.addEventListener('click', (e) => {
-            const group = e.target.closest('.button-group, .tabs');
-            group.querySelector('.active').classList.remove('active');
+        const searchInput = document.getElementById('search-input');
+        const sortSelect = document.getElementById('sort-select');
+        const lessonListEl = modalContainer.querySelector('.lesson-list');
+        
+        const handleFilterChange = async (updates) => {
+            lessonListEl.classList.add('loading');
+            if (updates.currentStage) {
+                await loadStageData(updates.currentStage);
+            }
+            // Use a small timeout to let the loading class apply before heavy filtering/sorting
+            setTimeout(() => updateLessonPicker(updates, DATA), 50);
+        };
+        
+        modalContainer.querySelectorAll('.tab-button').forEach(b => b.addEventListener('click', (e) => {
+            modalContainer.querySelector('.tab-button.active').classList.remove('active');
             e.target.classList.add('active');
-            renderLessonList(state, DATA);
+            handleFilterChange({ currentType: e.target.dataset.type, currentPage: 1 });
         }));
-        modalContainer.querySelector('.lesson-list').addEventListener('click', (e) => {
+
+        stageFilter.querySelectorAll('.button').forEach(b => b.addEventListener('click', (e) => {
+            stageFilter.querySelector('.active').classList.remove('active');
+            e.target.classList.add('active');
+            handleFilterChange({ currentStage: e.target.dataset.stage, currentPage: 1 });
+        }));
+
+        searchInput.addEventListener('input', debounce(() => {
+            handleFilterChange({ searchTerm: searchInput.value, currentPage: 1 });
+        }, 300));
+
+        sortSelect.addEventListener('change', () => {
+            handleFilterChange({ sortKey: sortSelect.value, currentPage: 1 });
+        });
+
+        lessonListEl.addEventListener('click', (e) => {
             const item = e.target.closest('.lesson-item');
             if (item) {
                 const { id, type } = item.dataset;
                 const pool = type === 'passage' ? DATA.PASSAGES : DATA.WORDSETS;
                 const lessonData = pool.find(l => l.id === id);
                 if (lessonData) {
-                    const lesson = { type, data: lessonData, withTimer: modalContainer.querySelector('#option-timer').checked };
                     closeModal();
-                    startSession(lesson, state, showScreen);
+                    startSession({ type, data: lessonData }, state, showScreen);
                 }
             }
         });
+
+        // Initial load and render
         stageFilter.querySelector(`[data-stage="${state.settings.defaultStage}"]`).classList.add('active');
-        renderLessonList(state, DATA);
+        handleFilterChange({});
     }
     if (modalName === 'settings') {
         const s = state.settings;
@@ -214,6 +258,7 @@ function bindModalEvents(modalName) {
         document.getElementById('setting-lockstep').checked = s.lockstepDefault;
         document.getElementById('setting-focusline').checked = s.focusLineDefault;
         document.getElementById('setting-keyboard').checked = s.keyboardHintDefault;
+        document.getElementById('setting-default-stage').value = s.defaultStage;
         document.getElementById('lh-val').textContent = s.lineHeight;
         document.getElementById('ls-val').textContent = `+${s.letterSpacing}%`;
 
@@ -228,6 +273,7 @@ function bindModalEvents(modalName) {
             s.lockstepDefault = document.getElementById('setting-lockstep').checked;
             s.focusLineDefault = document.getElementById('setting-focusline').checked;
             s.keyboardHintDefault = document.getElementById('setting-keyboard').checked;
+            s.defaultStage = document.getElementById('setting-default-stage').value;
             
             const newPin = document.getElementById('setting-pin').value;
             if (/^\d{4}$/.test(newPin)) s.pin = await sha256Hex(newPin);
@@ -274,32 +320,30 @@ function bindModalEvents(modalName) {
     }
 }
 
-
 // --- 5. APP INITIALIZATION ---
 async function init() {
     const loadingOverlay = document.getElementById('loading-overlay');
     const appContainer = document.getElementById('app-container');
 
     try {
-        // Await the data loading process
-        await loadAllData();
-
-        // Once data is loaded, proceed with the app setup
+        await loadInitialData();
         loadState();
         applySettings(state.settings, state.progress);
         showScreen('home');
         bindAppEvents();
 
-        // Hide loading screen and show the app
+        // Pass a reference to the DATA object to a global scope for the pagination controls
+        // This is a small workaround to avoid complex event bubbling or state management libraries
+        window.StoryKeys = { DATA };
+
         loadingOverlay.style.opacity = '0';
         appContainer.style.display = 'block';
         setTimeout(() => loadingOverlay.style.display = 'none', 300);
 
     } catch (error) {
-        // If data loading fails, show an error message
         console.error("Initialization failed:", error);
         const errorEl = document.getElementById('loading-error');
-        errorEl.textContent = "Data failed to load. Please check the data files and your connection, then refresh the page.";
+        errorEl.textContent = "Data failed to load. Please check your connection and refresh the page.";
         errorEl.style.display = 'block';
     }
 }

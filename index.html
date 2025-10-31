@@ -6,7 +6,7 @@
     <title>StoryKeys</title>
     <!--
       StoryKeys: A dyslexia-friendly typing app.
-      Version 7.0: Modular Architecture.
+      Version 8.0: Feature Enhancements (Stage 2).
       All data is stored locally in your browser. Nothing is sent to a server.
     -->
     <style>
@@ -39,6 +39,7 @@
         .button-primary:hover { opacity: 0.85; }
         .button-secondary { background-color: var(--color-subtle-bg); border-color: var(--color-border); color: var(--color-text); }
         .button-secondary:hover { background-color: var(--color-border); }
+        .button:disabled { opacity: 0.5; cursor: not-allowed; }
         .button-group { display: flex; gap: 1rem; flex-wrap: wrap; }
         .icon-button { background: none; border: none; cursor: pointer; padding: 0.5rem; border-radius: 50%; display: flex; align-items: center; justify-content: center; }
         .icon-button:hover { background-color: var(--color-subtle-bg); }
@@ -92,8 +93,8 @@
         .metric-item .value { font-size: 2.5rem; font-weight: bold; }
         .summary-feedback ul { list-style-type: none; padding: 0; margin: 0; display: flex; flex-wrap: wrap; gap: 0.5rem; }
         .summary-feedback li { background-color: var(--color-subtle-bg); padding: 0.25rem 0.75rem; border-radius: 1rem; }
-        .badge-earned { position: relative; border: 2px solid #f59e0b; padding: 1rem; text-align: center; border-radius: var(--border-radius); background-color: var(--color-subtle-bg); overflow: hidden; animation: badge-pulse 1s; }
-        @keyframes badge-pulse { 0% { transform: scale(1); } 50% { transform: scale(1.05); } 100% { transform: scale(1); } }
+        .badge-earned { position: relative; border: 2px solid #f59e0b; padding: 1rem; text-align: center; border-radius: var(--border-radius); background-color: var(--color-subtle-bg); overflow: hidden; animation: badge-pulse 1.5s ease-out; }
+        @keyframes badge-pulse { 0% { transform: scale(1); box-shadow: 0 0 0 0 rgba(245, 158, 11, 0.7); } 30% { transform: scale(1.05); } 60% { transform: scale(1); box-shadow: 0 0 0 15px rgba(245, 158, 11, 0); } 100% { transform: scale(1); } }
         
         /* --- KEYBOARD HINT --- */
         #keyboard-hint { margin-top: 2rem; padding: 0.5rem; background: var(--color-subtle-bg); border-radius: var(--border-radius); user-select: none; }
@@ -107,6 +108,15 @@
         @keyframes confetti-fall { 0% { transform: translateY(-100px) rotate(0deg); opacity: 1; } 100% { transform: translateY(100px) rotate(360deg); opacity: 0; } }
         .toast { position:fixed; bottom:1rem; left:50%; transform:translateX(-50%); background:var(--color-text); color:var(--color-bg); padding:.5rem 1rem; border-radius:999px; z-index: 101; }
         
+        /* --- STAGE 2: LESSON PICKER ENHANCEMENTS --- */
+        .search-sort-container { display: flex; gap: 1rem; margin-bottom: 1.5rem; flex-wrap: wrap; }
+        .search-input { flex-grow: 1; font-size: 1rem; padding: 0.6rem 1rem; border: 2px solid var(--color-border); border-radius: var(--border-radius); background-color: var(--color-subtle-bg); }
+        .search-input:focus { border-color: var(--color-accent); background-color: var(--color-card-bg); outline: none; }
+        .sort-select { font-size: 1rem; padding: 0.6rem; border: 2px solid var(--color-border); border-radius: var(--border-radius); background-color: var(--color-subtle-bg); cursor: pointer; }
+        .pagination-controls { display: flex; justify-content: space-between; align-items: center; margin-top: 1.5rem; padding-top: 1rem; border-top: 1px solid var(--color-border); }
+        .lesson-list.loading { opacity: 0.5; transition: opacity 150ms; }
+        .lesson-list .no-results { text-align: center; opacity: 0.7; padding: 2rem; }
+
         /* --- POLISHED MODAL STYLES --- */
         .tabs { display: flex; border-bottom: 1px solid var(--color-border); margin-bottom: 1.5rem; }
         .tab-button { padding: 0.75rem 1rem; border: none; background: none; cursor: pointer; font-size: 1rem; border-bottom: 3px solid transparent; color: var(--color-text); opacity: 0.6; }
