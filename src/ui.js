@@ -133,7 +133,7 @@ export function getScreenHtml(screenName, state, DATA) {
                         <button id="back-to-home-btn" class="icon-button" title="Back to Home"><svg viewBox="0 0 24 24"><path d="M10 20v-6h4v6h5v-8h3L12 3 2 12h3v8z"></path></svg></button>
                         <div style="text-align: center; flex-grow: 1;"><h2>${state.runtime.lesson.data.title || state.runtime.lesson.data.name}</h2></div>
                         <div class="button-group">
-                            ${state.runtime.flags.timer ? `<div id="timer-chip" class="timer-chip">--:--</div>` : ''}
+                            ${state.runtime.flags.showTimerChip ? `<div id="timer-chip" class="timer-chip">--:--</div>` : ''}
                             <label class="toggle-switch">${DATA.COPY.lockstepOn}<input type="checkbox" id="lockstep-toggle" ${state.runtime.flags.lockstep ? 'checked' : ''}><span class="slider"></span></label>
                             <label class="toggle-switch">${DATA.COPY.focusLineOn}<input type="checkbox" id="focusline-toggle" ${state.runtime.flags.focusLine ? 'checked' : ''}><span class="slider"></span></label>
                         </div>
@@ -145,14 +145,10 @@ export function getScreenHtml(screenName, state, DATA) {
                 </div>
             </div>`;
         case 'summary':
-            const { accuracy, durationSec, errors, netWPM, hardestKeys, trickyWords, newBadges, isDrill } = state.runtime.summaryResults;
-            const allowWPM = () => {
-                if (state.runtime.flags.timer) return true;
-                const recent = state.sessions.slice(-3);
-                const count95 = recent.filter(s => s.accuracy >= 95).length;
-                return count95 >= 2 && accuracy >= 95;
-            };
-            const showWpm = allowWPM();
+            const { accuracy, durationSec, errors, netWPM, grossWPM, hardestKeys, trickyWords, newBadges, isDrill } = state.runtime.summaryResults;
+            const wpmLabel = DATA.COPY.metricWPM || DATA.COPY.metricNetWPM || 'Words per minute';
+            const safeNet = typeof netWPM === 'number' ? netWPM : '—';
+            const safeGross = typeof grossWPM === 'number' ? grossWPM : '—';
             const drillBtnHtml = !isDrill && (hardestKeys.length > 0 || trickyWords.length > 0) ? `<button id="start-drill-btn" class="button button-secondary">${DATA.COPY.summaryDrill}</button>` : '';
             const prettyKeyName = (k) => k === ' ' ? 'Space' : k;
             return `
@@ -162,7 +158,7 @@ export function getScreenHtml(screenName, state, DATA) {
                     ${newBadges.map(id => { const badge = DATA.BADGES.find(b => b.id === id); return `<div class="badge-earned"><h3>Badge Earned: ${badge.label}!</h3><p>${badge.desc}</p></div>`; }).join('')}
                     <div class="summary-metrics">
                         <div class="metric-item"><h3>${DATA.COPY.metricAccuracy}</h3><div class="value">${accuracy}%</div></div>
-                        ${showWpm ? `<div class="metric-item"><h3>${DATA.COPY.metricNetWPM}</h3><div class="value">${netWPM}</div></div>` : ''}
+                        <div class="metric-item"><h3>${wpmLabel}</h3><div class="value">${safeNet}</div><p style="margin-top:0.5rem; font-size:0.85rem; opacity:0.7;">(${safeGross} gross)</p></div>
                         <div class="metric-item"><h3>${DATA.COPY.metricTime}</h3><div class="value">${durationSec}s</div></div>
                         <div class="metric-item"><h3>${DATA.COPY.metricErrors}</h3><div class="value">${errors}</div></div>
                     </div>
@@ -245,6 +241,7 @@ export function getModalHtml(modalName, state, DATA) {
                     <div class="setting-item"><div><b>Lockstep Default</b><p>Prevent errors before they are typed.</p></div><label class="toggle-switch"><input type="checkbox" id="setting-lockstep"><span class="slider"></span></label></div>
                     <div class="setting-item"><div><b>Focus Line Default</b><p>Highlight the current line of text.</p></div><label class="toggle-switch"><input type="checkbox" id="setting-focusline"><span class="slider"></span></label></div>
                     <div class="setting-item"><div><b>Keyboard Hint Default</b><p>Show an on-screen keyboard guide.</p></div><label class="toggle-switch"><input type="checkbox" id="setting-keyboard"><span class="slider"></span></label></div>
+                    <div class="setting-item"><div><b>Timer Display</b><p>Show a timer chip during typing sessions.</p></div><label class="toggle-switch"><input type="checkbox" id="setting-timer-display"><span class="slider"></span></label></div>
                     <div class="setting-item"><div><b>Default Stage</b><p>The stage used for 'Quick Start'.</p></div><select id="setting-default-stage" class="button button-secondary"><option value="KS1">KS1</option><option value="KS2">KS2</option><option value="KS3">KS3</option><option value="KS4">KS4</option></select></div>
                 </details>
                 <details class="settings-section">
@@ -261,7 +258,10 @@ export function getModalHtml(modalName, state, DATA) {
                 <div class="modal-header"><h2>Parent Glance</h2>${closeModalBtn}</div>
                 <h3>This Week</h3><p>Sessions: ${weeklySessions.length} | Avg. Accuracy: ${avgAccuracy}%</p>
                 <h3>All Time</h3><p>Total Minutes: ${Math.round(state.progress.minutesTotal)}</p>
-                <h3>Recent Sessions</h3><div style="max-height: 200px; overflow-y: auto; border: 1px solid var(--color-border); padding: 0.5rem; border-radius: var(--border-radius);">${state.sessions.slice(-10).reverse().map(s => `<p style="font-size: 0.9rem; margin-bottom: 0.5rem;">${new Date(s.ts).toLocaleString()}: ${s.accuracy}% acc</p>`).join('') || '<p>No sessions yet.</p>'}</div>
+                <h3>Recent Sessions</h3><div style="max-height: 200px; overflow-y: auto; border: 1px solid var(--color-border); padding: 0.5rem; border-radius: var(--border-radius);">${state.sessions.slice(-10).reverse().map(s => {
+                    const wpmText = typeof s.netWPM === 'number' ? `${s.netWPM} wpm` : '– wpm';
+                    return `<p style="font-size: 0.9rem; margin-bottom: 0.5rem;">${new Date(s.ts).toLocaleString()}: ${s.accuracy}% acc • ${wpmText}</p>`;
+                }).join('') || '<p>No sessions yet.</p>'}</div>
                 <div class="button-group" style="margin-top: 1.5rem;"><button id="export-btn" class="button button-secondary">Export Data</button><button id="clear-data-btn" class="button" style="background-color: #c12121; color: white;">Clear All Data</button></div>
             </div></div>`;
         case 'pin': return `<div class="modal"><div class="modal-content" style="text-align: center;"><h2>Enter PIN</h2><input type="password" id="pin-input" maxlength="4" style="text-align: center; font-size: 2rem; width:100px; margin-bottom:1rem;"><br><button id="pin-submit-btn" class="button button-primary">Unlock</button></div></div>`;

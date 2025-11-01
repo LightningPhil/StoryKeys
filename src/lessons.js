@@ -20,6 +20,8 @@ export function startSession(lesson, state, showScreen) {
     const sourceText = lesson.data.text || lesson.data.words.join(' ');
     const targetText = transformText(sourceText);
 
+    const timerCountdown = isDrill || lesson.withTimer;
+    const showTimerChip = state.settings.showTimerDisplay;
     state.runtime = {
         lesson,
         targetText,
@@ -31,7 +33,9 @@ export function startSession(lesson, state, showScreen) {
             lockstep: state.settings.lockstepDefault,
             focusLine: state.settings.focusLineDefault,
             keyboardHint: state.settings.keyboardHintDefault,
-            timer: isDrill || lesson.withTimer,
+            timer: timerCountdown || showTimerChip,
+            countdownTimer: timerCountdown,
+            showTimerChip,
             punct: lesson.data.tags?.complexity?.punct ?? true
         },
         isDrill,

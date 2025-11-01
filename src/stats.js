@@ -54,12 +54,15 @@ export function calculateMetrics(finalInput, runtime) {
     const grossWPM = wordsTyped / (durationSec / 60);
     // Net WPM penalizes for uncorrected errors.
     const netWPM = grossWPM - (finalErrors / 5) / (durationSec / 60);
+    const roundedGross = Math.max(0, Math.round(grossWPM));
+    const roundedNet = Math.max(0, Math.round(netWPM));
 
     return {
         accuracy: accuracy,
         durationSec: parseFloat(durationSec.toFixed(1)),
         errors: finalErrors,
-        netWPM: Math.max(0, Math.round(netWPM)),
+        netWPM: roundedNet,
+        grossWPM: roundedGross,
         hardestKeys: Object.entries(hardestKeys).sort(([, a], [, b]) => b - a).slice(0, 3).map(([k]) => k),
         trickyWords: getTrickyWords(targetText, finalInput).slice(0, 3)
     };

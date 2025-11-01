@@ -9,6 +9,7 @@
     "focusLineOn": "Focus Line",
     "metricAccuracy": "Accuracy",
     "metricNetWPM": "Net WPM",
+    "metricWPM": "Words per minute",
     "metricTime": "Time",
     "metricErrors": "Errors",
     "nextKeyLabel": "Next:",
