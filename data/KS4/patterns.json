@@ -1,40 +1,142 @@
 [
     {
-        "id": "ks4_pattern_able_ible",
-        "stage": "KS4",
-        "name": "-able vs -ible (KS4)",
-        "items": [
-            "reliable",
-            "adorable",
-            "visible",
-            "possible",
-            "flexible",
-            "sensible",
-            "edible"
-        ],
-        "tags": {
-            "phonics": [
-                "-able/-ible"
-            ]
-        }
-    },
-    {
-        "id": "ks4_pattern_ance_ence",
-        "stage": "KS4",
-        "name": "-ance vs -ence (KS4)",
-        "items": [
-            "guidance",
-            "nuisance",
-            "relevance",
-            "absence",
-            "innocence",
-            "patience",
-            "silence"
-        ],
-        "tags": {
-            "phonics": [
-                "-ance/-ence"
-            ]
-        }
-    }
+    "id": "pattern_son_root_v1",
+    "stage": "KS4",
+    "name": "Latin Root 'son' – Sound and Harmony",
+    "items": ["sonnet", "dissonance", "consonance"],
+    "tags": { "phonics": ["ks4-etymology-son"] }
+  },
+  {
+    "id": "pattern_path_root_v1",
+    "stage": "KS4",
+    "name": "Greek Root 'path' – Feeling and Emotion",
+    "items": ["empathy", "apathetic", "pathos"],
+    "tags": { "phonics": ["ks4-etymology-path"] }
+  },
+  {
+    "id": "hamartia_root_v1",
+    "stage": "KS4",
+    "name": "Greek Root: hamartia (error)",
+    "items": ["hamartia", "hamartic", "hamartiology"],
+    "tags": { "phonics": ["ks4-etym-hamartia"] }
+  },
+  {
+    "id": "sol_root_v1",
+    "stage": "KS4",
+    "name": "Latin Root: sol (alone)",
+    "items": ["soliloquy", "solitude", "desolate"],
+    "tags": { "phonics": ["ks4-etym-sol"] }
+  },
+  {
+    "id": "ism_suffix_v1",
+    "stage": "KS4",
+    "name": "Suffix: -ism",
+    "items": ["capitalism", "communism", "imperialism"],
+    "tags": { "phonics": ["ks4-etym-ism"] }
+  },
+  {
+    "id": "front_root_v1",
+    "stage": "KS4",
+    "name": "Latin Root: front (forehead/face)",
+    "items": ["confrontation", "affront", "confront"],
+    "tags": { "phonics": ["ks4-etym-front"] }
+  },
+  {
+    "id": "gen_root_v1",
+    "stage": "KS4",
+    "name": "Greek Root: gen (birth/type)",
+    "items": ["pathogen", "carcinogen", "genetics"],
+    "tags": { "phonics": ["ks4-etym-gen"] }
+  },
+  {
+    "id": "vac_root_v1",
+    "stage": "KS4",
+    "name": "Latin Root: vac (empty)",
+    "items": ["vaccine", "vacuole", "evacuate"],
+    "tags": { "phonics": ["ks4-etym-vac"] }
+  },
+  {
+    "id": "tron_suffix_v1",
+    "stage": "KS4",
+    "name": "Suffix: -tron",
+    "items": ["electron", "proton", "neutron"],
+    "tags": { "phonics": ["ks4-etym-tron"] }
+  },
+  {
+    "id": "iso_root_v1",
+    "stage": "KS4",
+    "name": "Greek Root: iso (equal)",
+    "items": ["isotope", "isobar", "isomer"],
+    "tags": { "phonics": ["ks4-etym-iso"] }
+  },
+  {
+    "id": "trans_root_v1",
+    "stage": "KS4",
+    "name": "Latin Root: trans (across)",
+    "items": ["transfer", "transformer", "transverse"],
+    "tags": { "phonics": ["ks4-etym-trans"] }
+  },
+  {
+    "id": "ity_suffix_v1",
+    "stage": "KS4",
+    "name": "Suffix: -ity",
+    "items": ["electricity", "velocity", "resistivity"],
+    "tags": { "phonics": ["ks4-etym-ity"] }
+  },
+  {
+    "id": "pos_root_v1",
+    "stage": "KS4",
+    "name": "Latin Root: pos (place/put)",
+    "items": ["deposition", "juxtaposition", "superposition"],
+    "tags": { "phonics": ["ks4-etym-pos"] }
+  },
+  {
+    "id": "hydro_root_v1",
+    "stage": "KS4",
+    "name": "Greek Root: hydro (water)",
+    "items": ["hydraulic", "hydrology", "hydrolysis"],
+    "tags": { "phonics": ["ks4-etym-hydro"] }
+  },
+  {
+    "id": "ation_suffix_v1",
+    "stage": "KS4",
+    "name": "Suffix: -ation",
+    "items": ["inflation", "globalisation", "taxation"],
+    "tags": { "phonics": ["ks4-etym-ation"] }
+  },
+  {
+    "id": "equi_root_v1",
+    "stage": "KS4",
+    "name": "Latin Root: equi (equal)",
+    "items": ["equilibrium", "equity", "equidistant"],
+    "tags": { "phonics": ["ks4-etym-equi"] }
+  },
+  {
+    "id": "ithm_suffix_v1",
+    "stage": "KS4",
+    "name": "Suffix: -ithm",
+    "items": ["algorithm", "logarithm", "rhythm"],
+    "tags": { "phonics": ["ks4-etym-ithm"] }
+  },
+  {
+    "id": "bi_prefix_v1",
+    "stage": "KS4",
+    "name": "Prefix: bi (two)",
+    "items": ["binary", "bit", "bilingual"],
+    "tags": { "phonics": ["ks4-etym-bi"] }
+  },
+  {
+    "id": "pattern_sc_v1",
+    "stage": "KS4",
+    "name": "Challenging -sc- Words",
+    "items": ["conscience", "ascend", "discipline", "fascinate"],
+    "tags": { "phonics": ["ks4-sc"] }
+  },
+  {
+    "id": "pattern_ough_v1",
+    "stage": "KS4",
+    "name": "-ough Variations",
+    "items": ["thorough", "drought", "ought", "although"],
+    "tags": { "phonics": ["ks4-ough"] }
+  }
 ]

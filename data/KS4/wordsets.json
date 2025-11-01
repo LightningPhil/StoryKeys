@@ -1,103 +1,322 @@
 [
     {
-        "id": "ks4_connectors_academic_1",
-        "stage": "KS4",
-        "theme": "Academic",
-        "name": "Connectors (A) (KS4)",
-        "words": [
-            "however",
-            "therefore",
-            "consequently",
-            "moreover",
-            "nevertheless",
-            "furthermore"
-        ],
-        "tags": {
-            "complexity": {
-                "caps": true,
-                "punct": false
-            }
-        }
-    },
-    {
-        "id": "ks4_mythology_creatures_1",
-        "stage": "KS4",
-        "theme": "Myths",
-        "name": "Mythical Creatures (KS4)",
-        "words": [
-            "phoenix",
-            "centaur",
-            "minotaur",
-            "cyclops",
-            "gorgon",
-            "chimera",
-            "hydra"
-        ],
-        "tags": {
-            "complexity": {
-                "caps": true,
-                "punct": false
-            }
-        }
-    },
-    {
-        "id": "ks4_science_biology_1",
-        "stage": "KS4",
-        "theme": "Science snips",
-        "name": "Biology Terms (KS4)",
-        "words": [
-            "organism",
-            "photosynthesis",
-            "respiration",
-            "ecosystem",
-            "nucleus",
-            "chromosome"
-        ],
-        "tags": {
-            "complexity": {
-                "caps": true,
-                "punct": false
-            }
-        }
-    },
-    {
-        "id": "ks4_literature_terms_1",
-        "stage": "KS4",
-        "theme": "Academic",
-        "name": "Literary Terms (KS4)",
-        "words": [
-            "metaphor",
-            "simile",
-            "onomatopoeia",
-            "alliteration",
-            "protagonist",
-            "symbolism"
-        ],
-        "tags": {
-            "complexity": {
-                "caps": true,
-                "punct": false
-            }
-        }
-    },
-    {
-        "id": "ks4_tricky_spellings_1",
-        "stage": "KS4",
-        "theme": "Statutory",
-        "name": "Tricky Spellings (A) (KS4)",
-        "words": [
-            "accommodate",
-            "committee",
-            "embarrass",
-            "necessary",
-            "privilege",
-            "rhythm"
-        ],
-        "tags": {
-            "complexity": {
-                "caps": false,
-                "punct": false
-            }
-        }
-    }
+    "id": "ks4_poetry_son_words_v1",
+    "stage": "KS4",
+    "theme": "Analysing Poetry",
+    "name": "Sound-Based Vocabulary (Latin Root 'son')",
+    "words": ["sonnet", "resonance", "dissonant", "consonant", "sonorous"],
+    "tags": { "complexity": { "caps": true, "punct": false } }
+  },
+  {
+    "id": "ks4_poetry_path_words_v1",
+    "stage": "KS4",
+    "theme": "Analysing Poetry",
+    "name": "Emotion Vocabulary (Greek Root 'path')",
+    "words": ["empathy", "sympathetic", "apathetic", "antipathy", "pathos"],
+    "tags": { "complexity": { "caps": true, "punct": false } }
+  },
+  {
+    "id": "ks4_poetry_structural_terms_v1",
+    "stage": "KS4",
+    "theme": "Analysing Poetry",
+    "name": "Poetic Structural Terms",
+    "words": ["caesura", "enjambment", "volta", "quatrain", "iambic"],
+    "tags": { "complexity": { "caps": true, "punct": false } }
+  },
+  {
+    "id": "ks4_poetry_analysis_verbs_v1",
+    "stage": "KS4",
+    "theme": "Analysing Poetry",
+    "name": "Literary Analysis Verbs",
+    "words": ["connotes", "juxtaposes", "subverts", "symbolises", "evokes"],
+    "tags": { "complexity": { "caps": true, "punct": false } }
+  },
+  {
+    "id": "ks4_shakespeare_hamartia_v1",
+    "stage": "KS4",
+    "theme": "Shakespearean Tragedy",
+    "name": "Hamartia Root Vocabulary",
+    "words": ["hamartia", "hamartic", "hamartiology"],
+    "tags": { "complexity": { "caps": true, "punct": false } }
+  },
+  {
+    "id": "ks4_shakespeare_sol_v1",
+    "stage": "KS4",
+    "theme": "Shakespearean Tragedy",
+    "name": "Sol Root Vocabulary",
+    "words": ["soliloquy", "solitude", "desolate"],
+    "tags": { "complexity": { "caps": true, "punct": false } }
+  },
+  {
+    "id": "ks4_shakespeare_tragic-conventions_v1",
+    "stage": "KS4",
+    "theme": "Shakespearean Tragedy",
+    "name": "Tragic Conventions",
+    "words": ["hubris", "catharsis", "anagnorisis"],
+    "tags": { "complexity": { "caps": true, "punct": false } }
+  },
+  {
+    "id": "ks4_shakespeare_key-vocab_v1",
+    "stage": "KS4",
+    "theme": "Shakespearean Tragedy",
+    "name": "Key Shakespearean Vocabulary",
+    "words": ["aside", "motif", "iambic"],
+    "tags": { "complexity": { "caps": true, "punct": false } }
+  },
+  {
+    "id": "ks4_coldwar_ism-vocab_v1",
+    "stage": "KS4",
+    "theme": "The Cold War",
+    "name": "Ism Vocabulary",
+    "words": ["communism", "capitalism", "imperialism"],
+    "tags": { "complexity": { "caps": true, "punct": false } }
+  },
+  {
+    "id": "ks4_coldwar_front-vocab_v1",
+    "stage": "KS4",
+    "theme": "The Cold War",
+    "name": "Front Root Vocabulary",
+    "words": ["confrontation", "affront", "frontier"],
+    "tags": { "complexity": { "caps": true, "punct": false } }
+  },
+  {
+    "id": "ks4_coldwar_terms_v1",
+    "stage": "KS4",
+    "theme": "The Cold War",
+    "name": "Cold War Terminology",
+    "words": ["superpower", "ideology", "détente"],
+    "tags": { "complexity": { "caps": true, "punct": false } }
+  },
+  {
+    "id": "ks4_coldwar_alliances_v1",
+    "stage": "KS4",
+    "theme": "The Cold War",
+    "name": "Key Treaties & Alliances",
+    "words": ["NATO", "Warsaw Pact", "SALT"],
+    "tags": { "complexity": { "caps": true, "punct": false } }
+  },
+  {
+    "id": "ks4_medicine_gen-vocab_v1",
+    "stage": "KS4",
+    "theme": "Medicine & Health",
+    "name": "Gen Root Vocabulary",
+    "words": ["pathogen", "carcinogen", "genetics"],
+    "tags": { "complexity": { "caps": true, "punct": false } }
+  },
+  {
+    "id": "ks4_medicine_vac-vocab_v1",
+    "stage": "KS4",
+    "theme": "Medicine & Health",
+    "name": "Vac Root Vocabulary",
+    "words": ["vaccine", "vacuole", "evacuate"],
+    "tags": { "complexity": { "caps": true, "punct": false } }
+  },
+  {
+    "id": "ks4_medicine_immune-system_v1",
+    "stage": "KS4",
+    "theme": "Medicine & Health",
+    "name": "The Immune System",
+    "words": ["antibody", "lymphocyte", "phagocyte"],
+    "tags": { "complexity": { "caps": true, "punct": false } }
+  },
+  {
+    "id": "ks4_medicine_non-communicable_v1",
+    "stage": "KS4",
+    "theme": "Medicine & Health",
+    "name": "Non-Communicable Diseases",
+    "words": ["diabetes", "cancer", "cardiovascular"],
+    "tags": { "complexity": { "caps": true, "punct": false } }
+  },
+  {
+    "id": "ks4_atomic_tron-vocab_v1",
+    "stage": "KS4",
+    "theme": "Atomic Structure",
+    "name": "Tron Suffix Vocabulary",
+    "words": ["electron", "proton", "neutron"],
+    "tags": { "complexity": { "caps": true, "punct": false } }
+  },
+  {
+    "id": "ks4_atomic_iso-vocab_v1",
+    "stage": "KS4",
+    "theme": "Atomic Structure",
+    "name": "Iso Root Vocabulary",
+    "words": ["isotope", "isobar", "isomer"],
+    "tags": { "complexity": { "caps": true, "punct": false } }
+  },
+  {
+    "id": "ks4_atomic_bonding-structure_v1",
+    "stage": "KS4",
+    "theme": "Atomic Structure",
+    "name": "Bonding & Structure",
+    "words": ["covalent", "ionic", "metallic"],
+    "tags": { "complexity": { "caps": true, "punct": false } }
+  },
+  {
+    "id": "ks4_atomic_radioactivity_v1",
+    "stage": "KS4",
+    "theme": "Atomic Structure",
+    "name": "Radioactivity Terms",
+    "words": ["alpha", "beta", "gamma"],
+    "tags": { "complexity": { "caps": true, "punct": false } }
+  },
+  {
+    "id": "ks4_energy_trans-vocab_v1",
+    "stage": "KS4",
+    "theme": "Energy & Electricity",
+    "name": "Trans Root Vocabulary",
+    "words": ["transfer", "transformer", "transverse"],
+    "tags": { "complexity": { "caps": true, "punct": false } }
+  },
+  {
+    "id": "ks4_energy_ity-vocab_v1",
+    "stage": "KS4",
+    "theme": "Energy & Electricity",
+    "name": "Ity Suffix Vocabulary",
+    "words": ["electricity", "velocity", "resistivity"],
+    "tags": { "complexity": { "caps": true, "punct": false } }
+  },
+  {
+    "id": "ks4_energy_components_v1",
+    "stage": "KS4",
+    "theme": "Energy & Electricity",
+    "name": "Electrical Components",
+    "words": ["diode", "thermistor", "ammeter"],
+    "tags": { "complexity": { "caps": true, "punct": false } }
+  },
+  {
+    "id": "ks4_energy_resources_v1",
+    "stage": "KS4",
+    "theme": "Energy & Electricity",
+    "name": "Energy Resources",
+    "words": ["renewable", "fossil fuels", "nuclear"],
+    "tags": { "complexity": { "caps": true, "punct": false } }
+  },
+  {
+    "id": "ks4_coasts_pos-vocab_v1",
+    "stage": "KS4",
+    "theme": "Coasts & Glaciation",
+    "name": "Pos Root Vocabulary",
+    "words": ["deposition", "juxtaposition", "superposition"],
+    "tags": { "complexity": { "caps": true, "punct": false } }
+  },
+  {
+    "id": "ks4_coasts_hydro-vocab_v1",
+    "stage": "KS4",
+    "theme": "Coasts & Glaciation",
+    "name": "Hydro Root Vocabulary",
+    "words": ["hydraulic", "hydrology", "hydrolysis"],
+    "tags": { "complexity": { "caps": true, "punct": false } }
+  },
+  {
+    "id": "ks4_coasts_coastal-landforms_v1",
+    "stage": "KS4",
+    "theme": "Coasts & Glaciation",
+    "name": "Coastal Landforms",
+    "words": ["headland", "spit", "arch"],
+    "tags": { "complexity": { "caps": true, "punct": false } }
+  },
+  {
+    "id": "ks4_coasts_glacial-landforms_v1",
+    "stage": "KS4",
+    "theme": "Coasts & Glaciation",
+    "name": "Glacial Landforms",
+    "words": ["moraine", "arete", "corrie"],
+    "tags": { "complexity": { "caps": true, "punct": false } }
+  },
+  {
+    "id": "ks4_econ_ation-vocab_v1",
+    "stage": "KS4",
+    "theme": "Economic Principles",
+    "name": "Ation Suffix Vocabulary",
+    "words": ["inflation", "globalisation", "taxation"],
+    "tags": { "complexity": { "caps": true, "punct": false } }
+  },
+  {
+    "id": "ks4_econ_equi-vocab_v1",
+    "stage": "KS4",
+    "theme": "Economic Principles",
+    "name": "Equi Root Vocabulary",
+    "words": ["equilibrium", "equity", "equidistant"],
+    "tags": { "complexity": { "caps": true, "punct": false } }
+  },
+  {
+    "id": "ks4_econ_supply-demand_v1",
+    "stage": "KS4",
+    "theme": "Economic Principles",
+    "name": "Supply & Demand",
+    "words": ["scarcity", "surplus", "demand"],
+    "tags": { "complexity": { "caps": true, "punct": false } }
+  },
+  {
+    "id": "ks4_econ_market-structures_v1",
+    "stage": "KS4",
+    "theme": "Economic Principles",
+    "name": "Market Structures",
+    "words": ["monopoly", "oligopoly", "competition"],
+    "tags": { "complexity": { "caps": true, "punct": false } }
+  },
+  {
+    "id": "ks4_cs_ithm-vocab_v1",
+    "stage": "KS4",
+    "theme": "Computer Science Fundamentals",
+    "name": "Ithm Suffix Vocabulary",
+    "words": ["algorithm", "logarithm", "rhythm"],
+    "tags": { "complexity": { "caps": true, "punct": false } }
+  },
+  {
+    "id": "ks4_cs_bi-vocab_v1",
+    "stage": "KS4",
+    "theme": "Computer Science Fundamentals",
+    "name": "Bi Prefix Vocabulary",
+    "words": ["binary", "bit", "bilingual"],
+    "tags": { "complexity": { "caps": true, "punct": false } }
+  },
+  {
+    "id": "ks4_cs_network-topologies_v1",
+    "stage": "KS4",
+    "theme": "Computer Science Fundamentals",
+    "name": "Network Topologies",
+    "words": ["star", "ring", "mesh"],
+    "tags": { "complexity": { "caps": true, "punct": false } }
+  },
+  {
+    "id": "ks4_cs_ethical-legal_v1",
+    "stage": "KS4",
+    "theme": "Computer Science Fundamentals",
+    "name": "Ethical & Legal Issues",
+    "words": ["privacy", "copyright", "malware"],
+    "tags": { "complexity": { "caps": true, "punct": false } }
+  },
+  {
+    "id": "ks4_statutory_sc_words_v1",
+    "stage": "KS4",
+    "theme": "Statutory",
+    "name": "Advanced -sc- Vocabulary",
+    "words": ["conscious", "ascension", "disciplinary", "fascination"],
+    "tags": { "complexity": { "caps": true, "punct": false } }
+  },
+  {
+    "id": "ks4_statutory_ough_words_v1",
+    "stage": "KS4",
+    "theme": "Statutory",
+    "name": "Advanced -ough Vocabulary",
+    "words": ["thought", "borough", "enough", "although"],
+    "tags": { "complexity": { "caps": true, "punct": false } }
+  },
+  {
+    "id": "ks4_statutory_misspelt_v1",
+    "stage": "KS4",
+    "theme": "Statutory",
+    "name": "Frequently Misspelt GCSE Words",
+    "words": ["separate", "accommodate", "occurrence", "definitely"],
+    "tags": { "complexity": { "caps": true, "punct": false } }
+  },
+  {
+    "id": "ks4_statutory_french_v1",
+    "stage": "KS4",
+    "theme": "Statutory",
+    "name": "Words with French Origins",
+    "words": ["liaison", "entrepreneur", "bourgeois", "chauffeur"],
+    "tags": { "complexity": { "caps": true, "punct": false } }
+  }
 ]
