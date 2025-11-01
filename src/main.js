@@ -19,7 +19,7 @@ const SCHEMA_VERSION = 1;
 
 // --- 1. STATE MANAGEMENT ---
 let state = {
-    settings: { font: 'default', lineHeight: 1.7, letterSpacing: 2, theme: 'cream', lockstepDefault: true, focusLineDefault: false, keyboardHintDefault: false, defaultStage: 'KS2', pin: null },
+    settings: { font: 'default', lineHeight: 1.7, letterSpacing: 2, theme: 'cream', lockstepDefault: true, focusLineDefault: false, keyboardHintDefault: false, showTimerDisplay: true, defaultStage: 'KS2', pin: null },
     progress: { minutesTotal: 0, wordsTotal: 0, badges: [], themesCompleted: {}, stagesCompleted: {}, lastPlayed: null, consecutiveDays: 0, completedPassages: [] },
     sessions: [],
     ui: { currentScreen: 'home', modal: null, lastFocus: null },
@@ -158,9 +158,11 @@ function bindScreenEvents(screenName) {
                 if (state.runtime.timer.paused) return;
                 const sessionEndCallback = (finalInput) => endSession(finalInput, state, DATA, showScreen, saveState);
 
-                if (state.runtime.isDrill) {
+                if (state.runtime.flags.countdownTimer) {
                     state.runtime.timer.remaining--;
-                    chip.textContent = `00:${String(state.runtime.timer.remaining).padStart(2, '0')}`;
+                    if (chip) {
+                        chip.textContent = `00:${String(state.runtime.timer.remaining).padStart(2, '0')}`;
+                    }
                     if (state.runtime.timer.remaining <= 0) {
                         clearInterval(state.runtime.timer.handle);
                         sessionEndCallback(document.getElementById('typing-input').value);
@@ -169,7 +171,9 @@ function bindScreenEvents(screenName) {
                     const sec = Math.floor((new Date() - state.runtime.startTime) / 1000);
                     const m = String(Math.floor(sec / 60)).padStart(2, '0');
                     const s = String(sec % 60).padStart(2, '0');
-                    chip.textContent = `${m}:${s}`;
+                    if (chip) {
+                        chip.textContent = `${m}:${s}`;
+                    }
                 }
             };
             state.runtime.timer.handle = setInterval(tick, 1000);
@@ -266,6 +270,7 @@ function bindModalEvents(modalName) {
         document.getElementById('setting-lockstep').checked = s.lockstepDefault;
         document.getElementById('setting-focusline').checked = s.focusLineDefault;
         document.getElementById('setting-keyboard').checked = s.keyboardHintDefault;
+        document.getElementById('setting-timer-display').checked = s.showTimerDisplay;
         document.getElementById('setting-default-stage').value = s.defaultStage;
         document.getElementById('lh-val').textContent = s.lineHeight;
         document.getElementById('ls-val').textContent = `+${s.letterSpacing}%`;
@@ -281,6 +286,7 @@ function bindModalEvents(modalName) {
             s.lockstepDefault = document.getElementById('setting-lockstep').checked;
             s.focusLineDefault = document.getElementById('setting-focusline').checked;
             s.keyboardHintDefault = document.getElementById('setting-keyboard').checked;
+            s.showTimerDisplay = document.getElementById('setting-timer-display').checked;
             s.defaultStage = document.getElementById('setting-default-stage').value;
             
             const newPin = document.getElementById('setting-pin').value;
