@@ -52,15 +52,20 @@ export function getScreenHtml(screenName, state, DATA) {
                     <h1>Welcome to StoryKeys</h1>
                     <p>Your calm and friendly space to practice typing.</p>
                 </div>
-                <div class="card home-card">
-                    <h2>Quick Start</h2>
-                    <p>Jump right into a random story from your stage to get you typing instantly.</p>
-                    <button id="start-random-btn" class="button button-primary" style="font-size: 1.2rem; padding: 1rem 2rem;">Begin a New Story</button>
+                <div id="new-story-card" class="card home-card">
+                    <h2>Start a New Story</h2>
+                    <p>Choose a Key Stage to begin a passage you haven't typed before.</p>
+                    <div class="button-group" style="flex-direction: column; align-items: stretch; gap: 0.75rem; margin-top: 1.5rem; max-width: 300px; margin-left: auto; margin-right: auto;">
+                        <button class="button button-primary" data-stage="KS1">New Key Stage 1 Story</button>
+                        <button class="button button-primary" data-stage="KS2">New Key Stage 2 Story</button>
+                        <button class="button button-primary" data-stage="KS3">New Key Stage 3 Story</button>
+                        <button class="button button-primary" data-stage="KS4">New Key Stage 4 Story</button>
+                    </div>
                 </div>
                 <div class="card home-card">
                     <h2>Explore the Library</h2>
-                    <p>Choose from a collection of passages, word sets, and phonics drills tailored to your learning stage.</p>
-                    <button id="browse-lessons-btn" class="button button-secondary">Browse Lessons</button>
+                    <p>Browse all content, repeat lessons, or choose word sets and drills.</p>
+                    <button id="browse-lessons-btn" class="button button-secondary">Browse All Lessons</button>
                 </div>
                 <div class="card progress-card">
                     <div class="progress-pet">${currentPet}</div>

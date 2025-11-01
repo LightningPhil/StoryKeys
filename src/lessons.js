@@ -62,6 +62,20 @@ export function endSession(finalInput, state, DATA, showScreen, saveState) {
     state.progress.wordsTotal += state.runtime.targetTextNorm.length / 5;
     state.progress.minutesTotal += results.durationSec / 60;
 
+    // --- NEW: Record completed passage ---
+    if (state.runtime.lesson.type === 'passage' && !state.runtime.isDrill) {
+        const lessonId = state.runtime.lesson.data.id;
+        // Ensure the completedPassages array exists
+        if (!state.progress.completedPassages) {
+            state.progress.completedPassages = [];
+        }
+        // Add the ID only if it's not already there
+        if (!state.progress.completedPassages.includes(lessonId)) {
+            state.progress.completedPassages.push(lessonId);
+        }
+    }
+    // --- END NEW ---
+
     if (!state.runtime.isDrill) {
         state.sessions.push({
             id: `sess_${Date.now()}`,

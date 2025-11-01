@@ -20,7 +20,7 @@ const SCHEMA_VERSION = 1;
 // --- 1. STATE MANAGEMENT ---
 let state = {
     settings: { font: 'default', lineHeight: 1.7, letterSpacing: 2, theme: 'cream', lockstepDefault: true, focusLineDefault: false, keyboardHintDefault: false, defaultStage: 'KS2', pin: null },
-    progress: { minutesTotal: 0, wordsTotal: 0, badges: [], themesCompleted: {}, stagesCompleted: {}, lastPlayed: null, consecutiveDays: 0 },
+    progress: { minutesTotal: 0, wordsTotal: 0, badges: [], themesCompleted: {}, stagesCompleted: {}, lastPlayed: null, consecutiveDays: 0, completedPassages: [] },
     sessions: [],
     ui: { currentScreen: 'home', modal: null, lastFocus: null },
     runtime: {},
@@ -100,28 +100,35 @@ function bindAppEvents() {
 
 function bindScreenEvents(screenName) {
     if (screenName === 'home') {
-        document.getElementById('start-random-btn').addEventListener('click', async () => {
-            const stage = state.settings.defaultStage;
-            await loadStageData(stage); // Ensure data is loaded
-            
-            const pool = DATA.PASSAGES.filter(l => l.stage === stage);
-            if (pool.length === 0) {
-                toast(`No passages found for stage ${stage}. Try another stage.`);
-                return;
+        // Use event delegation for the new story buttons
+        document.getElementById('new-story-card').addEventListener('click', async (e) => {
+            if (e.target.matches('[data-stage]')) {
+                const stage = e.target.dataset.stage;
+                
+                // Show a loading toast for a better UX, as this might take a moment
+                toast(`Finding a new ${stage} story...`);
+                await loadStageData(stage); // Ensure the data for this stage is loaded
+
+                const allPassagesForStage = DATA.PASSAGES.filter(p => p.stage === stage);
+                
+                // Create a Set of completed IDs for efficient lookup
+                const completedIds = new Set(state.progress.completedPassages || []);
+                
+                // Filter out any passages that have already been completed
+                const newPassages = allPassagesForStage.filter(p => !completedIds.has(p.id));
+
+                if (newPassages.length === 0) {
+                    // Handle the case where the user has completed everything
+                    toast(`Congratulations! You've finished all the new stories for ${stage}.`);
+                    return;
+                }
+
+                // Select a random passage from the remaining new ones
+                const lessonData = newPassages[Math.floor(Math.random() * newPassages.length)];
+                startSession({ type: 'passage', data: lessonData }, state, showScreen);
             }
-
-            // Smarter Randomiser Logic
-            const recentIds = new Set(state.sessions.slice(-config.RANDOMISER_HISTORY_LENGTH).map(s => s.contentId));
-            let availableLessons = pool.filter(l => !recentIds.has(l.id));
-
-            // If all lessons in the pool have been played recently, fall back to the full pool
-            if (availableLessons.length === 0) {
-                availableLessons = pool;
-            }
-
-            const lessonData = availableLessons[Math.floor(Math.random() * availableLessons.length)];
-            startSession({ type: 'passage', data: lessonData }, state, showScreen);
         });
+
         document.getElementById('browse-lessons-btn').addEventListener('click', () => showModal('lessonPicker'));
     }
     if (screenName === 'typing') {
