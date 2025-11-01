@@ -7,6 +7,50 @@ import { config } from './config.js';
 // These constants are UI-specific and belong here.
 const PET_LEVELS = ['💠', '🐣', '🐤', '🐔', '🦖', '🐉'];
 const THEME_ICONS = { "Animals": "🐾", "Silly Stories": "🤪", "Nature": "🌿", "Core": "📚", "Phonics": "🔤", "Statutory": "📜", "Science snips": "🔬", "Myths": "🦄", "Academic": "🎓", "History": "🏛️", "Geography": "🗺️" };
+const ABOUT_MARKDOWN = `**StoryKeys** is a calm typing companion for learners who benefit from gentle practice. It pairs curated stories with mindful drills so building muscle memory feels encouraging.
+
+This project is designed to respect privacy, celebrate small wins, and make it easy for teachers, parents, and independent learners to explore accessible typing journeys.`;
+const LICENSE_TEXT = `MIT License
+
+Copyright (c) 2025 Philip Leichauer
+
+Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files (the "Software"), to deal
+in the Software without restriction, including without limitation the rights
+to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+copies of the Software, and to permit persons to whom the Software is
+furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in all
+copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+SOFTWARE.`;
+
+function escapeHtml(str) {
+    return str
+        .replace(/&/g, '&amp;')
+        .replace(/</g, '&lt;')
+        .replace(/>/g, '&gt;')
+        .replace(/"/g, '&quot;')
+        .replace(/'/g, '&#39;');
+}
+
+function renderMarkdownBlock(md) {
+    const escaped = escapeHtml(md);
+    const formatted = escaped
+        .replace(/\*\*(.+?)\*\*/g, '<strong>$1</strong>')
+        .replace(/`(.+?)`/g, '<code>$1</code>');
+    return formatted
+        .split(/\n{2,}/)
+        .map(paragraph => `<p>${paragraph.replace(/\n/g, "<br>")}</p>`)
+        .join('');
+}
 
 // State specific to the lesson picker modal
 let lessonPickerState = {
@@ -147,6 +191,19 @@ export function getScreenHtml(screenName, state, DATA) {
 export function getModalHtml(modalName, state, DATA) {
     const closeModalBtn = `<button id="close-modal-btn" class="icon-button" title="Close"><svg viewBox="0 0 24 24"><path d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"></path></svg></button>`;
     switch (modalName) {
+        case 'about':
+            return `
+            <div class="modal"><div class="modal-content about-modal">
+                <div class="modal-header"><h2>StoryKeys</h2>${closeModalBtn}</div>
+                <div class="info-block">
+                    <h3>About StoryKeys</h3>
+                    <div class="markdown-block">${renderMarkdownBlock(ABOUT_MARKDOWN)}</div>
+                </div>
+                <div class="info-block">
+                    <h3>License</h3>
+                    <pre class="license-text">${escapeHtml(LICENSE_TEXT)}</pre>
+                </div>
+            </div></div>`;
         case 'lessonPicker':
             lessonPickerState.currentStage = state.settings.defaultStage;
             return `
