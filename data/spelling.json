@@ -4,31 +4,2495 @@
     "name": "KS1 Spelling: Friendly Creatures",
     "stage": "KS1",
     "theme": "Animals",
-    "words": ["rabbit", "kitten", "puppy", "shell", "feather", "garden", "sunny", "smile", "forest", "river"],
-    "tags": { "complexity": { "caps": false, "punct": false } }
+    "words": [
+      "rabbit",
+      "kitten",
+      "puppy",
+      "shell",
+      "feather",
+      "garden",
+      "sunny",
+      "smile",
+      "forest",
+      "river"
+    ],
+    "tags": {
+      "complexity": {
+        "caps": false,
+        "punct": false
+      }
+    }
   },
   {
     "id": "spelling_ks2_adventures",
     "name": "KS2 Spelling: Small Adventures",
     "stage": "KS2",
     "theme": "Silly Stories",
-    "words": ["journey", "capture", "mystery", "whisper", "lantern", "courage", "wander", "pocket", "puzzle", "glisten"],
-    "tags": { "complexity": { "caps": true, "punct": false } }
+    "words": [
+      "journey",
+      "capture",
+      "mystery",
+      "whisper",
+      "lantern",
+      "courage",
+      "wander",
+      "pocket",
+      "puzzle",
+      "glisten"
+    ],
+    "tags": {
+      "complexity": {
+        "caps": true,
+        "punct": false
+      }
+    }
   },
   {
     "id": "spelling_ks3_science",
     "name": "KS3 Spelling: Science Sampler",
     "stage": "KS3",
     "theme": "Science snips",
-    "words": ["gravity", "molecule", "quantum", "laboratory", "circuit", "particle", "spectrum", "density", "orbit", "reaction"],
-    "tags": { "complexity": { "caps": true, "punct": false } }
+    "words": [
+      "gravity",
+      "molecule",
+      "quantum",
+      "laboratory",
+      "circuit",
+      "particle",
+      "spectrum",
+      "density",
+      "orbit",
+      "reaction"
+    ],
+    "tags": {
+      "complexity": {
+        "caps": true,
+        "punct": false
+      }
+    }
   },
   {
     "id": "spelling_ks4_mindset",
     "name": "KS4 Spelling: Growth Mindset",
     "stage": "KS4",
     "theme": "Academic",
-    "words": ["resilient", "persevere", "reflection", "analysis", "synthesis", "precision", "integrity", "curiosity", "diligence", "discipline"],
-    "tags": { "complexity": { "caps": true, "punct": false } }
+    "words": [
+      "resilient",
+      "persevere",
+      "reflection",
+      "analysis",
+      "synthesis",
+      "precision",
+      "integrity",
+      "curiosity",
+      "diligence",
+      "discipline"
+    ],
+    "tags": {
+      "complexity": {
+        "caps": true,
+        "punct": false
+      }
+    }
+  },
+  {
+    "id": "spelling_ks1_woodland_buddies",
+    "name": "KS1 Spelling: Woodland Buddies",
+    "stage": "KS1",
+    "theme": "Nature Walks",
+    "words": [
+      "acorn",
+      "twig",
+      "moss",
+      "bunny",
+      "song",
+      "path",
+      "hill",
+      "roots",
+      "shade",
+      "logs"
+    ],
+    "tags": {
+      "complexity": {
+        "caps": false,
+        "punct": false
+      }
+    }
+  },
+  {
+    "id": "spelling_ks1_seaside_day",
+    "name": "KS1 Spelling: Seaside Day",
+    "stage": "KS1",
+    "theme": "Beach Fun",
+    "words": [
+      "sand",
+      "shell",
+      "crab",
+      "wave",
+      "splash",
+      "bucket",
+      "spade",
+      "sail",
+      "breeze",
+      "cove"
+    ],
+    "tags": {
+      "complexity": {
+        "caps": false,
+        "punct": false
+      }
+    }
+  },
+  {
+    "id": "spelling_ks1_garden_helpers",
+    "name": "KS1 Spelling: Garden Helpers",
+    "stage": "KS1",
+    "theme": "Home Garden",
+    "words": [
+      "soil",
+      "seed",
+      "plant",
+      "petal",
+      "snail",
+      "watering",
+      "bloom",
+      "twig",
+      "sunny",
+      "patch"
+    ],
+    "tags": {
+      "complexity": {
+        "caps": false,
+        "punct": false
+      }
+    }
+  },
+  {
+    "id": "spelling_ks1_rainy_play",
+    "name": "KS1 Spelling: Rainy Play",
+    "stage": "KS1",
+    "theme": "Weather",
+    "words": [
+      "puddle",
+      "boots",
+      "raincoat",
+      "drip",
+      "umbrella",
+      "cloud",
+      "storm",
+      "rainbow",
+      "sky",
+      "splash"
+    ],
+    "tags": {
+      "complexity": {
+        "caps": false,
+        "punct": false
+      }
+    }
+  },
+  {
+    "id": "spelling_ks1_space_launch",
+    "name": "KS1 Spelling: Space Launch",
+    "stage": "KS1",
+    "theme": "Outer Space",
+    "words": [
+      "rocket",
+      "planet",
+      "moon",
+      "stars",
+      "comet",
+      "orbit",
+      "launch",
+      "helmet",
+      "space",
+      "shine"
+    ],
+    "tags": {
+      "complexity": {
+        "caps": false,
+        "punct": false
+      }
+    }
+  },
+  {
+    "id": "spelling_ks1_farm_friends",
+    "name": "KS1 Spelling: Farm Friends",
+    "stage": "KS1",
+    "theme": "Animals",
+    "words": [
+      "tractor",
+      "barn",
+      "hay",
+      "calf",
+      "goat",
+      "milk",
+      "sheep",
+      "farmer",
+      "gate",
+      "grass"
+    ],
+    "tags": {
+      "complexity": {
+        "caps": false,
+        "punct": false
+      }
+    }
+  },
+  {
+    "id": "spelling_ks1_city_walk",
+    "name": "KS1 Spelling: City Walk",
+    "stage": "KS1",
+    "theme": "Places",
+    "words": [
+      "street",
+      "bus",
+      "bridge",
+      "tower",
+      "clock",
+      "crowd",
+      "market",
+      "parade",
+      "lights",
+      "square"
+    ],
+    "tags": {
+      "complexity": {
+        "caps": false,
+        "punct": false
+      }
+    }
+  },
+  {
+    "id": "spelling_ks1_winter_magic",
+    "name": "KS1 Spelling: Winter Magic",
+    "stage": "KS1",
+    "theme": "Seasons",
+    "words": [
+      "snow",
+      "frost",
+      "sled",
+      "scarf",
+      "mittens",
+      "icicle",
+      "chimney",
+      "blanket",
+      "toast",
+      "cocoa"
+    ],
+    "tags": {
+      "complexity": {
+        "caps": false,
+        "punct": false
+      }
+    }
+  },
+  {
+    "id": "spelling_ks1_bedtime_tales",
+    "name": "KS1 Spelling: Bedtime Tales",
+    "stage": "KS1",
+    "theme": "Stories",
+    "words": [
+      "pillow",
+      "blanket",
+      "sleepy",
+      "dream",
+      "whisper",
+      "lamp",
+      "book",
+      "candle",
+      "night",
+      "quiet"
+    ],
+    "tags": {
+      "complexity": {
+        "caps": false,
+        "punct": false
+      }
+    }
+  },
+  {
+    "id": "spelling_ks1_busy_market",
+    "name": "KS1 Spelling: Busy Market",
+    "stage": "KS1",
+    "theme": "Food",
+    "words": [
+      "basket",
+      "apple",
+      "cheese",
+      "stalls",
+      "coins",
+      "vendor",
+      "bread",
+      "juice",
+      "cart",
+      "tasty"
+    ],
+    "tags": {
+      "complexity": {
+        "caps": false,
+        "punct": false
+      }
+    }
+  },
+  {
+    "id": "spelling_ks1_music_room",
+    "name": "KS1 Spelling: Music Room",
+    "stage": "KS1",
+    "theme": "Sounds",
+    "words": [
+      "piano",
+      "drum",
+      "violin",
+      "flute",
+      "song",
+      "chorus",
+      "rhythm",
+      "beat",
+      "melody",
+      "clap"
+    ],
+    "tags": {
+      "complexity": {
+        "caps": false,
+        "punct": false
+      }
+    }
+  },
+  {
+    "id": "spelling_ks1_sports_day",
+    "name": "KS1 Spelling: Sports Day",
+    "stage": "KS1",
+    "theme": "Sports",
+    "words": [
+      "race",
+      "finish",
+      "medal",
+      "coach",
+      "practice",
+      "cheer",
+      "team",
+      "score",
+      "goal",
+      "trophy"
+    ],
+    "tags": {
+      "complexity": {
+        "caps": false,
+        "punct": false
+      }
+    }
+  },
+  {
+    "id": "spelling_ks1_forest_camp",
+    "name": "KS1 Spelling: Forest Camp",
+    "stage": "KS1",
+    "theme": "Outdoors",
+    "words": [
+      "tent",
+      "camp",
+      "trail",
+      "marsh",
+      "sticks",
+      "lantern",
+      "sleeping",
+      "owl",
+      "fire",
+      "stars"
+    ],
+    "tags": {
+      "complexity": {
+        "caps": false,
+        "punct": false
+      }
+    }
+  },
+  {
+    "id": "spelling_ks1_magic_tricks",
+    "name": "KS1 Spelling: Magic Tricks",
+    "stage": "KS1",
+    "theme": "Play",
+    "words": [
+      "cards",
+      "wand",
+      "hat",
+      "rabbit",
+      "cloak",
+      "pocket",
+      "coins",
+      "mirror",
+      "flash",
+      "spark"
+    ],
+    "tags": {
+      "complexity": {
+        "caps": false,
+        "punct": false
+      }
+    }
+  },
+  {
+    "id": "spelling_ks1_sunny_farmers",
+    "name": "KS1 Spelling: Sunny Farmers",
+    "stage": "KS1",
+    "theme": "Food",
+    "words": [
+      "melon",
+      "sweet",
+      "carrot",
+      "cabbage",
+      "wagon",
+      "bucket",
+      "market",
+      "smile",
+      "truck",
+      "crate"
+    ],
+    "tags": {
+      "complexity": {
+        "caps": false,
+        "punct": false
+      }
+    }
+  },
+  {
+    "id": "spelling_ks1_library_time",
+    "name": "KS1 Spelling: Library Time",
+    "stage": "KS1",
+    "theme": "Learning",
+    "words": [
+      "shelf",
+      "author",
+      "page",
+      "bookmark",
+      "story",
+      "quiet",
+      "study",
+      "tales",
+      "cover",
+      "chapter"
+    ],
+    "tags": {
+      "complexity": {
+        "caps": false,
+        "punct": false
+      }
+    }
+  },
+  {
+    "id": "spelling_ks1_playground_rules",
+    "name": "KS1 Spelling: Playground Rules",
+    "stage": "KS1",
+    "theme": "School",
+    "words": [
+      "swing",
+      "slide",
+      "ladder",
+      "friend",
+      "share",
+      "laugh",
+      "chase",
+      "line",
+      "turn",
+      "smile"
+    ],
+    "tags": {
+      "complexity": {
+        "caps": false,
+        "punct": false
+      }
+    }
+  },
+  {
+    "id": "spelling_ks1_kind_classroom",
+    "name": "KS1 Spelling: Kind Classroom",
+    "stage": "KS1",
+    "theme": "Values",
+    "words": [
+      "please",
+      "thank",
+      "help",
+      "caring",
+      "listen",
+      "tidy",
+      "safety",
+      "happy",
+      "learn",
+      "kind"
+    ],
+    "tags": {
+      "complexity": {
+        "caps": false,
+        "punct": false
+      }
+    }
+  },
+  {
+    "id": "spelling_ks1_spring_scouts",
+    "name": "KS1 Spelling: Spring Scouts",
+    "stage": "KS1",
+    "theme": "Outdoors",
+    "words": [
+      "badge",
+      "map",
+      "trail",
+      "campfire",
+      "rope",
+      "knot",
+      "signal",
+      "guide",
+      "scout",
+      "hut"
+    ],
+    "tags": {
+      "complexity": {
+        "caps": false,
+        "punct": false
+      }
+    }
+  },
+  {
+    "id": "spelling_ks1_fairy_picnic",
+    "name": "KS1 Spelling: Fairy Picnic",
+    "stage": "KS1",
+    "theme": "Fantasy",
+    "words": [
+      "fairy",
+      "sparkle",
+      "wings",
+      "tiny",
+      "basket",
+      "straw",
+      "breeze",
+      "moss",
+      "dew",
+      "dawn"
+    ],
+    "tags": {
+      "complexity": {
+        "caps": false,
+        "punct": false
+      }
+    }
+  },
+  {
+    "id": "spelling_ks1_train_trip",
+    "name": "KS1 Spelling: Train Trip",
+    "stage": "KS1",
+    "theme": "Travel",
+    "words": [
+      "ticket",
+      "platform",
+      "track",
+      "carriage",
+      "whistle",
+      "signal",
+      "station",
+      "window",
+      "seat",
+      "tunnel"
+    ],
+    "tags": {
+      "complexity": {
+        "caps": false,
+        "punct": false
+      }
+    }
+  },
+  {
+    "id": "spelling_ks1_pet_care",
+    "name": "KS1 Spelling: Pet Care",
+    "stage": "KS1",
+    "theme": "Home",
+    "words": [
+      "leash",
+      "brush",
+      "treat",
+      "whistle",
+      "kennel",
+      "clean",
+      "fresh",
+      "water",
+      "nap",
+      "cuddle"
+    ],
+    "tags": {
+      "complexity": {
+        "caps": false,
+        "punct": false
+      }
+    }
+  },
+  {
+    "id": "spelling_ks1_cooking_club",
+    "name": "KS1 Spelling: Cooking Club",
+    "stage": "KS1",
+    "theme": "Food",
+    "words": [
+      "mix",
+      "stir",
+      "taste",
+      "spoon",
+      "bowl",
+      "flour",
+      "sugar",
+      "oven",
+      "timer",
+      "slice"
+    ],
+    "tags": {
+      "complexity": {
+        "caps": false,
+        "punct": false
+      }
+    }
+  },
+  {
+    "id": "spelling_ks1_party_plan",
+    "name": "KS1 Spelling: Party Plan",
+    "stage": "KS1",
+    "theme": "Events",
+    "words": [
+      "invite",
+      "banner",
+      "balloon",
+      "music",
+      "dance",
+      "snack",
+      "cake",
+      "candle",
+      "gift",
+      "smile"
+    ],
+    "tags": {
+      "complexity": {
+        "caps": false,
+        "punct": false
+      }
+    }
+  },
+  {
+    "id": "spelling_ks1_summer_camp",
+    "name": "KS1 Spelling: Summer Camp",
+    "stage": "KS1",
+    "theme": "Holidays",
+    "words": [
+      "lake",
+      "canoe",
+      "swim",
+      "buddy",
+      "badge",
+      "hike",
+      "sunset",
+      "trail",
+      "camp",
+      "song"
+    ],
+    "tags": {
+      "complexity": {
+        "caps": false,
+        "punct": false
+      }
+    }
+  },
+  {
+    "id": "spelling_ks2_river_adventure",
+    "name": "KS2 Spelling: River Adventure",
+    "stage": "KS2",
+    "theme": "Exploration",
+    "words": [
+      "current",
+      "harbor",
+      "paddle",
+      "voyage",
+      "journey",
+      "compass",
+      "anchor",
+      "channel",
+      "craft",
+      "riverbank"
+    ],
+    "tags": {
+      "complexity": {
+        "caps": true,
+        "punct": false
+      }
+    }
+  },
+  {
+    "id": "spelling_ks2_mystery_mansion",
+    "name": "KS2 Spelling: Mystery Mansion",
+    "stage": "KS2",
+    "theme": "Stories",
+    "words": [
+      "corridor",
+      "portrait",
+      "cobweb",
+      "footsteps",
+      "lantern",
+      "cellar",
+      "whisper",
+      "hidden",
+      "riddle",
+      "escape"
+    ],
+    "tags": {
+      "complexity": {
+        "caps": true,
+        "punct": false
+      }
+    }
+  },
+  {
+    "id": "spelling_ks2_inventors_workshop",
+    "name": "KS2 Spelling: Inventor's Workshop",
+    "stage": "KS2",
+    "theme": "STEM",
+    "words": [
+      "gadget",
+      "blueprint",
+      "circuit",
+      "prototype",
+      "mechanism",
+      "adjust",
+      "bolts",
+      "metal",
+      "battery",
+      "switch"
+    ],
+    "tags": {
+      "complexity": {
+        "caps": true,
+        "punct": false
+      }
+    }
+  },
+  {
+    "id": "spelling_ks2_desert_trek",
+    "name": "KS2 Spelling: Desert Trek",
+    "stage": "KS2",
+    "theme": "Geography",
+    "words": [
+      "dune",
+      "mirage",
+      "oasis",
+      "camel",
+      "canteen",
+      "scorching",
+      "shelter",
+      "sandstorm",
+      "journey",
+      "companion"
+    ],
+    "tags": {
+      "complexity": {
+        "caps": true,
+        "punct": false
+      }
+    }
+  },
+  {
+    "id": "spelling_ks2_mountain_rescue",
+    "name": "KS2 Spelling: Mountain Rescue",
+    "stage": "KS2",
+    "theme": "Community",
+    "words": [
+      "altitude",
+      "summit",
+      "climber",
+      "rope",
+      "harness",
+      "helicopter",
+      "signal",
+      "rescue",
+      "stretcher",
+      "survival"
+    ],
+    "tags": {
+      "complexity": {
+        "caps": true,
+        "punct": false
+      }
+    }
+  },
+  {
+    "id": "spelling_ks2_eco_gardeners",
+    "name": "KS2 Spelling: Eco Gardeners",
+    "stage": "KS2",
+    "theme": "Environment",
+    "words": [
+      "compost",
+      "recycle",
+      "mulch",
+      "biodiverse",
+      "habitat",
+      "seedlings",
+      "waterwise",
+      "pollinate",
+      "trowel",
+      "sapling"
+    ],
+    "tags": {
+      "complexity": {
+        "caps": true,
+        "punct": false
+      }
+    }
+  },
+  {
+    "id": "spelling_ks2_ancient_civilizations",
+    "name": "KS2 Spelling: Ancient Civilizations",
+    "stage": "KS2",
+    "theme": "History",
+    "words": [
+      "pharaoh",
+      "pyramid",
+      "hieroglyph",
+      "artifact",
+      "temple",
+      "merchant",
+      "empire",
+      "scholar",
+      "papyrus",
+      "archive"
+    ],
+    "tags": {
+      "complexity": {
+        "caps": true,
+        "punct": false
+      }
+    }
+  },
+  {
+    "id": "spelling_ks2_coding_club",
+    "name": "KS2 Spelling: Coding Club",
+    "stage": "KS2",
+    "theme": "Technology",
+    "words": [
+      "debug",
+      "loop",
+      "variable",
+      "function",
+      "keyboard",
+      "syntax",
+      "program",
+      "logic",
+      "command",
+      "output"
+    ],
+    "tags": {
+      "complexity": {
+        "caps": true,
+        "punct": false
+      }
+    }
+  },
+  {
+    "id": "spelling_ks2_storytellers_circle",
+    "name": "KS2 Spelling: Storytellers' Circle",
+    "stage": "KS2",
+    "theme": "Language",
+    "words": [
+      "narrator",
+      "dialogue",
+      "chapter",
+      "motive",
+      "setting",
+      "character",
+      "plot",
+      "climax",
+      "resolution",
+      "ending"
+    ],
+    "tags": {
+      "complexity": {
+        "caps": true,
+        "punct": false
+      }
+    }
+  },
+  {
+    "id": "spelling_ks2_space_school",
+    "name": "KS2 Spelling: Space School",
+    "stage": "KS2",
+    "theme": "Science",
+    "words": [
+      "astronaut",
+      "gravity",
+      "satellite",
+      "module",
+      "launchpad",
+      "research",
+      "galaxy",
+      "meteor",
+      "orbit",
+      "velocity"
+    ],
+    "tags": {
+      "complexity": {
+        "caps": true,
+        "punct": false
+      }
+    }
+  },
+  {
+    "id": "spelling_ks2_festival_parade",
+    "name": "KS2 Spelling: Festival Parade",
+    "stage": "KS2",
+    "theme": "Culture",
+    "words": [
+      "costume",
+      "celebrate",
+      "lantern",
+      "drummer",
+      "trumpet",
+      "march",
+      "flag",
+      "fireworks",
+      "banner",
+      "spectators"
+    ],
+    "tags": {
+      "complexity": {
+        "caps": true,
+        "punct": false
+      }
+    }
+  },
+  {
+    "id": "spelling_ks2_ocean_guardians",
+    "name": "KS2 Spelling: Ocean Guardians",
+    "stage": "KS2",
+    "theme": "Environment",
+    "words": [
+      "coral",
+      "kelp",
+      "reef",
+      "pollution",
+      "cleanup",
+      "current",
+      "protect",
+      "habitat",
+      "fisheries",
+      "tides"
+    ],
+    "tags": {
+      "complexity": {
+        "caps": true,
+        "punct": false
+      }
+    }
+  },
+  {
+    "id": "spelling_ks2_science_lab",
+    "name": "KS2 Spelling: Science Lab",
+    "stage": "KS2",
+    "theme": "Science",
+    "words": [
+      "chemical",
+      "reaction",
+      "measure",
+      "hypothesis",
+      "microscope",
+      "sample",
+      "magnet",
+      "density",
+      "volume",
+      "observe"
+    ],
+    "tags": {
+      "complexity": {
+        "caps": true,
+        "punct": false
+      }
+    }
+  },
+  {
+    "id": "spelling_ks2_writing_workshop",
+    "name": "KS2 Spelling: Writing Workshop",
+    "stage": "KS2",
+    "theme": "Language",
+    "words": [
+      "paragraph",
+      "edit",
+      "draft",
+      "topic",
+      "connective",
+      "sentence",
+      "punctuation",
+      "synonym",
+      "conclusion",
+      "outline"
+    ],
+    "tags": {
+      "complexity": {
+        "caps": true,
+        "punct": false
+      }
+    }
+  },
+  {
+    "id": "spelling_ks2_travel_diary",
+    "name": "KS2 Spelling: Travel Diary",
+    "stage": "KS2",
+    "theme": "Geography",
+    "words": [
+      "journey",
+      "harbor",
+      "journeying",
+      "passport",
+      "ticket",
+      "customs",
+      "guidebook",
+      "landscape",
+      "voyage",
+      "memory"
+    ],
+    "tags": {
+      "complexity": {
+        "caps": true,
+        "punct": false
+      }
+    }
+  },
+  {
+    "id": "spelling_ks2_health_heroes",
+    "name": "KS2 Spelling: Health Heroes",
+    "stage": "KS2",
+    "theme": "Wellbeing",
+    "words": [
+      "fitness",
+      "nutrients",
+      "protein",
+      "hydration",
+      "balance",
+      "muscle",
+      "stamina",
+      "breathing",
+      "posture",
+      "wellness"
+    ],
+    "tags": {
+      "complexity": {
+        "caps": true,
+        "punct": false
+      }
+    }
+  },
+  {
+    "id": "spelling_ks2_architecture_tour",
+    "name": "KS2 Spelling: Architecture Tour",
+    "stage": "KS2",
+    "theme": "Art & Design",
+    "words": [
+      "cathedral",
+      "arch",
+      "pillar",
+      "balcony",
+      "fa\u00e7ade",
+      "dome",
+      "column",
+      "ornament",
+      "structure",
+      "foundation"
+    ],
+    "tags": {
+      "complexity": {
+        "caps": true,
+        "punct": false
+      }
+    }
+  },
+  {
+    "id": "spelling_ks2_mythical_quests",
+    "name": "KS2 Spelling: Mythical Quests",
+    "stage": "KS2",
+    "theme": "Legends",
+    "words": [
+      "dragon",
+      "heroic",
+      "voyage",
+      "oracle",
+      "sword",
+      "destiny",
+      "curse",
+      "legend",
+      "prophecy",
+      "victory"
+    ],
+    "tags": {
+      "complexity": {
+        "caps": true,
+        "punct": false
+      }
+    }
+  },
+  {
+    "id": "spelling_ks2_weather_watch",
+    "name": "KS2 Spelling: Weather Watch",
+    "stage": "KS2",
+    "theme": "Science",
+    "words": [
+      "barometer",
+      "forecast",
+      "climate",
+      "humidity",
+      "pressure",
+      "temperature",
+      "satellite",
+      "windward",
+      "drought",
+      "rainfall"
+    ],
+    "tags": {
+      "complexity": {
+        "caps": true,
+        "punct": false
+      }
+    }
+  },
+  {
+    "id": "spelling_ks2_team_sports",
+    "name": "KS2 Spelling: Team Sports",
+    "stage": "KS2",
+    "theme": "PE",
+    "words": [
+      "strategy",
+      "captain",
+      "defence",
+      "offence",
+      "practice",
+      "tournament",
+      "season",
+      "scoreboard",
+      "training",
+      "sportsperson"
+    ],
+    "tags": {
+      "complexity": {
+        "caps": true,
+        "punct": false
+      }
+    }
+  },
+  {
+    "id": "spelling_ks2_community_news",
+    "name": "KS2 Spelling: Community News",
+    "stage": "KS2",
+    "theme": "Media",
+    "words": [
+      "headline",
+      "interview",
+      "article",
+      "editor",
+      "camera",
+      "report",
+      "broadcast",
+      "deadline",
+      "research",
+      "publish"
+    ],
+    "tags": {
+      "complexity": {
+        "caps": true,
+        "punct": false
+      }
+    }
+  },
+  {
+    "id": "spelling_ks2_music_mix",
+    "name": "KS2 Spelling: Music Mix",
+    "stage": "KS2",
+    "theme": "Arts",
+    "words": [
+      "orchestra",
+      "conductor",
+      "harmony",
+      "melody",
+      "rhythm",
+      "lyrics",
+      "chorus",
+      "soloist",
+      "tempo",
+      "composer"
+    ],
+    "tags": {
+      "complexity": {
+        "caps": true,
+        "punct": false
+      }
+    }
+  },
+  {
+    "id": "spelling_ks2_river_ecosystem",
+    "name": "KS2 Spelling: River Ecosystem",
+    "stage": "KS2",
+    "theme": "Science",
+    "words": [
+      "habitat",
+      "wetland",
+      "tributary",
+      "erosion",
+      "sediment",
+      "flow",
+      "estuary",
+      "nutrients",
+      "biodiversity",
+      "turbulent"
+    ],
+    "tags": {
+      "complexity": {
+        "caps": true,
+        "punct": false
+      }
+    }
+  },
+  {
+    "id": "spelling_ks2_practical_projects",
+    "name": "KS2 Spelling: Practical Projects",
+    "stage": "KS2",
+    "theme": "DT",
+    "words": [
+      "measure",
+      "sandpaper",
+      "adhesive",
+      "assemble",
+      "design",
+      "materials",
+      "prototype",
+      "balance",
+      "diagram",
+      "finish"
+    ],
+    "tags": {
+      "complexity": {
+        "caps": true,
+        "punct": false
+      }
+    }
+  },
+  {
+    "id": "spelling_ks2_positive_minds",
+    "name": "KS2 Spelling: Positive Minds",
+    "stage": "KS2",
+    "theme": "PSHE",
+    "words": [
+      "mindset",
+      "resilient",
+      "focus",
+      "growth",
+      "calm",
+      "empathy",
+      "support",
+      "reflect",
+      "choices",
+      "kindness"
+    ],
+    "tags": {
+      "complexity": {
+        "caps": true,
+        "punct": false
+      }
+    }
+  },
+  {
+    "id": "spelling_ks3_biome_studies",
+    "name": "KS3 Spelling: Biome Studies",
+    "stage": "KS3",
+    "theme": "Geography",
+    "words": [
+      "tundra",
+      "savannah",
+      "rainforest",
+      "chaparral",
+      "temperate",
+      "ecosystem",
+      "adaptation",
+      "biodiversity",
+      "precipitation",
+      "longitude"
+    ],
+    "tags": {
+      "complexity": {
+        "caps": true,
+        "punct": false
+      }
+    }
+  },
+  {
+    "id": "spelling_ks3_literary_voice",
+    "name": "KS3 Spelling: Literary Voice",
+    "stage": "KS3",
+    "theme": "English",
+    "words": [
+      "metaphor",
+      "alliteration",
+      "hyperbole",
+      "oxymoron",
+      "ambiguity",
+      "juxtapose",
+      "symbolism",
+      "persona",
+      "motif",
+      "perspective"
+    ],
+    "tags": {
+      "complexity": {
+        "caps": true,
+        "punct": false
+      }
+    }
+  },
+  {
+    "id": "spelling_ks3_astronomy_night",
+    "name": "KS3 Spelling: Astronomy Night",
+    "stage": "KS3",
+    "theme": "Science",
+    "words": [
+      "celestial",
+      "spectroscope",
+      "nebula",
+      "telescope",
+      "equator",
+      "hemisphere",
+      "stellar",
+      "cosmos",
+      "constellation",
+      "zenith"
+    ],
+    "tags": {
+      "complexity": {
+        "caps": true,
+        "punct": false
+      }
+    }
+  },
+  {
+    "id": "spelling_ks3_historical_inquiry",
+    "name": "KS3 Spelling: Historical Inquiry",
+    "stage": "KS3",
+    "theme": "History",
+    "words": [
+      "chronology",
+      "revolution",
+      "industrial",
+      "enlightenment",
+      "sovereignty",
+      "archives",
+      "primary",
+      "legacy",
+      "reform",
+      "ideology"
+    ],
+    "tags": {
+      "complexity": {
+        "caps": true,
+        "punct": false
+      }
+    }
+  },
+  {
+    "id": "spelling_ks3_coding_patterns",
+    "name": "KS3 Spelling: Coding Patterns",
+    "stage": "KS3",
+    "theme": "Computer Science",
+    "words": [
+      "algorithm",
+      "recursion",
+      "iteration",
+      "variable",
+      "parameter",
+      "function",
+      "conditional",
+      "boolean",
+      "debugging",
+      "compilation"
+    ],
+    "tags": {
+      "complexity": {
+        "caps": true,
+        "punct": false
+      }
+    }
+  },
+  {
+    "id": "spelling_ks3_media_analysis",
+    "name": "KS3 Spelling: Media Analysis",
+    "stage": "KS3",
+    "theme": "Media Studies",
+    "words": [
+      "bias",
+      "persuasion",
+      "narrative",
+      "perspective",
+      "satire",
+      "montage",
+      "audience",
+      "genre",
+      "representation",
+      "context"
+    ],
+    "tags": {
+      "complexity": {
+        "caps": true,
+        "punct": false
+      }
+    }
+  },
+  {
+    "id": "spelling_ks3_ethical_debates",
+    "name": "KS3 Spelling: Ethical Debates",
+    "stage": "KS3",
+    "theme": "Philosophy",
+    "words": [
+      "morality",
+      "principle",
+      "consequence",
+      "virtue",
+      "dilemma",
+      "justice",
+      "autonomy",
+      "consent",
+      "integrity",
+      "argument"
+    ],
+    "tags": {
+      "complexity": {
+        "caps": true,
+        "punct": false
+      }
+    }
+  },
+  {
+    "id": "spelling_ks3_chemical_changes",
+    "name": "KS3 Spelling: Chemical Changes",
+    "stage": "KS3",
+    "theme": "Chemistry",
+    "words": [
+      "catalyst",
+      "oxidation",
+      "precipitate",
+      "endothermic",
+      "exothermic",
+      "reaction",
+      "molecule",
+      "bonding",
+      "equation",
+      "solvent"
+    ],
+    "tags": {
+      "complexity": {
+        "caps": true,
+        "punct": false
+      }
+    }
+  },
+  {
+    "id": "spelling_ks3_ecosystem_fieldwork",
+    "name": "KS3 Spelling: Ecosystem Fieldwork",
+    "stage": "KS3",
+    "theme": "Biology",
+    "words": [
+      "photosynthesis",
+      "respiration",
+      "transpiration",
+      "chlorophyll",
+      "nutrient",
+      "population",
+      "sampling",
+      "indicator",
+      "species",
+      "competition"
+    ],
+    "tags": {
+      "complexity": {
+        "caps": true,
+        "punct": false
+      }
+    }
+  },
+  {
+    "id": "spelling_ks3_practical_geometry",
+    "name": "KS3 Spelling: Practical Geometry",
+    "stage": "KS3",
+    "theme": "Maths",
+    "words": [
+      "congruent",
+      "bisector",
+      "polygon",
+      "circumference",
+      "diameter",
+      "radius",
+      "trigonometry",
+      "theorem",
+      "parallelogram",
+      "translation"
+    ],
+    "tags": {
+      "complexity": {
+        "caps": true,
+        "punct": false
+      }
+    }
+  },
+  {
+    "id": "spelling_ks3_economic_systems",
+    "name": "KS3 Spelling: Economic Systems",
+    "stage": "KS3",
+    "theme": "Economics",
+    "words": [
+      "market",
+      "planned",
+      "incentive",
+      "investment",
+      "inflation",
+      "currency",
+      "exchange",
+      "specialisation",
+      "scarcity",
+      "enterprise"
+    ],
+    "tags": {
+      "complexity": {
+        "caps": true,
+        "punct": false
+      }
+    }
+  },
+  {
+    "id": "spelling_ks3_drama_rehearsal",
+    "name": "KS3 Spelling: Drama Rehearsal",
+    "stage": "KS3",
+    "theme": "Drama",
+    "words": [
+      "dialogue",
+      "gesture",
+      "projection",
+      "ensemble",
+      "improvisation",
+      "stagecraft",
+      "characterisation",
+      "cue",
+      "monologue",
+      "rehearsal"
+    ],
+    "tags": {
+      "complexity": {
+        "caps": true,
+        "punct": false
+      }
+    }
+  },
+  {
+    "id": "spelling_ks3_art_portfolios",
+    "name": "KS3 Spelling: Art Portfolios",
+    "stage": "KS3",
+    "theme": "Art",
+    "words": [
+      "palette",
+      "composition",
+      "contrast",
+      "perspective",
+      "texture",
+      "proportion",
+      "medium",
+      "gesture",
+      "portrait",
+      "installation"
+    ],
+    "tags": {
+      "complexity": {
+        "caps": true,
+        "punct": false
+      }
+    }
+  },
+  {
+    "id": "spelling_ks3_statistical_reasoning",
+    "name": "KS3 Spelling: Statistical Reasoning",
+    "stage": "KS3",
+    "theme": "Maths",
+    "words": [
+      "correlation",
+      "outlier",
+      "average",
+      "distribution",
+      "frequency",
+      "estimate",
+      "probability",
+      "cumulative",
+      "histogram",
+      "variance"
+    ],
+    "tags": {
+      "complexity": {
+        "caps": true,
+        "punct": false
+      }
+    }
+  },
+  {
+    "id": "spelling_ks3_language_discovery",
+    "name": "KS3 Spelling: Language Discovery",
+    "stage": "KS3",
+    "theme": "MFL",
+    "words": [
+      "dialogue",
+      "conjugate",
+      "pronunciation",
+      "translation",
+      "grammar",
+      "vocabulary",
+      "intonation",
+      "phrase",
+      "accent",
+      "fluency"
+    ],
+    "tags": {
+      "complexity": {
+        "caps": true,
+        "punct": false
+      }
+    }
+  },
+  {
+    "id": "spelling_ks3_environmental_campaigns",
+    "name": "KS3 Spelling: Environmental Campaigns",
+    "stage": "KS3",
+    "theme": "Geography",
+    "words": [
+      "sustainability",
+      "renewable",
+      "conservation",
+      "pollution",
+      "awareness",
+      "petition",
+      "advocacy",
+      "community",
+      "habitat",
+      "recycle"
+    ],
+    "tags": {
+      "complexity": {
+        "caps": true,
+        "punct": false
+      }
+    }
+  },
+  {
+    "id": "spelling_ks3_robotics_club",
+    "name": "KS3 Spelling: Robotics Club",
+    "stage": "KS3",
+    "theme": "Technology",
+    "words": [
+      "sensor",
+      "servo",
+      "automation",
+      "prototype",
+      "calibration",
+      "input",
+      "output",
+      "program",
+      "feedback",
+      "navigation"
+    ],
+    "tags": {
+      "complexity": {
+        "caps": true,
+        "punct": false
+      }
+    }
+  },
+  {
+    "id": "spelling_ks3_music_composition",
+    "name": "KS3 Spelling: Music Composition",
+    "stage": "KS3",
+    "theme": "Music",
+    "words": [
+      "notation",
+      "dynamics",
+      "melody",
+      "harmony",
+      "counterpoint",
+      "chorale",
+      "timbre",
+      "texture",
+      "crescendo",
+      "modulation"
+    ],
+    "tags": {
+      "complexity": {
+        "caps": true,
+        "punct": false
+      }
+    }
+  },
+  {
+    "id": "spelling_ks3_physical_health",
+    "name": "KS3 Spelling: Physical Health",
+    "stage": "KS3",
+    "theme": "PE",
+    "words": [
+      "cardio",
+      "endurance",
+      "flexibility",
+      "hydration",
+      "routine",
+      "strength",
+      "balance",
+      "posture",
+      "warmup",
+      "recovery"
+    ],
+    "tags": {
+      "complexity": {
+        "caps": true,
+        "punct": false
+      }
+    }
+  },
+  {
+    "id": "spelling_ks3_mindful_moments",
+    "name": "KS3 Spelling: Mindful Moments",
+    "stage": "KS3",
+    "theme": "PSHE",
+    "words": [
+      "mindfulness",
+      "reflection",
+      "gratitude",
+      "empathy",
+      "wellbeing",
+      "breathing",
+      "awareness",
+      "emotion",
+      "focus",
+      "calmness"
+    ],
+    "tags": {
+      "complexity": {
+        "caps": true,
+        "punct": false
+      }
+    }
+  },
+  {
+    "id": "spelling_ks3_literary_heritage",
+    "name": "KS3 Spelling: Literary Heritage",
+    "stage": "KS3",
+    "theme": "English",
+    "words": [
+      "sonnet",
+      "ballad",
+      "tragedy",
+      "comedy",
+      "narrative",
+      "structure",
+      "character",
+      "theme",
+      "dialogue",
+      "context"
+    ],
+    "tags": {
+      "complexity": {
+        "caps": true,
+        "punct": false
+      }
+    }
+  },
+  {
+    "id": "spelling_ks3_world_religions",
+    "name": "KS3 Spelling: World Religions",
+    "stage": "KS3",
+    "theme": "RE",
+    "words": [
+      "pilgrimage",
+      "worship",
+      "scripture",
+      "ritual",
+      "sacred",
+      "tradition",
+      "belief",
+      "ceremony",
+      "community",
+      "morality"
+    ],
+    "tags": {
+      "complexity": {
+        "caps": true,
+        "punct": false
+      }
+    }
+  },
+  {
+    "id": "spelling_ks3_design_process",
+    "name": "KS3 Spelling: Design Process",
+    "stage": "KS3",
+    "theme": "DT",
+    "words": [
+      "brainstorm",
+      "prototype",
+      "criteria",
+      "evaluation",
+      "iteration",
+      "materials",
+      "accuracy",
+      "assembly",
+      "measurement",
+      "testing"
+    ],
+    "tags": {
+      "complexity": {
+        "caps": true,
+        "punct": false
+      }
+    }
+  },
+  {
+    "id": "spelling_ks3_space_engineering",
+    "name": "KS3 Spelling: Space Engineering",
+    "stage": "KS3",
+    "theme": "Physics",
+    "words": [
+      "propulsion",
+      "trajectory",
+      "velocity",
+      "thrust",
+      "payload",
+      "module",
+      "vacuum",
+      "gravity",
+      "orbit",
+      "capsule"
+    ],
+    "tags": {
+      "complexity": {
+        "caps": true,
+        "punct": false
+      }
+    }
+  },
+  {
+    "id": "spelling_ks3_newsroom_journalism",
+    "name": "KS3 Spelling: Newsroom Journalism",
+    "stage": "KS3",
+    "theme": "Media",
+    "words": [
+      "editorial",
+      "deadline",
+      "headline",
+      "interview",
+      "source",
+      "quotation",
+      "article",
+      "publication",
+      "accuracy",
+      "investigation"
+    ],
+    "tags": {
+      "complexity": {
+        "caps": true,
+        "punct": false
+      }
+    }
+  },
+  {
+    "id": "spelling_ks4_academic_discourse",
+    "name": "KS4 Spelling: Academic Discourse",
+    "stage": "KS4",
+    "theme": "English",
+    "words": [
+      "thesis",
+      "coherence",
+      "citation",
+      "synthesis",
+      "nuance",
+      "lexicon",
+      "argumentation",
+      "rhetorical",
+      "discursive",
+      "interpretation"
+    ],
+    "tags": {
+      "complexity": {
+        "caps": true,
+        "punct": false
+      }
+    }
+  },
+  {
+    "id": "spelling_ks4_cellular_processes",
+    "name": "KS4 Spelling: Cellular Processes",
+    "stage": "KS4",
+    "theme": "Biology",
+    "words": [
+      "homeostasis",
+      "metabolism",
+      "osmosis",
+      "mitosis",
+      "diffusion",
+      "enzyme",
+      "chloroplast",
+      "respiration",
+      "nucleotide",
+      "photosystem"
+    ],
+    "tags": {
+      "complexity": {
+        "caps": true,
+        "punct": false
+      }
+    }
+  },
+  {
+    "id": "spelling_ks4_quantum_concepts",
+    "name": "KS4 Spelling: Quantum Concepts",
+    "stage": "KS4",
+    "theme": "Physics",
+    "words": [
+      "superposition",
+      "entanglement",
+      "uncertainty",
+      "probability",
+      "wavefunction",
+      "qubit",
+      "interference",
+      "measurement",
+      "quantisation",
+      "decoherence"
+    ],
+    "tags": {
+      "complexity": {
+        "caps": true,
+        "punct": false
+      }
+    }
+  },
+  {
+    "id": "spelling_ks4_literary_critique",
+    "name": "KS4 Spelling: Literary Critique",
+    "stage": "KS4",
+    "theme": "English",
+    "words": [
+      "intertextual",
+      "postcolonial",
+      "ambivalence",
+      "narratology",
+      "epiphany",
+      "subtext",
+      "allegorical",
+      "dialectic",
+      "paradox",
+      "subversion"
+    ],
+    "tags": {
+      "complexity": {
+        "caps": true,
+        "punct": false
+      }
+    }
+  },
+  {
+    "id": "spelling_ks4_world_economics",
+    "name": "KS4 Spelling: World Economics",
+    "stage": "KS4",
+    "theme": "Economics",
+    "words": [
+      "globalisation",
+      "macroeconomics",
+      "fiscal",
+      "monetary",
+      "inflationary",
+      "deflation",
+      "productivity",
+      "tariffs",
+      "exchange",
+      "equilibrium"
+    ],
+    "tags": {
+      "complexity": {
+        "caps": true,
+        "punct": false
+      }
+    }
+  },
+  {
+    "id": "spelling_ks4_ethical_philosophy",
+    "name": "KS4 Spelling: Ethical Philosophy",
+    "stage": "KS4",
+    "theme": "Philosophy",
+    "words": [
+      "existential",
+      "deontology",
+      "utilitarian",
+      "virtue",
+      "categorical",
+      "relativism",
+      "objectivism",
+      "hedonism",
+      "altruism",
+      "axiom"
+    ],
+    "tags": {
+      "complexity": {
+        "caps": true,
+        "punct": false
+      }
+    }
+  },
+  {
+    "id": "spelling_ks4_advanced_algebra",
+    "name": "KS4 Spelling: Advanced Algebra",
+    "stage": "KS4",
+    "theme": "Maths",
+    "words": [
+      "polynomial",
+      "factorisation",
+      "quadratic",
+      "inequality",
+      "logarithm",
+      "exponential",
+      "simultaneous",
+      "matrix",
+      "variable",
+      "coefficient"
+    ],
+    "tags": {
+      "complexity": {
+        "caps": true,
+        "punct": false
+      }
+    }
+  },
+  {
+    "id": "spelling_ks4_critical_thinking",
+    "name": "KS4 Spelling: Critical Thinking",
+    "stage": "KS4",
+    "theme": "Skills",
+    "words": [
+      "evaluation",
+      "assumption",
+      "premise",
+      "inference",
+      "analysis",
+      "synthesis",
+      "deduction",
+      "evidence",
+      "interpret",
+      "conclusion"
+    ],
+    "tags": {
+      "complexity": {
+        "caps": true,
+        "punct": false
+      }
+    }
+  },
+  {
+    "id": "spelling_ks4_clinical_psychology",
+    "name": "KS4 Spelling: Clinical Psychology",
+    "stage": "KS4",
+    "theme": "Psychology",
+    "words": [
+      "cognition",
+      "behavioural",
+      "therapy",
+      "diagnosis",
+      "empathy",
+      "perception",
+      "conditioning",
+      "motivation",
+      "resilience",
+      "attachment"
+    ],
+    "tags": {
+      "complexity": {
+        "caps": true,
+        "punct": false
+      }
+    }
+  },
+  {
+    "id": "spelling_ks4_geopolitical_trends",
+    "name": "KS4 Spelling: Geopolitical Trends",
+    "stage": "KS4",
+    "theme": "Politics",
+    "words": [
+      "diplomacy",
+      "sanction",
+      "sovereignty",
+      "ideology",
+      "alliance",
+      "negotiation",
+      "multilateral",
+      "embargo",
+      "strategy",
+      "conflict"
+    ],
+    "tags": {
+      "complexity": {
+        "caps": true,
+        "punct": false
+      }
+    }
+  },
+  {
+    "id": "spelling_ks4_computational_thinking",
+    "name": "KS4 Spelling: Computational Thinking",
+    "stage": "KS4",
+    "theme": "Computer Science",
+    "words": [
+      "abstraction",
+      "decomposition",
+      "iteration",
+      "algorithmic",
+      "pseudocode",
+      "optimization",
+      "modular",
+      "debugging",
+      "efficiency",
+      "complexity"
+    ],
+    "tags": {
+      "complexity": {
+        "caps": true,
+        "punct": false
+      }
+    }
+  },
+  {
+    "id": "spelling_ks4_creative_enterprise",
+    "name": "KS4 Spelling: Creative Enterprise",
+    "stage": "KS4",
+    "theme": "Business",
+    "words": [
+      "innovation",
+      "entrepreneur",
+      "pitch",
+      "prototype",
+      "marketing",
+      "branding",
+      "investment",
+      "revenue",
+      "strategy",
+      "scalability"
+    ],
+    "tags": {
+      "complexity": {
+        "caps": true,
+        "punct": false
+      }
+    }
+  },
+  {
+    "id": "spelling_ks4_cultural_anthropology",
+    "name": "KS4 Spelling: Cultural Anthropology",
+    "stage": "KS4",
+    "theme": "Humanities",
+    "words": [
+      "ethnography",
+      "kinship",
+      "ritual",
+      "mythology",
+      "tradition",
+      "identity",
+      "migration",
+      "heritage",
+      "symbolism",
+      "cosmology"
+    ],
+    "tags": {
+      "complexity": {
+        "caps": true,
+        "punct": false
+      }
+    }
+  },
+  {
+    "id": "spelling_ks4_art_history",
+    "name": "KS4 Spelling: Art History",
+    "stage": "KS4",
+    "theme": "Arts",
+    "words": [
+      "renaissance",
+      "impressionism",
+      "baroque",
+      "aesthetic",
+      "composition",
+      "perspective",
+      "patronage",
+      "iconography",
+      "fresco",
+      "atelier"
+    ],
+    "tags": {
+      "complexity": {
+        "caps": true,
+        "punct": false
+      }
+    }
+  },
+  {
+    "id": "spelling_ks4_statistical_inference",
+    "name": "KS4 Spelling: Statistical Inference",
+    "stage": "KS4",
+    "theme": "Maths",
+    "words": [
+      "correlation",
+      "regression",
+      "variance",
+      "standard",
+      "distribution",
+      "hypothesis",
+      "confidence",
+      "sample",
+      "population",
+      "significance"
+    ],
+    "tags": {
+      "complexity": {
+        "caps": true,
+        "punct": false
+      }
+    }
+  },
+  {
+    "id": "spelling_ks4_environmental_policy",
+    "name": "KS4 Spelling: Environmental Policy",
+    "stage": "KS4",
+    "theme": "Geography",
+    "words": [
+      "sustainability",
+      "mitigation",
+      "emissions",
+      "carbon",
+      "biodiversity",
+      "conservation",
+      "renewable",
+      "legislation",
+      "advocacy",
+      "resilience"
+    ],
+    "tags": {
+      "complexity": {
+        "caps": true,
+        "punct": false
+      }
+    }
+  },
+  {
+    "id": "spelling_ks4_advanced_linguistics",
+    "name": "KS4 Spelling: Advanced Linguistics",
+    "stage": "KS4",
+    "theme": "English",
+    "words": [
+      "morphology",
+      "syntax",
+      "phonology",
+      "semantics",
+      "pragmatics",
+      "etymology",
+      "orthography",
+      "inflection",
+      "register",
+      "dialect"
+    ],
+    "tags": {
+      "complexity": {
+        "caps": true,
+        "punct": false
+      }
+    }
+  },
+  {
+    "id": "spelling_ks4_medical_biochemistry",
+    "name": "KS4 Spelling: Medical Biochemistry",
+    "stage": "KS4",
+    "theme": "Biology",
+    "words": [
+      "substrate",
+      "catalysis",
+      "metabolic",
+      "pathway",
+      "lipid",
+      "glycolysis",
+      "homeostasis",
+      "regulation",
+      "anabolic",
+      "catabolic"
+    ],
+    "tags": {
+      "complexity": {
+        "caps": true,
+        "punct": false
+      }
+    }
+  },
+  {
+    "id": "spelling_ks4_modern_history",
+    "name": "KS4 Spelling: Modern History",
+    "stage": "KS4",
+    "theme": "History",
+    "words": [
+      "industrialisation",
+      "colonialism",
+      "nationalism",
+      "reformation",
+      "revolutionary",
+      "sovereign",
+      "treatise",
+      "manifesto",
+      "propaganda",
+      "ideological"
+    ],
+    "tags": {
+      "complexity": {
+        "caps": true,
+        "punct": false
+      }
+    }
+  },
+  {
+    "id": "spelling_ks4_logic_and_reason",
+    "name": "KS4 Spelling: Logic and Reason",
+    "stage": "KS4",
+    "theme": "Philosophy",
+    "words": [
+      "syllogism",
+      "premise",
+      "contradiction",
+      "validity",
+      "soundness",
+      "deductive",
+      "inductive",
+      "fallacy",
+      "axiomatic",
+      "tautology"
+    ],
+    "tags": {
+      "complexity": {
+        "caps": true,
+        "punct": false
+      }
+    }
+  },
+  {
+    "id": "spelling_ks4_physics_applications",
+    "name": "KS4 Spelling: Physics Applications",
+    "stage": "KS4",
+    "theme": "Physics",
+    "words": [
+      "momentum",
+      "equilibrium",
+      "vector",
+      "scalar",
+      "kinematics",
+      "dynamics",
+      "oscillation",
+      "resonance",
+      "frequency",
+      "amplitude"
+    ],
+    "tags": {
+      "complexity": {
+        "caps": true,
+        "punct": false
+      }
+    }
+  },
+  {
+    "id": "spelling_ks4_business_finance",
+    "name": "KS4 Spelling: Business Finance",
+    "stage": "KS4",
+    "theme": "Business",
+    "words": [
+      "liquidity",
+      "asset",
+      "liability",
+      "equity",
+      "dividend",
+      "forecast",
+      "budgeting",
+      "cashflow",
+      "valuation",
+      "portfolio"
+    ],
+    "tags": {
+      "complexity": {
+        "caps": true,
+        "punct": false
+      }
+    }
+  },
+  {
+    "id": "spelling_ks4_political_theory",
+    "name": "KS4 Spelling: Political Theory",
+    "stage": "KS4",
+    "theme": "Politics",
+    "words": [
+      "democracy",
+      "authoritarian",
+      "liberalism",
+      "conservatism",
+      "federalism",
+      "legislature",
+      "judiciary",
+      "sovereignty",
+      "constituency",
+      "pluralism"
+    ],
+    "tags": {
+      "complexity": {
+        "caps": true,
+        "punct": false
+      }
+    }
+  },
+  {
+    "id": "spelling_ks4_research_methods",
+    "name": "KS4 Spelling: Research Methods",
+    "stage": "KS4",
+    "theme": "General",
+    "words": [
+      "qualitative",
+      "quantitative",
+      "sampling",
+      "reliability",
+      "validity",
+      "bias",
+      "triangulation",
+      "dataset",
+      "analysis",
+      "finding"
+    ],
+    "tags": {
+      "complexity": {
+        "caps": true,
+        "punct": false
+      }
+    }
+  },
+  {
+    "id": "spelling_ks4_exam_skills",
+    "name": "KS4 Spelling: Exam Skills",
+    "stage": "KS4",
+    "theme": "Study Skills",
+    "words": [
+      "revision",
+      "mnemonic",
+      "planning",
+      "timing",
+      "structure",
+      "evidence",
+      "explanation",
+      "evaluation",
+      "conclusion",
+      "reflection"
+    ],
+    "tags": {
+      "complexity": {
+        "caps": true,
+        "punct": false
+      }
+    }
   }
 ]
