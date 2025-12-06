@@ -226,6 +226,12 @@ function bindModalEvents(modalName) {
         const searchInput = document.getElementById('search-input');
         const sortSelect = document.getElementById('sort-select');
         const lessonListEl = modalContainer.querySelector('.lesson-list');
+
+        const setStageFilterVisibility = (type) => {
+            if (stageFilter) {
+                stageFilter.style.display = type === 'phonics' ? 'none' : '';
+            }
+        };
         
         const handleFilterChange = async (updates) => {
             lessonListEl.classList.add('loading');
@@ -239,7 +245,9 @@ function bindModalEvents(modalName) {
         modalContainer.querySelectorAll('.tab-button').forEach(b => b.addEventListener('click', (e) => {
             modalContainer.querySelector('.tab-button.active').classList.remove('active');
             e.target.classList.add('active');
-            handleFilterChange({ currentType: e.target.dataset.type, currentPage: 1 });
+            const newType = e.target.dataset.type;
+            setStageFilterVisibility(newType);
+            handleFilterChange({ currentType: newType, currentPage: 1 });
         }));
 
         stageFilter.querySelectorAll('.button').forEach(b => b.addEventListener('click', (e) => {
@@ -271,6 +279,7 @@ function bindModalEvents(modalName) {
 
         // Initial load and render
         stageFilter.querySelector(`[data-stage="${state.settings.defaultStage}"]`).classList.add('active');
+        setStageFilterVisibility(lessonPickerState.currentType);
         handleFilterChange({});
     }
     if (modalName === 'settings') {

@@ -296,7 +296,7 @@ export function renderLessonList(DATA) {
     const pool = poolMap[currentType] || DATA.PASSAGES;
 
     // 1. Filter
-    let filtered = pool.filter(l => l.stage === currentStage);
+    let filtered = currentType === 'phonics' ? [...pool] : pool.filter(l => l.stage === currentStage);
     if (searchTerm) {
         const term = searchTerm.toLowerCase();
         filtered = filtered.filter(l =>
