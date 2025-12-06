@@ -128,6 +128,19 @@ function bindScreenEvents(screenName) {
                 const lessonData = newPassages[Math.floor(Math.random() * newPassages.length)];
                 startSession({ type: 'passage', data: lessonData }, state, showScreen);
             }
+
+            if (e.target.matches('[data-spelling-stage]')) {
+                const stage = e.target.dataset.spellingStage;
+                const stageSpellings = DATA.SPELLING.filter(item => item.stage === stage);
+
+                if (!stageSpellings.length) {
+                    toast(`No spelling lists found for ${stage} yet. Please try another stage.`);
+                    return;
+                }
+
+                const lessonData = stageSpellings[Math.floor(Math.random() * stageSpellings.length)];
+                startSession({ type: 'spelling', data: lessonData }, state, showScreen);
+            }
         });
 
         const phonicsBtn = document.getElementById('phonics-mode-btn');
@@ -139,18 +152,6 @@ function bindScreenEvents(screenName) {
                 }
                 const lessonData = DATA.PHONICS[Math.floor(Math.random() * DATA.PHONICS.length)];
                 startSession({ type: 'phonics', data: lessonData }, state, showScreen);
-            });
-        }
-
-        const spellingBtn = document.getElementById('spelling-mode-btn');
-        if (spellingBtn) {
-            spellingBtn.addEventListener('click', () => {
-                if (!DATA.SPELLING.length) {
-                    toast('Spelling tutor lists are still loading. Please try again in a moment.');
-                    return;
-                }
-                const lessonData = DATA.SPELLING[Math.floor(Math.random() * DATA.SPELLING.length)];
-                startSession({ type: 'spelling', data: lessonData }, state, showScreen);
             });
         }
 
