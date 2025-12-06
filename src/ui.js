@@ -98,18 +98,14 @@ export function getScreenHtml(screenName, state, DATA) {
                 </div>
                 <div id="new-story-card" class="card home-card">
                     <h2>Start a New Story</h2>
-                    <p>Choose a Key Stage to begin a passage you haven't typed before.</p>
+                    <p>Choose a Key Stage to begin a passage you haven't typed before, or jump straight into phonics practice.</p>
                     <div class="button-group" style="flex-direction: column; align-items: stretch; gap: 0.75rem; margin-top: 1.5rem; max-width: 300px; margin-left: auto; margin-right: auto;">
                         <button class="button button-primary" data-stage="KS1">New Key Stage 1 Story</button>
                         <button class="button button-primary" data-stage="KS2">New Key Stage 2 Story</button>
                         <button class="button button-primary" data-stage="KS3">New Key Stage 3 Story</button>
                         <button class="button button-primary" data-stage="KS4">New Key Stage 4 Story</button>
+                        <button id="phonics-mode-btn" class="button button-secondary">Start Phonics Practice</button>
                     </div>
-                </div>
-                <div class="card home-card">
-                    <h2>Phonics Mode</h2>
-                    <p>Type through short explanations of key sounds with word examples to hear and see the pattern.</p>
-                    <button id="phonics-mode-btn" class="button button-secondary">Start Phonics Practice</button>
                 </div>
                 <div class="card home-card">
                     <h2>Explore the Library</h2>
