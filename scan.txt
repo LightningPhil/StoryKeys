@@ -1,0 +1,4 @@
+StoryKeys content suitability review
+Date: 2024-05-04
+Scope: All JSON content files under data/ (KS1–KS4 passages, wordsets, patterns, phonics, spelling, badges, keymap, copy).
+Findings: No concerning language or themes were found. Spot checks of passages (e.g., data/KS1/passages.json, data/KS2/passages.json) show age-appropriate educational narratives. Keyword scan for violent, explicit, or drug-related terms returned no problematic results.
