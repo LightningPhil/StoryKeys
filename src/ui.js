@@ -61,6 +61,10 @@ let lessonPickerState = {
     currentStage: 'KS2'
 };
 
+export function getLessonPickerState() {
+    return lessonPickerState;
+}
+
 /**
  * Applies visual settings from the state to the document.
  * @param {object} settings - The current application settings.
