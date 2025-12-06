@@ -1721,5 +1721,905 @@
     "meta": {
       "est_chars": 189
     }
+  },
+  {
+    "id": "phonics_vowel_team_ai_v1",
+    "theme": "Phonics",
+    "title": "Vowel team: ai for long /a/",
+    "text": "The letters a and i often team up to make the long /a/ sound in words like rain, paint, and train. The pattern usually sits in the middle of a word, so readers expect the smooth vowel before the ending consonant.",
+    "tags": {
+      "complexity": {
+        "caps": true,
+        "punct": true
+      },
+      "phonics": [
+        "vowel-team-ai"
+      ]
+    },
+    "meta": {
+      "est_chars": 212
+    }
+  },
+  {
+    "id": "phonics_vowel_team_ay_v1",
+    "theme": "Phonics",
+    "title": "Vowel team: ay at the end",
+    "text": "The team ay often appears at the end of words to spell the long /a/ sound. You can spot it in play, tray, and subway. Seeing the y at the end reminds you to keep the vowel sound steady and clear.",
+    "tags": {
+      "complexity": {
+        "caps": true,
+        "punct": true
+      },
+      "phonics": [
+        "vowel-team-ay"
+      ]
+    },
+    "meta": {
+      "est_chars": 195
+    }
+  },
+  {
+    "id": "phonics_vowel_team_aigh_eigh_v1",
+    "theme": "Phonics",
+    "title": "Vowel team: aigh and eigh",
+    "text": "The rare teams aigh and eigh can also spell the long /a/ sound. Words like straight, eight, and sleigh use these letter groups. Learning the chunk helps you decode tricky words with confidence.",
+    "tags": {
+      "complexity": {
+        "caps": true,
+        "punct": true
+      },
+      "phonics": [
+        "vowel-team-eigh"
+      ]
+    },
+    "meta": {
+      "est_chars": 193
+    }
+  },
+  {
+    "id": "phonics_vowel_team_ea_long_v1",
+    "theme": "Phonics",
+    "title": "Vowel team: ea saying /ee/",
+    "text": "The vowel team ea often makes the long /ee/ sound in words like read, beach, and teacher. Even though two vowels appear, they blend into one smooth voice. Keep the sound in one beat as you type.",
+    "tags": {
+      "complexity": {
+        "caps": true,
+        "punct": true
+      },
+      "phonics": [
+        "vowel-team-ea"
+      ]
+    },
+    "meta": {
+      "est_chars": 194
+    }
+  },
+  {
+    "id": "phonics_vowel_team_ee_v1",
+    "theme": "Phonics",
+    "title": "Vowel team: double ee",
+    "text": "Double e is a common way to spell the long /ee/ sound. Words such as green, sleep, and cheese use the pair. Because both letters stand together, the sound stays even and does not break apart.",
+    "tags": {
+      "complexity": {
+        "caps": true,
+        "punct": true
+      },
+      "phonics": [
+        "vowel-team-ee"
+      ]
+    },
+    "meta": {
+      "est_chars": 191
+    }
+  },
+  {
+    "id": "phonics_vowel_team_ie_long_e_v1",
+    "theme": "Phonics",
+    "title": "Vowel team: ie saying /ee/",
+    "text": "The vowel team ie can say the long /ee/ sound in words like field, chief, and brief. The i comes first and the e follows quietly. Remember the saying \"i before e\" when you meet this pattern.",
+    "tags": {
+      "complexity": {
+        "caps": true,
+        "punct": true
+      },
+      "phonics": [
+        "vowel-team-ie"
+      ]
+    },
+    "meta": {
+      "est_chars": 190
+    }
+  },
+  {
+    "id": "phonics_vowel_team_y_long_e_v1",
+    "theme": "Phonics",
+    "title": "Y at the end sounding /ee/",
+    "text": "At the end of many two-syllable words, the letter y says the long /ee/ sound. Think of happy, candy, and puppy. Spotting the final y helps you pronounce and spell longer words with ease.",
+    "tags": {
+      "complexity": {
+        "caps": true,
+        "punct": true
+      },
+      "phonics": [
+        "vowel-team-y"
+      ]
+    },
+    "meta": {
+      "est_chars": 186
+    }
+  },
+  {
+    "id": "phonics_vowel_team_ey_long_e_v1",
+    "theme": "Phonics",
+    "title": "Vowel team: ey saying /ee/",
+    "text": "The team ey often makes the long /ee/ sound in words like key, monkey, and honey. The y keeps the vowel voice going while the e sits quietly. Look for ey in endings to guide your pronunciation.",
+    "tags": {
+      "complexity": {
+        "caps": true,
+        "punct": true
+      },
+      "phonics": [
+        "vowel-team-ey"
+      ]
+    },
+    "meta": {
+      "est_chars": 193
+    }
+  },
+  {
+    "id": "phonics_vowel_team_oa_v1",
+    "theme": "Phonics",
+    "title": "Vowel team: oa for long /o/",
+    "text": "The letters o and a join to make the long /o/ sound in words such as boat, road, and toast. This team usually appears in the middle of a word. Let the vowel glide smoothly before you close the syllable.",
+    "tags": {
+      "complexity": {
+        "caps": true,
+        "punct": true
+      },
+      "phonics": [
+        "vowel-team-oa"
+      ]
+    },
+    "meta": {
+      "est_chars": 202
+    }
+  },
+  {
+    "id": "phonics_vowel_team_oe_v1",
+    "theme": "Phonics",
+    "title": "Vowel team: oe for long /o/",
+    "text": "When oe appears at the end of a word, it often shows the long /o/ sound. You can see it in toe, aloe, and canoe. Because the e is silent, the o stretches while the final letter stays quiet.",
+    "tags": {
+      "complexity": {
+        "caps": true,
+        "punct": true
+      },
+      "phonics": [
+        "vowel-team-oe"
+      ]
+    },
+    "meta": {
+      "est_chars": 189
+    }
+  },
+  {
+    "id": "phonics_vowel_team_ow_snow_v1",
+    "theme": "Phonics",
+    "title": "Vowel team: ow saying /o/",
+    "text": "The team ow can make the long /o/ sound in words like snow, window, and crow. When it appears at the end of a syllable, the sound feels long and open. Noticing the pattern keeps you from saying /ow/ by mistake.",
+    "tags": {
+      "complexity": {
+        "caps": true,
+        "punct": true
+      },
+      "phonics": [
+        "vowel-team-ow-o"
+      ]
+    },
+    "meta": {
+      "est_chars": 210
+    }
+  },
+  {
+    "id": "phonics_vowel_team_ough_though_v1",
+    "theme": "Phonics",
+    "title": "Vowel team: ough saying /o/",
+    "text": "In words like though, although, and thorough, the letters ough create a long /o/ sound. The pattern looks tricky, but it acts like a single chunk. Recognizing it helps you decode longer reading passages.",
+    "tags": {
+      "complexity": {
+        "caps": true,
+        "punct": true
+      },
+      "phonics": [
+        "vowel-team-ough-o"
+      ]
+    },
+    "meta": {
+      "est_chars": 203
+    }
+  },
+  {
+    "id": "phonics_vowel_team_ui_v1",
+    "theme": "Phonics",
+    "title": "Vowel team: ui for long /oo/",
+    "text": "The ui team often spells the /oo/ sound in words such as fruit, suit, and cruise. It usually appears in the middle of a syllable. Keeping the pair together helps you glide from the consonant into the vowel smoothly.",
+    "tags": {
+      "complexity": {
+        "caps": true,
+        "punct": true
+      },
+      "phonics": [
+        "vowel-team-ui"
+      ]
+    },
+    "meta": {
+      "est_chars": 215
+    }
+  },
+  {
+    "id": "phonics_vowel_team_ue_v1",
+    "theme": "Phonics",
+    "title": "Vowel team: ue for long /oo/",
+    "text": "The letters u and e can spell the /oo/ sound at the end of words like blue, rescue, and value. The e stays silent while the u holds the voice. Spotting the pattern helps you choose between ue and other spellings.",
+    "tags": {
+      "complexity": {
+        "caps": true,
+        "punct": true
+      },
+      "phonics": [
+        "vowel-team-ue"
+      ]
+    },
+    "meta": {
+      "est_chars": 212
+    }
+  },
+  {
+    "id": "phonics_vowel_team_ew_v1",
+    "theme": "Phonics",
+    "title": "Vowel team: ew for long /oo/",
+    "text": "The team ew appears in words such as new, chew, and grew to show the /oo/ sound. It often sits at the end of a root word. The letters blend into one smooth vowel, so keep the sound in a single beat.",
+    "tags": {
+      "complexity": {
+        "caps": true,
+        "punct": true
+      },
+      "phonics": [
+        "vowel-team-ew"
+      ]
+    },
+    "meta": {
+      "est_chars": 198
+    }
+  },
+  {
+    "id": "phonics_vowel_team_ou_soup_v1",
+    "theme": "Phonics",
+    "title": "Vowel team: ou saying /oo/",
+    "text": "Sometimes the ou team makes the /oo/ sound, as in soup, group, and route. This spelling is less common, so it helps to remember the chunk as a special pattern. Reading it as one unit keeps the vowel long.",
+    "tags": {
+      "complexity": {
+        "caps": true,
+        "punct": true
+      },
+      "phonics": [
+        "vowel-team-ou-u"
+      ]
+    },
+    "meta": {
+      "est_chars": 204
+    }
+  },
+  {
+    "id": "phonics_vowel_team_oo_long_v1",
+    "theme": "Phonics",
+    "title": "Vowel team: oo for long /oo/",
+    "text": "Double o often shows the long /oo/ sound in words like moon, roof, and spoon. The pair stays together to keep the vowel steady. Holding the sound for a moment helps you feel the difference from the short /oo/ in book.",
+    "tags": {
+      "complexity": {
+        "caps": true,
+        "punct": true
+      },
+      "phonics": [
+        "vowel-team-oo-long"
+      ]
+    },
+    "meta": {
+      "est_chars": 217
+    }
+  },
+  {
+    "id": "phonics_vowel_variant_augh_v1",
+    "theme": "Phonics",
+    "title": "Vowel variant: augh saying /aw/",
+    "text": "The letters augh can make the /aw/ sound in words like daughter, caught, and taught. Even though the group looks long, it works as one sound. Remembering the chunk prevents you from splitting the vowels apart.",
+    "tags": {
+      "complexity": {
+        "caps": true,
+        "punct": true
+      },
+      "phonics": [
+        "vowel-variant-augh"
+      ]
+    },
+    "meta": {
+      "est_chars": 209
+    }
+  },
+  {
+    "id": "phonics_vowel_variant_all_alk_v1",
+    "theme": "Phonics",
+    "title": "Vowel variant: all and alk",
+    "text": "The letter a before ll or lk often changes to the /aw/ sound, as in ball, talk, and chalk. The doubled consonants pull the vowel to a new sound. Watching for the pattern helps you read and spell these words correctly.",
+    "tags": {
+      "complexity": {
+        "caps": true,
+        "punct": true
+      },
+      "phonics": [
+        "vowel-variant-all-alk"
+      ]
+    },
+    "meta": {
+      "est_chars": 217
+    }
+  },
+  {
+    "id": "phonics_diphthong_ow_ou_v1",
+    "theme": "Phonics",
+    "title": "Diphthongs: ow and ou saying /ow/",
+    "text": "The teams ow and ou can make the /ow/ sound, heard in cow, house, and cloud. The voice moves from one vowel shape to another. Sliding your mouth as you read the pair helps keep the sound smooth.",
+    "tags": {
+      "complexity": {
+        "caps": true,
+        "punct": true
+      },
+      "phonics": [
+        "diphthong-ow-ou"
+      ]
+    },
+    "meta": {
+      "est_chars": 194
+    }
+  },
+  {
+    "id": "phonics_diphthong_oy_v1",
+    "theme": "Phonics",
+    "title": "Diphthong: oy saying /oi/",
+    "text": "The oy team shows the /oi/ sound at the end of words like boy, enjoy, and toy. When the sound appears in the middle, it is often spelled oi instead. Seeing the y tells you the syllable is likely ending.",
+    "tags": {
+      "complexity": {
+        "caps": true,
+        "punct": true
+      },
+      "phonics": [
+        "diphthong-oy"
+      ]
+    },
+    "meta": {
+      "est_chars": 202
+    }
+  },
+  {
+    "id": "phonics_diphthong_aw_v1",
+    "theme": "Phonics",
+    "title": "Diphthong: aw saying /aw/",
+    "text": "The letters a and w often appear together to make the /aw/ sound, as in paw, straw, and yawn. The team appears near the end of a syllable and keeps the vowel low and wide. Spotting aw stops you from using the long /a/.",
+    "tags": {
+      "complexity": {
+        "caps": true,
+        "punct": true
+      },
+      "phonics": [
+        "diphthong-aw"
+      ]
+    },
+    "meta": {
+      "est_chars": 218
+    }
+  },
+  {
+    "id": "phonics_diphthong_ea_bread_v1",
+    "theme": "Phonics",
+    "title": "Vowel team: ea saying /e/",
+    "text": "Sometimes the ea team makes a short /e/ sound, as in bread, head, and feather. This can be confusing because ea often says /ee/. Learning both options helps you try the right sound when you decode.",
+    "tags": {
+      "complexity": {
+        "caps": true,
+        "punct": true
+      },
+      "phonics": [
+        "vowel-team-ea-short"
+      ]
+    },
+    "meta": {
+      "est_chars": 197
+    }
+  },
+  {
+    "id": "phonics_consonant_dge_v1",
+    "theme": "Phonics",
+    "title": "Ending trigraph: dge",
+    "text": "The trigraph dge spells the /j/ sound after a short vowel, as in badge, ledge, and bridge. The extra letters protect the short vowel before final e would appear. Recognizing dge keeps the vowel from stretching.",
+    "tags": {
+      "complexity": {
+        "caps": true,
+        "punct": true
+      },
+      "phonics": [
+        "consonant-dge"
+      ]
+    },
+    "meta": {
+      "est_chars": 210
+    }
+  },
+  {
+    "id": "phonics_consonant_ge_soft_v1",
+    "theme": "Phonics",
+    "title": "Soft g at the end: ge",
+    "text": "The letters g and e often make a soft /j/ sound at the end of words like large, stage, and charge. The e signals g to soften instead of saying /g/. Watching for ge helps you choose between using ge or dge.",
+    "tags": {
+      "complexity": {
+        "caps": true,
+        "punct": true
+      },
+      "phonics": [
+        "consonant-ge-soft"
+      ]
+    },
+    "meta": {
+      "est_chars": 205
+    }
+  },
+  {
+    "id": "phonics_consonant_tch_rule_v1",
+    "theme": "Phonics",
+    "title": "Ending trigraph: tch",
+    "text": "The trigraph tch spells the /ch/ sound after a short vowel, as in match, sketch, and clutch. The extra letters show that the vowel before it stays short. Spotting the pattern helps you decide between ch and tch endings.",
+    "tags": {
+      "complexity": {
+        "caps": true,
+        "punct": true
+      },
+      "phonics": [
+        "consonant-tch"
+      ]
+    },
+    "meta": {
+      "est_chars": 219
+    }
+  },
+  {
+    "id": "phonics_consonant_ch_k_v1",
+    "theme": "Phonics",
+    "title": "Ch making /k/",
+    "text": "In some words, the letters ch make the /k/ sound, as in school, chorus, and anchor. This pattern often comes from Greek word parts. Knowing that ch can be /k/ keeps you flexible when a word does not sound as expected.",
+    "tags": {
+      "complexity": {
+        "caps": true,
+        "punct": true
+      },
+      "phonics": [
+        "consonant-ch-k"
+      ]
+    },
+    "meta": {
+      "est_chars": 217
+    }
+  },
+  {
+    "id": "phonics_consonant_qu_v1",
+    "theme": "Phonics",
+    "title": "Consonant team: qu",
+    "text": "The letters q and u almost always appear together and make a /kw/ sound. Words like quick, squint, and equal use this team. Treating qu as one sound helps you type and read without pausing between the letters.",
+    "tags": {
+      "complexity": {
+        "caps": true,
+        "punct": true
+      },
+      "phonics": [
+        "consonant-qu"
+      ]
+    },
+    "meta": {
+      "est_chars": 209
+    }
+  },
+  {
+    "id": "phonics_blend_tw_v1",
+    "theme": "Phonics",
+    "title": "Blend: tw",
+    "text": "The blend tw begins words like twin, twist, and twenty. The t gives a quick tap before the w rounds the sound. Keeping the two letters close helps the syllable start smoothly.",
+    "tags": {
+      "complexity": {
+        "caps": true,
+        "punct": true
+      },
+      "phonics": [
+        "blend-tw"
+      ]
+    },
+    "meta": {
+      "est_chars": 175
+    }
+  },
+  {
+    "id": "phonics_blend_squ_v1",
+    "theme": "Phonics",
+    "title": "Blend: squ",
+    "text": "The three-letter blend squ starts words such as squish, squawk, and square. The s and q form a tight cluster while the u carries the /w/ glide. Reading all three together keeps the blend crisp at the start of the word.",
+    "tags": {
+      "complexity": {
+        "caps": true,
+        "punct": true
+      },
+      "phonics": [
+        "blend-squ"
+      ]
+    },
+    "meta": {
+      "est_chars": 218
+    }
+  },
+  {
+    "id": "phonics_blend_shr_v1",
+    "theme": "Phonics",
+    "title": "Blend: shr",
+    "text": "The blend shr appears in words like shrimp, shred, and shriek. The sh keeps its soft sound while the r follows immediately. Saying both parts together helps the word begin in one quick motion.",
+    "tags": {
+      "complexity": {
+        "caps": true,
+        "punct": true
+      },
+      "phonics": [
+        "blend-shr"
+      ]
+    },
+    "meta": {
+      "est_chars": 192
+    }
+  },
+  {
+    "id": "phonics_final_blend_lk_v1",
+    "theme": "Phonics",
+    "title": "Final blend: lk",
+    "text": "The final blend lk ends words such as milk, silk, and yolk. The l and k sounds stay close, giving a quick finish. Keeping the vowel short before the blend helps the whole word sound balanced.",
+    "tags": {
+      "complexity": {
+        "caps": true,
+        "punct": true
+      },
+      "phonics": [
+        "final-blend-lk"
+      ]
+    },
+    "meta": {
+      "est_chars": 191
+    }
+  },
+  {
+    "id": "phonics_final_blend_nch_v1",
+    "theme": "Phonics",
+    "title": "Final blend: nch",
+    "text": "The letters n, c, and h make the ending sound /nch/ in words like lunch, bench, and pinch. The nasal n slides right into the /ch/ burst. Seeing the whole cluster stops you from breaking the ending apart.",
+    "tags": {
+      "complexity": {
+        "caps": true,
+        "punct": true
+      },
+      "phonics": [
+        "final-blend-nch"
+      ]
+    },
+    "meta": {
+      "est_chars": 203
+    }
+  },
+  {
+    "id": "phonics_final_blend_rch_v1",
+    "theme": "Phonics",
+    "title": "Final blend: rch",
+    "text": "The blend rch appears at the end of search, torch, and march. The r colors the vowel and then meets the /ch/ sound quickly. Keeping the consonants linked helps the ending feel strong and clear.",
+    "tags": {
+      "complexity": {
+        "caps": true,
+        "punct": true
+      },
+      "phonics": [
+        "final-blend-rch"
+      ]
+    },
+    "meta": {
+      "est_chars": 193
+    }
+  },
+  {
+    "id": "phonics_suffix_ness_v1",
+    "theme": "Phonics",
+    "title": "Suffix: -ness",
+    "text": "The suffix -ness turns adjectives into nouns, as in kindness, darkness, and softness. It usually keeps the base word spelling the same. Adding -ness gives a word the meaning of a state or quality.",
+    "tags": {
+      "complexity": {
+        "caps": true,
+        "punct": true
+      },
+      "phonics": [
+        "suffix-ness"
+      ]
+    },
+    "meta": {
+      "est_chars": 196
+    }
+  },
+  {
+    "id": "phonics_suffix_ment_v1",
+    "theme": "Phonics",
+    "title": "Suffix: -ment",
+    "text": "The suffix -ment creates nouns that show an action or result, like payment, movement, and agreement. You often add it to a verb without changing the base word. Hearing the extra syllable helps you spell the ending.",
+    "tags": {
+      "complexity": {
+        "caps": true,
+        "punct": true
+      },
+      "phonics": [
+        "suffix-ment"
+      ]
+    },
+    "meta": {
+      "est_chars": 214
+    }
+  },
+  {
+    "id": "phonics_suffix_ship_v1",
+    "theme": "Phonics",
+    "title": "Suffix: -ship",
+    "text": "The suffix -ship shows a state or skill, as in friendship, leadership, and craftsmanship. It attaches directly to a noun to create a new idea. Keeping ship as one sound chunk helps the word flow.",
+    "tags": {
+      "complexity": {
+        "caps": true,
+        "punct": true
+      },
+      "phonics": [
+        "suffix-ship"
+      ]
+    },
+    "meta": {
+      "est_chars": 195
+    }
+  },
+  {
+    "id": "phonics_suffix_ward_v1",
+    "theme": "Phonics",
+    "title": "Suffix: -ward",
+    "text": "The suffix -ward means \"in the direction of\" and appears in words like forward, westward, and skyward. It often keeps the base word intact. Hearing the added syllable reminds you to keep the final d quiet.",
+    "tags": {
+      "complexity": {
+        "caps": true,
+        "punct": true
+      },
+      "phonics": [
+        "suffix-ward"
+      ]
+    },
+    "meta": {
+      "est_chars": 205
+    }
+  },
+  {
+    "id": "phonics_suffix_ish_v1",
+    "theme": "Phonics",
+    "title": "Suffix: -ish",
+    "text": "The suffix -ish means \"somewhat\" or \"like\" and is found in childish, greenish, and foolish. It softens the meaning of the base word. Saying -ish as one beat keeps the ending neat when you read aloud.",
+    "tags": {
+      "complexity": {
+        "caps": true,
+        "punct": true
+      },
+      "phonics": [
+        "suffix-ish"
+      ]
+    },
+    "meta": {
+      "est_chars": 199
+    }
+  },
+  {
+    "id": "phonics_suffix_en_v1",
+    "theme": "Phonics",
+    "title": "Suffix: -en",
+    "text": "The suffix -en can turn adjectives into verbs, as in thicken, harden, and brighten. It adds a light syllable without changing the base spelling. Spotting -en helps you stretch the word by one smooth beat.",
+    "tags": {
+      "complexity": {
+        "caps": true,
+        "punct": true
+      },
+      "phonics": [
+        "suffix-en"
+      ]
+    },
+    "meta": {
+      "est_chars": 204
+    }
+  },
+  {
+    "id": "phonics_suffix_age_v1",
+    "theme": "Phonics",
+    "title": "Suffix: -age",
+    "text": "The suffix -age can turn verbs or nouns into new nouns, as in package, storage, and courage. It often adds a soft /ij/ sound at the end. Keeping the suffix together helps you avoid adding extra vowels when spelling.",
+    "tags": {
+      "complexity": {
+        "caps": true,
+        "punct": true
+      },
+      "phonics": [
+        "suffix-age"
+      ]
+    },
+    "meta": {
+      "est_chars": 215
+    }
+  },
+  {
+    "id": "phonics_suffix_cian_v1",
+    "theme": "Phonics",
+    "title": "Suffix: -cian",
+    "text": "The suffix -cian sounds like /shun/ and names people with certain skills, such as musician, electrician, and magician. The letters cian stay together to make the soft sound. Recognizing the pattern improves spelling accuracy.",
+    "tags": {
+      "complexity": {
+        "caps": true,
+        "punct": true
+      },
+      "phonics": [
+        "suffix-cian"
+      ]
+    },
+    "meta": {
+      "est_chars": 225
+    }
+  },
+  {
+    "id": "phonics_suffix_al_v1",
+    "theme": "Phonics",
+    "title": "Suffix: -al",
+    "text": "The suffix -al turns nouns into adjectives, as in national, personal, and magical. It often adds an extra syllable while keeping the base word intact. Hearing the gentle \"ul\" sound helps you hold the ending.",
+    "tags": {
+      "complexity": {
+        "caps": true,
+        "punct": true
+      },
+      "phonics": [
+        "suffix-al"
+      ]
+    },
+    "meta": {
+      "est_chars": 207
+    }
+  },
+  {
+    "id": "phonics_prefix_over_v1",
+    "theme": "Phonics",
+    "title": "Prefix: over-",
+    "text": "The prefix over- means \"too much\" or \"above\" and appears in overcook, overreact, and overhead. Adding it to a base word changes the meaning but keeps the spelling easy. Spotting the prefix guides you to the right definition.",
+    "tags": {
+      "complexity": {
+        "caps": true,
+        "punct": true
+      },
+      "phonics": [
+        "prefix-over"
+      ]
+    },
+    "meta": {
+      "est_chars": 224
+    }
+  },
+  {
+    "id": "phonics_prefix_under_v1",
+    "theme": "Phonics",
+    "title": "Prefix: under-",
+    "text": "The prefix under- means \"too little\" or \"below\" and is used in underfed, underline, and underground. It sets the tone for the base word before you even reach the root. Reading the prefix first helps you predict the idea.",
+    "tags": {
+      "complexity": {
+        "caps": true,
+        "punct": true
+      },
+      "phonics": [
+        "prefix-under"
+      ]
+    },
+    "meta": {
+      "est_chars": 220
+    }
+  },
+  {
+    "id": "phonics_prefix_inter_v1",
+    "theme": "Phonics",
+    "title": "Prefix: inter-",
+    "text": "The prefix inter- means \"between\" or \"among\" and appears in interact, interstate, and intermediate. It often links the base word to relationships or connections. Noticing inter- gives you a clue about the word's role.",
+    "tags": {
+      "complexity": {
+        "caps": true,
+        "punct": true
+      },
+      "phonics": [
+        "prefix-inter"
+      ]
+    },
+    "meta": {
+      "est_chars": 217
+    }
+  },
+  {
+    "id": "phonics_prefix_super_v1",
+    "theme": "Phonics",
+    "title": "Prefix: super-",
+    "text": "The prefix super- means \"above\" or \"beyond\" and shows up in superhero, supermarket, and supernatural. It boosts the meaning of the base word. Hearing the prefix helps you pronounce long words confidently.",
+    "tags": {
+      "complexity": {
+        "caps": true,
+        "punct": true
+      },
+      "phonics": [
+        "prefix-super"
+      ]
+    },
+    "meta": {
+      "est_chars": 204
+    }
+  },
+  {
+    "id": "phonics_prefix_sub_v1",
+    "theme": "Phonics",
+    "title": "Prefix: sub-",
+    "text": "The prefix sub- means \"under\" or \"below\" and is found in subway, submarine, and subtitle. It often hints at position or rank. Spotting the prefix helps you understand the base word more quickly.",
+    "tags": {
+      "complexity": {
+        "caps": true,
+        "punct": true
+      },
+      "phonics": [
+        "prefix-sub"
+      ]
+    },
+    "meta": {
+      "est_chars": 194
+    }
+  },
+  {
+    "id": "phonics_prefix_tele_v1",
+    "theme": "Phonics",
+    "title": "Prefix: tele-",
+    "text": "The prefix tele- means \"far\" or \"distance\" and appears in telephone, teleport, and television. It suggests something happening across space. Recognizing tele- connects the meaning across different subjects.",
+    "tags": {
+      "complexity": {
+        "caps": true,
+        "punct": true
+      },
+      "phonics": [
+        "prefix-tele"
+      ]
+    },
+    "meta": {
+      "est_chars": 206
+    }
+  },
+  {
+    "id": "phonics_prefix_auto_v1",
+    "theme": "Phonics",
+    "title": "Prefix: auto-",
+    "text": "The prefix auto- means \"self\" or \"same\" and is used in autograph, automatic, and autobiography. It tells you that something works by itself or relates to one's own actions. Reading the prefix first sets up the meaning.",
+    "tags": {
+      "complexity": {
+        "caps": true,
+        "punct": true
+      },
+      "phonics": [
+        "prefix-auto"
+      ]
+    },
+    "meta": {
+      "est_chars": 218
+    }
   }
 ]
