@@ -157,6 +157,11 @@ function bindScreenEvents(screenName) {
         }
 
         document.getElementById('browse-lessons-btn').addEventListener('click', () => showModal('lessonPicker'));
+
+        const viewBadgesBtn = document.getElementById('view-badges-btn');
+        if (viewBadgesBtn) {
+            viewBadgesBtn.addEventListener('click', () => showModal('badges'));
+        }
     }
     if (screenName === 'typing') {
         requestAnimationFrame(() => calculateVisualLines(state, DATA));

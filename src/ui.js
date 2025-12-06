@@ -128,6 +128,11 @@ export function getScreenHtml(screenName, state, DATA) {
                     <p>Browse all content, repeat lessons, or choose word sets and drills.</p>
                     <button id="browse-lessons-btn" class="button button-secondary">Browse All Lessons</button>
                 </div>
+                <div class="card home-card">
+                    <h2>Your Badges</h2>
+                    <p>Celebrate your achievements and see which badges you've unlocked.</p>
+                    <button id="view-badges-btn" class="button button-secondary">View Earned Badges</button>
+                </div>
                 <div class="card progress-card">
                     <div class="progress-pet">${currentPet}</div>
                     <div>
@@ -252,6 +257,18 @@ export function getModalHtml(modalName, state, DATA) {
                         <li>Short breaks help your hands and eyes.</li>
                     </ul>
                 </div>
+            </div></div>`;
+        case 'badges':
+            const earnedBadges = state.progress.badges.map(entry => {
+                const badge = DATA.BADGES.find(b => b.id === entry.id) || { label: entry.id, desc: 'Badge earned.' };
+                const earnedDate = entry.earnedAt ? new Date(entry.earnedAt).toLocaleDateString() : '';
+                const dateLine = earnedDate ? `<small>Earned on ${earnedDate}</small>` : '';
+                return `<div class="badge-card"><h4>${badge.label}</h4><p>${badge.desc}</p>${dateLine}</div>`;
+            });
+            return `
+            <div class="modal"><div class="modal-content">
+                <div class="modal-header"><h2>Your Badges</h2>${closeModalBtn}</div>
+                ${earnedBadges.length ? `<div class="badge-grid">${earnedBadges.join('')}</div>` : '<p>You have not earned any badges yet. Complete lessons to unlock them!</p>'}
             </div></div>`;
         case 'lessonPicker':
             lessonPickerState.currentStage = state.settings.defaultStage;
