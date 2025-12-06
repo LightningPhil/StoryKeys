@@ -10,15 +10,20 @@ The content is aligned with the UK Key Stages (KS1-KS4), providing age-appropria
 
 ## ✨ Key Features
 
-*   **Dyslexia-Friendly Design:** Uses a clear, readable font and adjustable line/letter spacing to reduce visual stress.
-*   **Key Stage Aligned Content:** Lessons are categorized by UK Key Stages 1 through 4, ensuring the vocabulary and complexity are appropriate for the learner.
+*   **Dyslexia-Friendly Design:** Uses a clear, readable font and adjustable line/letter spacing to reduce visual stress. A focus-line highlight and optional on-screen keyboard can be toggled for extra guidance.
+*   **Key Stage Aligned Content:** Lessons are categorized by UK Key Stages 1 through 4, ensuring vocabulary and complexity are appropriate for each learner.
 *   **Multiple Practice Modes:**
-    *   **Passages:** Type short, engaging stories.
-    *   **Word Sets:** Practice specific vocabulary lists (e.g., statutory spellings, science terms).
-    *   **Focus Drills:** Automatically generated drills to practice keys and words the user struggles with.
+    *   **Passages:** Type short, engaging stories by stage and theme.
+    *   **Spelling Tutor:** Quick practice lists aligned to KS1–KS4 statutory spellings.
+    *   **Phonics:** Early-reading friendly passages with patterned sounds.
+    *   **Word Sets:** Vocabulary drills grouped by subjects such as science.
+    *   **Focus Drills:** Automatic drills based on the letters and words a learner finds tricky.
+*   **Lesson Picker:** Filter by stage, search by title or theme, sort by length, and browse dedicated tabs for passages, phonics, spelling, and word sets.
+*   **Quick Start Buttons:** One-tap random story, spelling, or phonics sessions for each Key Stage.
 *   **Privacy First:** 100% client-side. All data is stored in the browser's `localStorage`. No internet connection is required after the initial load.
-*   **Progress Tracking & Badges:** Monitors progress over time (minutes typed, words typed) and awards badges for achieving milestones, encouraging consistent practice.
-*   **Customisable UI:** Users can switch between light, dark, and cream themes and adjust readability settings.
+*   **Progress Tracking & Badges:** Tracks minutes and words typed, highlights hardest keys/words, and awards badges to celebrate milestones.
+*   **Customisable UI:** Switch between light, dark, and cream themes, pick a clearer font, and adjust spacing to suit the learner.
+*   **Built-In Help:** A friendly help modal explains the app in KS1-ready language.
 
 ---
 
@@ -65,6 +70,17 @@ The project has been refactored into a modular structure to make managing conten
 │
 └── index.html           (The main application shell)
 ```
+
+### Dataset Overview
+
+StoryKeys keeps all lesson and UI data in the `data/` folder so it can load entirely in the browser.
+
+* **Stage folders (`data/KS1`–`data/KS4`):** Each contains `passages.json`, `patterns.json`, and `wordsets.json` with short stories, phonics-style patterns, and themed vocabulary for that Key Stage.
+* **`data/phonics.json`:** Extra phonics passages for early readers.
+* **`data/spelling.json`:** Statutory spelling lists for KS1–KS4 used by the Spelling Tutor mode.
+* **`data/badges.json`:** Definitions for milestone badges (labels, descriptions, and thresholds).
+* **`data/copy.json`:** All UI strings, encouraging messages, and button labels so the interface stays consistent.
+* **`data/keymap.json`:** Keyboard layout and hint information for the on-screen helper.
 
 ---
 

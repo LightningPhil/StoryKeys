@@ -90,6 +90,7 @@ function closeModal() {
 // --- 4. EVENT BINDING ---
 function bindAppEvents() {
     document.getElementById('about-btn').addEventListener('click', () => showModal('about'));
+    document.getElementById('help-btn').addEventListener('click', () => showModal('help'));
     document.getElementById('settings-btn').addEventListener('click', () => showModal('settings'));
     document.getElementById('parent-btn').addEventListener('click', () => {
         state.settings.pin ? showModal('pin') : showModal('parent');
