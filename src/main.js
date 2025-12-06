@@ -8,7 +8,7 @@
 // --- MODULE IMPORTS ---
 import { config } from './config.js';
 import { DATA, loadInitialData, loadStageData } from './dataLoader.js';
-import { applySettings, getScreenHtml, getModalHtml, updateLessonPicker, resetLessonPickerState, triggerConfetti, toast } from './ui.js';
+import { applySettings, getScreenHtml, getModalHtml, updateLessonPicker, resetLessonPickerState, triggerConfetti, toast, getLessonPickerState } from './ui.js';
 import { startSession, endSession, startFocusDrill } from './lessons.js';
 import { sha256Hex, debounce } from './utils.js';
 import { handleTypingInput, calculateVisualLines } from './keyboard.js';
@@ -279,8 +279,9 @@ function bindModalEvents(modalName) {
 
         // Initial load and render – ensure the default stage data is available
         stageFilter.querySelector(`[data-stage="${state.settings.defaultStage}"]`).classList.add('active');
-        setStageFilterVisibility(lessonPickerState.currentType);
-        handleFilterChange({ currentStage: lessonPickerState.currentStage });
+        const pickerState = getLessonPickerState();
+        setStageFilterVisibility(pickerState.currentType);
+        handleFilterChange({ currentStage: pickerState.currentStage });
     }
     if (modalName === 'settings') {
         const s = state.settings;
