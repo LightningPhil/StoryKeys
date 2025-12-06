@@ -142,6 +142,18 @@ function bindScreenEvents(screenName) {
             });
         }
 
+        const spellingBtn = document.getElementById('spelling-mode-btn');
+        if (spellingBtn) {
+            spellingBtn.addEventListener('click', () => {
+                if (!DATA.SPELLING.length) {
+                    toast('Spelling tutor lists are still loading. Please try again in a moment.');
+                    return;
+                }
+                const lessonData = DATA.SPELLING[Math.floor(Math.random() * DATA.SPELLING.length)];
+                startSession({ type: 'spelling', data: lessonData }, state, showScreen);
+            });
+        }
+
         document.getElementById('browse-lessons-btn').addEventListener('click', () => showModal('lessonPicker'));
     }
     if (screenName === 'typing') {
@@ -268,7 +280,8 @@ function bindModalEvents(modalName) {
             const item = e.target.closest('.lesson-item');
             if (item) {
                 const { id, type } = item.dataset;
-                const pool = type === 'passage' ? DATA.PASSAGES : (type === 'phonics' ? DATA.PHONICS : DATA.WORDSETS);
+                const poolMap = { passage: DATA.PASSAGES, phonics: DATA.PHONICS, spelling: DATA.SPELLING, wordset: DATA.WORDSETS };
+                const pool = poolMap[type] || DATA.PASSAGES;
                 const lessonData = pool.find(l => l.id === id);
                 if (lessonData) {
                     closeModal();

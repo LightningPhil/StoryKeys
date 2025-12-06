@@ -35,10 +35,12 @@
         /* --- UI COMPONENTS --- */
         .card { background-color: var(--color-card-bg); border: 1px solid var(--color-border); border-radius: var(--border-radius); padding: 1.5rem 2rem; box-shadow: 0 4px 12px rgba(0,0,0,0.05); }
         .button { display: inline-block; font-size: 1rem; font-weight: 600; text-decoration: none; padding: 0.8rem 1.5rem; border-radius: var(--border-radius); border: 2px solid transparent; cursor: pointer; transition: all var(--transition-speed) ease; text-align: center; }
-        .button-primary { background-color: var(--color-accent); color: white; border-color: var(--color-accent);}
+        .button-primary { background-color: var(--color-accent); color: white; border-color: var(--color-accent);} 
         .button-primary:hover { opacity: 0.85; }
         .button-secondary { background-color: var(--color-subtle-bg); border-color: var(--color-border); color: var(--color-text); }
         .button-secondary:hover { background-color: var(--color-border); }
+        .button-phonics { background-color: #b7e4c7; color: #0f3b2e; border-color: #a3d9b3; }
+        .button-phonics:hover { background-color: #a3d9b3; }
         .button:disabled { opacity: 0.5; cursor: not-allowed; }
         .button-group { display: flex; gap: 1rem; flex-wrap: wrap; }
         .icon-button { background: none; border: none; cursor: pointer; padding: 0.5rem; border-radius: 50%; display: flex; align-items: center; justify-content: center; }
@@ -81,6 +83,7 @@
         .typing-target { font-size: 1.5rem; background-color: var(--color-subtle-bg); padding: 1rem; border-radius: var(--border-radius); margin-bottom: 1rem; line-height: 1.8; letter-spacing: 0.05em; white-space: pre-wrap; word-break: break-word; }
         .typing-target.focus-line-active .line:not(.current-line) { opacity: 0.5; }
         .typing-target .line { transition: opacity 0.2s; }
+        .typing-target .line.vanished { visibility: hidden; }
         .typing-target .char { transition: color 0.1s, background-color 0.1s; }
         .char.correct { color: #16a34a; }
         .char.incorrect { color: #ef4444; text-decoration: underline wavy #ef4444; text-decoration-thickness: 2px; text-underline-offset: 3px; }

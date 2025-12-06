@@ -8,6 +8,7 @@ const STAGES = ['KS1', 'KS2', 'KS3', 'KS4'];
 const STAGE_DATA_TYPES = ['passages', 'wordsets', 'patterns'];
 const GLOBAL_FILES = ['badges', 'copy', 'keymap'];
 const PHONICS_FILE = 'phonics';
+const SPELLING_FILE = 'spelling';
 const DATA_PATH = 'data/';
 
 // This Set will keep track of which stage's data has been fetched.
@@ -18,6 +19,7 @@ export const DATA = {
     WORDSETS: [],
     PATTERNS: [],
     PHONICS: [],
+    SPELLING: [],
     BADGES: [],
     KEYMAP: [],
     COPY: {},
@@ -43,15 +45,17 @@ async function fetchJSON(url) {
  */
 export async function loadInitialData() {
     const promises = GLOBAL_FILES.map(file => fetchJSON(`${DATA_PATH}${file}.json`));
-    const [badges, copy, keymap, phonics] = await Promise.all([
+    const [badges, copy, keymap, phonics, spelling] = await Promise.all([
         ...promises,
-        fetchJSON(`${DATA_PATH}${PHONICS_FILE}.json`)
+        fetchJSON(`${DATA_PATH}${PHONICS_FILE}.json`),
+        fetchJSON(`${DATA_PATH}${SPELLING_FILE}.json`)
     ]);
 
     DATA.BADGES = badges || [];
     DATA.COPY = copy || {};
     DATA.KEYMAP = keymap || [];
     DATA.PHONICS = phonics || [];
+    DATA.SPELLING = spelling || [];
 
     if (!DATA.COPY.appTitle) {
         throw new Error("Core data (copy.json) failed to load. The application cannot start.");

@@ -102,13 +102,14 @@ export function getScreenHtml(screenName, state, DATA) {
                 </div>
                 <div id="new-story-card" class="card home-card">
                     <h2>Start a New Story</h2>
-                    <p>Choose a Key Stage to begin a passage you haven't typed before, or jump straight into phonics practice.</p>
+                    <p>Choose a Key Stage to begin a passage you haven't typed before, jump straight into phonics practice, or try the new spelling tutor.</p>
                     <div class="button-group" style="flex-direction: column; align-items: stretch; gap: 0.75rem; margin-top: 1.5rem; max-width: 300px; margin-left: auto; margin-right: auto;">
                         <button class="button button-primary" data-stage="KS1">New Key Stage 1 Story</button>
                         <button class="button button-primary" data-stage="KS2">New Key Stage 2 Story</button>
                         <button class="button button-primary" data-stage="KS3">New Key Stage 3 Story</button>
                         <button class="button button-primary" data-stage="KS4">New Key Stage 4 Story</button>
-                        <button id="phonics-mode-btn" class="button button-secondary">Start Phonics Practice</button>
+                        <button id="phonics-mode-btn" class="button button-phonics">Start Phonics Practice</button>
+                        <button id="spelling-mode-btn" class="button button-secondary">Start Spelling Tutor</button>
                     </div>
                 </div>
                 <div class="card home-card">
@@ -210,7 +211,7 @@ export function getModalHtml(modalName, state, DATA) {
             return `
             <div class="modal"><div class="modal-content">
                 <div class="modal-header"><h2>${DATA.COPY.homeChangeLesson}</h2>${closeModalBtn}</div>
-                <div class="tabs"><button class="tab-button active" data-type="passage">Passages</button><button class="tab-button" data-type="phonics">Phonics</button><button class="tab-button" data-type="wordset">Word Sets</button></div>
+                <div class="tabs"><button class="tab-button active" data-type="passage">Passages</button><button class="tab-button" data-type="phonics">Phonics</button><button class="tab-button" data-type="spelling">Spelling Tutor</button><button class="tab-button" data-type="wordset">Word Sets</button></div>
                 <div class="filter-group">
                     <label>Stage:</label>
                     <div class="stage-filter button-group">
@@ -295,12 +296,14 @@ export function renderLessonList(DATA) {
     const poolMap = {
         passage: DATA.PASSAGES,
         phonics: DATA.PHONICS,
+        spelling: DATA.SPELLING,
         wordset: DATA.WORDSETS
     };
     const pool = poolMap[currentType] || DATA.PASSAGES;
 
     // 1. Filter
-    let filtered = currentType === 'phonics' ? [...pool] : pool.filter(l => l.stage === currentStage);
+    const useStageFilter = currentType !== 'phonics';
+    let filtered = useStageFilter ? pool.filter(l => !l.stage || l.stage === currentStage) : [...pool];
     if (searchTerm) {
         const term = searchTerm.toLowerCase();
         filtered = filtered.filter(l =>

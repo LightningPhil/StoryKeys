@@ -76,6 +76,19 @@ export function updateTypingDisplay(userInput, state, DATA) {
         if (currentLine) currentLine.classList.add('current-line');
     }
 
+    // --- Spelling Tutor: Hide lines once typing begins for that word ---
+    if (state.runtime.lesson?.type === 'spelling' && lineElements?.length) {
+        const vanished = state.runtime.vanishedLines || new Set();
+        lineElements.forEach(line => {
+            const startIdx = Number(line.dataset.startIdx);
+            if (Number.isFinite(startIdx) && userInputNorm.length > startIdx) {
+                vanished.add(startIdx);
+            }
+            line.classList.toggle('vanished', vanished.has(Number(line.dataset.startIdx)));
+        });
+        state.runtime.vanishedLines = vanished;
+    }
+
     // --- Character Class Updates ---
     const chars = Array.from(targetEl.querySelectorAll('.char'));
     chars.forEach((span) => {
@@ -157,6 +170,8 @@ export function calculateVisualLines(state, DATA) {
         groups.forEach(group => {
             const div = document.createElement('div');
             div.className = 'line';
+            const firstVisibleChar = group.find(ch => ch.textContent !== '\n') || group[0];
+            if (firstVisibleChar) div.dataset.startIdx = firstVisibleChar.dataset.idx;
             group.forEach(ch => div.appendChild(ch));
             frag2.appendChild(div);
             lineEls.push(div);

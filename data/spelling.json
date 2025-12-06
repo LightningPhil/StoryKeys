@@ -1,0 +1,34 @@
+[
+  {
+    "id": "spelling_ks1_creatures",
+    "name": "KS1 Spelling: Friendly Creatures",
+    "stage": "KS1",
+    "theme": "Animals",
+    "words": ["rabbit", "kitten", "puppy", "shell", "feather", "garden", "sunny", "smile", "forest", "river"],
+    "tags": { "complexity": { "caps": false, "punct": false } }
+  },
+  {
+    "id": "spelling_ks2_adventures",
+    "name": "KS2 Spelling: Small Adventures",
+    "stage": "KS2",
+    "theme": "Silly Stories",
+    "words": ["journey", "capture", "mystery", "whisper", "lantern", "courage", "wander", "pocket", "puzzle", "glisten"],
+    "tags": { "complexity": { "caps": true, "punct": false } }
+  },
+  {
+    "id": "spelling_ks3_science",
+    "name": "KS3 Spelling: Science Sampler",
+    "stage": "KS3",
+    "theme": "Science snips",
+    "words": ["gravity", "molecule", "quantum", "laboratory", "circuit", "particle", "spectrum", "density", "orbit", "reaction"],
+    "tags": { "complexity": { "caps": true, "punct": false } }
+  },
+  {
+    "id": "spelling_ks4_mindset",
+    "name": "KS4 Spelling: Growth Mindset",
+    "stage": "KS4",
+    "theme": "Academic",
+    "words": ["resilient", "persevere", "reflection", "analysis", "synthesis", "precision", "integrity", "curiosity", "diligence", "discipline"],
+    "tags": { "complexity": { "caps": true, "punct": false } }
+  }
+]
