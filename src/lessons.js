@@ -17,8 +17,9 @@ import { normaliseString, transformText } from './utils.js';
 export function startSession(lesson, state, showScreen) {
     if (!lesson || !lesson.data) return;
     const isDrill = lesson.type === 'drill';
-    const sourceText = lesson.data.text || lesson.data.words.join(' ');
-    const targetText = transformText(sourceText);
+    const isSpelling = lesson.type === 'spelling';
+    const sourceText = lesson.data.text || (isSpelling ? lesson.data.words.join('\n') : lesson.data.words.join(' '));
+    const targetText = isSpelling ? sourceText : transformText(sourceText);
 
     const timerCountdown = isDrill || lesson.withTimer;
     const showTimerChip = state.settings.showTimerDisplay;
@@ -45,6 +46,7 @@ export function startSession(lesson, state, showScreen) {
             remaining: 60
         },
         lineElements: [],
+        vanishedLines: new Set()
     };
     showScreen('typing');
 }
