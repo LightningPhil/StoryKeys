@@ -67,7 +67,7 @@ export function endSession(finalInput, state, DATA, showScreen, saveState) {
     state.progress.minutesTotal += results.durationSec / 60;
 
     // --- NEW: Record completed passage ---
-    if (state.runtime.lesson.type === 'passage' && !state.runtime.isDrill) {
+    if ((state.runtime.lesson.type === 'passage' || state.runtime.lesson.type === 'phonics') && !state.runtime.isDrill) {
         const lessonId = state.runtime.lesson.data.id;
         // Ensure the completedPassages array exists
         if (!state.progress.completedPassages) {
@@ -112,6 +112,7 @@ export function startFocusDrill(state, DATA, showScreen) {
         const tagsForWord = (word) => {
             for (const ws of DATA.WORDSETS) if (ws.words?.includes(word)) return ws.tags?.phonics || [];
             for (const p of DATA.PASSAGES) if (p.text && p.text.toLowerCase().split(/\W+/).includes(word)) return p.tags?.phonics || [];
+            for (const ph of DATA.PHONICS) if (ph.text && ph.text.toLowerCase().split(/\W+/).includes(word)) return ph.tags?.phonics || [];
             return [];
         };
         const patterns = new Map();
@@ -131,7 +132,7 @@ export function startFocusDrill(state, DATA, showScreen) {
         drillLesson = { type: 'drill', data: { name: "Focus on: Tricky Words", words: [...trickyWords, ...trickyWords] }, withTimer: true };
     } else if (!drillLesson && hardestKeys.length > 0) {
         const key = hardestKeys[0];
-        const words = [...DATA.WORDSETS, ...DATA.PASSAGES].flatMap(d => d.words || d.text.split(' ')).filter(w => normaliseString(w).toLowerCase().includes(key));
+        const words = [...DATA.WORDSETS, ...DATA.PASSAGES, ...DATA.PHONICS].flatMap(d => d.words || d.text.split(' ')).filter(w => normaliseString(w).toLowerCase().includes(key));
         const drillWords = [...new Set(words)].filter(w => w.length > 2).sort(() => 0.5 - Math.random()).slice(0, 10);
         if (drillWords.length > 4) {
             drillLesson = { type: 'drill', data: { name: `Focus on: '${key}' key`, words: drillWords }, withTimer: true };

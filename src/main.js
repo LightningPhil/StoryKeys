@@ -130,6 +130,18 @@ function bindScreenEvents(screenName) {
             }
         });
 
+        const phonicsBtn = document.getElementById('phonics-mode-btn');
+        if (phonicsBtn) {
+            phonicsBtn.addEventListener('click', () => {
+                if (!DATA.PHONICS.length) {
+                    toast('Phonics passages are still loading. Please try again in a moment.');
+                    return;
+                }
+                const lessonData = DATA.PHONICS[Math.floor(Math.random() * DATA.PHONICS.length)];
+                startSession({ type: 'phonics', data: lessonData }, state, showScreen);
+            });
+        }
+
         document.getElementById('browse-lessons-btn').addEventListener('click', () => showModal('lessonPicker'));
     }
     if (screenName === 'typing') {
@@ -248,7 +260,7 @@ function bindModalEvents(modalName) {
             const item = e.target.closest('.lesson-item');
             if (item) {
                 const { id, type } = item.dataset;
-                const pool = type === 'passage' ? DATA.PASSAGES : DATA.WORDSETS;
+                const pool = type === 'passage' ? DATA.PASSAGES : (type === 'phonics' ? DATA.PHONICS : DATA.WORDSETS);
                 const lessonData = pool.find(l => l.id === id);
                 if (lessonData) {
                     closeModal();

@@ -107,6 +107,11 @@ export function getScreenHtml(screenName, state, DATA) {
                     </div>
                 </div>
                 <div class="card home-card">
+                    <h2>Phonics Mode</h2>
+                    <p>Type through short explanations of key sounds with word examples to hear and see the pattern.</p>
+                    <button id="phonics-mode-btn" class="button button-secondary">Start Phonics Practice</button>
+                </div>
+                <div class="card home-card">
                     <h2>Explore the Library</h2>
                     <p>Browse all content, repeat lessons, or choose word sets and drills.</p>
                     <button id="browse-lessons-btn" class="button button-secondary">Browse All Lessons</button>
@@ -205,7 +210,7 @@ export function getModalHtml(modalName, state, DATA) {
             return `
             <div class="modal"><div class="modal-content">
                 <div class="modal-header"><h2>${DATA.COPY.homeChangeLesson}</h2>${closeModalBtn}</div>
-                <div class="tabs"><button class="tab-button active" data-type="passage">Passages</button><button class="tab-button" data-type="wordset">Word Sets</button></div>
+                <div class="tabs"><button class="tab-button active" data-type="passage">Passages</button><button class="tab-button" data-type="phonics">Phonics</button><button class="tab-button" data-type="wordset">Word Sets</button></div>
                 <div class="filter-group">
                     <label>Stage:</label>
                     <div class="stage-filter button-group">
@@ -287,7 +292,12 @@ function getLessonLength(lesson) {
  */
 export function renderLessonList(DATA) {
     const { currentType, currentStage, searchTerm, sortKey, currentPage } = lessonPickerState;
-    const pool = currentType === 'passage' ? DATA.PASSAGES : DATA.WORDSETS;
+    const poolMap = {
+        passage: DATA.PASSAGES,
+        phonics: DATA.PHONICS,
+        wordset: DATA.WORDSETS
+    };
+    const pool = poolMap[currentType] || DATA.PASSAGES;
 
     // 1. Filter
     let filtered = pool.filter(l => l.stage === currentStage);
