@@ -102,14 +102,25 @@ export function getScreenHtml(screenName, state, DATA) {
                 </div>
                 <div id="new-story-card" class="card home-card">
                     <h2>Start a New Story</h2>
-                    <p>Choose a Key Stage to begin a passage you haven't typed before, jump straight into phonics practice, or try the new spelling tutor.</p>
-                    <div class="button-group" style="flex-direction: column; align-items: stretch; gap: 0.75rem; margin-top: 1.5rem; max-width: 300px; margin-left: auto; margin-right: auto;">
-                        <button class="button button-primary" data-stage="KS1">New Key Stage 1 Story</button>
-                        <button class="button button-primary" data-stage="KS2">New Key Stage 2 Story</button>
-                        <button class="button button-primary" data-stage="KS3">New Key Stage 3 Story</button>
-                        <button class="button button-primary" data-stage="KS4">New Key Stage 4 Story</button>
+                    <p>Choose a Key Stage to begin a new passage or jump straight into spelling and phonics practice.</p>
+                    <div class="button-group" style="flex-direction: column; align-items: stretch; gap: 0.75rem; margin-top: 1.5rem; max-width: 420px; margin-left: auto; margin-right: auto;">
+                        <div class="stage-row">
+                            <button class="button button-primary" data-stage="KS1">New Key Stage 1 Story</button>
+                            <button class="button button-spelling" data-spelling-stage="KS1">KS1 Spelling Practice</button>
+                        </div>
+                        <div class="stage-row">
+                            <button class="button button-primary" data-stage="KS2">New Key Stage 2 Story</button>
+                            <button class="button button-spelling" data-spelling-stage="KS2">KS2 Spelling Practice</button>
+                        </div>
+                        <div class="stage-row">
+                            <button class="button button-primary" data-stage="KS3">New Key Stage 3 Story</button>
+                            <button class="button button-spelling" data-spelling-stage="KS3">KS3 Spelling Practice</button>
+                        </div>
+                        <div class="stage-row">
+                            <button class="button button-primary" data-stage="KS4">New Key Stage 4 Story</button>
+                            <button class="button button-spelling" data-spelling-stage="KS4">KS4 Spelling Practice</button>
+                        </div>
                         <button id="phonics-mode-btn" class="button button-phonics">Start Phonics Practice</button>
-                        <button id="spelling-mode-btn" class="button button-secondary">Start Spelling Tutor</button>
                     </div>
                 </div>
                 <div class="card home-card">
