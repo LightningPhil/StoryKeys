@@ -217,6 +217,42 @@ export function getModalHtml(modalName, state, DATA) {
                     <pre class="license-text">${escapeHtml(LICENSE_TEXT)}</pre>
                 </div>
             </div></div>`;
+        case 'help':
+            return `
+            <div class="modal"><div class="modal-content about-modal">
+                <div class="modal-header"><h2>Need a Hand?</h2>${closeModalBtn}</div>
+                <div class="info-block">
+                    <h3>Getting Started</h3>
+                    <p>Choose your stage (KS1-KS4) and tap a big blue button to start a story. You can also pick Spelling or Phonics for quick practice.</p>
+                    <p>If you want to see all lessons, press "Browse Lessons" on the home page.</p>
+                </div>
+                <div class="info-block">
+                    <h3>What the Buttons Do</h3>
+                    <ul>
+                        <li><strong>Settings cog:</strong> change theme, font, and helpers.</li>
+                        <li><strong>Parent eye:</strong> a quick view for grown-ups.</li>
+                        <li><strong>Help:</strong> opens this page any time.</li>
+                    </ul>
+                </div>
+                <div class="info-block">
+                    <h3>Typing Screen</h3>
+                    <p>Read the line. Type the same line. The next letter glows so you know where to look. Mistakes show in red so you can fix them.</p>
+                    <p>You can switch on the focus line and on-screen keyboard in Settings if you want extra guidance.</p>
+                </div>
+                <div class="info-block">
+                    <h3>Badges & Progress</h3>
+                    <p>Every minute you type grows your pet icon. Finishing lessons and drills can earn badges. They are saved on your device.</p>
+                </div>
+                <div class="info-block">
+                    <h3>Tips in Simple Words (KS1 Friendly)</h3>
+                    <ul>
+                        <li>Take your time. Slow and steady wins.</li>
+                        <li>Keep fingers comfy on the home row keys.</li>
+                        <li>Look for green letters. They show you are right.</li>
+                        <li>Short breaks help your hands and eyes.</li>
+                    </ul>
+                </div>
+            </div></div>`;
         case 'lessonPicker':
             lessonPickerState.currentStage = state.settings.defaultStage;
             return `
