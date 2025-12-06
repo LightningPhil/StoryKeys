@@ -1,0 +1,74 @@
+[
+  {
+    "id": "phonics_short-a_v1",
+    "stage": "KS1",
+    "theme": "Phonics",
+    "title": "Short /a/ like in 'cat'",
+    "text": "The short /a/ sound is a quick, open vowel. You hear it at the start of words like apple and at the end of nap. Words with this sound include cat, map, jam, and lamp. Say the words aloud as you type to keep the sound clear.",
+    "tags": { "complexity": { "caps": true, "punct": true }, "phonics": ["ks1-phonics-a"] },
+    "meta": { "est_chars": 259 }
+  },
+  {
+    "id": "phonics_short-e_v1",
+    "stage": "KS1",
+    "theme": "Phonics",
+    "title": "Short /e/ like in 'bed'",
+    "text": "The short /e/ sound is light and steady. It sits in the middle of many common words. Think of bed, leg, pen, and nest. The sound is the same in every word even though the letters around it change.",
+    "tags": { "complexity": { "caps": true, "punct": true }, "phonics": ["ks1-phonics-e"] },
+    "meta": { "est_chars": 223 }
+  },
+  {
+    "id": "phonics_short-i_v1",
+    "stage": "KS1",
+    "theme": "Phonics",
+    "title": "Short /i/ like in 'fish'",
+    "text": "The short /i/ sound is quick and clear. You can hear it in fish, chip, milk, and swim. Watch how the letter i sits between different consonants but keeps the same sound. Tap each word to feel the short vowel beat.",
+    "tags": { "complexity": { "caps": true, "punct": true }, "phonics": ["ks1-phonics-i"] },
+    "meta": { "est_chars": 242 }
+  },
+  {
+    "id": "phonics_short-o_v1",
+    "stage": "KS1",
+    "theme": "Phonics",
+    "title": "Short /o/ like in 'hot'",
+    "text": "The short /o/ sound is round and warm. Hear it in hot, box, frog, and clock. The vowel looks the same in each word, even when double consonants close it in. Saying the words as you type helps you match the shape of the sound.",
+    "tags": { "complexity": { "caps": true, "punct": true }, "phonics": ["ks1-phonics-o"] },
+    "meta": { "est_chars": 257 }
+  },
+  {
+    "id": "phonics_short-u_v1",
+    "stage": "KS1",
+    "theme": "Phonics",
+    "title": "Short /u/ like in 'sun'",
+    "text": "The short /u/ sound is relaxed and gentle. You will spot it in sun, cup, bus, and duck. Notice how the letters around the u change but the sound stays soft and steady. Typing slowly keeps the sound in mind.",
+    "tags": { "complexity": { "caps": true, "punct": true }, "phonics": ["ks1-phonics-u"] },
+    "meta": { "est_chars": 236 }
+  },
+  {
+    "id": "phonics_digraph-sh_v1",
+    "stage": "KS1",
+    "theme": "Phonics",
+    "title": "The digraph 'sh'",
+    "text": "The letters s and h work together to make the /sh/ sound. You can hear it at the start of ship and shell, in the middle of wishing, and at the end of brush. When you see sh, say the soft sound once and then glide to the next letter.",
+    "tags": { "complexity": { "caps": true, "punct": true }, "phonics": ["ks1-phonics-sh"] },
+    "meta": { "est_chars": 270 }
+  },
+  {
+    "id": "phonics_digraph-ch_v1",
+    "stage": "KS1",
+    "theme": "Phonics",
+    "title": "The digraph 'ch'",
+    "text": "The letters c and h make the /ch/ sound when they stand together. Listen for it in chip, lunch, bench, and teacher. The sound is a quick burst, almost like a tiny sneeze. Keep the sound in one beat even if the word ends in ch.",
+    "tags": { "complexity": { "caps": true, "punct": true }, "phonics": ["ks1-phonics-ch"] },
+    "meta": { "est_chars": 262 }
+  },
+  {
+    "id": "phonics_magic-e_v1",
+    "stage": "KS2",
+    "theme": "Phonics",
+    "title": "Split digraph: magic e",
+    "text": "A split digraph changes a short vowel into a long one. In the word cake, the a says /ay/ because the silent e is waiting at the end. The same happens in time, note, and cube. The vowel and the e are split by a consonant, but they still work together.",
+    "tags": { "complexity": { "caps": true, "punct": true }, "phonics": ["ks2-phonics-split"] },
+    "meta": { "est_chars": 287 }
+  }
+]
