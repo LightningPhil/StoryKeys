@@ -277,10 +277,10 @@ function bindModalEvents(modalName) {
             }
         });
 
-        // Initial load and render
+        // Initial load and render – ensure the default stage data is available
         stageFilter.querySelector(`[data-stage="${state.settings.defaultStage}"]`).classList.add('active');
         setStageFilterVisibility(lessonPickerState.currentType);
-        handleFilterChange({});
+        handleFilterChange({ currentStage: lessonPickerState.currentStage });
     }
     if (modalName === 'settings') {
         const s = state.settings;
