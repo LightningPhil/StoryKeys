@@ -105,7 +105,7 @@ function showScreen(screenName) {
     window.scrollTo(0, 0);
 }
 
-function showModal(modalName) {
+function showModal(modalName, options = {}) {
     state.ui.lastFocus = document.activeElement;
     state.ui.modal = modalName;
     modalContainer.innerHTML = getModalHtml(modalName, state, DATA);
@@ -120,6 +120,12 @@ function showModal(modalName) {
     modal.classList.add('active');
     const firstInput = modal.querySelector('input, select, button');
     if (firstInput) firstInput.focus();
+    if (options.scrollToId) {
+        const target = modal.querySelector(`#${options.scrollToId}`);
+        if (target) {
+            target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        }
+    }
 }
 
 function closeModal() {
@@ -146,6 +152,10 @@ function bindAppEvents() {
     document.getElementById('parent-btn').addEventListener('click', () => {
         state.settings.pin ? showModal('pin') : showModal('parent');
     });
+    const footerPrivacyLink = document.getElementById('footer-privacy-link');
+    if (footerPrivacyLink) {
+        footerPrivacyLink.addEventListener('click', () => showModal('help', { scrollToId: 'help-data-privacy' }));
+    }
     window.addEventListener('keydown', e => { if (e.key === 'Escape' && state.ui.modal) closeModal(); });
     window.addEventListener('blur', () => { if (state.runtime && state.runtime.timer) state.runtime.timer.paused = true; });
     window.addEventListener('focus', () => { if (state.runtime && state.runtime.timer) state.runtime.timer.paused = false; });

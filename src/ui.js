@@ -217,7 +217,7 @@ export function getModalHtml(modalName, state, DATA) {
         case 'welcome':
             return `
             <div class="modal" id="welcome-modal"><div class="modal-content welcome-modal">
-                <div class="modal-header"><h2>Welcome to StoryKeys</h2>${closeModalBtn}</div>
+                <div class="modal-header"><h2 class="modal-title">Welcome to StoryKeys</h2>${closeModalBtn}</div>
                 <p class="lead">A calm space to build confident typing habits.</p>
                 <ul class="welcome-list">
                     <li>Choose a story from the list to begin.</li>
@@ -229,7 +229,7 @@ export function getModalHtml(modalName, state, DATA) {
         case 'about':
             return `
             <div class="modal"><div class="modal-content about-modal">
-                <div class="modal-header"><h2>StoryKeys</h2>${closeModalBtn}</div>
+                <div class="modal-header"><h2 class="modal-title">StoryKeys</h2>${closeModalBtn}</div>
                 <div class="info-block">
                     <h3>About StoryKeys</h3>
                     <div class="markdown-block">${renderMarkdownBlock(ABOUT_MARKDOWN)}</div>
@@ -242,36 +242,46 @@ export function getModalHtml(modalName, state, DATA) {
         case 'help':
             return `
             <div class="modal"><div class="modal-content about-modal">
-                <div class="modal-header"><h2>Need a Hand?</h2>${closeModalBtn}</div>
+                <div class="modal-header"><h2 class="modal-title">Need a Hand?</h2>${closeModalBtn}</div>
                 <div class="info-block">
-                    <h3>Getting Started</h3>
-                    <p>Choose your stage (KS1-KS4) and tap a big blue button to start a story. You can also pick Spelling or Phonics for quick practice.</p>
-                    <p>If you want to see all lessons, press "Browse Lessons" on the home page.</p>
+                    <h3>What is StoryKeys?</h3>
+                    <p>StoryKeys is a reading and typing practice tool using short stories to build confidence and rhythm. It keeps the experience calm so learners can focus on accuracy first, then speed.</p>
                 </div>
                 <div class="info-block">
-                    <h3>What the Buttons Do</h3>
+                    <h3>How to use it</h3>
                     <ul>
-                        <li><strong>Settings cog:</strong> change theme, font, and helpers.</li>
-                        <li><strong>Parent eye:</strong> a quick view for grown-ups.</li>
-                        <li><strong>Help:</strong> opens this page any time.</li>
+                        <li>Choose a story.</li>
+                        <li>Type the text you see.</li>
+                        <li>Aim for accuracy first, then speed.</li>
                     </ul>
                 </div>
                 <div class="info-block">
-                    <h3>Typing Screen</h3>
-                    <p>Read the line. Type the same line. The next letter glows so you know where to look. Mistakes show in red so you can fix them.</p>
-                    <p>You can switch on the focus line and on-screen keyboard in Settings if you want extra guidance.</p>
-                </div>
-                <div class="info-block">
-                    <h3>Badges & Progress</h3>
-                    <p>Every minute you type grows your pet icon. Finishing lessons and drills can earn badges. They are saved on your device.</p>
-                </div>
-                <div class="info-block">
-                    <h3>Tips in Simple Words (KS1 Friendly)</h3>
+                    <h3>Features that help</h3>
                     <ul>
-                        <li>Take your time. Slow and steady wins.</li>
-                        <li>Keep fingers comfy on the home row keys.</li>
-                        <li>Look for green letters. They show you are right.</li>
-                        <li>Short breaks help your hands and eyes.</li>
+                        <li><strong>Focus line:</strong> highlights the current line so eyes stay on track.</li>
+                        <li><strong>Lock-step / guided mode:</strong> prevents moving ahead until each letter matches.</li>
+                        <li><strong>Lesson progress:</strong> completion markers and gentle badges celebrate milestones.</li>
+                    </ul>
+                </div>
+                <div class="info-block">
+                    <h3>Typing screen basics</h3>
+                    <p>Read the line, then type it. The next letter glows to guide you, and mistakes show in red so they are easy to correct. Toggle the focus line, on-screen keyboard, or timer in Settings if you want extra scaffolding.</p>
+                </div>
+                <div class="info-block" id="help-data-privacy">
+                    <h3>Data & Privacy</h3>
+                    <ul>
+                        <li>Your progress is stored only in this browser using localStorage.</li>
+                        <li>No accounts, no cloud storage, no third-party trackers.</li>
+                        <li>You can export or erase local data via Parent Glance.</li>
+                    </ul>
+                </div>
+                <div class="info-block">
+                    <h3>Tips in Simple Words</h3>
+                    <ul>
+                        <li>Take your time. Accuracy comes first.</li>
+                        <li>Keep fingers relaxed on the home row keys.</li>
+                        <li>Watch for green letters to know you are right.</li>
+                        <li>Short breaks help hands and eyes stay fresh.</li>
                     </ul>
                 </div>
             </div></div>`;
@@ -284,14 +294,14 @@ export function getModalHtml(modalName, state, DATA) {
             });
             return `
             <div class="modal"><div class="modal-content">
-                <div class="modal-header"><h2>Your Badges</h2>${closeModalBtn}</div>
+                <div class="modal-header"><h2 class="modal-title">Your Badges</h2>${closeModalBtn}</div>
                 ${earnedBadges.length ? `<div class="badge-grid">${earnedBadges.join('')}</div>` : '<p>You have not earned any badges yet. Complete lessons to unlock them!</p>'}
             </div></div>`;
         case 'lessonPicker':
             lessonPickerState.currentStage = state.settings.defaultStage;
             return `
             <div class="modal"><div class="modal-content">
-                <div class="modal-header"><h2>${DATA.COPY.homeChangeLesson}</h2>${closeModalBtn}</div>
+                <div class="modal-header"><h2 class="modal-title">${DATA.COPY.homeChangeLesson}</h2>${closeModalBtn}</div>
                 <div class="tabs"><button class="tab-button active" data-type="passage">Passages</button><button class="tab-button" data-type="phonics">Phonics</button><button class="tab-button" data-type="spelling">Spelling Tutor</button><button class="tab-button" data-type="wordset">Word Sets</button></div>
                 <div class="filter-group">
                     <label>Stage:</label>
@@ -315,7 +325,7 @@ export function getModalHtml(modalName, state, DATA) {
             </div></div>`;
         case 'settings': return `
             <div class="modal"><div class="modal-content">
-                <div class="modal-header"><h2>Settings</h2>${closeModalBtn}</div>
+                <div class="modal-header"><h2 class="modal-title">Settings</h2>${closeModalBtn}</div>
                 <details class="settings-section" open>
                     <summary>Readability</summary>
                     <div class="setting-item"><div><b>Theme</b><p>Change the app's colour scheme.</p></div><select id="setting-theme" class="button button-secondary"><option value="cream">Cream</option><option value="light">Light</option><option value="dark">Dark</option></select></div>
@@ -342,7 +352,7 @@ export function getModalHtml(modalName, state, DATA) {
             const avgAccuracy = weeklySessions.length ? Math.round(weeklySessions.reduce((acc, s) => acc + s.accuracy, 0) / weeklySessions.length) : 'N/A';
             return `
             <div class="modal"><div class="modal-content">
-                <div class="modal-header"><h2>Parent Glance</h2>${closeModalBtn}</div>
+                <div class="modal-header"><h2 class="modal-title">Parent Glance</h2>${closeModalBtn}</div>
                 <h3>This Week</h3><p>Sessions: ${weeklySessions.length} | Avg. Accuracy: ${avgAccuracy}%</p>
                 <h3>All Time</h3><p>Total Minutes: ${Math.round(state.progress.minutesTotal)}</p>
                 <h3>Recent Sessions</h3><div style="max-height: 200px; overflow-y: auto; border: 1px solid var(--color-border); padding: 0.5rem; border-radius: var(--border-radius);">${state.sessions.slice(-10).reverse().map(s => {
@@ -351,7 +361,7 @@ export function getModalHtml(modalName, state, DATA) {
                 }).join('') || '<p>No sessions yet.</p>'}</div>
                 <div class="button-group" style="margin-top: 1.5rem;"><button id="export-btn" class="button button-secondary">Export Data</button><button id="clear-data-btn" class="button" style="background-color: #c12121; color: white;">Clear All Data</button></div>
             </div></div>`;
-        case 'pin': return `<div class="modal"><div class="modal-content" style="text-align: center;"><h2>Enter PIN</h2><input type="password" id="pin-input" maxlength="4" style="text-align: center; font-size: 2rem; width:100px; margin-bottom:1rem;"><br><button id="pin-submit-btn" class="button button-primary">Unlock</button></div></div>`;
+        case 'pin': return `<div class="modal"><div class="modal-content" style="text-align: center;"><h2 class="modal-title">Enter PIN</h2><input type="password" id="pin-input" maxlength="4" style="text-align: center; font-size: 2rem; width:100px; margin-bottom:1rem;"><br><button id="pin-submit-btn" class="button button-primary">Unlock</button></div></div>`;
     }
     return '';
 }
