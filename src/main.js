@@ -16,24 +16,31 @@ import { handleTypingInput, calculateVisualLines } from './keyboard.js';
 'use strict';
 const APP_VERSION = "8.0.0";
 const SCHEMA_VERSION = 1;
+const CURRENT_WELCOME_VERSION = 1;
+const DEFAULT_META = { hasSeenWelcome: false, welcomeVersion: CURRENT_WELCOME_VERSION };
 
 // --- 1. STATE MANAGEMENT ---
 let state = {
     settings: { font: 'default', lineHeight: 1.7, letterSpacing: 2, theme: 'cream', lockstepDefault: true, focusLineDefault: false, keyboardHintDefault: false, showTimerDisplay: true, defaultStage: 'KS2', pin: null },
     progress: { minutesTotal: 0, wordsTotal: 0, badges: [], themesCompleted: {}, stagesCompleted: {}, lastPlayed: null, consecutiveDays: 0, completedPassages: [], completedSpellings: [], completedPhonics: [] },
     sessions: [],
+    meta: { ...DEFAULT_META },
     ui: { currentScreen: 'home', modal: null, lastFocus: null },
     runtime: {},
 };
 
 function saveState() {
-    localStorage.setItem('storykeys_state', JSON.stringify({ ...state, _v: SCHEMA_VERSION }));
+    try {
+        localStorage.setItem('storykeys_state', JSON.stringify({ ...state, _v: SCHEMA_VERSION }));
+    } catch (e) {
+        console.warn('Unable to save state to localStorage:', e);
+    }
 }
 
 function loadState() {
-    const raw = localStorage.getItem('storykeys_state');
-    if (!raw) return;
     try {
+        const raw = localStorage.getItem('storykeys_state');
+        if (!raw) return;
         const parsed = JSON.parse(raw);
         state.settings = { ...state.settings, ...parsed.settings };
         state.progress = {
@@ -44,9 +51,20 @@ function loadState() {
             completedPhonics: parsed.progress?.completedPhonics || [],
         };
         state.sessions = parsed.sessions || [];
+        state.meta = { ...DEFAULT_META, ...(parsed.meta || {}) };
     } catch (e) {
         console.error("Failed to parse state from localStorage:", e);
     }
+}
+
+function markWelcomeSeen() {
+    state.meta.hasSeenWelcome = true;
+    state.meta.welcomeVersion = CURRENT_WELCOME_VERSION;
+    saveState();
+}
+
+function shouldShowWelcome() {
+    return !state.meta.hasSeenWelcome || state.meta.welcomeVersion !== CURRENT_WELCOME_VERSION;
 }
 
 // --- 2. DOM REFERENCES ---
@@ -107,6 +125,9 @@ function showModal(modalName) {
 function closeModal() {
     const modalEl = modalContainer.querySelector('.modal');
     if (modalEl) {
+        if (state.ui.modal === 'welcome') {
+            markWelcomeSeen();
+        }
         modalEl.classList.remove('active');
         setTimeout(() => {
             modalContainer.innerHTML = '';
@@ -120,6 +141,7 @@ function closeModal() {
 function bindAppEvents() {
     document.getElementById('about-btn').addEventListener('click', () => showModal('about'));
     document.getElementById('help-btn').addEventListener('click', () => showModal('help'));
+    document.getElementById('start-here-btn').addEventListener('click', () => showModal('welcome'));
     document.getElementById('settings-btn').addEventListener('click', () => showModal('settings'));
     document.getElementById('parent-btn').addEventListener('click', () => {
         state.settings.pin ? showModal('pin') : showModal('parent');
@@ -253,8 +275,10 @@ function bindModalEvents(modalName) {
     const modalEl = modalContainer.querySelector('.modal');
     const contentEl = modalEl.querySelector('.modal-content');
 
-    modalEl.querySelector('#close-modal-btn')?.addEventListener('click', closeModal);
-    modalEl.addEventListener('click', e => { if (e.target === modalEl) closeModal(); });
+    const closeHandler = () => closeModal();
+
+    modalEl.querySelector('#close-modal-btn')?.addEventListener('click', closeHandler);
+    modalEl.addEventListener('click', e => { if (e.target === modalEl) closeHandler(); });
     
     const focusables = Array.from(contentEl.querySelectorAll('button, [href], input, select, textarea, [tabindex]:not([tabindex="-1"])'));
     if (focusables.length > 0) {
@@ -329,6 +353,10 @@ function bindModalEvents(modalName) {
         const pickerState = getLessonPickerState();
         setStageFilterVisibility(pickerState.currentType);
         handleFilterChange({ currentStage: pickerState.currentStage });
+    }
+    if (modalName === 'welcome') {
+        const startButton = document.getElementById('welcome-start-btn');
+        startButton?.addEventListener('click', closeModal);
     }
     if (modalName === 'settings') {
         const s = state.settings;
@@ -414,6 +442,10 @@ async function init() {
         applySettings(state.settings, state.progress);
         showScreen('home');
         bindAppEvents();
+
+        if (shouldShowWelcome()) {
+            showModal('welcome');
+        }
 
         // Pass a reference to the DATA object to a global scope for the pagination controls
         // This is a small workaround to avoid complex event bubbling or state management libraries

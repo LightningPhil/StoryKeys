@@ -209,6 +209,18 @@ export function getScreenHtml(screenName, state, DATA) {
 export function getModalHtml(modalName, state, DATA) {
     const closeModalBtn = `<button id="close-modal-btn" class="icon-button" title="Close"><svg viewBox="0 0 24 24"><path d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"></path></svg></button>`;
     switch (modalName) {
+        case 'welcome':
+            return `
+            <div class="modal" id="welcome-modal"><div class="modal-content welcome-modal">
+                <div class="modal-header"><h2>Welcome to StoryKeys</h2>${closeModalBtn}</div>
+                <p class="lead">A calm space to build confident typing habits.</p>
+                <ul class="welcome-list">
+                    <li>Choose a story from the list to begin.</li>
+                    <li>Type along to practise reading and keyboard skills.</li>
+                    <li>Your progress is saved on this computer only.</li>
+                </ul>
+                <button id="welcome-start-btn" class="button button-primary" style="margin-top: 1rem; align-self: center; min-width: 200px;">Let's start</button>
+            </div></div>`;
         case 'about':
             return `
             <div class="modal"><div class="modal-content about-modal">
