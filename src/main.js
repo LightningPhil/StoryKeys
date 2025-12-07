@@ -20,7 +20,7 @@ const SCHEMA_VERSION = 1;
 // --- 1. STATE MANAGEMENT ---
 let state = {
     settings: { font: 'default', lineHeight: 1.7, letterSpacing: 2, theme: 'cream', lockstepDefault: true, focusLineDefault: false, keyboardHintDefault: false, showTimerDisplay: true, defaultStage: 'KS2', pin: null },
-    progress: { minutesTotal: 0, wordsTotal: 0, badges: [], themesCompleted: {}, stagesCompleted: {}, lastPlayed: null, consecutiveDays: 0, completedPassages: [] },
+    progress: { minutesTotal: 0, wordsTotal: 0, badges: [], themesCompleted: {}, stagesCompleted: {}, lastPlayed: null, consecutiveDays: 0, completedPassages: [], completedSpellings: [], completedPhonics: [] },
     sessions: [],
     ui: { currentScreen: 'home', modal: null, lastFocus: null },
     runtime: {},
@@ -36,7 +36,13 @@ function loadState() {
     try {
         const parsed = JSON.parse(raw);
         state.settings = { ...state.settings, ...parsed.settings };
-        state.progress = { ...state.progress, ...parsed.progress };
+        state.progress = {
+            ...state.progress,
+            ...parsed.progress,
+            completedPassages: parsed.progress?.completedPassages || [],
+            completedSpellings: parsed.progress?.completedSpellings || [],
+            completedPhonics: parsed.progress?.completedPhonics || [],
+        };
         state.sessions = parsed.sessions || [];
     } catch (e) {
         console.error("Failed to parse state from localStorage:", e);
@@ -46,6 +52,29 @@ function loadState() {
 // --- 2. DOM REFERENCES ---
 const mainContent = document.getElementById('main-content');
 const modalContainer = document.getElementById('modal-container');
+
+function pickFreshLesson(pool, type) {
+    const completedIds = new Set(
+        type === 'spelling'
+            ? state.progress.completedSpellings || []
+            : type === 'phonics'
+                ? state.progress.completedPhonics || []
+                : state.progress.completedPassages || []
+    );
+    const unseen = pool.filter(item => !completedIds.has(item.id));
+    if (unseen.length) {
+        return unseen[Math.floor(Math.random() * unseen.length)];
+    }
+
+    const history = state.sessions.filter(s => s.contentType === type);
+    if (!history.length) {
+        return pool.length ? pool[Math.floor(Math.random() * pool.length)] : null;
+    }
+
+    const lastPlayed = new Map();
+    history.forEach(s => lastPlayed.set(s.contentId, new Date(s.ts).getTime()));
+    return [...pool].sort((a, b) => (lastPlayed.get(a.id) || 0) - (lastPlayed.get(b.id) || 0))[0] || null;
+}
 
 // --- 3. UI ROUTING & RENDERING ---
 function showScreen(screenName) {
@@ -112,21 +141,11 @@ function bindScreenEvents(screenName) {
                 await loadStageData(stage); // Ensure the data for this stage is loaded
 
                 const allPassagesForStage = DATA.PASSAGES.filter(p => p.stage === stage);
-                
-                // Create a Set of completed IDs for efficient lookup
-                const completedIds = new Set(state.progress.completedPassages || []);
-                
-                // Filter out any passages that have already been completed
-                const newPassages = allPassagesForStage.filter(p => !completedIds.has(p.id));
-
-                if (newPassages.length === 0) {
-                    // Handle the case where the user has completed everything
-                    toast(`Congratulations! You've finished all the new stories for ${stage}.`);
+                const lessonData = pickFreshLesson(allPassagesForStage, 'passage');
+                if (!lessonData) {
+                    toast(`No ${stage} passages are available yet. Please try another stage.`);
                     return;
                 }
-
-                // Select a random passage from the remaining new ones
-                const lessonData = newPassages[Math.floor(Math.random() * newPassages.length)];
                 startSession({ type: 'passage', data: lessonData }, state, showScreen);
             }
 
@@ -139,7 +158,11 @@ function bindScreenEvents(screenName) {
                     return;
                 }
 
-                const lessonData = stageSpellings[Math.floor(Math.random() * stageSpellings.length)];
+                const lessonData = pickFreshLesson(stageSpellings, 'spelling');
+                if (!lessonData) {
+                    toast(`No fresh spelling lists found for ${stage}. Please try another stage.`);
+                    return;
+                }
                 startSession({ type: 'spelling', data: lessonData }, state, showScreen);
             }
         });
@@ -151,7 +174,11 @@ function bindScreenEvents(screenName) {
                     toast('Phonics passages are still loading. Please try again in a moment.');
                     return;
                 }
-                const lessonData = DATA.PHONICS[Math.floor(Math.random() * DATA.PHONICS.length)];
+                const lessonData = pickFreshLesson(DATA.PHONICS, 'phonics');
+                if (!lessonData) {
+                    toast('No phonics passages available yet. Please try again later.');
+                    return;
+                }
                 startSession({ type: 'phonics', data: lessonData }, state, showScreen);
             });
         }
