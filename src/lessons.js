@@ -68,19 +68,28 @@ export function endSession(finalInput, state, DATA, showScreen, saveState) {
     state.progress.wordsTotal += state.runtime.targetTextNorm.length / 5;
     state.progress.minutesTotal += results.durationSec / 60;
 
-    // --- NEW: Record completed passage ---
-    if ((state.runtime.lesson.type === 'passage' || state.runtime.lesson.type === 'phonics') && !state.runtime.isDrill) {
+    // --- Record completed content ---
+    if (!state.runtime.isDrill) {
         const lessonId = state.runtime.lesson.data.id;
-        // Ensure the completedPassages array exists
-        if (!state.progress.completedPassages) {
-            state.progress.completedPassages = [];
+        const lessonType = state.runtime.lesson.type;
+        const pushUnique = (arrName) => {
+            if (!state.progress[arrName]) state.progress[arrName] = [];
+            if (!state.progress[arrName].includes(lessonId)) {
+                state.progress[arrName].push(lessonId);
+            }
+        };
+
+        if (lessonType === 'passage' || lessonType === 'phonics') {
+            pushUnique('completedPassages');
         }
-        // Add the ID only if it's not already there
-        if (!state.progress.completedPassages.includes(lessonId)) {
-            state.progress.completedPassages.push(lessonId);
+        if (lessonType === 'phonics') {
+            pushUnique('completedPhonics');
+        }
+        if (lessonType === 'spelling') {
+            pushUnique('completedSpellings');
         }
     }
-    // --- END NEW ---
+    // --- END record completed content ---
 
     if (!state.runtime.isDrill) {
         state.sessions.push({
@@ -88,6 +97,7 @@ export function endSession(finalInput, state, DATA, showScreen, saveState) {
             ts: new Date().toISOString(),
             contentId: state.runtime.lesson.data.id,
             contentType: state.runtime.lesson.type,
+            stage: state.runtime.lesson.data.stage,
             ...results,
             flags: state.runtime.flags
         });

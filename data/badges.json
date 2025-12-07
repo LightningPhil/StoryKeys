@@ -1,77 +1,82 @@
 [
-    {
-        "id": "steady_95",
-        "label": "Steady 95",
-        "desc": "Complete three sessions at 95%+ accuracy."
-    },
-    {
-        "id": "accuracy_ace_98",
-        "label": "Accuracy Ace",
-        "desc": "Achieve 98%+ accuracy in a session."
-    },
-    {
-        "id": "perfectionist_100",
-        "label": "Perfectionist",
-        "desc": "Finish a session with 100% accuracy."
-    },
-    {
-        "id": "calm_careful",
-        "label": "Calm & Careful",
-        "desc": "Finish with zero errors in lockstep mode."
-    },
-    {
-        "id": "punct_pro",
-        "label": "Punctuation Pro",
-        "desc": "Finish a passage with punctuation at 95%+ accuracy."
-    },
-    {
-        "id": "explorer",
-        "label": "Explorer",
-        "desc": "Try three different themes."
-    },
-    {
-        "id": "genre_hopper",
-        "label": "Genre Hopper",
-        "desc": "Complete a passage from Animals, Nature, and Science."
-    },
-    {
-        "id": "stage_scholar",
-        "label": "Stage Scholar",
-        "desc": "Complete one lesson from KS1, KS2, and KS3."
-    },
-    {
-        "id": "routine",
-        "label": "Routine",
-        "desc": "Type on three different days this week."
-    },
-    {
-        "id": "five_day_streak",
-        "label": "5-Day Streak",
-        "desc": "Complete a session on five consecutive days."
-    },
-    {
-        "id": "early_bird",
-        "label": "Early Bird",
-        "desc": "Complete a session before 9 AM."
-    },
-    {
-        "id": "night_owl",
-        "label": "Night Owl",
-        "desc": "Complete a session after 9 PM."
-    },
-    {
-        "id": "word_wizard_1k",
-        "label": "Word Wizard",
-        "desc": "Type a total of 1,000 words."
-    },
-    {
-        "id": "typing_titan_30",
-        "label": "Typing Titan",
-        "desc": "Accumulate 30 minutes of total typing time."
-    },
-    {
-        "id": "marathoner_60",
-        "label": "Marathoner",
-        "desc": "Accumulate 60 minutes of total typing time."
-    }
+    { "id": "accuracy_ace_98", "label": "Accuracy Ace", "desc": "Achieve 98%+ accuracy in a session." },
+    { "id": "perfectionist_100", "label": "Perfectionist", "desc": "Finish a session with 100% accuracy." },
+    { "id": "steady_95", "label": "Steady 95", "desc": "Reach 95%+ accuracy in three sessions." },
+    { "id": "calm_careful", "label": "Calm & Careful", "desc": "Finish with zero errors in lockstep mode." },
+    { "id": "punct_pro", "label": "Punctuation Pro", "desc": "Finish a passage with punctuation at 95%+ accuracy." },
+    { "id": "spelling_star", "label": "Spelling Star", "desc": "Complete a spelling list with zero errors." },
+    { "id": "phonic_precision", "label": "Phonic Precision", "desc": "Score 90%+ accuracy on a phonics passage." },
+    { "id": "speedy_40", "label": "Swift Fingers", "desc": "Reach net 40 WPM in a session." },
+    { "id": "speedy_60", "label": "Lightning Hands", "desc": "Reach net 60 WPM in a session." },
+    { "id": "balanced_blaze", "label": "Balanced Blaze", "desc": "Hit 70 gross WPM while staying 95% accurate." },
+    { "id": "steady_reader", "label": "Steady Reader", "desc": "Stick with a lesson for five minutes or more." },
+    { "id": "early_bird", "label": "Early Bird", "desc": "Complete a session before 9 AM." },
+    { "id": "night_owl", "label": "Night Owl", "desc": "Complete a session after 9 PM." },
+    { "id": "weekend_warrior", "label": "Weekend Warrior", "desc": "Finish a session on Saturday or Sunday." },
+    { "id": "explorer", "label": "Explorer", "desc": "Try three different themes." },
+    { "id": "genre_hopper", "label": "Genre Hopper", "desc": "Complete a passage from Animals, Nature, and Science." },
+    { "id": "stage_scholar", "label": "Stage Scholar", "desc": "Complete one lesson from KS1, KS2, and KS3." },
+    { "id": "stage_master", "label": "Stage Master", "desc": "Complete lessons in all four stages." },
+    { "id": "mode_mixer", "label": "Mode Mixer", "desc": "Finish at least one passage, spelling, and phonics session." },
+    { "id": "routine", "label": "Routine", "desc": "Type on three different days." },
+    { "id": "five_day_streak", "label": "5-Day Streak", "desc": "Complete a session on five consecutive days." },
+    { "id": "word_wizard_1k", "label": "Word Wizard", "desc": "Type a total of 1,000 words." },
+    { "id": "word_wizard_5k", "label": "Library Legend", "desc": "Type a total of 5,000 words." },
+    { "id": "typing_titan_30", "label": "Typing Titan", "desc": "Accumulate 30 minutes of total typing time." },
+    { "id": "marathoner_60", "label": "Marathoner", "desc": "Accumulate 60 minutes of total typing time." },
+    { "id": "endurance_hero", "label": "Endurance Hero", "desc": "Reach three hours of total typing time." },
+
+    { "id": "passage_ks1_1", "label": "KS1 Story Starter", "desc": "Finish your first KS1 passage." },
+    { "id": "passage_ks1_3", "label": "KS1 Story Sampler", "desc": "Complete three KS1 passages." },
+    { "id": "passage_ks1_5", "label": "KS1 Story Streak", "desc": "Finish five KS1 passages." },
+    { "id": "passage_ks1_10", "label": "KS1 Story Explorer", "desc": "Complete ten KS1 passages." },
+    { "id": "passage_ks1_15", "label": "KS1 Story Scholar", "desc": "Finish fifteen KS1 passages." },
+
+    { "id": "passage_ks2_1", "label": "KS2 Chapter Starter", "desc": "Finish your first KS2 passage." },
+    { "id": "passage_ks2_3", "label": "KS2 Chapter Sampler", "desc": "Complete three KS2 passages." },
+    { "id": "passage_ks2_5", "label": "KS2 Chapter Streak", "desc": "Finish five KS2 passages." },
+    { "id": "passage_ks2_10", "label": "KS2 Chapter Explorer", "desc": "Complete ten KS2 passages." },
+    { "id": "passage_ks2_15", "label": "KS2 Chapter Scholar", "desc": "Finish fifteen KS2 passages." },
+
+    { "id": "passage_ks3_1", "label": "KS3 Tale Starter", "desc": "Finish your first KS3 passage." },
+    { "id": "passage_ks3_3", "label": "KS3 Tale Sampler", "desc": "Complete three KS3 passages." },
+    { "id": "passage_ks3_5", "label": "KS3 Tale Streak", "desc": "Finish five KS3 passages." },
+    { "id": "passage_ks3_10", "label": "KS3 Tale Explorer", "desc": "Complete ten KS3 passages." },
+    { "id": "passage_ks3_15", "label": "KS3 Tale Scholar", "desc": "Finish fifteen KS3 passages." },
+
+    { "id": "passage_ks4_1", "label": "KS4 Text Starter", "desc": "Finish your first KS4 passage." },
+    { "id": "passage_ks4_3", "label": "KS4 Text Sampler", "desc": "Complete three KS4 passages." },
+    { "id": "passage_ks4_5", "label": "KS4 Text Streak", "desc": "Finish five KS4 passages." },
+    { "id": "passage_ks4_10", "label": "KS4 Text Explorer", "desc": "Complete ten KS4 passages." },
+    { "id": "passage_ks4_15", "label": "KS4 Text Scholar", "desc": "Finish fifteen KS4 passages." },
+
+    { "id": "spelling_ks1_1", "label": "KS1 Sound Check", "desc": "Finish your first KS1 spelling list." },
+    { "id": "spelling_ks1_3", "label": "KS1 Spelling Sampler", "desc": "Complete three KS1 spelling lists." },
+    { "id": "spelling_ks1_5", "label": "KS1 Spelling Streak", "desc": "Finish five KS1 spelling lists." },
+    { "id": "spelling_ks1_10", "label": "KS1 Spelling Explorer", "desc": "Complete ten KS1 spelling lists." },
+    { "id": "spelling_ks1_15", "label": "KS1 Spelling Scholar", "desc": "Finish fifteen KS1 spelling lists." },
+
+    { "id": "spelling_ks2_1", "label": "KS2 Word Warmup", "desc": "Finish your first KS2 spelling list." },
+    { "id": "spelling_ks2_3", "label": "KS2 Word Sampler", "desc": "Complete three KS2 spelling lists." },
+    { "id": "spelling_ks2_5", "label": "KS2 Word Streak", "desc": "Finish five KS2 spelling lists." },
+    { "id": "spelling_ks2_10", "label": "KS2 Word Explorer", "desc": "Complete ten KS2 spelling lists." },
+    { "id": "spelling_ks2_15", "label": "KS2 Word Scholar", "desc": "Finish fifteen KS2 spelling lists." },
+
+    { "id": "spelling_ks3_1", "label": "KS3 Lexicon Launch", "desc": "Finish your first KS3 spelling list." },
+    { "id": "spelling_ks3_3", "label": "KS3 Lexicon Sampler", "desc": "Complete three KS3 spelling lists." },
+    { "id": "spelling_ks3_5", "label": "KS3 Lexicon Streak", "desc": "Finish five KS3 spelling lists." },
+    { "id": "spelling_ks3_10", "label": "KS3 Lexicon Explorer", "desc": "Complete ten KS3 spelling lists." },
+    { "id": "spelling_ks3_15", "label": "KS3 Lexicon Scholar", "desc": "Finish fifteen KS3 spelling lists." },
+
+    { "id": "spelling_ks4_1", "label": "KS4 Vocabulary Voyage", "desc": "Finish your first KS4 spelling list." },
+    { "id": "spelling_ks4_3", "label": "KS4 Vocabulary Sampler", "desc": "Complete three KS4 spelling lists." },
+    { "id": "spelling_ks4_5", "label": "KS4 Vocabulary Streak", "desc": "Finish five KS4 spelling lists." },
+    { "id": "spelling_ks4_10", "label": "KS4 Vocabulary Explorer", "desc": "Complete ten KS4 spelling lists." },
+    { "id": "spelling_ks4_15", "label": "KS4 Vocabulary Scholar", "desc": "Finish fifteen KS4 spelling lists." },
+
+    { "id": "phonics_1", "label": "Phonics First", "desc": "Complete your first phonics passage." },
+    { "id": "phonics_3", "label": "Phonics Fan", "desc": "Finish three phonics passages." },
+    { "id": "phonics_5", "label": "Phonics Pro", "desc": "Complete five phonics passages." },
+    { "id": "phonics_8", "label": "Phonics Finisher", "desc": "Finish eight phonics passages." },
+    { "id": "phonics_12", "label": "Phonics Powerhouse", "desc": "Complete twelve phonics passages." }
 ]
