@@ -30,15 +30,15 @@
 
         html { font-family: var(--font-family, var(--font-family-default)); font-size: var(--base-font-size); line-height: var(--line-height, 1.7); letter-spacing: var(--letter-spacing, 0.02em); background-color: var(--color-bg); color: var(--color-text); transition: background-color var(--transition-speed), color var(--transition-speed); scroll-behavior: smooth; }
         body { margin: 0; padding: 1rem; display: flex; justify-content: center; align-items: flex-start; min-height: 100vh; }
-        #app-container { width: 100%; max-width: var(--max-width); position: relative; }
+        #app-container { width: 100%; max-width: var(--max-width); position: relative; display: flex; flex-direction: column; gap: 1.5rem; }
 
         /* --- UI COMPONENTS --- */
-        .card { background-color: var(--color-card-bg); border: 1px solid var(--color-border); border-radius: var(--border-radius); padding: 1.5rem 2rem; box-shadow: 0 4px 12px rgba(0,0,0,0.05); }
-        .button { display: inline-block; font-size: 1rem; font-weight: 600; text-decoration: none; padding: 0.8rem 1.5rem; border-radius: var(--border-radius); border: 2px solid transparent; cursor: pointer; transition: all var(--transition-speed) ease; text-align: center; }
-        .button-primary { background-color: var(--color-accent); color: white; border-color: var(--color-accent);}
-        .button-primary:hover { opacity: 0.85; }
-        .button-secondary { background-color: var(--color-subtle-bg); border-color: var(--color-border); color: var(--color-text); }
-        .button-secondary:hover { background-color: var(--color-border); }
+        .card { background-color: var(--color-card-bg); border: 1px solid var(--color-border); border-radius: var(--border-radius); padding: 1.75rem 2rem; box-shadow: 0 4px 12px rgba(0,0,0,0.05); }
+        .button { display: inline-block; font-size: 1rem; font-weight: 650; text-decoration: none; padding: 0.85rem 1.5rem; border-radius: var(--border-radius); border: 2px solid transparent; cursor: pointer; transition: all var(--transition-speed) ease; text-align: center; letter-spacing: 0.01em; }
+        .button-primary, .btn-primary { background-color: var(--color-accent); color: white; border-color: var(--color-accent);}
+        .button-primary:hover, .btn-primary:hover { opacity: 0.85; }
+        .button-secondary, .btn-secondary { background-color: var(--color-subtle-bg); border-color: var(--color-border); color: var(--color-text); }
+        .button-secondary:hover, .btn-secondary:hover { background-color: var(--color-border); }
         .button-phonics { background-color: #b7e4c7; color: #0f3b2e; border-color: #a3d9b3; }
         .button-phonics:hover { background-color: #a3d9b3; }
         .button-spelling { background-color: #a8dadc; color: #0f3c42; border-color: #92cfd3; }
@@ -52,7 +52,11 @@
         .icon-button svg { width: 24px; height: 24px; fill: var(--color-text); }
         .button:focus-visible, .icon-button:focus-visible, .toggle-switch:focus-within { outline: 3px solid var(--color-accent); outline-offset: 2px; box-shadow: 0 0 0 4px rgba(59, 130, 246, 0.2); }
 
-        h1, h2, h3 { margin: 0 0 1rem 0; line-height: 1.2; }
+        h1, h2, h3 { margin: 0 0 1rem 0; line-height: 1.2; font-family: var(--font-family, var(--font-family-default)); }
+        h1 { font-size: 2.4rem; font-weight: 800; letter-spacing: -0.01em; }
+        h2 { font-size: 1.8rem; font-weight: 750; }
+        h3 { font-size: 1.3rem; font-weight: 700; }
+        .modal-title { font-size: 1.65rem; font-weight: 750; letter-spacing: -0.005em; }
         p { margin: 0 0 1rem 0; max-width: 65ch; }
         .screen { display: none; flex-direction: column; gap: 2rem; }
         .screen.active { display: flex; }
@@ -66,9 +70,9 @@
         .start-here-btn { padding: 0.65rem 1rem; font-weight: 700; }
         .modal { position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.5); display: none; justify-content: center; align-items: center; z-index: 100; }
         .modal.active { display: flex; }
-        .modal-content { background: var(--color-card-bg); border-radius: var(--border-radius); padding: 2rem; max-width: 95%; width: 600px; max-height: 90vh; overflow-y: auto; display: flex; flex-direction: column; }
+        .modal-content { background: var(--color-card-bg); border-radius: var(--border-radius); padding: 2.25rem; max-width: 95%; width: 640px; max-height: 90vh; overflow-y: auto; display: flex; flex-direction: column; gap: 1.5rem; }
         .about-modal { gap: 1.5rem; }
-        .about-modal .info-block { border: 1px solid var(--color-border); border-radius: var(--border-radius); padding: 1.5rem; background: var(--color-card-bg); }
+        .about-modal .info-block { border: 1px solid var(--color-border); border-radius: var(--border-radius); padding: 1.5rem; background: var(--color-card-bg); box-shadow: 0 1px 0 rgba(0,0,0,0.02); }
         .welcome-modal { text-align: center; gap: 1rem; }
         .welcome-modal .lead { font-size: 1.1rem; opacity: 0.8; }
         .welcome-list { text-align: left; margin: 0 auto; padding-left: 1.25rem; max-width: 440px; display: grid; gap: 0.5rem; }
@@ -78,6 +82,9 @@
         .about-modal .markdown-block p:last-child { margin-bottom: 0; }
         .about-modal .license-text { background: var(--color-subtle-bg); border-radius: var(--border-radius); padding: 1rem; white-space: pre-wrap; overflow-x: auto; font-family: 'Courier New', Courier, monospace; font-size: 0.85rem; }
         .modal-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 1.5rem; flex-shrink: 0; }
+        .info-block + .info-block { margin-top: 0.5rem; }
+        .info-block ul { padding-left: 1.1rem; margin: 0.25rem 0 0; display: grid; gap: 0.35rem; }
+        .info-block p { margin-bottom: 0.75rem; }
         
         /* --- HOME SCREEN --- */
         .home-header { text-align: center; margin-bottom: 1rem; }
@@ -168,6 +175,11 @@
         .setting-item { display: flex; justify-content: space-between; align-items: center; padding: 1rem 0; }
         .setting-item p { margin: 0; opacity: 0.7; font-size: 0.9rem; }
 
+        /* --- FOOTER --- */
+        .app-footer { border-top: 1px solid var(--color-border); padding: 1rem 0 0.5rem; text-align: center; font-size: 0.95rem; color: var(--color-text); opacity: 0.8; display: flex; flex-direction: column; gap: 0.35rem; }
+        .text-link { background: none; border: none; color: var(--color-accent); cursor: pointer; font-weight: 700; padding: 0; text-decoration: underline; }
+        .text-link:hover { opacity: 0.85; }
+
         /* --- LOADING OVERLAY --- */
         #loading-overlay {
             position: fixed; top: 0; left: 0; width: 100%; height: 100%;
@@ -200,6 +212,10 @@
             </div>
         </header>
         <main id="main-content"></main>
+        <footer class="app-footer" role="contentinfo">
+            <span>StoryKeys runs entirely in your browser. Your progress never leaves this device.</span>
+            <button id="footer-privacy-link" class="text-link" type="button" aria-label="Open privacy details">Privacy</button>
+        </footer>
         <div id="modal-container"></div>
     </div>
     
