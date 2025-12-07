@@ -154,10 +154,14 @@
         .lesson-details b { display: block; }
         .lesson-meta { display: flex; gap: 0.5rem; font-size: 0.8rem; opacity: 0.7; margin-top: 0.25rem; }
         .meta-chip { background-color: var(--color-subtle-bg); padding: 0.1rem 0.5rem; border-radius: 99px; }
+        .meta-chip.complete-chip { background-color: #d1fae5; color: #065f46; font-weight: 600; }
+        .meta-chip.progress-chip { background-color: #e0f2fe; color: #0f172a; }
+        .last-visited { display: inline-flex; align-items: center; gap: 0.2rem; font-weight: 700; color: var(--color-text); }
         .filter-group { display: flex; gap: 1rem; align-items: center; margin-bottom: 1.5rem; }
         .filter-group label { font-weight: bold; }
         .stage-filter .button { padding: 0.5rem 1rem; }
         .stage-filter .button.active { background-color: var(--color-accent); color: white; }
+        .stage-filter .stage-progress { display: inline-block; margin-left: 0.35rem; padding: 0.1rem 0.35rem; border-radius: 999px; background: var(--color-subtle-bg); font-size: 0.75rem; }
         .settings-section { margin-bottom: 1rem; border-top: 1px solid var(--color-border); padding-top: 1.5rem; }
         .settings-section summary { font-weight: bold; font-size: 1.2rem; cursor: pointer; list-style: none; }
         .settings-section summary::-webkit-details-marker { display: none; }

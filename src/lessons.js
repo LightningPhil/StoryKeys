@@ -7,6 +7,7 @@ import { calculateMetrics } from './stats.js';
 import { checkAndAwardBadges } from './badges.js';
 import { toast } from './ui.js';
 import { normaliseString, transformText } from './utils.js';
+import { buildLessonId, calculateSessionCompletionPercent } from './progress.js';
 
 /**
  * Starts a new typing session.
@@ -14,12 +15,18 @@ import { normaliseString, transformText } from './utils.js';
  * @param {object} state - The main application state object (will be mutated).
  * @param {function} showScreen - Callback to render a new screen.
  */
-export function startSession(lesson, state, showScreen) {
+export function startSession(lesson, state, showScreen, persistState) {
     if (!lesson || !lesson.data) return;
     const isDrill = lesson.type === 'drill';
     const isSpelling = lesson.type === 'spelling';
     const sourceText = lesson.data.text || (isSpelling ? lesson.data.words.join('\n') : lesson.data.words.join(' '));
     const targetText = isSpelling ? sourceText : transformText(sourceText);
+
+    const lessonId = buildLessonId(lesson.type, lesson.data);
+    if (lessonId) {
+        state.meta.lastLessonId = lessonId;
+        if (typeof persistState === 'function') persistState();
+    }
 
     const timerCountdown = isDrill || lesson.withTimer;
     const showTimerChip = state.settings.showTimerDisplay;
@@ -98,6 +105,7 @@ export function endSession(finalInput, state, DATA, showScreen, saveState) {
             contentId: state.runtime.lesson.data.id,
             contentType: state.runtime.lesson.type,
             stage: state.runtime.lesson.data.stage,
+            completionPercent: calculateSessionCompletionPercent(state.runtime.targetTextNorm, finalInput),
             ...results,
             flags: state.runtime.flags
         });
@@ -116,7 +124,7 @@ export function endSession(finalInput, state, DATA, showScreen, saveState) {
  * @param {object} DATA - The global data object.
  * @param {function} showScreen - Callback to render a new screen.
  */
-export function startFocusDrill(state, DATA, showScreen) {
+export function startFocusDrill(state, DATA, showScreen, persistState) {
     const { trickyWords, hardestKeys } = state.runtime.summaryResults;
     let drillLesson = null;
 
@@ -152,7 +160,7 @@ export function startFocusDrill(state, DATA, showScreen) {
     }
 
     if (drillLesson) {
-        startSession(drillLesson, state, showScreen);
+        startSession(drillLesson, state, showScreen, persistState);
     } else {
         toast("No specific drill available for that session.");
     }

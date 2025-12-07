@@ -17,7 +17,7 @@ import { handleTypingInput, calculateVisualLines } from './keyboard.js';
 const APP_VERSION = "8.0.0";
 const SCHEMA_VERSION = 1;
 const CURRENT_WELCOME_VERSION = 1;
-const DEFAULT_META = { hasSeenWelcome: false, welcomeVersion: CURRENT_WELCOME_VERSION };
+const DEFAULT_META = { hasSeenWelcome: false, welcomeVersion: CURRENT_WELCOME_VERSION, lastLessonId: null };
 
 // --- 1. STATE MANAGEMENT ---
 let state = {
@@ -168,7 +168,7 @@ function bindScreenEvents(screenName) {
                     toast(`No ${stage} passages are available yet. Please try another stage.`);
                     return;
                 }
-                startSession({ type: 'passage', data: lessonData }, state, showScreen);
+                startSession({ type: 'passage', data: lessonData }, state, showScreen, saveState);
             }
 
             if (e.target.matches('[data-spelling-stage]')) {
@@ -185,7 +185,7 @@ function bindScreenEvents(screenName) {
                     toast(`No fresh spelling lists found for ${stage}. Please try another stage.`);
                     return;
                 }
-                startSession({ type: 'spelling', data: lessonData }, state, showScreen);
+                startSession({ type: 'spelling', data: lessonData }, state, showScreen, saveState);
             }
         });
 
@@ -201,7 +201,7 @@ function bindScreenEvents(screenName) {
                     toast('No phonics passages available yet. Please try again later.');
                     return;
                 }
-                startSession({ type: 'phonics', data: lessonData }, state, showScreen);
+                startSession({ type: 'phonics', data: lessonData }, state, showScreen, saveState);
             });
         }
 
@@ -262,10 +262,10 @@ function bindScreenEvents(screenName) {
     }
     if (screenName === 'summary') {
         const replayBtn = document.getElementById('replay-btn');
-        if (replayBtn) replayBtn.addEventListener('click', () => startSession(state.runtime.lesson, state, showScreen));
+        if (replayBtn) replayBtn.addEventListener('click', () => startSession(state.runtime.lesson, state, showScreen, saveState));
         
         const drillBtn = document.getElementById('start-drill-btn');
-        if (drillBtn) drillBtn.addEventListener('click', () => startFocusDrill(state, DATA, showScreen));
+        if (drillBtn) drillBtn.addEventListener('click', () => startFocusDrill(state, DATA, showScreen, saveState));
         
         document.getElementById('home-btn').addEventListener('click', () => showScreen('home'));
     }
@@ -309,7 +309,7 @@ function bindModalEvents(modalName) {
                 await loadStageData(updates.currentStage);
             }
             // Use a small timeout to let the loading class apply before heavy filtering/sorting
-            setTimeout(() => updateLessonPicker(updates, DATA), 50);
+            setTimeout(() => updateLessonPicker(updates, state, DATA), 50);
         };
         
         modalContainer.querySelectorAll('.tab-button').forEach(b => b.addEventListener('click', (e) => {
@@ -343,7 +343,7 @@ function bindModalEvents(modalName) {
                 const lessonData = pool.find(l => l.id === id);
                 if (lessonData) {
                     closeModal();
-                    startSession({ type, data: lessonData }, state, showScreen);
+                    startSession({ type, data: lessonData }, state, showScreen, saveState);
                 }
             }
         });

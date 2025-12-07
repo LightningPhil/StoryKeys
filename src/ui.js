@@ -3,6 +3,7 @@
  * @description Handles all DOM rendering and UI manipulation for the StoryKeys app.
  */
 import { config } from './config.js';
+import { buildLessonId, getLessonCompletionPercent, getSectionCompletionPercent, isLastLesson } from './progress.js';
 
 // These constants are UI-specific and belong here.
 const PET_LEVELS = ['💠', '🐣', '🐤', '🐔', '🦖', '🐉'];
@@ -60,6 +61,10 @@ let lessonPickerState = {
     currentType: 'passage',
     currentStage: 'KS2'
 };
+
+let lastRenderedState = null;
+let lastRenderedData = null;
+let hasAutoScrolledToLastLesson = false;
 
 export function getLessonPickerState() {
     return lessonPickerState;
@@ -363,11 +368,32 @@ function getLessonLength(lesson) {
     return 0;
 }
 
+function updateStageProgressBadges(state, DATA, type) {
+    if (type === 'phonics') return;
+    const stageButtons = document.querySelectorAll('.stage-filter .button');
+    if (!stageButtons?.length || !state || !DATA) return;
+
+    stageButtons.forEach(btn => {
+        const stage = btn.dataset.stage;
+        const percent = getSectionCompletionPercent(state, DATA, type, stage);
+        let badge = btn.querySelector('.stage-progress');
+        if (!badge) {
+            badge = document.createElement('span');
+            badge.className = 'stage-progress';
+            btn.appendChild(badge);
+        }
+        badge.textContent = `${percent}%`;
+        badge.title = `Average completion for ${stage}`;
+    });
+}
+
 /**
  * Renders the list of lessons based on the current filters, sorting, and pagination.
  * @param {object} DATA - The global data object.
  */
-export function renderLessonList(DATA) {
+export function renderLessonList(DATA, state) {
+    lastRenderedState = state;
+    lastRenderedData = DATA;
     const { currentType, currentStage, searchTerm, sortKey, currentPage } = lessonPickerState;
     const poolMap = {
         passage: DATA.PASSAGES,
@@ -376,6 +402,8 @@ export function renderLessonList(DATA) {
         wordset: DATA.WORDSETS
     };
     const pool = poolMap[currentType] || DATA.PASSAGES;
+
+    updateStageProgressBadges(state, DATA, currentType);
 
     // 1. Filter
     const useStageFilter = currentType !== 'phonics';
@@ -415,11 +443,15 @@ export function renderLessonList(DATA) {
             const len = getLessonLength(l);
             const wordCount = l.words ? l.words.length : Math.round(len / 5);
             const lenDisplay = `≈ ${len} chars / ${wordCount} words`;
+            const lessonId = buildLessonId(currentType, l);
+            const completionPercent = getLessonCompletionPercent(state, lessonId);
+            const completionLabel = completionPercent === 100 ? 'Completed ✓' : `${completionPercent}% complete`;
+            const lastFlag = isLastLesson(state, lessonId) ? '<span class="last-visited">← Last visited</span>' : '';
 
             // Default to true if complexity tags are missing
             const tags = l.tags?.complexity ?? { caps: true, punct: true };
 
-            return `<div class="lesson-item" data-id="${l.id}" data-type="${currentType}">
+            return `<div class="lesson-item" data-id="${l.id}" data-type="${currentType}" data-lesson-id="${lessonId}">
                 <div class="lesson-icon">${THEME_ICONS[l.theme] || '📝'}</div>
                 <div class="lesson-details">
                     <b>${l.title || l.name}</b>
@@ -428,14 +460,24 @@ export function renderLessonList(DATA) {
                         <span class="meta-chip">${lenDisplay}</span>
                         ${tags.caps ? '<span class="meta-chip" title="Includes capital letters">Aa</span>' : ''}
                         ${tags.punct ? '<span class="meta-chip" title="Includes punctuation">.,!</span>' : ''}
+                        <span class="meta-chip ${completionPercent === 100 ? 'complete-chip' : 'progress-chip'}">${completionLabel}</span>
+                        ${lastFlag}
                     </div>
                 </div>
             </div>`;
         }).join('');
     }
 
-    renderPaginationControls(totalPages);
+    renderPaginationControls(totalPages, state, DATA);
     listEl.classList.remove('loading');
+
+    if (!hasAutoScrolledToLastLesson && state?.meta?.lastLessonId) {
+        const target = listEl.querySelector(`[data-lesson-id="${state.meta.lastLessonId}"]`);
+        if (target) {
+            target.scrollIntoView({ block: 'center', behavior: 'smooth' });
+            hasAutoScrolledToLastLesson = true;
+        }
+    }
 }
 
 
@@ -443,7 +485,7 @@ export function renderLessonList(DATA) {
  * Renders the pagination controls for the lesson list.
  * @param {number} totalPages - The total number of pages.
  */
-function renderPaginationControls(totalPages) {
+function renderPaginationControls(totalPages, state, DATA) {
     const { currentPage } = lessonPickerState;
     const container = document.querySelector('.pagination-controls');
     
@@ -461,14 +503,14 @@ function renderPaginationControls(totalPages) {
     document.getElementById('prev-page-btn')?.addEventListener('click', () => {
         if (lessonPickerState.currentPage > 1) {
             lessonPickerState.currentPage--;
-            renderLessonList({ PASSAGES: [], WORDSETS: [], ...window.StoryKeys.DATA }); // Re-render
+            renderLessonList(lastRenderedData || { PASSAGES: [], WORDSETS: [], ...window.StoryKeys.DATA }, lastRenderedState || state); // Re-render
         }
     });
 
     document.getElementById('next-page-btn')?.addEventListener('click', () => {
         if (lessonPickerState.currentPage < totalPages) {
             lessonPickerState.currentPage++;
-            renderLessonList({ PASSAGES: [], WORDSETS: [], ...window.StoryKeys.DATA }); // Re-render
+            renderLessonList(lastRenderedData || { PASSAGES: [], WORDSETS: [], ...window.StoryKeys.DATA }, lastRenderedState || state); // Re-render
         }
     });
 }
@@ -478,9 +520,9 @@ function renderPaginationControls(totalPages) {
  * Public function to update the lesson picker state and trigger a re-render.
  * @param {object} updates - An object containing state updates.
  */
-export function updateLessonPicker(updates, DATA) {
+export function updateLessonPicker(updates, state, DATA) {
     Object.assign(lessonPickerState, updates);
-    renderLessonList(DATA);
+    renderLessonList(DATA, state);
 }
 
 
@@ -496,6 +538,7 @@ export function resetLessonPickerState(defaultStage) {
         currentType: 'passage',
         currentStage: defaultStage
     };
+    hasAutoScrolledToLastLesson = false;
 }
 
 
