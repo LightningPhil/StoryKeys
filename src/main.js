@@ -8,7 +8,7 @@
 // --- MODULE IMPORTS ---
 import { config } from './config.js';
 import { DATA, loadInitialData, loadStageData } from './dataLoader.js';
-import { applySettings, getScreenHtml, getModalHtml, updateLessonPicker, resetLessonPickerState, triggerConfetti, toast, getLessonPickerState } from './ui.js';
+import { applySettings, getScreenHtml, getModalHtml, updateLessonPicker, resetLessonPickerState, triggerConfetti, toast, getLessonPickerState, handleLessonPickerPagination } from './ui.js';
 import { startSession, endSession, startFocusDrill } from './lessons.js';
 import { sha256Hex, debounce } from './utils.js';
 import { handleTypingInput, calculateVisualLines } from './keyboard.js';
@@ -309,7 +309,7 @@ function bindModalEvents(modalName) {
 
         const setStageFilterVisibility = (type) => {
             if (stageFilter) {
-                stageFilter.style.display = type === 'phonics' ? 'none' : '';
+                stageFilter.parentElement.classList.toggle('hidden', type === 'phonics');
             }
         };
         
@@ -355,6 +355,15 @@ function bindModalEvents(modalName) {
                     closeModal();
                     startSession({ type, data: lessonData }, state, showScreen, saveState);
                 }
+            }
+        });
+
+        // Event delegation for pagination controls (bound once, not on every render)
+        const paginationEl = modalContainer.querySelector('.pagination-controls');
+        paginationEl.addEventListener('click', (e) => {
+            const action = e.target.dataset.action;
+            if (action) {
+                handleLessonPickerPagination(action);
             }
         });
 

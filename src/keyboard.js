@@ -110,7 +110,7 @@ export function updateTypingDisplay(userInput, state, DATA) {
         const keyName = (keyInfo && keyInfo.name) ? keyInfo.name : nextKey;
         const prettyName = keyName === ' ' ? DATA.COPY.spaceName : keyName;
 
-        bubble.innerHTML = `${prettyName} <small style="opacity:.7">${keyInfo ? `– ${keyInfo.hand} ${keyInfo.finger}` : ''}</small>`;
+        bubble.innerHTML = `${prettyName} <small class="key-hint-detail">${keyInfo ? `– ${keyInfo.hand} ${keyInfo.finger}` : ''}</small>`;
         
         if (flags.keyboardHint) {
             const keyboardEl = document.getElementById('keyboard-hint');

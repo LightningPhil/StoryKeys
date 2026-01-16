@@ -108,7 +108,7 @@ export function getScreenHtml(screenName, state, DATA) {
                 <div id="new-story-card" class="card home-card">
                     <h2>Start a New Story</h2>
                     <p>Choose a Key Stage to begin a new passage or jump straight into spelling and phonics practice.</p>
-                    <div class="button-group" style="flex-direction: column; align-items: stretch; gap: 0.75rem; margin-top: 1.5rem; max-width: 420px; margin-left: auto; margin-right: auto;">
+                    <div class="home-stages">
                         <div class="stage-row">
                             <button class="button button-primary" data-stage="KS1">New Key Stage 1 Story</button>
                             <button class="button button-spelling" data-spelling-stage="KS1">KS1 Spelling Practice</button>
@@ -142,7 +142,7 @@ export function getScreenHtml(screenName, state, DATA) {
                     <div class="progress-pet">${currentPet}</div>
                     <div>
                         <h3>Your Progress</h3>
-                        <p style="margin: 0;">You've practiced for <b>${Math.round(state.progress.minutesTotal)} minutes</b> in total. Keep it up!</p>
+                        <p class="mb-0">You've practiced for <b>${Math.round(state.progress.minutesTotal)} minutes</b> in total. Keep it up!</p>
                     </div>
                 </div>
             </div>`;
@@ -158,7 +158,7 @@ export function getScreenHtml(screenName, state, DATA) {
                 <div class="card">
                     <div class="typing-controls">
                         <button id="back-to-home-btn" class="icon-button" title="Back to Home"><svg viewBox="0 0 24 24"><path d="M10 20v-6h4v6h5v-8h3L12 3 2 12h3v8z"></path></svg></button>
-                        <div style="text-align: center; flex-grow: 1;"><h2>${state.runtime.lesson.data.title || state.runtime.lesson.data.name}</h2></div>
+                        <div class="typing-controls__title"><h2>${state.runtime.lesson.data.title || state.runtime.lesson.data.name}</h2></div>
                         <div class="button-group">
                             ${state.runtime.flags.showTimerChip ? `<div id="timer-chip" class="timer-chip">--:--</div>` : ''}
                             <label class="toggle-switch">${DATA.COPY.lockstepOn}<input type="checkbox" id="lockstep-toggle" ${state.runtime.flags.lockstep ? 'checked' : ''}><span class="slider"></span></label>
@@ -181,19 +181,19 @@ export function getScreenHtml(screenName, state, DATA) {
             return `
             <div id="summary-screen" class="screen active">
                 <div class="card">
-                    <div style="text-align: center;"><h1>${isDrill ? 'Drill Complete!' : DATA.COPY.summaryNiceWork}</h1><p>${DATA.COPY.encourageGentle[Math.floor(Math.random() * DATA.COPY.encourageGentle.length)]}</p></div>
+                    <div class="text-center"><h1>${isDrill ? 'Drill Complete!' : DATA.COPY.summaryNiceWork}</h1><p>${DATA.COPY.encourageGentle[Math.floor(Math.random() * DATA.COPY.encourageGentle.length)]}</p></div>
                     ${newBadges.map(id => { const badge = DATA.BADGES.find(b => b.id === id); return `<div class="badge-earned"><h3>Badge Earned: ${badge.label}!</h3><p>${badge.desc}</p></div>`; }).join('')}
                     <div class="summary-metrics">
                         <div class="metric-item"><h3>${DATA.COPY.metricAccuracy}</h3><div class="value">${accuracy}%</div></div>
-                        <div class="metric-item"><h3>${wpmLabel}</h3><div class="value">${safeNet}</div><p style="margin-top:0.5rem; font-size:0.85rem; opacity:0.7;">(${safeGross} gross)</p></div>
+                        <div class="metric-item"><h3>${wpmLabel}</h3><div class="value">${safeNet}</div><p class="subtitle">(${safeGross} gross)</p></div>
                         <div class="metric-item"><h3>${DATA.COPY.metricTime}</h3><div class="value">${durationSec}s</div></div>
                         <div class="metric-item"><h3>${DATA.COPY.metricErrors}</h3><div class="value">${errors}</div></div>
                     </div>
-                    <div class="summary-feedback" style="display: flex; gap: 2rem; flex-wrap: wrap; justify-content: center;">
+                    <div class="summary-feedback">
                         ${hardestKeys.length > 0 ? `<div><h3>${DATA.COPY.summaryHardestKeys}</h3><ul>${hardestKeys.map(k => `<li>'${prettyKeyName(k)}'</li>`).join('')}</ul></div>` : ''}
                         ${trickyWords.length > 0 ? `<div><h3>${DATA.COPY.summaryTrickyWords}</h3><ul>${trickyWords.map(w => `<li>${w}</li>`).join('')}</ul></div>` : ''}
                     </div>
-                    <div class="button-group" style="margin-top: 2rem; justify-content: center;">
+                    <div class="button-row-center mt-xl">
                         ${!isDrill ? `<button id="replay-btn" class="button button-primary">${DATA.COPY.summaryReplay}</button>` : ''}
                         ${drillBtnHtml}
                         <button id="home-btn" class="button button-secondary">${DATA.COPY.summaryHome}</button>
@@ -216,20 +216,22 @@ export function getModalHtml(modalName, state, DATA) {
     switch (modalName) {
         case 'welcome':
             return `
-            <div class="modal" id="welcome-modal"><div class="modal-content welcome-modal">
-                <div class="modal-header"><h2 class="modal-title">Welcome to StoryKeys</h2>${closeModalBtn}</div>
+            <div class="modal" id="welcome-modal" role="dialog" aria-modal="true" aria-labelledby="welcome-title"><div class="modal-content welcome-modal">
+                <div class="modal-header"><h2 id="welcome-title" class="modal-title">Welcome to StoryKeys</h2>${closeModalBtn}</div>
                 <p class="lead">A calm space to build confident typing habits.</p>
                 <ul class="welcome-list">
                     <li>Choose a story from the list to begin.</li>
                     <li>Type along to practise reading and keyboard skills.</li>
                     <li>Your progress is saved on this computer only.</li>
                 </ul>
-                <button id="welcome-start-btn" class="button button-primary" style="margin-top: 1rem; align-self: center; min-width: 200px;">Let's start</button>
+                <div class="modal-footer">
+                    <button id="welcome-start-btn" class="button button-primary">Let's start</button>
+                </div>
             </div></div>`;
         case 'about':
             return `
-            <div class="modal"><div class="modal-content about-modal">
-                <div class="modal-header"><h2 class="modal-title">StoryKeys</h2>${closeModalBtn}</div>
+            <div class="modal" role="dialog" aria-modal="true" aria-labelledby="about-title"><div class="modal-content about-modal">
+                <div class="modal-header"><h2 id="about-title" class="modal-title">StoryKeys</h2>${closeModalBtn}</div>
                 <div class="info-block">
                     <h3>About StoryKeys</h3>
                     <div class="markdown-block">${renderMarkdownBlock(ABOUT_MARKDOWN)}</div>
@@ -241,8 +243,8 @@ export function getModalHtml(modalName, state, DATA) {
             </div></div>`;
         case 'help':
             return `
-            <div class="modal"><div class="modal-content about-modal">
-                <div class="modal-header"><h2 class="modal-title">Need a Hand?</h2>${closeModalBtn}</div>
+            <div class="modal" role="dialog" aria-modal="true" aria-labelledby="help-title"><div class="modal-content about-modal">
+                <div class="modal-header"><h2 id="help-title" class="modal-title">Need a Hand?</h2>${closeModalBtn}</div>
                 <div class="info-block">
                     <h3>What is StoryKeys?</h3>
                     <p>StoryKeys is a reading and typing practice tool using short stories to build confidence and rhythm. It keeps the experience calm so learners can focus on accuracy first, then speed.</p>
@@ -293,15 +295,15 @@ export function getModalHtml(modalName, state, DATA) {
                 return `<div class="badge-card"><h4>${badge.label}</h4><p>${badge.desc}</p>${dateLine}</div>`;
             });
             return `
-            <div class="modal"><div class="modal-content">
-                <div class="modal-header"><h2 class="modal-title">Your Badges</h2>${closeModalBtn}</div>
+            <div class="modal" role="dialog" aria-modal="true" aria-labelledby="badges-title"><div class="modal-content">
+                <div class="modal-header"><h2 id="badges-title" class="modal-title">Your Badges</h2>${closeModalBtn}</div>
                 ${earnedBadges.length ? `<div class="badge-grid">${earnedBadges.join('')}</div>` : '<p>You have not earned any badges yet. Complete lessons to unlock them!</p>'}
             </div></div>`;
         case 'lessonPicker':
-            lessonPickerState.currentStage = state.settings.defaultStage;
+            // Note: State is set in resetLessonPickerState(), not here (render purity)
             return `
-            <div class="modal"><div class="modal-content">
-                <div class="modal-header"><h2 class="modal-title">${DATA.COPY.homeChangeLesson}</h2>${closeModalBtn}</div>
+            <div class="modal" role="dialog" aria-modal="true" aria-labelledby="lesson-picker-title"><div class="modal-content lesson-picker-modal">
+                <div class="modal-header"><h2 id="lesson-picker-title" class="modal-title">${DATA.COPY.homeChangeLesson}</h2>${closeModalBtn}</div>
                 <div class="tabs"><button class="tab-button active" data-type="passage">Passages</button><button class="tab-button" data-type="phonics">Phonics</button><button class="tab-button" data-type="spelling">Spelling Tutor</button><button class="tab-button" data-type="wordset">Word Sets</button></div>
                 <div class="filter-group">
                     <label>Stage:</label>
@@ -324,8 +326,8 @@ export function getModalHtml(modalName, state, DATA) {
                 <div class="pagination-controls"></div>
             </div></div>`;
         case 'settings': return `
-            <div class="modal"><div class="modal-content">
-                <div class="modal-header"><h2 class="modal-title">Settings</h2>${closeModalBtn}</div>
+            <div class="modal" role="dialog" aria-modal="true" aria-labelledby="settings-title"><div class="modal-content">
+                <div class="modal-header"><h2 id="settings-title" class="modal-title">Settings</h2>${closeModalBtn}</div>
                 <details class="settings-section" open>
                     <summary>Readability</summary>
                     <div class="setting-item"><div><b>Theme</b><p>Change the app's colour scheme.</p></div><select id="setting-theme" class="button button-secondary"><option value="cream">Cream</option><option value="light">Light</option><option value="dark">Dark</option></select></div>
@@ -343,25 +345,38 @@ export function getModalHtml(modalName, state, DATA) {
                 </details>
                 <details class="settings-section">
                     <summary>Privacy</summary>
-                     <div class="setting-item"><div><b>Set Parent PIN</b><p>Set a 4-digit PIN to protect Parent Glance.</p></div><input type="password" id="setting-pin" maxlength="4" placeholder="4 digits" style="width:100px; text-align:center;"></div>
+                     <div class="setting-item"><div><b>Set Parent PIN</b><p>Set a 4-digit PIN to protect Parent Glance.</p></div><input type="password" id="setting-pin" class="pin-input" maxlength="4" placeholder="4 digits"></div>
                 </details>
-                <div style="margin-top:2rem; text-align:center;"><button id="save-settings-btn" class="button button-primary">Close & Save</button></div>
+                <div class="modal-footer">
+                    <button id="save-settings-btn" class="button button-primary">Close & Save</button>
+                </div>
             </div></div>`;
         case 'parent':
             const weeklySessions = state.sessions.filter(s => (new Date() - new Date(s.ts)) < 7 * 24 * 60 * 60 * 1000);
             const avgAccuracy = weeklySessions.length ? Math.round(weeklySessions.reduce((acc, s) => acc + s.accuracy, 0) / weeklySessions.length) : 'N/A';
             return `
-            <div class="modal"><div class="modal-content">
-                <div class="modal-header"><h2 class="modal-title">Parent Glance</h2>${closeModalBtn}</div>
+            <div class="modal" role="dialog" aria-modal="true" aria-labelledby="parent-title"><div class="modal-content">
+                <div class="modal-header"><h2 id="parent-title" class="modal-title">Parent Glance</h2>${closeModalBtn}</div>
                 <h3>This Week</h3><p>Sessions: ${weeklySessions.length} | Avg. Accuracy: ${avgAccuracy}%</p>
                 <h3>All Time</h3><p>Total Minutes: ${Math.round(state.progress.minutesTotal)}</p>
-                <h3>Recent Sessions</h3><div style="max-height: 200px; overflow-y: auto; border: 1px solid var(--color-border); padding: 0.5rem; border-radius: var(--border-radius);">${state.sessions.slice(-10).reverse().map(s => {
+                <h3>Recent Sessions</h3>
+                <div class="session-list">${state.sessions.slice(-10).reverse().map(s => {
                     const wpmText = typeof s.netWPM === 'number' ? `${s.netWPM} wpm` : '– wpm';
-                    return `<p style="font-size: 0.9rem; margin-bottom: 0.5rem;">${new Date(s.ts).toLocaleString()}: ${s.accuracy}% acc • ${wpmText}</p>`;
+                    return `<p class="session-item">${new Date(s.ts).toLocaleString()}: ${s.accuracy}% acc • ${wpmText}</p>`;
                 }).join('') || '<p>No sessions yet.</p>'}</div>
-                <div class="button-group" style="margin-top: 1.5rem;"><button id="export-btn" class="button button-secondary">Export Data</button><button id="clear-data-btn" class="button" style="background-color: #c12121; color: white;">Clear All Data</button></div>
+                <div class="button-row mt-lg">
+                    <button id="export-btn" class="button button-secondary">Export Data</button>
+                    <button id="clear-data-btn" class="button button-danger">Clear All Data</button>
+                </div>
             </div></div>`;
-        case 'pin': return `<div class="modal"><div class="modal-content" style="text-align: center;"><h2 class="modal-title">Enter PIN</h2><input type="password" id="pin-input" maxlength="4" style="text-align: center; font-size: 2rem; width:100px; margin-bottom:1rem;"><br><button id="pin-submit-btn" class="button button-primary">Unlock</button></div></div>`;
+        case 'pin': return `
+            <div class="modal" role="dialog" aria-modal="true" aria-labelledby="pin-title"><div class="modal-content text-center">
+                <h2 id="pin-title" class="modal-title">Enter PIN</h2>
+                <input type="password" id="pin-input" class="pin-input pin-input-lg" maxlength="4">
+                <div class="modal-footer">
+                    <button id="pin-submit-btn" class="button button-primary">Unlock</button>
+                </div>
+            </div></div>`;
     }
     return '';
 }
@@ -398,12 +413,14 @@ function updateStageProgressBadges(state, DATA, type) {
 }
 
 /**
- * Renders the list of lessons based on the current filters, sorting, and pagination.
+ * Pure function: Derives a view model for the lesson picker.
+ * No state mutation, no DOM access.
+ * @param {object} lessonPickerState - The current lesson picker state.
+ * @param {object} state - The main application state (for progress).
  * @param {object} DATA - The global data object.
+ * @returns {object} The derived view model.
  */
-export function renderLessonList(DATA, state) {
-    lastRenderedState = state;
-    lastRenderedData = DATA;
+export function deriveLessonPickerViewModel(lessonPickerState, state, DATA) {
     const { currentType, currentStage, searchTerm, sortKey, currentPage } = lessonPickerState;
     const poolMap = {
         passage: DATA.PASSAGES,
@@ -412,8 +429,6 @@ export function renderLessonList(DATA, state) {
         wordset: DATA.WORDSETS
     };
     const pool = poolMap[currentType] || DATA.PASSAGES;
-
-    updateStageProgressBadges(state, DATA, currentType);
 
     // 1. Filter
     const useStageFilter = currentType !== 'phonics';
@@ -434,55 +449,129 @@ export function renderLessonList(DATA, state) {
         if (sortKey === 'theme') {
             return (a.theme || '').localeCompare(b.theme || '');
         }
-        // Default sort by title
         return (a.title || a.name).localeCompare(b.title || b.name);
     });
 
     // 3. Paginate
-    const totalPages = Math.ceil(filtered.length / config.LESSONS_PER_PAGE);
+    const totalPages = Math.max(1, Math.ceil(filtered.length / config.LESSONS_PER_PAGE));
     const start = (currentPage - 1) * config.LESSONS_PER_PAGE;
     const end = start + config.LESSONS_PER_PAGE;
     const pageItems = filtered.slice(start, end);
 
-    // 4. Render
+    // 4. Map items to view model with computed properties
+    const items = pageItems.map(l => {
+        const len = getLessonLength(l);
+        const wordCount = l.words ? l.words.length : Math.round(len / 5);
+        const lessonId = buildLessonId(currentType, l);
+        const completionPercent = getLessonCompletionPercent(state, lessonId);
+        const tags = l.tags?.complexity ?? { caps: true, punct: true };
+
+        return {
+            id: l.id,
+            type: currentType,
+            lessonId,
+            title: l.title || l.name,
+            theme: l.theme,
+            icon: THEME_ICONS[l.theme] || '📝',
+            lenDisplay: `≈ ${len} chars / ${wordCount} words`,
+            completionPercent,
+            completionLabel: completionPercent === 100 ? 'Completed ✓' : `${completionPercent}% complete`,
+            isComplete: completionPercent === 100,
+            isLastVisited: isLastLesson(state, lessonId),
+            hasCaps: tags.caps,
+            hasPunct: tags.punct
+        };
+    });
+
+    return {
+        items,
+        currentPage,
+        totalPages,
+        totalFiltered: filtered.length,
+        hasNextPage: currentPage < totalPages,
+        hasPrevPage: currentPage > 1,
+        currentType,
+        currentStage,
+        lastLessonId: state?.meta?.lastLessonId || null
+    };
+}
+
+/**
+ * Renders the lesson list DOM based on the view model (DOM update only).
+ * @param {object} vm - The view model from deriveLessonPickerViewModel.
+ */
+function renderLessonListDOM(vm) {
     const listEl = document.querySelector('.lesson-list');
-    if (pageItems.length === 0) {
+    if (!listEl) return;
+
+    if (vm.items.length === 0) {
         listEl.innerHTML = `<p class="no-results">No lessons found. Try adjusting your search or filters.</p>`;
     } else {
-        listEl.innerHTML = pageItems.map(l => {
-            const len = getLessonLength(l);
-            const wordCount = l.words ? l.words.length : Math.round(len / 5);
-            const lenDisplay = `≈ ${len} chars / ${wordCount} words`;
-            const lessonId = buildLessonId(currentType, l);
-            const completionPercent = getLessonCompletionPercent(state, lessonId);
-            const completionLabel = completionPercent === 100 ? 'Completed ✓' : `${completionPercent}% complete`;
-            const lastFlag = isLastLesson(state, lessonId) ? '<span class="last-visited">← Last visited</span>' : '';
-
-            // Default to true if complexity tags are missing
-            const tags = l.tags?.complexity ?? { caps: true, punct: true };
-
-            return `<div class="lesson-item" data-id="${l.id}" data-type="${currentType}" data-lesson-id="${lessonId}">
-                <div class="lesson-icon">${THEME_ICONS[l.theme] || '📝'}</div>
+        listEl.innerHTML = vm.items.map(item => `
+            <div class="lesson-item" data-id="${item.id}" data-type="${item.type}" data-lesson-id="${item.lessonId}">
+                <div class="lesson-icon">${item.icon}</div>
                 <div class="lesson-details">
-                    <b>${l.title || l.name}</b>
+                    <b>${item.title}</b>
                     <div class="lesson-meta">
-                        <span class="meta-chip">${l.theme}</span>
-                        <span class="meta-chip">${lenDisplay}</span>
-                        ${tags.caps ? '<span class="meta-chip" title="Includes capital letters">Aa</span>' : ''}
-                        ${tags.punct ? '<span class="meta-chip" title="Includes punctuation">.,!</span>' : ''}
-                        <span class="meta-chip ${completionPercent === 100 ? 'complete-chip' : 'progress-chip'}">${completionLabel}</span>
-                        ${lastFlag}
+                        <span class="meta-chip">${item.theme}</span>
+                        <span class="meta-chip">${item.lenDisplay}</span>
+                        ${item.hasCaps ? '<span class="meta-chip" title="Includes capital letters">Aa</span>' : ''}
+                        ${item.hasPunct ? '<span class="meta-chip" title="Includes punctuation">.,!</span>' : ''}
+                        <span class="meta-chip ${item.isComplete ? 'complete-chip' : 'progress-chip'}">${item.completionLabel}</span>
+                        ${item.isLastVisited ? '<span class="last-visited">← Last visited</span>' : ''}
                     </div>
                 </div>
-            </div>`;
-        }).join('');
+            </div>
+        `).join('');
+    }
+    listEl.classList.remove('loading');
+}
+
+/**
+ * Renders the pagination controls (DOM update only).
+ * @param {object} vm - The view model from deriveLessonPickerViewModel.
+ */
+function renderPaginationDOM(vm) {
+    const container = document.querySelector('.pagination-controls');
+    if (!container) return;
+
+    if (vm.totalPages <= 1) {
+        container.innerHTML = '';
+        return;
     }
 
-    renderPaginationControls(totalPages, state, DATA);
-    listEl.classList.remove('loading');
+    // Use data attributes for event delegation in main.js
+    container.innerHTML = `
+        <button class="button button-secondary" data-action="prev-page" ${!vm.hasPrevPage ? 'disabled' : ''}>Previous</button>
+        <span>Page ${vm.currentPage} of ${vm.totalPages}</span>
+        <button class="button button-secondary" data-action="next-page" ${!vm.hasNextPage ? 'disabled' : ''}>Next</button>
+    `;
+}
 
-    if (!hasAutoScrolledToLastLesson && state?.meta?.lastLessonId) {
-        const target = listEl.querySelector(`[data-lesson-id="${state.meta.lastLessonId}"]`);
+/**
+ * Renders the list of lessons based on the current filters, sorting, and pagination.
+ * @param {object} DATA - The global data object.
+ * @param {object} state - The main application state.
+ */
+export function renderLessonList(DATA, state) {
+    lastRenderedState = state;
+    lastRenderedData = DATA;
+    
+    // Derive view model (pure)
+    const vm = deriveLessonPickerViewModel(lessonPickerState, state, DATA);
+    
+    // Store totalPages in module state for event handlers
+    lessonPickerState._totalPages = vm.totalPages;
+    
+    // Update DOM
+    updateStageProgressBadges(state, DATA, vm.currentType);
+    renderLessonListDOM(vm);
+    renderPaginationDOM(vm);
+
+    // Auto-scroll to last visited (one-time)
+    if (!hasAutoScrolledToLastLesson && vm.lastLessonId) {
+        const listEl = document.querySelector('.lesson-list');
+        const target = listEl?.querySelector(`[data-lesson-id="${vm.lastLessonId}"]`);
         if (target) {
             target.scrollIntoView({ block: 'center', behavior: 'smooth' });
             hasAutoScrolledToLastLesson = true;
@@ -490,39 +579,18 @@ export function renderLessonList(DATA, state) {
     }
 }
 
-
 /**
- * Renders the pagination controls for the lesson list.
- * @param {number} totalPages - The total number of pages.
+ * Handles pagination navigation (called from main.js event delegation).
+ * @param {string} action - 'prev-page' or 'next-page'
  */
-function renderPaginationControls(totalPages, state, DATA) {
-    const { currentPage } = lessonPickerState;
-    const container = document.querySelector('.pagination-controls');
-    
-    if (totalPages <= 1) {
-        container.innerHTML = '';
-        return;
+export function handleLessonPickerPagination(action) {
+    if (action === 'prev-page' && lessonPickerState.currentPage > 1) {
+        lessonPickerState.currentPage--;
+        renderLessonList(lastRenderedData, lastRenderedState);
+    } else if (action === 'next-page' && lessonPickerState.currentPage < lessonPickerState._totalPages) {
+        lessonPickerState.currentPage++;
+        renderLessonList(lastRenderedData, lastRenderedState);
     }
-
-    container.innerHTML = `
-        <button id="prev-page-btn" class="button button-secondary" ${currentPage === 1 ? 'disabled' : ''}>Previous</button>
-        <span>Page ${currentPage} of ${totalPages}</span>
-        <button id="next-page-btn" class="button button-secondary" ${currentPage === totalPages ? 'disabled' : ''}>Next</button>
-    `;
-
-    document.getElementById('prev-page-btn')?.addEventListener('click', () => {
-        if (lessonPickerState.currentPage > 1) {
-            lessonPickerState.currentPage--;
-            renderLessonList(lastRenderedData || { PASSAGES: [], WORDSETS: [], ...window.StoryKeys.DATA }, lastRenderedState || state); // Re-render
-        }
-    });
-
-    document.getElementById('next-page-btn')?.addEventListener('click', () => {
-        if (lessonPickerState.currentPage < totalPages) {
-            lessonPickerState.currentPage++;
-            renderLessonList(lastRenderedData || { PASSAGES: [], WORDSETS: [], ...window.StoryKeys.DATA }, lastRenderedState || state); // Re-render
-        }
-    });
 }
 
 
