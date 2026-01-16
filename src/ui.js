@@ -411,14 +411,6 @@ export function getModalHtml(modalName, state, DATA) {
                 <div class="modal-footer">
                     <button id="welcome-start-btn" class="button button-primary">Let's start</button>
                 </div>
-                <details class="about-section">
-                    <summary>About StoryKeys</summary>
-                    <div class="markdown-block">${renderMarkdownBlock(ABOUT_MARKDOWN)}</div>
-                </details>
-                <details class="about-section">
-                    <summary>License</summary>
-                    <pre class="license-text">${escapeHtml(LICENSE_TEXT)}</pre>
-                </details>
             </div></div>`;
 
         case 'help':
@@ -473,6 +465,14 @@ export function getModalHtml(modalName, state, DATA) {
                         <li><kbd>Escape</kbd> Pause typing / Go home</li>
                         <li><kbd>Space</kbd> Resume when paused</li>
                     </ul>
+                </div>
+                <div class="info-block">
+                    <h3>About StoryKeys</h3>
+                    <div class="markdown-block">${renderMarkdownBlock(ABOUT_MARKDOWN)}</div>
+                </div>
+                <div class="info-block">
+                    <h3>License</h3>
+                    <pre class="license-text">${escapeHtml(LICENSE_TEXT)}</pre>
                 </div>
             </div></div>`;
         case 'badges':
