@@ -1,163 +1,181 @@
-# StoryKeys Typing Tutor
+# StoryKeys
 
-**A calm, dyslexia-friendly typing app for young learners.**
+**A calm, dyslexia-friendly typing tutor for young learners.**
 
-StoryKeys is a simple, effective, and privacy-focused typing tutor designed to help children improve their typing skills. The application is built as a single-page web app that runs entirely in the browser, meaning no user data is ever sent to a server. All progress is stored locally on the user's machine.
+StoryKeys helps children build confident typing skills through short stories, spelling practice, and phonics exercises — all aligned with UK Key Stages 1–4. It runs entirely in the browser with no accounts, no tracking, and no data leaving the device.
 
-The content is aligned with the UK Key Stages (KS1-KS4), providing age-appropriate word sets, short passages, and phonetic pattern drills.
-
----
-
-## ✨ Key Features
-
-*   **Dyslexia-Friendly Design:** Uses a clear, readable font and adjustable line/letter spacing to reduce visual stress. A focus-line highlight and optional on-screen keyboard can be toggled for extra guidance.
-*   **Key Stage Aligned Content:** Lessons are categorized by UK Key Stages 1 through 4, ensuring vocabulary and complexity are appropriate for each learner.
-*   **Multiple Practice Modes:**
-    *   **Passages:** Type short, engaging stories by stage and theme.
-    *   **Spelling Tutor:** Quick practice lists aligned to KS1–KS4 statutory spellings.
-    *   **Phonics:** Early-reading friendly passages with patterned sounds.
-    *   **Word Sets:** Vocabulary drills grouped by subjects such as science.
-    *   **Focus Drills:** Automatic drills based on the letters and words a learner finds tricky.
-*   **Lesson Picker:** Filter by stage, search by title or theme, sort by length, and browse dedicated tabs for passages, phonics, spelling, and word sets.
-*   **Quick Start Buttons:** One-tap random story, spelling, or phonics sessions for each Key Stage.
-*   **Privacy First:** 100% client-side. All data is stored in the browser's `localStorage`. No internet connection is required after the initial load.
-*   **Progress Tracking & Badges:** Tracks minutes and words typed, highlights hardest keys/words, and awards badges to celebrate milestones.
-*   **Customisable UI:** Switch between light, dark, and cream themes, pick a clearer font, and adjust spacing to suit the learner.
-*   **Built-In Help:** A friendly help modal explains the app in KS1-ready language.
+![License](https://img.shields.io/badge/license-MIT-blue.svg)
 
 ---
 
-## 💻 Tech Stack
+## ✨ Features
 
-This project is intentionally simple and built with web fundamentals:
+### 🎯 Designed for Young Learners
+- **Dyslexia-friendly** — OpenDyslexic font option, adjustable letter/line spacing, and a clean focus-line highlight
+- **Calm pacing** — Timer only starts when the child presses their first correct key, giving time to read or listen
+- **Read aloud** — Built-in text-to-speech reads passages aloud before typing begins
+- **Gentle feedback** — Soft audio cues for correct/incorrect keystrokes (can be toggled off)
 
-*   **HTML5**
-*   **CSS3** (with CSS Variables for theming)
-*   **Vanilla JavaScript** (ES6 Modules)
-*   **JSON** for all lesson and configuration data.
+### 📚 UK Curriculum Aligned
+- **Key Stages 1–4** content with age-appropriate vocabulary and complexity
+- **Passages** — Short stories organised by theme (animals, adventure, science, etc.)
+- **Spelling Tutor** — Statutory spelling lists for each Key Stage
+- **Phonics** — Pattern-based exercises for early readers
+- **Word Sets** — Subject-specific vocabulary drills
 
-No frameworks, no build tools, no external dependencies. This ensures the project is lightweight, fast, and easy to maintain.
+### 📊 Progress & Motivation
+- **Streak counter** — Tracks consecutive days of practice
+- **Badges** — Milestone awards for words typed, accuracy, and more
+- **Focus Drills** — Automatic practice targeting tricky letters and words
+- **Session stats** — WPM, accuracy, and comparison to personal best
+- **Printable certificates** — Celebrate achievements
 
----
+### ⚙️ Fully Customisable
+- **Themes** — Light, dark, and cream colour schemes
+- **Fonts** — System default or OpenDyslexic
+- **Spacing** — Adjustable letter and line spacing
+- **Sounds** — Toggle typing sounds on/off
+- **On-screen keyboard** — Optional visual guide
 
-## 📂 Project Structure
-
-The project has been refactored into a modular structure to make managing content easy.
-
-```
-/StoryKeys/
-├── data/
-│   ├── KS1/
-│   │   ├── passages.json
-│   │   ├── patterns.json
-│   │   └── wordsets.json
-│   ├── KS2/
-│   ├── KS3/
-│   ├── KS4/
-│   ├── badges.json      (Global badge definitions)
-│   ├── copy.json        (All UI text and labels)
-│   └── keymap.json      (Keyboard layout data)
-│
-├── src/
-│   ├── main.js          (Main app controller)
-│   ├── dataLoader.js    (Loads all JSON data)
-│   ├── ui.js            (Handles all HTML rendering)
-│   ├── lessons.js       (Manages lesson lifecycle)
-│   ├── keyboard.js      (Handles typing input and display)
-│   ├── stats.js         (Calculates WPM, accuracy, etc.)
-│   ├── badges.js        (Handles badge awarding logic)
-│   └── utils.js         (Common helper functions)
-│
-└── index.html           (The main application shell)
-```
-
-### Dataset Overview
-
-StoryKeys keeps all lesson and UI data in the `data/` folder so it can load entirely in the browser.
-
-* **Stage folders (`data/KS1`–`data/KS4`):** Each contains `passages.json`, `patterns.json`, and `wordsets.json` with short stories, phonics-style patterns, and themed vocabulary for that Key Stage.
-* **`data/phonics.json`:** Extra phonics passages for early readers.
-* **`data/spelling.json`:** Statutory spelling lists for KS1–KS4 used by the Spelling Tutor mode.
-* **`data/badges.json`:** Definitions for milestone badges (labels, descriptions, and thresholds).
-* **`data/copy.json`:** All UI strings, encouraging messages, and button labels so the interface stays consistent.
-* **`data/keymap.json`:** Keyboard layout and hint information for the on-screen helper.
+### 🔒 Privacy First
+- **100% offline** after initial load — no server calls
+- **No accounts** — progress stored in browser localStorage
+- **No analytics** — zero tracking or data collection
 
 ---
 
 ## 🚀 Getting Started
 
-Because the application now loads its data and code from separate files using modern JavaScript modules, you cannot run it by simply opening `index.html` directly from your file explorer. This will cause a browser security error (CORS).
+Because StoryKeys uses ES6 modules, it must be served via HTTP (not opened directly as a file).
 
-You **must** serve the files using a simple local web server.
+### Option 1: VS Code Live Server (Recommended)
 
-### Option 1: Using IIS on Windows (Your Current Setup)
+1. Install the **Live Server** extension in VS Code
+2. Open the project folder
+3. Right-click `index.html` → **Open with Live Server**
 
-1.  Ensure your `StoryKeys` project folder is set up as an **Application** in IIS, pointing to the project's root directory.
-2.  Ensure the Application Pool Identity (e.g., `IIS AppPool\DefaultAppPool`) has **Read** permissions on the project folder.
-3.  Ensure `index.html` is set as a **Default Document**.
-4.  Access the application at the URL you configured, for example: `http://localhost/StoryKeys/`.
+### Option 2: Python
 
-### Option 2: Using VS Code Live Server (Recommended for easy editing)
+```bash
+cd StoryKeys
+python -m http.server 8000
+# Open http://localhost:8000
+```
 
-1.  Install the **Live Server** extension in Visual Studio Code.
-2.  Open the `StoryKeys` project folder in VS Code.
-3.  Right-click on the root `index.html` file and select "Open with Live Server".
-4.  Your browser will open automatically to the correct address.
+### Option 3: Node.js
 
----
+```bash
+npx serve .
+# Open http://localhost:3000
+```
 
-## ✍️ Managing Content
+### Option 4: IIS (Windows)
 
-The primary benefit of this new structure is that **you can add or edit lessons without touching any code.**
-
-### How to Add a New Passage
-
-1.  **Locate the correct file.** For example, to add a new Key Stage 2 passage, open `data/KS2/passages.json`.
-
-2.  **Add a new JSON object** to the array. The file is a list of lesson objects `[ { ... }, { ... } ]`. Add a comma after the last existing object and paste your new one.
-
-3.  **Use the following structure:**
-    ```json
-    {
-      "id": "ks2_theme_title_1",     // A unique ID: stage_theme_short-title_version
-      "stage": "KS2",                 // Must be KS1, KS2, KS3, or KS4
-      "theme": "Silly Stories",       // The category it will appear under
-      "title": "The Squirrel's Secret", // The title displayed to the user
-      "text": "Barnaby the squirrel had a secret. He didn't actually like nuts. He much preferred a nice cup of tea and a biscuit.",
-      "tags": {
-        "complexity": {
-          "caps": true,             // Does the text include capital letters?
-          "punct": true             // Does the text include punctuation?
-        }
-      },
-      "meta": {
-        "est_chars": 135              // Optional: an estimate of the character count
-      }
-    }
-    ```
-
-4.  **Save the file.** The new lesson will automatically appear in the "Browse Lessons" modal next time you load the app.
+1. Create a new Application pointing to the project folder
+2. Ensure the App Pool identity has **Read** permissions
+3. Set `index.html` as the default document
 
 ---
 
-## 🗺️ Project Roadmap: Stage 2 PRD Goals
+## 📂 Project Structure
 
-This project has successfully completed Stage 1 (Architectural Modularisation). The next phase of development will focus on enhancing the user experience and preparing the application to handle a much larger library of content.
+```
+StoryKeys/
+├── index.html          # Application shell
+├── styles.css          # All styling
+│
+├── src/
+│   ├── main.js         # App controller & state
+│   ├── ui.js           # HTML rendering
+│   ├── lessons.js      # Session lifecycle
+│   ├── keyboard.js     # Typing input handling
+│   ├── stats.js        # WPM & accuracy calculation
+│   ├── badges.js       # Badge awarding logic
+│   ├── sounds.js       # Audio & text-to-speech
+│   ├── progress.js     # Progress tracking
+│   ├── dataLoader.js   # JSON data loading
+│   ├── config.js       # App configuration
+│   └── utils.js        # Helper functions
+│
+└── data/
+    ├── KS1/ KS2/ KS3/ KS4/   # Stage-specific content
+    │   ├── passages.json
+    │   ├── patterns.json
+    │   └── wordsets.json
+    ├── spelling.json         # Statutory spelling lists
+    ├── phonics.json          # Phonics passages
+    ├── badges.json           # Badge definitions
+    ├── copy.json             # UI text & messages
+    └── keymap.json           # Keyboard layout data
+```
 
-The following features are planned for **Stage 2**:
+---
 
-*   #### **Enhanced Lesson Browsing**
-    *   **Search:** Add a search bar to the "Browse Lessons" modal to instantly filter passages and word sets by title or theme.
-    *   **Sorting:** Implement a dropdown to sort lessons by Title, Length, or Theme.
-    *   **Pagination:** To handle hundreds of lessons gracefully, the lesson list will be paginated, showing a limited number of items per page with "Next" and "Previous" controls.
+## ✍️ Adding Content
 
-*   #### **Smarter "Quick Start" Randomiser**
-    *   The "Begin a New Story" button will be updated to prioritize lessons that the user has not completed recently, ensuring greater variety in practice sessions.
+All lesson content lives in JSON files — no code changes required.
 
-*   #### **Performance & Scalability**
-    *   **Lazy Loading:** Modify the data loader to only fetch the JSON files for the currently selected Key Stage, improving initial load time.
-    *   **In-Memory Indexing:** Build efficient search and sort capabilities that work instantly on the client-side without re-iterating large arrays.
+### Add a New Passage
 
-*   #### **UI & UX Refinements**
-    *   Improve the metadata display in the lesson list to show both character and approximate word count.
-    *   Ensure all current and future themes have consistent, high-quality icons.
+Edit `data/KS2/passages.json` (or the appropriate stage):
+
+```json
+{
+  "id": "ks2_animals_hedgehog_1",
+  "stage": "KS2",
+  "theme": "Animals",
+  "title": "The Helpful Hedgehog",
+  "text": "Henry the hedgehog loved helping his friends. Every morning, he would collect berries for the birds.",
+  "tags": {
+    "complexity": { "caps": true, "punct": true }
+  }
+}
+```
+
+The lesson appears automatically on next load.
+
+### Add Spelling Words
+
+Edit `data/spelling.json`:
+
+```json
+{
+  "stage": "KS1",
+  "words": ["the", "said", "have", "like", "some"]
+}
+```
+
+---
+
+## 💻 Tech Stack
+
+Intentionally simple and dependency-free:
+
+- **HTML5** — Semantic markup
+- **CSS3** — Custom properties for theming
+- **Vanilla JavaScript** — ES6 modules
+- **JSON** — All content and configuration
+- **Web Audio API** — Sound effects
+- **Speech Synthesis API** — Text-to-speech
+
+No frameworks. No build tools. No npm dependencies.
+
+---
+
+## 🗺️ Roadmap
+
+- [ ] Parent/teacher dashboard
+- [ ] Multiplayer races
+- [ ] Custom lesson creator
+- [ ] Mobile touch keyboard support
+- [ ] Export progress data
+
+---
+
+## 📄 License
+
+MIT License — see [LICENSE](LICENSE) for details.
+
+---
+
+Built with ❤️ for young learners.

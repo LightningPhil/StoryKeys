@@ -183,6 +183,14 @@ export function getScreenHtml(screenName, state, DATA) {
                         <p class="mb-0">You've practiced for <b>${Math.round(state.progress.minutesTotal)} minutes</b> in total. Keep it up!</p>
                     </div>
                 </div>
+                ${state.progress.consecutiveDays > 0 ? `
+                <div class="card streak-card">
+                    <div class="streak-icon">🔥</div>
+                    <div>
+                        <h3>${state.progress.consecutiveDays} Day Streak!</h3>
+                        <p class="mb-0">${state.progress.consecutiveDays === 1 ? "You practiced today. Come back tomorrow to keep it going!" : `You've practiced ${state.progress.consecutiveDays} days in a row. Amazing!`}</p>
+                    </div>
+                </div>` : ''}
             </div>`;
         case 'typing':
             const initialHtml = state.runtime.targetText.split('').map((char, idx) =>
@@ -199,6 +207,7 @@ export function getScreenHtml(screenName, state, DATA) {
                         <div class="typing-controls__title"><h2>${state.runtime.lesson.data.title || state.runtime.lesson.data.name}</h2></div>
                         <div class="button-group">
                             ${state.runtime.flags.showTimerChip ? `<div id="timer-chip" class="timer-chip">--:--</div>` : ''}
+                            <button id="read-aloud-btn" class="button button-secondary read-aloud-btn" title="Read passage aloud">🔊 Read Aloud</button>
                             <label class="toggle-switch">${DATA.COPY.lockstepOn}<input type="checkbox" id="lockstep-toggle" ${state.runtime.flags.lockstep ? 'checked' : ''}><span class="slider"></span></label>
                             <label class="toggle-switch">${DATA.COPY.focusLineOn}<input type="checkbox" id="focusline-toggle" ${state.runtime.flags.focusLine ? 'checked' : ''}><span class="slider"></span></label>
                         </div>
@@ -283,12 +292,15 @@ export function getModalHtml(modalName, state, DATA) {
             return `
             <div class="modal" id="welcome-modal" role="dialog" aria-modal="true" aria-labelledby="welcome-title"><div class="modal-content welcome-modal">
                 <div class="modal-header"><h2 id="welcome-title" class="modal-title">Welcome to StoryKeys</h2>${closeModalBtn}</div>
-                <p class="lead">A calm space to build confident typing habits.</p>
+                <p class="lead">A calm, dyslexia-friendly space to build confident typing skills.</p>
                 <ul class="welcome-list">
-                    <li>Choose a story from the list to begin.</li>
-                    <li>Type along to practise reading and keyboard skills.</li>
-                    <li>Your progress is saved on this computer only.</li>
+                    <li><strong>Pick a lesson</strong> — stories, spelling lists, phonics, or word sets for KS1–KS4.</li>
+                    <li><strong>Read aloud</strong> — tap the speaker button to hear the text before you start.</li>
+                    <li><strong>Type at your pace</strong> — the timer only starts when you press your first key.</li>
+                    <li><strong>Earn badges</strong> — track your progress and celebrate milestones.</li>
+                    <li><strong>Make it yours</strong> — switch themes, fonts, and toggle sounds in Settings.</li>
                 </ul>
+                <p class="welcome-hint">Your progress stays on this computer — no account needed.</p>
                 <div class="modal-footer">
                     <button id="welcome-start-btn" class="button button-primary">Let's start</button>
                 </div>
@@ -408,6 +420,7 @@ export function getModalHtml(modalName, state, DATA) {
                     <div class="setting-item"><div><b>Focus Line Default</b><p>Highlight the current line of text.</p></div><label class="toggle-switch"><input type="checkbox" id="setting-focusline"><span class="slider"></span></label></div>
                     <div class="setting-item"><div><b>Keyboard Hint Default</b><p>Show an on-screen keyboard guide.</p></div><label class="toggle-switch"><input type="checkbox" id="setting-keyboard"><span class="slider"></span></label></div>
                     <div class="setting-item"><div><b>Timer Display</b><p>Show a timer chip during typing sessions.</p></div><label class="toggle-switch"><input type="checkbox" id="setting-timer-display"><span class="slider"></span></label></div>
+                    <div class="setting-item"><div><b>Typing Sounds</b><p>Play soft sounds while typing.</p></div><label class="toggle-switch"><input type="checkbox" id="setting-sound"><span class="slider"></span></label></div>
                     <div class="setting-item"><div><b>Default Stage</b><p>The stage used for 'Quick Start'.</p></div><select id="setting-default-stage" class="button button-secondary"><option value="KS1">KS1</option><option value="KS2">KS2</option><option value="KS3">KS3</option><option value="KS4">KS4</option></select></div>
                 </details>
                 <details class="settings-section">

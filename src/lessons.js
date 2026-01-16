@@ -8,6 +8,38 @@ import { checkAndAwardBadges } from './badges.js';
 import { toast } from './ui.js';
 import { normaliseString, transformText } from './utils.js';
 import { buildLessonId, calculateSessionCompletionPercent } from './progress.js';
+import { playSuccessSound } from './sounds.js';
+
+/**
+ * Updates the consecutive days streak based on last played date.
+ * @param {object} state - The main application state object.
+ */
+function updateStreak(state) {
+    const today = new Date().toDateString();
+    const lastPlayed = state.progress.lastPlayed;
+    
+    if (!lastPlayed) {
+        // First time playing
+        state.progress.consecutiveDays = 1;
+    } else {
+        const lastDate = new Date(lastPlayed);
+        const todayDate = new Date(today);
+        const diffTime = todayDate - lastDate;
+        const diffDays = Math.floor(diffTime / (1000 * 60 * 60 * 24));
+        
+        if (diffDays === 0) {
+            // Same day, streak unchanged (already counted)
+        } else if (diffDays === 1) {
+            // Consecutive day, increment streak
+            state.progress.consecutiveDays = (state.progress.consecutiveDays || 0) + 1;
+        } else {
+            // Streak broken, start fresh
+            state.progress.consecutiveDays = 1;
+        }
+    }
+    
+    state.progress.lastPlayed = today;
+}
 
 /**
  * Starts a new typing session.
@@ -50,7 +82,8 @@ export function startSession(lesson, state, showScreen, persistState) {
         timer: {
             handle: null,
             paused: false,
-            remaining: 60
+            remaining: 60,
+            started: false
         },
         lineElements: [],
         vanishedLines: new Set()
@@ -123,6 +156,12 @@ export function endSession(finalInput, state, DATA, showScreen, saveState) {
         const bestAccuracy = Math.max(...previousSessions.map(s => s.accuracy || 0));
         personalBest = { netWPM: bestWPM, accuracy: bestAccuracy };
     }
+
+    // Update streak counter
+    updateStreak(state);
+
+    // Play success sound
+    playSuccessSound(state.settings?.soundEnabled);
 
     state.runtime.summaryResults = { ...results, newBadges, isDrill: state.runtime.isDrill, personalBest };
     

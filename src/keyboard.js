@@ -4,6 +4,7 @@
  */
 
 import { normaliseChar, normaliseString, rawTrimToNormLen } from './utils.js';
+import { playClickSound, playErrorSound } from './sounds.js';
 
 /**
  * The main event handler for the typing input textarea.
@@ -46,10 +47,32 @@ export function updateTypingDisplay(userInput, state, DATA) {
         const key = targetTextNorm[userInputNorm.length - 1];
         if (key && key !== ' ') hardestKeys[key] = (hardestKeys[key] || 0) + 1;
         
-        // Visual feedback for the error.
+        // Audio and visual feedback for the error.
+        playErrorSound(state.settings?.soundEnabled);
         inputEl.style.borderColor = '#ef4444';
         setTimeout(() => { inputEl.style.borderColor = '' }, 200);
         return; // Stop further processing for this incorrect input.
+    }
+    
+    // Play click sound for correct input
+    if (userInputNorm.length > 0) {
+        const lastIndex = userInputNorm.length - 1;
+        const isCorrect = userInputNorm[lastIndex] === targetTextNorm[lastIndex];
+        if (isCorrect) {
+            playClickSound(state.settings?.soundEnabled);
+            
+            // Start timer on first correct keystroke
+            if (state.runtime.timer && !state.runtime.timer.started && state.runtime.flags.timer) {
+                state.runtime.timer.started = true;
+                state.runtime.startTime = new Date(); // Reset start time to now
+                if (state.runtime.timer.tick) {
+                    state.runtime.timer.handle = setInterval(state.runtime.timer.tick, 1000);
+                    state.runtime.timer.tick(); // Initial tick
+                }
+            }
+        } else {
+            playErrorSound(state.settings?.soundEnabled);
+        }
     }
     
     // --- Error Tracking for Standard Mode ---

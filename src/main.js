@@ -12,6 +12,7 @@ import { applySettings, getScreenHtml, getModalHtml, updateLessonPicker, resetLe
 import { startSession, endSession, startFocusDrill } from './lessons.js';
 import { sha256Hex, debounce } from './utils.js';
 import { handleTypingInput, calculateVisualLines } from './keyboard.js';
+import { speakText, stopSpeaking, isSpeaking, isSpeechAvailable } from './sounds.js';
 
 'use strict';
 const APP_VERSION = "8.0.0";
@@ -66,7 +67,7 @@ const debouncedSaveDraft = debounce((state, typedText) => {
 
 // --- 1. STATE MANAGEMENT ---
 let state = {
-    settings: { font: 'default', lineHeight: 1.7, letterSpacing: 2, theme: 'cream', lockstepDefault: true, focusLineDefault: false, keyboardHintDefault: false, showTimerDisplay: true, defaultStage: 'KS2', pin: null },
+    settings: { font: 'default', lineHeight: 1.7, letterSpacing: 2, theme: 'cream', lockstepDefault: true, focusLineDefault: false, keyboardHintDefault: false, showTimerDisplay: true, defaultStage: 'KS2', pin: null, soundEnabled: false },
     progress: { minutesTotal: 0, wordsTotal: 0, badges: [], themesCompleted: {}, stagesCompleted: {}, lastPlayed: null, consecutiveDays: 0, completedPassages: [], completedSpellings: [], completedPhonics: [] },
     sessions: [],
     meta: { ...DEFAULT_META },
@@ -146,6 +147,9 @@ function showScreen(screenName) {
         state.runtime._cleanupSummaryKeys();
         state.runtime._cleanupSummaryKeys = null;
     }
+    
+    // Stop any ongoing speech when changing screens
+    stopSpeaking();
     
     state.ui.currentScreen = screenName;
     mainContent.innerHTML = getScreenHtml(screenName, state, DATA);
@@ -332,7 +336,41 @@ function bindScreenEvents(screenName) {
             state.runtime.flags.focusLine = e.target.checked; 
             document.getElementById('typing-target').classList.toggle('focus-line-active', e.target.checked); 
         });
+        
+        // Read Aloud button
+        const readAloudBtn = document.getElementById('read-aloud-btn');
+        if (readAloudBtn) {
+            if (!isSpeechAvailable()) {
+                readAloudBtn.disabled = true;
+                readAloudBtn.title = 'Text-to-speech not available in this browser';
+            } else {
+                readAloudBtn.addEventListener('click', () => {
+                    if (isSpeaking()) {
+                        // Stop if already speaking
+                        stopSpeaking();
+                        readAloudBtn.textContent = '🔊 Read Aloud';
+                        readAloudBtn.classList.remove('speaking');
+                    } else {
+                        // Start reading
+                        const textToRead = state.runtime.targetText;
+                        readAloudBtn.textContent = '⏹️ Stop';
+                        readAloudBtn.classList.add('speaking');
+                        speakText(
+                            textToRead,
+                            () => {
+                                // On end
+                                readAloudBtn.textContent = '🔊 Read Aloud';
+                                readAloudBtn.classList.remove('speaking');
+                            },
+                            null
+                        );
+                    }
+                });
+            }
+        }
+        
         document.getElementById('back-to-home-btn').addEventListener('click', () => {
+            stopSpeaking(); // Stop any speech when leaving
             if (confirm('Are you sure you want to exit? Your progress will be saved as a draft.')) {
                 // Save draft before exiting
                 const lessonId = state.runtime.lesson?.data?.id;
@@ -346,9 +384,22 @@ function bindScreenEvents(screenName) {
         });
         input.focus();
 
+        // Timer setup - but don't start until first correct keystroke
         if (state.runtime.flags.timer) {
             const chip = document.getElementById('timer-chip');
-            const tick = () => {
+            // Show initial state
+            if (chip) {
+                if (state.runtime.flags.countdownTimer) {
+                    chip.textContent = `01:00`;
+                    chip.title = 'Timer starts when you begin typing';
+                } else {
+                    chip.textContent = `00:00`;
+                    chip.title = 'Timer starts when you begin typing';
+                }
+            }
+            
+            // Store the tick function so keyboard.js can start it
+            state.runtime.timer.tick = () => {
                 if (state.runtime.timer.paused) return;
                 const timerEndCallback = (finalInput) => {
                     clearDraft();
@@ -373,8 +424,7 @@ function bindScreenEvents(screenName) {
                     }
                 }
             };
-            state.runtime.timer.handle = setInterval(tick, 1000);
-            tick();
+            // Timer will be started by keyboard.js on first correct keystroke
         }
     }
     if (screenName === 'summary') {
@@ -510,6 +560,7 @@ function bindModalEvents(modalName) {
         document.getElementById('setting-focusline').checked = s.focusLineDefault;
         document.getElementById('setting-keyboard').checked = s.keyboardHintDefault;
         document.getElementById('setting-timer-display').checked = s.showTimerDisplay;
+        document.getElementById('setting-sound').checked = s.soundEnabled || false;
         document.getElementById('setting-default-stage').value = s.defaultStage;
         document.getElementById('lh-val').textContent = s.lineHeight;
         document.getElementById('ls-val').textContent = `+${s.letterSpacing}%`;
@@ -526,6 +577,7 @@ function bindModalEvents(modalName) {
             s.focusLineDefault = document.getElementById('setting-focusline').checked;
             s.keyboardHintDefault = document.getElementById('setting-keyboard').checked;
             s.showTimerDisplay = document.getElementById('setting-timer-display').checked;
+            s.soundEnabled = document.getElementById('setting-sound').checked;
             s.defaultStage = document.getElementById('setting-default-stage').value;
             
             const newPin = document.getElementById('setting-pin').value;
