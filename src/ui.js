@@ -170,11 +170,14 @@ export function getScreenHtml(screenName, state, DATA) {
             const currentPet = PET_LEVELS[petIndex];
             // Check for draft session
             const draft = getDraftInfo();
+            const progressText = draft && draft.typedText.length > 0 
+                ? `Progress: ${draft.typedText.length} characters typed`
+                : 'You started this lesson but haven\'t typed yet';
             const draftHtml = draft ? `
                 <div id="resume-draft-card" class="card home-card resume-card">
                     <h2>📝 Resume Your Session</h2>
                     <p>You have an unfinished ${draft.lessonType}: <strong>${draft.lessonData.title || draft.lessonData.name}</strong></p>
-                    <p class="draft-progress">Progress: ${draft.typedText.length} characters typed</p>
+                    <p class="draft-progress">${progressText}</p>
                     <div class="button-row">
                         <button id="resume-draft-btn" class="button button-primary">Resume</button>
                         <button id="discard-draft-btn" class="button button-secondary">Discard Draft</button>
@@ -262,7 +265,6 @@ export function getScreenHtml(screenName, state, DATA) {
                 <div class="progress-bar-container"><div id="typing-progress-bar" class="progress-bar" style="width: 0%"></div></div>
                 <div class="card">
                     <div class="typing-controls">
-                        <button id="back-to-home-btn" class="icon-button" title="Back to Home (Esc)"><svg viewBox="0 0 24 24"><path d="M10 20v-6h4v6h5v-8h3L12 3 2 12h3v8z"></path></svg></button>
                         <div class="typing-controls__title"><h2>${state.runtime.lesson.data.title || state.runtime.lesson.data.name}</h2></div>
                         <div class="button-group">
                             ${state.runtime.flags.showTimerChip ? `<div id="timer-chip" class="timer-chip">--:--</div>` : ''}
@@ -409,20 +411,16 @@ export function getModalHtml(modalName, state, DATA) {
                 <div class="modal-footer">
                     <button id="welcome-start-btn" class="button button-primary">Let's start</button>
                 </div>
-            </div></div>`;
-        case 'about':
-            return `
-            <div class="modal" role="dialog" aria-modal="true" aria-labelledby="about-title"><div class="modal-content about-modal">
-                <div class="modal-header"><h2 id="about-title" class="modal-title">StoryKeys</h2>${closeModalBtn}</div>
-                <div class="info-block">
-                    <h3>About StoryKeys</h3>
+                <details class="about-section">
+                    <summary>About StoryKeys</summary>
                     <div class="markdown-block">${renderMarkdownBlock(ABOUT_MARKDOWN)}</div>
-                </div>
-                <div class="info-block">
-                    <h3>License</h3>
+                </details>
+                <details class="about-section">
+                    <summary>License</summary>
                     <pre class="license-text">${escapeHtml(LICENSE_TEXT)}</pre>
-                </div>
+                </details>
             </div></div>`;
+
         case 'help':
             return `
             <div class="modal" role="dialog" aria-modal="true" aria-labelledby="help-title"><div class="modal-content about-modal">

@@ -631,6 +631,40 @@ p {
     margin-top: var(--space-sm);
 }
 
+/* About section in welcome modal */
+.about-section {
+    text-align: left;
+    margin-top: var(--space-lg);
+    border-top: 1px solid var(--border-color);
+    padding-top: var(--space-md);
+}
+
+.about-section summary {
+    cursor: pointer;
+    font-weight: 600;
+    color: var(--text-secondary);
+    padding: var(--space-sm) 0;
+}
+
+.about-section summary:hover {
+    color: var(--accent-color);
+}
+
+.about-section .markdown-block,
+.about-section .license-text {
+    margin-top: var(--space-sm);
+    font-size: 0.9rem;
+    opacity: 0.85;
+}
+
+.about-section .license-text {
+    max-height: 200px;
+    overflow-y: auto;
+    padding: var(--space-sm);
+    background: var(--bg-secondary);
+    border-radius: var(--border-radius);
+}
+
 /* ==========================================================================
    10. HOME SCREEN
    ========================================================================== */

@@ -200,7 +200,33 @@ function closeModal() {
 
 // --- 4. EVENT BINDING ---
 function bindAppEvents() {
-    document.getElementById('about-btn').addEventListener('click', () => showModal('about'));
+    document.getElementById('about-btn').addEventListener('click', () => {
+        // If in a modal, close it first
+        closeModal();
+        // If on typing screen, confirm before leaving (and save draft)
+        if (state.ui.screen === 'typing') {
+            stopSpeaking();
+            if (state.runtime._cleanupPauseHandler) state.runtime._cleanupPauseHandler();
+            if (state.runtime.wpmSampleInterval) clearInterval(state.runtime.wpmSampleInterval);
+            const input = document.getElementById('typing-input');
+            const typedText = input ? input.value : '';
+            
+            // Always confirm if on typing screen
+            if (confirm('Exit lesson? Your progress will be saved as a draft.')) {
+                const lessonId = state.runtime.lesson?.data?.id;
+                const lessonType = state.runtime.lesson?.type;
+                if (lessonId) {
+                    saveDraft(lessonId, lessonType, typedText, state.runtime.lesson.data);
+                    if (typedText.length > 0) {
+                        toast('Draft saved. You can resume later.');
+                    }
+                }
+                showScreen('home');
+            }
+            return;
+        }
+        showScreen('home');
+    });
     document.getElementById('help-btn').addEventListener('click', () => showModal('help'));
     document.getElementById('start-here-btn').addEventListener('click', () => showModal('welcome'));
     document.getElementById('settings-btn').addEventListener('click', () => showModal('settings'));
@@ -466,21 +492,6 @@ function bindScreenEvents(screenName) {
             }
         }
         
-        document.getElementById('back-to-home-btn').addEventListener('click', () => {
-            stopSpeaking(); // Stop any speech when leaving
-            if (state.runtime._cleanupPauseHandler) state.runtime._cleanupPauseHandler();
-            if (state.runtime.wpmSampleInterval) clearInterval(state.runtime.wpmSampleInterval);
-            if (confirm('Are you sure you want to exit? Your progress will be saved as a draft.')) {
-                // Save draft before exiting
-                const lessonId = state.runtime.lesson?.data?.id;
-                const lessonType = state.runtime.lesson?.type;
-                if (lessonId && input.value.length > 0) {
-                    saveDraft(lessonId, lessonType, input.value, state.runtime.lesson.data);
-                    toast('Draft saved. You can resume later.');
-                }
-                showScreen('home');
-            }
-        });
         input.focus();
 
         // Timer setup - but don't start until first correct keystroke
