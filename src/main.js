@@ -67,7 +67,7 @@ const debouncedSaveDraft = debounce((state, typedText) => {
 
 // --- 1. STATE MANAGEMENT ---
 let state = {
-    settings: { font: 'default', lineHeight: 1.7, letterSpacing: 2, theme: 'cream', lockstepDefault: true, focusLineDefault: true, keyboardHintDefault: false, showTimerDisplay: true, defaultStage: 'KS2', pin: null, soundEnabled: false, fingerGuide: false, reduceMotion: false },
+    settings: { font: 'default', lineHeight: 1.7, letterSpacing: 2, theme: 'cream', lockstepDefault: true, focusLineDefault: true, keyboardHintDefault: false, showTimerDisplay: true, defaultStage: 'KS2', pin: null, soundEnabled: false, fingerGuide: false, reduceMotion: false, voiceGender: 'female', voiceSpeed: 0.85 },
     progress: { minutesTotal: 0, wordsTotal: 0, badges: [], themesCompleted: {}, stagesCompleted: {}, lastPlayed: null, consecutiveDays: 0, completedPassages: [], completedSpellings: [], completedPhonics: [] },
     sessions: [],
     meta: { ...DEFAULT_META },
@@ -458,7 +458,8 @@ function bindScreenEvents(screenName) {
                                 readAloudBtn.textContent = '🔊 Read Aloud';
                                 readAloudBtn.classList.remove('speaking');
                             },
-                            null
+                            null,
+                            { gender: state.settings.voiceGender, speed: state.settings.voiceSpeed }
                         );
                     }
                 });
@@ -669,12 +670,16 @@ function bindModalEvents(modalName) {
         document.getElementById('setting-sound').checked = s.soundEnabled || false;
         document.getElementById('setting-finger-guide').checked = s.fingerGuide || false;
         document.getElementById('setting-reduce-motion').checked = s.reduceMotion || false;
+        document.getElementById('setting-voice-gender').value = s.voiceGender || 'female';
+        document.getElementById('setting-voice-speed').value = s.voiceSpeed ?? 0.85;
         document.getElementById('setting-default-stage').value = s.defaultStage;
         document.getElementById('lh-val').textContent = s.lineHeight;
         document.getElementById('ls-val').textContent = `+${s.letterSpacing}%`;
+        document.getElementById('vs-val').textContent = `${Math.round((s.voiceSpeed ?? 0.85) * 100)}%`;
 
         document.getElementById('setting-line-height').addEventListener('input', e => document.getElementById('lh-val').textContent = e.target.value);
         document.getElementById('setting-letter-spacing').addEventListener('input', e => document.getElementById('ls-val').textContent = `+${e.target.value}%`);
+        document.getElementById('setting-voice-speed').addEventListener('input', e => document.getElementById('vs-val').textContent = `${Math.round(e.target.value * 100)}%`);
         
         document.getElementById('save-settings-btn').addEventListener('click', async () => {
             s.theme = document.getElementById('setting-theme').value;
@@ -688,6 +693,8 @@ function bindModalEvents(modalName) {
             s.soundEnabled = document.getElementById('setting-sound').checked;
             s.fingerGuide = document.getElementById('setting-finger-guide').checked;
             s.reduceMotion = document.getElementById('setting-reduce-motion').checked;
+            s.voiceGender = document.getElementById('setting-voice-gender').value;
+            s.voiceSpeed = parseFloat(document.getElementById('setting-voice-speed').value);
             s.defaultStage = document.getElementById('setting-default-stage').value;
             
             const newPin = document.getElementById('setting-pin').value;

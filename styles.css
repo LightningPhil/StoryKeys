@@ -1419,6 +1419,29 @@ kbd {
    15. BADGES
    ========================================================================== */
 
+/* Perfect score celebration banner */
+.perfect-banner {
+    background: linear-gradient(135deg, #fef3c7 0%, #fde68a 50%, #fbbf24 100%);
+    color: #78350f;
+    padding: var(--space-md) var(--space-lg);
+    border-radius: var(--border-radius);
+    font-size: 1.5rem;
+    font-weight: bold;
+    text-align: center;
+    margin-bottom: var(--space-lg);
+    animation: perfect-glow 2s ease-in-out infinite;
+}
+
+.theme-dark .perfect-banner {
+    background: linear-gradient(135deg, #78350f 0%, #92400e 50%, #b45309 100%);
+    color: #fef3c7;
+}
+
+@keyframes perfect-glow {
+    0%, 100% { box-shadow: 0 0 10px rgba(251, 191, 36, 0.5); }
+    50% { box-shadow: 0 0 25px rgba(251, 191, 36, 0.8); }
+}
+
 .badge-earned {
     position: relative;
     border: 2px solid #f59e0b;

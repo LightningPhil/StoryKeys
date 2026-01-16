@@ -135,9 +135,10 @@ export function isSpeechAvailable() {
  * @param {string} text - The text to read aloud.
  * @param {function} onEnd - Callback when speech ends.
  * @param {function} onStart - Callback when speech starts.
+ * @param {object} options - Voice options { gender: 'female'|'male', speed: 0.5-1.5 }
  * @returns {boolean} Whether speech started successfully.
  */
-export function speakText(text, onEnd, onStart) {
+export function speakText(text, onEnd, onStart, options = {}) {
     if (!isSpeechAvailable()) {
         return false;
     }
@@ -147,18 +148,39 @@ export function speakText(text, onEnd, onStart) {
     
     currentUtterance = new SpeechSynthesisUtterance(text);
     
-    // Use a slower, clearer rate for young learners
-    currentUtterance.rate = 0.85;
+    // Use provided speed or default to slower, clearer rate for young learners
+    const speed = options.speed ?? 0.85;
+    currentUtterance.rate = speed;
     currentUtterance.pitch = 1.0;
     
-    // Try to find a good English voice
+    // Try to find an English voice matching the preferred gender
+    const preferFemale = options.gender !== 'male';
     const voices = window.speechSynthesis.getVoices();
-    const englishVoice = voices.find(v => 
-        v.lang.startsWith('en') && (v.name.includes('Female') || v.name.includes('Google') || v.default)
-    ) || voices.find(v => v.lang.startsWith('en'));
     
-    if (englishVoice) {
-        currentUtterance.voice = englishVoice;
+    // Keywords that typically indicate female vs male voices
+    const femaleKeywords = ['female', 'zira', 'hazel', 'susan', 'samantha', 'karen', 'moira', 'fiona', 'victoria', 'kate'];
+    const maleKeywords = ['male', 'david', 'mark', 'james', 'daniel', 'george', 'alex'];
+    
+    const genderKeywords = preferFemale ? femaleKeywords : maleKeywords;
+    
+    // First try: find English voice matching gender preference
+    let voice = voices.find(v => 
+        v.lang.startsWith('en') && 
+        genderKeywords.some(kw => v.name.toLowerCase().includes(kw))
+    );
+    
+    // Second try: any English Google voice (usually female and high quality)
+    if (!voice && preferFemale) {
+        voice = voices.find(v => v.lang.startsWith('en') && v.name.includes('Google'));
+    }
+    
+    // Fallback: any English voice
+    if (!voice) {
+        voice = voices.find(v => v.lang.startsWith('en'));
+    }
+    
+    if (voice) {
+        currentUtterance.voice = voice;
     }
     
     currentUtterance.onstart = () => {

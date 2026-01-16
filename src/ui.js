@@ -306,6 +306,10 @@ export function getScreenHtml(screenName, state, DATA) {
             const drillBtnHtml = !isDrill && (hardestKeys.length > 0 || trickyWords.length > 0) ? `<button id="start-drill-btn" class="button button-secondary">${DATA.COPY.summaryDrill}</button>` : '';
             const prettyKeyName = (k) => k === ' ' ? 'Space' : k;
             
+            // Perfect accuracy celebration
+            const isPerfect = accuracy === 100;
+            const perfectHtml = isPerfect ? `<div class="perfect-banner">🌟 Perfect Score! 🌟</div>` : '';
+            
             // Personal best comparison
             let comparisonHtml = '';
             const isNewBest = personalBest && !isDrill && (netWPM > personalBest.netWPM || accuracy > personalBest.accuracy);
@@ -350,8 +354,9 @@ export function getScreenHtml(screenName, state, DATA) {
             })() : '';
             
             return `
-            <div id="summary-screen" class="screen active ${isNewBest ? 'show-confetti' : ''}">
+            <div id="summary-screen" class="screen active ${isNewBest || isPerfect ? 'show-confetti' : ''}">
                 <div class="card">
+                    ${perfectHtml}
                     <div class="text-center"><h1>${isDrill ? 'Drill Complete!' : DATA.COPY.summaryNiceWork}</h1><p>${DATA.COPY.encourageGentle[Math.floor(Math.random() * DATA.COPY.encourageGentle.length)]}</p></div>
                     ${newBadges.map(id => { const badge = DATA.BADGES.find(b => b.id === id); return `<div class="badge-earned"><h3>Badge Earned: ${badge.label}!</h3><p>${badge.desc}</p></div>`; }).join('')}
                     <div class="summary-metrics">
@@ -516,26 +521,31 @@ export function getModalHtml(modalName, state, DATA) {
             <div class="modal" role="dialog" aria-modal="true" aria-labelledby="settings-title"><div class="modal-content">
                 <div class="modal-header"><h2 id="settings-title" class="modal-title">Settings</h2>${closeModalBtn}</div>
                 <details class="settings-section" open>
-                    <summary>Readability</summary>
+                    <summary>Appearance</summary>
                     <div class="setting-item"><div><b>Theme</b><p>Change the app's colour scheme.</p></div><select id="setting-theme" class="button button-secondary"><option value="cream">Cream</option><option value="light">Light</option><option value="dark">Dark</option></select></div>
-                    <div class="setting-item"><div><b>Font</b><p>Choose a standard or clearer font.</p></div><select id="setting-font" class="button button-secondary"><option value="default">Default</option><option value="dyslexia">Clear (Arial)</option><option value="opendyslexic">OpenDyslexic</option></select></div>
-                    <div class="setting-item"><div><b>Line Height: <span id="lh-val"></span></b><p>Increase space between lines.</p></div><input type="range" id="setting-line-height" min="1.4" max="2.0" step="0.1"></div>
-                    <div class="setting-item"><div><b>Letter Spacing: <span id="ls-val"></span></b><p>Increase space between letters.</p></div><input type="range" id="setting-letter-spacing" min="0" max="8" step="1"></div>
+                    <div class="setting-item"><div><b>Font</b><p>Choose a clearer font for reading.</p></div><select id="setting-font" class="button button-secondary"><option value="default">Default</option><option value="dyslexia">Clear (Arial)</option><option value="opendyslexic">OpenDyslexic</option></select></div>
+                    <div class="setting-item"><div><b>Line Height: <span id="lh-val"></span></b><p>Space between lines of text.</p></div><input type="range" id="setting-line-height" min="1.4" max="2.0" step="0.1"></div>
+                    <div class="setting-item"><div><b>Letter Spacing: <span id="ls-val"></span></b><p>Space between letters.</p></div><input type="range" id="setting-letter-spacing" min="0" max="8" step="1"></div>
+                    <div class="setting-item"><div><b>Reduce Motion</b><p>Disable animations and effects.</p></div><label class="toggle-switch"><input type="checkbox" id="setting-reduce-motion"><span class="slider"></span></label></div>
                 </details>
                 <details class="settings-section" open>
-                    <summary>Behaviour</summary>
-                    <div class="setting-item"><div><b>Lockstep Default</b><p>Prevent errors before they are typed.</p></div><label class="toggle-switch"><input type="checkbox" id="setting-lockstep"><span class="slider"></span></label></div>
-                    <div class="setting-item"><div><b>Focus Line Default</b><p>Highlight the current line of text.</p></div><label class="toggle-switch"><input type="checkbox" id="setting-focusline"><span class="slider"></span></label></div>
-                    <div class="setting-item"><div><b>Keyboard Hint Default</b><p>Show an on-screen keyboard guide.</p></div><label class="toggle-switch"><input type="checkbox" id="setting-keyboard"><span class="slider"></span></label></div>
-                    <div class="setting-item"><div><b>Timer Display</b><p>Show a timer chip during typing sessions.</p></div><label class="toggle-switch"><input type="checkbox" id="setting-timer-display"><span class="slider"></span></label></div>
-                    <div class="setting-item"><div><b>Typing Sounds</b><p>Play soft sounds while typing.</p></div><label class="toggle-switch"><input type="checkbox" id="setting-sound"><span class="slider"></span></label></div>
-                    <div class="setting-item"><div><b>Finger Guide</b><p>Show which finger to use for each key.</p></div><label class="toggle-switch"><input type="checkbox" id="setting-finger-guide"><span class="slider"></span></label></div>
-                    <div class="setting-item"><div><b>Reduce Motion</b><p>Disable animations for accessibility.</p></div><label class="toggle-switch"><input type="checkbox" id="setting-reduce-motion"><span class="slider"></span></label></div>
-                    <div class="setting-item"><div><b>Default Stage</b><p>The stage used for 'Quick Start'.</p></div><select id="setting-default-stage" class="button button-secondary"><option value="KS1">KS1</option><option value="KS2">KS2</option><option value="KS3">KS3</option><option value="KS4">KS4</option></select></div>
+                    <summary>Typing Helpers</summary>
+                    <div class="setting-item"><div><b>Lockstep Mode</b><p>Must fix mistakes before continuing.</p></div><label class="toggle-switch"><input type="checkbox" id="setting-lockstep"><span class="slider"></span></label></div>
+                    <div class="setting-item"><div><b>Focus Line</b><p>Highlight the current line of text.</p></div><label class="toggle-switch"><input type="checkbox" id="setting-focusline"><span class="slider"></span></label></div>
+                    <div class="setting-item"><div><b>Keyboard Guide</b><p>Show on-screen keyboard hints.</p></div><label class="toggle-switch"><input type="checkbox" id="setting-keyboard"><span class="slider"></span></label></div>
+                    <div class="setting-item"><div><b>Finger Guide</b><p>Show which finger to use.</p></div><label class="toggle-switch"><input type="checkbox" id="setting-finger-guide"><span class="slider"></span></label></div>
+                </details>
+                <details class="settings-section" open>
+                    <summary>Sound &amp; Speech</summary>
+                    <div class="setting-item"><div><b>Typing Sounds</b><p>Play soft clicks while typing.</p></div><label class="toggle-switch"><input type="checkbox" id="setting-sound"><span class="slider"></span></label></div>
+                    <div class="setting-item"><div><b>Read Aloud Voice</b><p>Voice for passage previews.</p></div><select id="setting-voice-gender" class="button button-secondary"><option value="female">Female</option><option value="male">Male</option></select></div>
+                    <div class="setting-item"><div><b>Voice Speed: <span id="vs-val"></span></b><p>How fast text is read aloud.</p></div><input type="range" id="setting-voice-speed" min="0.5" max="1.2" step="0.05"></div>
                 </details>
                 <details class="settings-section">
-                    <summary>Privacy</summary>
-                     <div class="setting-item"><div><b>Set Parent PIN</b><p>Set a 4-digit PIN to protect Parent Glance.</p></div><input type="password" id="setting-pin" class="pin-input" maxlength="4" placeholder="4 digits"></div>
+                    <summary>General</summary>
+                    <div class="setting-item"><div><b>Default Stage</b><p>Stage used for Quick Start.</p></div><select id="setting-default-stage" class="button button-secondary"><option value="KS1">KS1</option><option value="KS2">KS2</option><option value="KS3">KS3</option><option value="KS4">KS4</option></select></div>
+                    <div class="setting-item"><div><b>Show Timer</b><p>Display timer during lessons.</p></div><label class="toggle-switch"><input type="checkbox" id="setting-timer-display"><span class="slider"></span></label></div>
+                    <div class="setting-item"><div><b>Parent PIN</b><p>Protect Parent Glance access.</p></div><input type="password" id="setting-pin" class="pin-input" maxlength="4" placeholder="4 digits"></div>
                 </details>
                 <div class="modal-footer">
                     <button id="save-settings-btn" class="button button-primary">Close & Save</button>
