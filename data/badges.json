@@ -1,82 +1,494 @@
 [
-    { "id": "accuracy_ace_98", "label": "Accuracy Ace", "desc": "Achieve 98%+ accuracy in a session." },
-    { "id": "perfectionist_100", "label": "Perfectionist", "desc": "Finish a session with 100% accuracy." },
-    { "id": "steady_95", "label": "Steady 95", "desc": "Reach 95%+ accuracy in three sessions." },
-    { "id": "calm_careful", "label": "Calm & Careful", "desc": "Finish with zero errors in lockstep mode." },
-    { "id": "punct_pro", "label": "Punctuation Pro", "desc": "Finish a passage with punctuation at 95%+ accuracy." },
-    { "id": "spelling_star", "label": "Spelling Star", "desc": "Complete a spelling list with zero errors." },
-    { "id": "phonic_precision", "label": "Phonic Precision", "desc": "Score 90%+ accuracy on a phonics passage." },
-    { "id": "speedy_40", "label": "Swift Fingers", "desc": "Reach net 40 WPM in a session." },
-    { "id": "speedy_60", "label": "Lightning Hands", "desc": "Reach net 60 WPM in a session." },
-    { "id": "balanced_blaze", "label": "Balanced Blaze", "desc": "Hit 70 gross WPM while staying 95% accurate." },
-    { "id": "steady_reader", "label": "Steady Reader", "desc": "Stick with a lesson for five minutes or more." },
-    { "id": "early_bird", "label": "Early Bird", "desc": "Complete a session before 9 AM." },
-    { "id": "night_owl", "label": "Night Owl", "desc": "Complete a session after 9 PM." },
-    { "id": "weekend_warrior", "label": "Weekend Warrior", "desc": "Finish a session on Saturday or Sunday." },
-    { "id": "explorer", "label": "Explorer", "desc": "Try three different themes." },
-    { "id": "genre_hopper", "label": "Genre Hopper", "desc": "Complete a passage from Animals, Nature, and Science." },
-    { "id": "stage_scholar", "label": "Stage Scholar", "desc": "Complete one lesson from KS1, KS2, and KS3." },
-    { "id": "stage_master", "label": "Stage Master", "desc": "Complete lessons in all four stages." },
-    { "id": "mode_mixer", "label": "Mode Mixer", "desc": "Finish at least one passage, spelling, and phonics session." },
-    { "id": "routine", "label": "Routine", "desc": "Type on three different days." },
-    { "id": "five_day_streak", "label": "5-Day Streak", "desc": "Complete a session on five consecutive days." },
-    { "id": "word_wizard_1k", "label": "Word Wizard", "desc": "Type a total of 1,000 words." },
-    { "id": "word_wizard_5k", "label": "Library Legend", "desc": "Type a total of 5,000 words." },
-    { "id": "typing_titan_30", "label": "Typing Titan", "desc": "Accumulate 30 minutes of total typing time." },
-    { "id": "marathoner_60", "label": "Marathoner", "desc": "Accumulate 60 minutes of total typing time." },
-    { "id": "endurance_hero", "label": "Endurance Hero", "desc": "Reach three hours of total typing time." },
+    {
+        "_comment": "=== PRACTICE TRACK: Rewarding consistent effort over time ===",
+        "id": "practice_1",
+        "label": "First Steps",
+        "desc": "Complete your very first lesson.",
+        "track": "practice",
+        "tier": 1
+    },
+    {
+        "id": "practice_5",
+        "label": "Getting Started",
+        "desc": "Finish five lessons in total.",
+        "track": "practice",
+        "tier": 2,
+        "requires": "practice_1"
+    },
+    {
+        "id": "practice_15",
+        "label": "Finding Your Rhythm",
+        "desc": "Complete fifteen lessons.",
+        "track": "practice",
+        "tier": 3,
+        "requires": "practice_5"
+    },
+    {
+        "id": "practice_30",
+        "label": "Building Confidence",
+        "desc": "Finish thirty lessons.",
+        "track": "practice",
+        "tier": 4,
+        "requires": "practice_15"
+    },
+    {
+        "id": "practice_50",
+        "label": "Dedicated Learner",
+        "desc": "Complete fifty lessons.",
+        "track": "practice",
+        "tier": 5,
+        "requires": "practice_30"
+    },
+    {
+        "id": "practice_100",
+        "label": "Practice Champion",
+        "desc": "Finish one hundred lessons!",
+        "track": "practice",
+        "tier": 6,
+        "requires": "practice_50"
+    },
 
-    { "id": "passage_ks1_1", "label": "KS1 Story Starter", "desc": "Finish your first KS1 passage." },
-    { "id": "passage_ks1_3", "label": "KS1 Story Sampler", "desc": "Complete three KS1 passages." },
-    { "id": "passage_ks1_5", "label": "KS1 Story Streak", "desc": "Finish five KS1 passages." },
-    { "id": "passage_ks1_10", "label": "KS1 Story Explorer", "desc": "Complete ten KS1 passages." },
-    { "id": "passage_ks1_15", "label": "KS1 Story Scholar", "desc": "Finish fifteen KS1 passages." },
+    {
+        "_comment": "=== ACCURACY TRACK: Celebrating careful work ===",
+        "id": "accuracy_90",
+        "label": "Careful Typer",
+        "desc": "Finish a lesson with 90% accuracy or better.",
+        "track": "accuracy",
+        "tier": 1
+    },
+    {
+        "id": "accuracy_95",
+        "label": "Sharp Focus",
+        "desc": "Achieve 95% accuracy in a lesson.",
+        "track": "accuracy",
+        "tier": 2,
+        "requires": "accuracy_90"
+    },
+    {
+        "id": "accuracy_98",
+        "label": "Accuracy Ace",
+        "desc": "Reach 98% accuracy in a lesson.",
+        "track": "accuracy",
+        "tier": 3,
+        "requires": "accuracy_95"
+    },
+    {
+        "id": "accuracy_100",
+        "label": "Perfectionist",
+        "desc": "Complete a lesson with 100% accuracy!",
+        "track": "accuracy",
+        "tier": 4,
+        "requires": "accuracy_98"
+    },
+    {
+        "id": "steady_3",
+        "label": "Steady Hand",
+        "desc": "Get 90%+ accuracy three times.",
+        "track": "accuracy",
+        "tier": 2
+    },
+    {
+        "id": "steady_10",
+        "label": "Reliably Accurate",
+        "desc": "Get 90%+ accuracy ten times.",
+        "track": "accuracy",
+        "tier": 3,
+        "requires": "steady_3"
+    },
+    {
+        "id": "steady_25",
+        "label": "Consistency King",
+        "desc": "Get 90%+ accuracy twenty-five times.",
+        "track": "accuracy",
+        "tier": 4,
+        "requires": "steady_10"
+    },
 
-    { "id": "passage_ks2_1", "label": "KS2 Chapter Starter", "desc": "Finish your first KS2 passage." },
-    { "id": "passage_ks2_3", "label": "KS2 Chapter Sampler", "desc": "Complete three KS2 passages." },
-    { "id": "passage_ks2_5", "label": "KS2 Chapter Streak", "desc": "Finish five KS2 passages." },
-    { "id": "passage_ks2_10", "label": "KS2 Chapter Explorer", "desc": "Complete ten KS2 passages." },
-    { "id": "passage_ks2_15", "label": "KS2 Chapter Scholar", "desc": "Finish fifteen KS2 passages." },
+    {
+        "_comment": "=== FLUENCY TRACK: Speed comes with confidence ===",
+        "id": "fluency_20",
+        "label": "Finding Flow",
+        "desc": "Reach 20 words per minute.",
+        "track": "fluency",
+        "tier": 1
+    },
+    {
+        "id": "fluency_30",
+        "label": "Picking Up Pace",
+        "desc": "Reach 30 words per minute.",
+        "track": "fluency",
+        "tier": 2,
+        "requires": "fluency_20"
+    },
+    {
+        "id": "fluency_40",
+        "label": "Swift Fingers",
+        "desc": "Reach 40 words per minute.",
+        "track": "fluency",
+        "tier": 3,
+        "requires": "fluency_30"
+    },
+    {
+        "id": "fluency_50",
+        "label": "Quick Thinker",
+        "desc": "Reach 50 words per minute.",
+        "track": "fluency",
+        "tier": 4,
+        "requires": "fluency_40"
+    },
+    {
+        "id": "fluency_60",
+        "label": "Lightning Hands",
+        "desc": "Reach 60 words per minute!",
+        "track": "fluency",
+        "tier": 5,
+        "requires": "fluency_50"
+    },
+    {
+        "id": "balanced_40",
+        "label": "Balanced Beginner",
+        "desc": "40+ WPM while staying 90% accurate.",
+        "track": "fluency",
+        "tier": 3
+    },
+    {
+        "id": "balanced_50",
+        "label": "Balanced Blaze",
+        "desc": "50+ WPM while staying 95% accurate.",
+        "track": "fluency",
+        "tier": 4,
+        "requires": "balanced_40"
+    },
 
-    { "id": "passage_ks3_1", "label": "KS3 Tale Starter", "desc": "Finish your first KS3 passage." },
-    { "id": "passage_ks3_3", "label": "KS3 Tale Sampler", "desc": "Complete three KS3 passages." },
-    { "id": "passage_ks3_5", "label": "KS3 Tale Streak", "desc": "Finish five KS3 passages." },
-    { "id": "passage_ks3_10", "label": "KS3 Tale Explorer", "desc": "Complete ten KS3 passages." },
-    { "id": "passage_ks3_15", "label": "KS3 Tale Scholar", "desc": "Finish fifteen KS3 passages." },
+    {
+        "_comment": "=== TIME TRACK: Patience and persistence ===",
+        "id": "time_15",
+        "label": "Quarter Hour",
+        "desc": "Spend 15 minutes typing in total.",
+        "track": "time",
+        "tier": 1
+    },
+    {
+        "id": "time_30",
+        "label": "Typing Titan",
+        "desc": "Accumulate 30 minutes of typing.",
+        "track": "time",
+        "tier": 2,
+        "requires": "time_15"
+    },
+    {
+        "id": "time_60",
+        "label": "Marathoner",
+        "desc": "Reach one hour of total typing time.",
+        "track": "time",
+        "tier": 3,
+        "requires": "time_30"
+    },
+    {
+        "id": "time_120",
+        "label": "Two Hour Hero",
+        "desc": "Accumulate two hours of typing.",
+        "track": "time",
+        "tier": 4,
+        "requires": "time_60"
+    },
+    {
+        "id": "time_180",
+        "label": "Endurance Champion",
+        "desc": "Reach three hours of total typing time!",
+        "track": "time",
+        "tier": 5,
+        "requires": "time_120"
+    },
+    {
+        "id": "words_500",
+        "label": "Word Walker",
+        "desc": "Type 500 words in total.",
+        "track": "time",
+        "tier": 1
+    },
+    {
+        "id": "words_1k",
+        "label": "Word Wizard",
+        "desc": "Type 1,000 words in total.",
+        "track": "time",
+        "tier": 2,
+        "requires": "words_500"
+    },
+    {
+        "id": "words_3k",
+        "label": "Word Weaver",
+        "desc": "Type 3,000 words in total.",
+        "track": "time",
+        "tier": 3,
+        "requires": "words_1k"
+    },
+    {
+        "id": "words_5k",
+        "label": "Library Legend",
+        "desc": "Type 5,000 words in total!",
+        "track": "time",
+        "tier": 4,
+        "requires": "words_3k"
+    },
 
-    { "id": "passage_ks4_1", "label": "KS4 Text Starter", "desc": "Finish your first KS4 passage." },
-    { "id": "passage_ks4_3", "label": "KS4 Text Sampler", "desc": "Complete three KS4 passages." },
-    { "id": "passage_ks4_5", "label": "KS4 Text Streak", "desc": "Finish five KS4 passages." },
-    { "id": "passage_ks4_10", "label": "KS4 Text Explorer", "desc": "Complete ten KS4 passages." },
-    { "id": "passage_ks4_15", "label": "KS4 Text Scholar", "desc": "Finish fifteen KS4 passages." },
+    {
+        "_comment": "=== CONSISTENCY TRACK: Gentle encouragement to return ===",
+        "id": "routine_2",
+        "label": "Coming Back",
+        "desc": "Practice on two different days.",
+        "track": "consistency",
+        "tier": 1
+    },
+    {
+        "id": "routine_5",
+        "label": "Making It Routine",
+        "desc": "Practice on five different days.",
+        "track": "consistency",
+        "tier": 2,
+        "requires": "routine_2"
+    },
+    {
+        "id": "routine_10",
+        "label": "Regular Visitor",
+        "desc": "Practice on ten different days.",
+        "track": "consistency",
+        "tier": 3,
+        "requires": "routine_5"
+    },
+    {
+        "id": "routine_20",
+        "label": "Steady Learner",
+        "desc": "Practice on twenty different days.",
+        "track": "consistency",
+        "tier": 4,
+        "requires": "routine_10"
+    },
+    {
+        "id": "streak_3",
+        "label": "Three in a Row",
+        "desc": "Complete lessons on three days in a row.",
+        "track": "consistency",
+        "tier": 2
+    },
+    {
+        "id": "streak_5",
+        "label": "Five Day Flow",
+        "desc": "Complete lessons on five days in a row.",
+        "track": "consistency",
+        "tier": 3,
+        "requires": "streak_3"
+    },
+    {
+        "id": "streak_7",
+        "label": "Week Warrior",
+        "desc": "A whole week of daily practice!",
+        "track": "consistency",
+        "tier": 4,
+        "requires": "streak_5"
+    },
 
-    { "id": "spelling_ks1_1", "label": "KS1 Sound Check", "desc": "Finish your first KS1 spelling list." },
-    { "id": "spelling_ks1_3", "label": "KS1 Spelling Sampler", "desc": "Complete three KS1 spelling lists." },
-    { "id": "spelling_ks1_5", "label": "KS1 Spelling Streak", "desc": "Finish five KS1 spelling lists." },
-    { "id": "spelling_ks1_10", "label": "KS1 Spelling Explorer", "desc": "Complete ten KS1 spelling lists." },
-    { "id": "spelling_ks1_15", "label": "KS1 Spelling Scholar", "desc": "Finish fifteen KS1 spelling lists." },
+    {
+        "_comment": "=== VARIETY TRACK: Exploring different content ===",
+        "id": "explorer_2",
+        "label": "Theme Taster",
+        "desc": "Try two different story themes.",
+        "track": "variety",
+        "tier": 1
+    },
+    {
+        "id": "explorer_4",
+        "label": "Theme Explorer",
+        "desc": "Try four different story themes.",
+        "track": "variety",
+        "tier": 2,
+        "requires": "explorer_2"
+    },
+    {
+        "id": "explorer_6",
+        "label": "Genre Hopper",
+        "desc": "Try six different story themes.",
+        "track": "variety",
+        "tier": 3,
+        "requires": "explorer_4"
+    },
+    {
+        "id": "mode_passage",
+        "label": "Story Reader",
+        "desc": "Complete a passage lesson.",
+        "track": "variety",
+        "tier": 1
+    },
+    {
+        "id": "mode_spelling",
+        "label": "Spelling Starter",
+        "desc": "Complete a spelling lesson.",
+        "track": "variety",
+        "tier": 1
+    },
+    {
+        "id": "mode_phonics",
+        "label": "Phonics Friend",
+        "desc": "Complete a phonics lesson.",
+        "track": "variety",
+        "tier": 1
+    },
+    {
+        "id": "mode_mixer",
+        "label": "Mode Mixer",
+        "desc": "Try all three lesson types: passages, spelling, and phonics.",
+        "track": "variety",
+        "tier": 2,
+        "requires": ["mode_passage", "mode_spelling", "mode_phonics"]
+    },
+    {
+        "id": "stage_2",
+        "label": "Stage Stepper",
+        "desc": "Try lessons from two different Key Stages.",
+        "track": "variety",
+        "tier": 1
+    },
+    {
+        "id": "stage_3",
+        "label": "Stage Scholar",
+        "desc": "Try lessons from three different Key Stages.",
+        "track": "variety",
+        "tier": 2,
+        "requires": "stage_2"
+    },
+    {
+        "id": "stage_4",
+        "label": "Stage Master",
+        "desc": "Try lessons from all four Key Stages!",
+        "track": "variety",
+        "tier": 3,
+        "requires": "stage_3"
+    },
 
-    { "id": "spelling_ks2_1", "label": "KS2 Word Warmup", "desc": "Finish your first KS2 spelling list." },
-    { "id": "spelling_ks2_3", "label": "KS2 Word Sampler", "desc": "Complete three KS2 spelling lists." },
-    { "id": "spelling_ks2_5", "label": "KS2 Word Streak", "desc": "Finish five KS2 spelling lists." },
-    { "id": "spelling_ks2_10", "label": "KS2 Word Explorer", "desc": "Complete ten KS2 spelling lists." },
-    { "id": "spelling_ks2_15", "label": "KS2 Word Scholar", "desc": "Finish fifteen KS2 spelling lists." },
+    {
+        "_comment": "=== COURAGE TRACK: Trying harder or unfamiliar things ===",
+        "id": "brave_longer",
+        "label": "Going Further",
+        "desc": "Finish a lesson with 200+ characters.",
+        "track": "courage",
+        "tier": 1
+    },
+    {
+        "id": "brave_challenging",
+        "label": "Challenge Accepted",
+        "desc": "Complete a lesson above your usual Key Stage.",
+        "track": "courage",
+        "tier": 2
+    },
+    {
+        "id": "brave_steady",
+        "label": "Steady Reader",
+        "desc": "Stay focused for five minutes on a single lesson.",
+        "track": "courage",
+        "tier": 2
+    },
+    {
+        "id": "brave_lockstep",
+        "label": "Calm & Careful",
+        "desc": "Finish with zero errors in lockstep mode.",
+        "track": "courage",
+        "tier": 2
+    },
+    {
+        "id": "brave_persist",
+        "label": "Never Give Up",
+        "desc": "Finish a lesson even with 10+ errors - persistence matters!",
+        "track": "courage",
+        "tier": 1
+    },
 
-    { "id": "spelling_ks3_1", "label": "KS3 Lexicon Launch", "desc": "Finish your first KS3 spelling list." },
-    { "id": "spelling_ks3_3", "label": "KS3 Lexicon Sampler", "desc": "Complete three KS3 spelling lists." },
-    { "id": "spelling_ks3_5", "label": "KS3 Lexicon Streak", "desc": "Finish five KS3 spelling lists." },
-    { "id": "spelling_ks3_10", "label": "KS3 Lexicon Explorer", "desc": "Complete ten KS3 spelling lists." },
-    { "id": "spelling_ks3_15", "label": "KS3 Lexicon Scholar", "desc": "Finish fifteen KS3 spelling lists." },
+    {
+        "_comment": "=== SPECIALTY TRACK: Content-specific achievements ===",
+        "id": "spelling_star",
+        "label": "Spelling Star",
+        "desc": "Complete a spelling list with zero errors.",
+        "track": "specialty",
+        "tier": 2
+    },
+    {
+        "id": "spelling_10",
+        "label": "Spelling Enthusiast",
+        "desc": "Complete ten spelling lessons.",
+        "track": "specialty",
+        "tier": 3,
+        "requires": "mode_spelling"
+    },
+    {
+        "id": "spelling_25",
+        "label": "Spelling Champion",
+        "desc": "Complete twenty-five spelling lessons.",
+        "track": "specialty",
+        "tier": 4,
+        "requires": "spelling_10"
+    },
+    {
+        "id": "phonics_precision",
+        "label": "Phonics Precision",
+        "desc": "Score 90%+ accuracy on a phonics lesson.",
+        "track": "specialty",
+        "tier": 2
+    },
+    {
+        "id": "phonics_10",
+        "label": "Phonics Fan",
+        "desc": "Complete ten phonics lessons.",
+        "track": "specialty",
+        "tier": 3,
+        "requires": "mode_phonics"
+    },
+    {
+        "id": "phonics_25",
+        "label": "Phonics Powerhouse",
+        "desc": "Complete twenty-five phonics lessons.",
+        "track": "specialty",
+        "tier": 4,
+        "requires": "phonics_10"
+    },
+    {
+        "id": "punct_pro",
+        "label": "Punctuation Pro",
+        "desc": "95%+ accuracy on a passage with punctuation.",
+        "track": "specialty",
+        "tier": 2
+    },
 
-    { "id": "spelling_ks4_1", "label": "KS4 Vocabulary Voyage", "desc": "Finish your first KS4 spelling list." },
-    { "id": "spelling_ks4_3", "label": "KS4 Vocabulary Sampler", "desc": "Complete three KS4 spelling lists." },
-    { "id": "spelling_ks4_5", "label": "KS4 Vocabulary Streak", "desc": "Finish five KS4 spelling lists." },
-    { "id": "spelling_ks4_10", "label": "KS4 Vocabulary Explorer", "desc": "Complete ten KS4 spelling lists." },
-    { "id": "spelling_ks4_15", "label": "KS4 Vocabulary Scholar", "desc": "Finish fifteen KS4 spelling lists." },
-
-    { "id": "phonics_1", "label": "Phonics First", "desc": "Complete your first phonics passage." },
-    { "id": "phonics_3", "label": "Phonics Fan", "desc": "Finish three phonics passages." },
-    { "id": "phonics_5", "label": "Phonics Pro", "desc": "Complete five phonics passages." },
-    { "id": "phonics_8", "label": "Phonics Finisher", "desc": "Finish eight phonics passages." },
-    { "id": "phonics_12", "label": "Phonics Powerhouse", "desc": "Complete twelve phonics passages." }
+    {
+        "_comment": "=== SURPRISE TRACK: Occasional delightful discoveries ===",
+        "id": "surprise_early",
+        "label": "Early Bird",
+        "desc": "Complete a lesson before 9 AM.",
+        "track": "surprise",
+        "tier": 1,
+        "hidden": true
+    },
+    {
+        "id": "surprise_late",
+        "label": "Night Owl",
+        "desc": "Complete a lesson after 9 PM.",
+        "track": "surprise",
+        "tier": 1,
+        "hidden": true
+    },
+    {
+        "id": "surprise_weekend",
+        "label": "Weekend Warrior",
+        "desc": "Practice on a Saturday or Sunday.",
+        "track": "surprise",
+        "tier": 1,
+        "hidden": true
+    },
+    {
+        "id": "surprise_streak_10",
+        "label": "Ten Day Triumph",
+        "desc": "Practice for ten days in a row!",
+        "track": "surprise",
+        "tier": 3,
+        "hidden": true,
+        "requires": "streak_7"
+    }
 ]
