@@ -85,6 +85,12 @@
     }
 }
 
+/* User-set Reduce Motion */
+.reduce-motion * {
+    transition: none !important;
+    animation: none !important;
+}
+
 /* ==========================================================================
    2. BASE & RESET STYLES
    ========================================================================== */
@@ -840,18 +846,37 @@ p {
     50% { box-shadow: 0 0 0 6px rgba(239, 68, 68, 0); }
 }
 
-.next-key-bubble {
-    display: inline-block;
-    background-color: var(--color-text);
-    color: var(--color-bg);
-    padding: 0.4rem 1rem;
-    border-radius: 2rem;
-    font-weight: bold;
-    font-size: 1rem;
+/* Finger hint container with visual diagram */
+.finger-hint {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: var(--space-md);
 }
 
-.key-hint-detail {
-    opacity: 0.7;
+.finger-diagram {
+    width: 185px;
+    height: 44px;
+}
+
+.finger-diagram .finger {
+    fill: var(--color-border);
+    stroke: var(--color-text);
+    stroke-width: 0.5;
+    transition: fill 0.15s ease;
+}
+
+.finger-diagram .finger.active {
+    fill: var(--color-accent);
+    stroke: var(--color-accent);
+}
+
+.finger-diagram .finger.thumb {
+    opacity: 0.8;
+}
+
+.finger-diagram .finger.thumb.active {
+    opacity: 1;
 }
 
 .timer-chip {
@@ -1489,6 +1514,22 @@ kbd {
     transform: scale(1.1);
 }
 
+/* Finger Guide Colors */
+#keyboard-hint.finger-guide .key.finger-lp { background: #fecaca; } /* Left Pinky - Red */
+#keyboard-hint.finger-guide .key.finger-lr { background: #fed7aa; } /* Left Ring - Orange */
+#keyboard-hint.finger-guide .key.finger-lm { background: #fef08a; } /* Left Middle - Yellow */
+#keyboard-hint.finger-guide .key.finger-li { background: #bbf7d0; } /* Left Index - Green */
+#keyboard-hint.finger-guide .key.finger-ri { background: #a5f3fc; } /* Right Index - Cyan */
+#keyboard-hint.finger-guide .key.finger-rm { background: #c7d2fe; } /* Right Middle - Indigo */
+#keyboard-hint.finger-guide .key.finger-rr { background: #ddd6fe; } /* Right Ring - Purple */
+#keyboard-hint.finger-guide .key.finger-rp { background: #fbcfe8; } /* Right Pinky - Pink */
+#keyboard-hint.finger-guide .key.finger-thumb { background: #e5e7eb; } /* Thumbs - Gray */
+
+#keyboard-hint.finger-guide .key.highlight {
+    outline: 3px solid var(--color-accent);
+    outline-offset: 2px;
+}
+
 /* ==========================================================================
    17. EFFECTS (CONFETTI, TOAST)
    ========================================================================== */
@@ -1550,4 +1591,176 @@ kbd {
 #loading-error {
     font-size: 1rem;
     color: #ef4444;
+}
+
+/* ==========================================================================
+   19. PROGRESS BAR & PAUSE OVERLAY
+   ========================================================================== */
+
+.progress-bar-container {
+    position: sticky;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 4px;
+    background: var(--color-subtle-bg);
+    z-index: 50;
+    margin-bottom: var(--space-md);
+}
+
+.progress-bar {
+    height: 100%;
+    background: linear-gradient(90deg, #22c55e, #16a34a);
+    transition: width 0.15s ease-out;
+    border-radius: 0 2px 2px 0;
+}
+
+.pause-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.7);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 100;
+    backdrop-filter: blur(4px);
+}
+
+.pause-overlay.hidden {
+    display: none;
+}
+
+.pause-content {
+    background: var(--color-card-bg);
+    padding: var(--space-xl);
+    border-radius: var(--border-radius);
+    text-align: center;
+}
+
+.pause-content h2 {
+    font-size: 2rem;
+    margin-bottom: var(--space-md);
+}
+
+/* ==========================================================================
+   20. SPARKLINE (WPM Graph)
+   ========================================================================== */
+
+.sparkline-container {
+    margin: var(--space-lg) 0;
+    padding: var(--space-md);
+    background: var(--color-subtle-bg);
+    border-radius: var(--border-radius);
+}
+
+.sparkline-container h3 {
+    font-size: 0.9rem;
+    margin-bottom: var(--space-sm);
+    opacity: 0.7;
+}
+
+.sparkline {
+    width: 100%;
+    height: 32px;
+}
+
+.sparkline-labels {
+    display: flex;
+    justify-content: space-between;
+    font-size: 0.75rem;
+    opacity: 0.5;
+    margin-top: var(--space-xs);
+}
+
+/* ==========================================================================
+   21. RECENT LESSONS
+   ========================================================================== */
+
+.recent-lessons-card {
+    background: var(--color-subtle-bg);
+}
+
+.recent-lessons-list {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-sm);
+    margin-top: var(--space-md);
+}
+
+.recent-lesson-btn {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: var(--space-sm) var(--space-md);
+    background: var(--color-card-bg);
+    border: 1px solid var(--color-border);
+    border-radius: var(--border-radius);
+    cursor: pointer;
+    text-align: left;
+    transition: background-color 0.15s;
+}
+
+.recent-lesson-btn:hover {
+    background: var(--color-subtle-bg);
+}
+
+.recent-title {
+    font-weight: 500;
+    text-transform: capitalize;
+}
+
+.recent-stats {
+    font-size: 0.85rem;
+    opacity: 0.7;
+}
+
+/* ==========================================================================
+   22. KEYBOARD SHORTCUTS LIST (Help Modal)
+   ========================================================================== */
+
+.shortcuts-list {
+    list-style: none;
+    padding: 0;
+}
+
+.shortcuts-list li {
+    display: flex;
+    gap: var(--space-md);
+    align-items: center;
+    padding: var(--space-xs) 0;
+}
+
+.shortcuts-list kbd {
+    min-width: 70px;
+    text-align: center;
+}
+
+/* ==========================================================================
+   23. NEW PERSONAL BEST CELEBRATION
+   ========================================================================== */
+
+.personal-best-comparison.new-best {
+    background: linear-gradient(135deg, #fef3c7 0%, #fde68a 100%);
+    border: 2px solid #f59e0b;
+    animation: celebrate-pulse 0.6s ease-out;
+}
+
+.theme-dark .personal-best-comparison.new-best {
+    background: linear-gradient(135deg, #422006 0%, #78350f 100%);
+    border-color: #f59e0b;
+}
+
+@keyframes celebrate-pulse {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.02); }
+    100% { transform: scale(1); }
+}
+
+/* Show confetti class triggers animation */
+.show-confetti .card {
+    position: relative;
+    overflow: visible;
 }

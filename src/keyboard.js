@@ -125,26 +125,40 @@ export function updateTypingDisplay(userInput, state, DATA) {
         }
     });
 
-    // --- Next Key Bubble & Keyboard Hint ---
+    // --- Finger Hint Visual Update ---
     const nextKey = nextIdx < targetTextNorm.length ? targetTextNorm[nextIdx] : null;
-    const bubble = document.getElementById('next-key-bubble');
-    if (nextKey && bubble) {
-        const keyInfo = DATA.KEYMAP.find(k => k.key === nextKey.toLowerCase());
-        const keyName = (keyInfo && keyInfo.name) ? keyInfo.name : nextKey;
-        const prettyName = keyName === ' ' ? DATA.COPY.spaceName : keyName;
-
-        bubble.innerHTML = `${prettyName} <small class="key-hint-detail">${keyInfo ? `– ${keyInfo.hand} ${keyInfo.finger}` : ''}</small>`;
+    const fingerHint = document.getElementById('finger-hint');
+    
+    // Finger zone mapping
+    const fingerZones = {
+        'q': 'lp', 'a': 'lp', 'z': 'lp', '1': 'lp',
+        'w': 'lr', 's': 'lr', 'x': 'lr', '2': 'lr',
+        'e': 'lm', 'd': 'lm', 'c': 'lm', '3': 'lm',
+        'r': 'li', 'f': 'li', 'v': 'li', 't': 'li', 'g': 'li', 'b': 'li', '4': 'li', '5': 'li',
+        'y': 'ri', 'h': 'ri', 'n': 'ri', 'u': 'ri', 'j': 'ri', 'm': 'ri', '6': 'ri', '7': 'ri',
+        'i': 'rm', 'k': 'rm', ',': 'rm', '8': 'rm',
+        'o': 'rr', 'l': 'rr', '.': 'rr', '9': 'rr',
+        'p': 'rp', ';': 'rp', '/': 'rp', '0': 'rp',
+        ' ': 'thumb'
+    };
+    
+    // Update visual finger diagram
+    if (fingerHint) {
+        const fingers = fingerHint.querySelectorAll('.finger');
+        const activeZone = nextKey ? fingerZones[nextKey.toLowerCase()] : null;
+        fingers.forEach(f => {
+            f.classList.toggle('active', f.dataset.finger === activeZone);
+        });
+    }
+    
+    // Update on-screen keyboard highlight
+    if (nextKey && flags.keyboardHint) {
+        const keyboardEl = document.getElementById('keyboard-hint');
+        const currentHighlight = keyboardEl.querySelector('.key.highlight');
+        if (currentHighlight) currentHighlight.classList.remove('highlight');
         
-        if (flags.keyboardHint) {
-            const keyboardEl = document.getElementById('keyboard-hint');
-            const currentHighlight = keyboardEl.querySelector('.key.highlight');
-            if (currentHighlight) currentHighlight.classList.remove('highlight');
-            
-            const nextKeyEl = keyboardEl.querySelector(`.key[data-key="${nextKey.toLowerCase()}"]`);
-            if (nextKeyEl) nextKeyEl.classList.add('highlight');
-        }
-    } else if (bubble) {
-        bubble.innerHTML = '🎉';
+        const nextKeyEl = keyboardEl.querySelector(`.key[data-key="${nextKey.toLowerCase()}"]`);
+        if (nextKeyEl) nextKeyEl.classList.add('highlight');
     }
 }
 

@@ -67,7 +67,7 @@ const debouncedSaveDraft = debounce((state, typedText) => {
 
 // --- 1. STATE MANAGEMENT ---
 let state = {
-    settings: { font: 'default', lineHeight: 1.7, letterSpacing: 2, theme: 'cream', lockstepDefault: true, focusLineDefault: false, keyboardHintDefault: false, showTimerDisplay: true, defaultStage: 'KS2', pin: null, soundEnabled: false },
+    settings: { font: 'default', lineHeight: 1.7, letterSpacing: 2, theme: 'cream', lockstepDefault: true, focusLineDefault: true, keyboardHintDefault: false, showTimerDisplay: true, defaultStage: 'KS2', pin: null, soundEnabled: false, fingerGuide: false, reduceMotion: false },
     progress: { minutesTotal: 0, wordsTotal: 0, badges: [], themesCompleted: {}, stagesCompleted: {}, lastPlayed: null, consecutiveDays: 0, completedPassages: [], completedSpellings: [], completedPhonics: [] },
     sessions: [],
     meta: { ...DEFAULT_META },
@@ -311,23 +311,84 @@ function bindScreenEvents(screenName) {
         if (viewBadgesBtn) {
             viewBadgesBtn.addEventListener('click', () => showModal('badges'));
         }
+        
+        // Recent lessons click handler
+        const recentList = document.querySelector('.recent-lessons-list');
+        if (recentList) {
+            recentList.addEventListener('click', (e) => {
+                const btn = e.target.closest('.recent-lesson-btn');
+                if (!btn) return;
+                const id = btn.dataset.recentId;
+                const type = btn.dataset.recentType;
+                
+                // Find the lesson in the appropriate data array
+                let lessonData = null;
+                if (type === 'passage') {
+                    lessonData = DATA.PASSAGES.find(p => p.id === id);
+                } else if (type === 'spelling') {
+                    lessonData = DATA.SPELLING.find(s => s.id === id);
+                } else if (type === 'phonics') {
+                    lessonData = DATA.PHONICS.find(p => p.id === id);
+                } else if (type === 'wordset') {
+                    lessonData = DATA.WORDSETS.find(w => w.id === id);
+                }
+                
+                if (lessonData) {
+                    startSession({ type, data: lessonData }, state, showScreen, saveState);
+                } else {
+                    toast('Could not find that lesson. It may have been removed.');
+                }
+            });
+        }
     }
     if (screenName === 'typing') {
         requestAnimationFrame(() => calculateVisualLines(state, DATA));
         window.addEventListener('resize', debounce(() => calculateVisualLines(state, DATA), 250));
 
         const input = document.getElementById('typing-input');
+        const progressBar = document.getElementById('typing-progress-bar');
+        const pauseOverlay = document.getElementById('pause-overlay');
+        
+        // Initialize WPM sampling for sparkline
+        state.runtime.wpmSamples = [];
+        state.runtime.wpmSampleInterval = null;
         
         // Session end callback with draft clearing
         const sessionEndCallback = (finalInput) => {
             clearDraft();
+            if (state.runtime.wpmSampleInterval) clearInterval(state.runtime.wpmSampleInterval);
             endSession(finalInput, state, DATA, showScreen, saveState);
+        };
+        
+        // Update progress bar based on typed characters
+        const updateProgressBar = () => {
+            if (progressBar && state.runtime.targetTextNorm) {
+                const typed = input.value.length;
+                const total = state.runtime.targetTextNorm.length;
+                const percent = Math.min(100, (typed / total) * 100);
+                progressBar.style.width = `${percent}%`;
+            }
         };
         
         input.addEventListener('input', e => {
             handleTypingInput(e, state, DATA, sessionEndCallback);
+            updateProgressBar();
             // Auto-save draft every 2 seconds via debounce
             debouncedSaveDraft(state, input.value);
+            
+            // Start WPM sampling once typing begins
+            if (!state.runtime.wpmSampleInterval && state.runtime.timer?.started) {
+                state.runtime.wpmSampleInterval = setInterval(() => {
+                    if (state.runtime.startTime && !state.runtime.timer.paused) {
+                        const elapsed = (new Date() - state.runtime.startTime) / 1000;
+                        if (elapsed > 0) {
+                            const wordsTyped = input.value.length / 5;
+                            const wpm = Math.round((wordsTyped / elapsed) * 60);
+                            state.runtime.wpmSamples.push(wpm);
+                        }
+                    }
+                }, 3000); // Sample every 3 seconds
+            }
         });
         input.addEventListener('paste', e => { e.preventDefault(); toast(DATA.COPY.pasteBlocked); });
         
@@ -336,6 +397,41 @@ function bindScreenEvents(screenName) {
             state.runtime.flags.focusLine = e.target.checked; 
             document.getElementById('typing-target').classList.toggle('focus-line-active', e.target.checked); 
         });
+        
+        // Pause/Resume functionality
+        const togglePause = () => {
+            if (!state.runtime.timer?.started) return; // Can't pause if not started
+            const isPaused = !state.runtime.timer.paused;
+            state.runtime.timer.paused = isPaused;
+            pauseOverlay?.classList.toggle('hidden', !isPaused);
+            if (isPaused) {
+                input.blur();
+                state.runtime.pauseStartTime = new Date();
+            } else {
+                // Adjust startTime to account for pause duration
+                if (state.runtime.pauseStartTime) {
+                    const pauseDuration = new Date() - state.runtime.pauseStartTime;
+                    state.runtime.startTime = new Date(state.runtime.startTime.getTime() + pauseDuration);
+                }
+                input.focus();
+            }
+        };
+        
+        // Escape to pause, Space to resume when paused
+        const pauseKeyHandler = (e) => {
+            if (e.key === 'Escape') {
+                if (state.runtime.timer?.paused) {
+                    togglePause(); // Resume
+                } else if (state.runtime.timer?.started) {
+                    togglePause(); // Pause
+                }
+            } else if (e.key === ' ' && state.runtime.timer?.paused) {
+                e.preventDefault();
+                togglePause(); // Resume
+            }
+        };
+        window.addEventListener('keydown', pauseKeyHandler);
+        state.runtime._cleanupPauseHandler = () => window.removeEventListener('keydown', pauseKeyHandler);
         
         // Read Aloud button
         const readAloudBtn = document.getElementById('read-aloud-btn');
@@ -371,6 +467,8 @@ function bindScreenEvents(screenName) {
         
         document.getElementById('back-to-home-btn').addEventListener('click', () => {
             stopSpeaking(); // Stop any speech when leaving
+            if (state.runtime._cleanupPauseHandler) state.runtime._cleanupPauseHandler();
+            if (state.runtime.wpmSampleInterval) clearInterval(state.runtime.wpmSampleInterval);
             if (confirm('Are you sure you want to exit? Your progress will be saved as a draft.')) {
                 // Save draft before exiting
                 const lessonId = state.runtime.lesson?.data?.id;
@@ -435,6 +533,14 @@ function bindScreenEvents(screenName) {
         if (drillBtn) drillBtn.addEventListener('click', () => startFocusDrill(state, DATA, showScreen, saveState));
         
         document.getElementById('home-btn').addEventListener('click', () => showScreen('home'));
+        
+        // Trigger confetti for high accuracy or new personal best
+        const results = state.runtime.summaryResults;
+        const shouldConfetti = results.accuracy >= 95 || 
+            (results.personalBest && (results.netWPM > results.personalBest.netWPM || results.accuracy > results.personalBest.accuracy));
+        if (shouldConfetti && !state.settings.reduceMotion) {
+            triggerConfetti();
+        }
         
         // Keyboard shortcuts for summary screen
         const summaryKeyHandler = (e) => {
@@ -561,6 +667,8 @@ function bindModalEvents(modalName) {
         document.getElementById('setting-keyboard').checked = s.keyboardHintDefault;
         document.getElementById('setting-timer-display').checked = s.showTimerDisplay;
         document.getElementById('setting-sound').checked = s.soundEnabled || false;
+        document.getElementById('setting-finger-guide').checked = s.fingerGuide || false;
+        document.getElementById('setting-reduce-motion').checked = s.reduceMotion || false;
         document.getElementById('setting-default-stage').value = s.defaultStage;
         document.getElementById('lh-val').textContent = s.lineHeight;
         document.getElementById('ls-val').textContent = `+${s.letterSpacing}%`;
@@ -578,6 +686,8 @@ function bindModalEvents(modalName) {
             s.keyboardHintDefault = document.getElementById('setting-keyboard').checked;
             s.showTimerDisplay = document.getElementById('setting-timer-display').checked;
             s.soundEnabled = document.getElementById('setting-sound').checked;
+            s.fingerGuide = document.getElementById('setting-finger-guide').checked;
+            s.reduceMotion = document.getElementById('setting-reduce-motion').checked;
             s.defaultStage = document.getElementById('setting-default-stage').value;
             
             const newPin = document.getElementById('setting-pin').value;
@@ -639,6 +749,15 @@ async function init() {
     try {
         await loadInitialData();
         loadState();
+        
+        // Auto-detect system dark mode preference on first load
+        if (!localStorage.getItem('storykeys_state')) {
+            const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+            if (prefersDark) {
+                state.settings.theme = 'dark';
+            }
+        }
+        
         applySettings(state.settings, state.progress);
         showScreen('home');
         bindAppEvents();

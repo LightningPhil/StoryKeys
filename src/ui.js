@@ -83,9 +83,50 @@ function getDraftInfo() {
     }
 }
 
+// Helper to get recent lessons HTML for home screen
+function getRecentLessonsHtml(state) {
+    if (!state.sessions || state.sessions.length === 0) return '';
+    
+    // Get last 5 unique lessons
+    const seen = new Set();
+    const recentLessons = [];
+    for (let i = state.sessions.length - 1; i >= 0 && recentLessons.length < 5; i--) {
+        const s = state.sessions[i];
+        if (!seen.has(s.contentId)) {
+            seen.add(s.contentId);
+            recentLessons.push({
+                id: s.contentId,
+                type: s.contentType,
+                stage: s.stage,
+                accuracy: s.accuracy,
+                wpm: s.netWPM,
+                ts: s.ts
+            });
+        }
+    }
+    
+    if (recentLessons.length === 0) return '';
+    
+    const items = recentLessons.map(lesson => `
+        <button class="recent-lesson-btn" data-recent-id="${lesson.id}" data-recent-type="${lesson.type}">
+            <span class="recent-title">${lesson.id.split('_').slice(1).join(' ').replace(/_/g, ' ')}</span>
+            <span class="recent-stats">${lesson.wpm || '–'} WPM • ${lesson.accuracy}%</span>
+        </button>
+    `).join('');
+    
+    return `
+        <div class="card home-card recent-lessons-card">
+            <h2>Recent Lessons</h2>
+            <p>Jump back into a lesson you've tried before.</p>
+            <div class="recent-lessons-list">${items}</div>
+        </div>`;
+}
+
 export function getLessonPickerState() {
     return lessonPickerState;
 }
+
+/**
 
 /**
  * Applies visual settings from the state to the document.
@@ -107,6 +148,9 @@ export function applySettings(settings, progress) {
     
     htmlEl.style.setProperty('--line-height', settings.lineHeight);
     htmlEl.style.setProperty('--letter-spacing', `${settings.letterSpacing / 100}em`);
+    
+    // Handle reduce motion setting
+    htmlEl.classList.toggle('reduce-motion', settings.reduceMotion === true);
     
     const petIndex = Math.min(PET_LEVELS.length - 1, Math.floor(progress.minutesTotal / 30));
     document.getElementById('progress-pet').textContent = PET_LEVELS[petIndex];
@@ -166,6 +210,7 @@ export function getScreenHtml(screenName, state, DATA) {
                         <button id="phonics-mode-btn" class="button button-phonics">Start Phonics Practice</button>
                     </div>
                 </div>
+                ${getRecentLessonsHtml(state)}
                 <div class="card home-card">
                     <h2>Explore the Library</h2>
                     <p>Browse all content, repeat lessons, or choose word sets and drills.</p>
@@ -197,10 +242,24 @@ export function getScreenHtml(screenName, state, DATA) {
                 `<span class="char" data-idx="${idx}">${char}</span>`
             ).join('');
 
+            // Finger zones: left pinky, left ring, left middle, left index, right index, right middle, right ring, right pinky
+            const fingerZones = {
+                'q': 'lp', 'a': 'lp', 'z': 'lp', '1': 'lp',
+                'w': 'lr', 's': 'lr', 'x': 'lr', '2': 'lr',
+                'e': 'lm', 'd': 'lm', 'c': 'lm', '3': 'lm',
+                'r': 'li', 'f': 'li', 'v': 'li', 't': 'li', 'g': 'li', 'b': 'li', '4': 'li', '5': 'li',
+                'y': 'ri', 'h': 'ri', 'n': 'ri', 'u': 'ri', 'j': 'ri', 'm': 'ri', '6': 'ri', '7': 'ri',
+                'i': 'rm', 'k': 'rm', ',': 'rm', '8': 'rm',
+                'o': 'rr', 'l': 'rr', '.': 'rr', '9': 'rr',
+                'p': 'rp', ';': 'rp', '/': 'rp', '0': 'rp',
+                ' ': 'thumb'
+            };
+            const showFingerGuide = state.settings.fingerGuide && state.runtime.flags.keyboardHint;
             const keyboardLayout = [['q', 'w', 'e', 'r', 't', 'y', 'u', 'i', 'o', 'p'], ['a', 's', 'd', 'f', 'g', 'h', 'j', 'k', 'l', ';'], ['z', 'x', 'c', 'v', 'b', 'n', 'm', ',', '.']];
-            const keyboardHtml = state.runtime.flags.keyboardHint ? `<div id="keyboard-hint">${keyboardLayout.map(row => `<div class="keyboard-row">${row.map(key => `<div class="key" data-key="${key}">${key}</div>`).join('')}</div>`).join('')}<div class="keyboard-row"><div class="key space" data-key=" ">Space</div></div></div>` : '';
+            const keyboardHtml = state.runtime.flags.keyboardHint ? `<div id="keyboard-hint" class="${showFingerGuide ? 'finger-guide' : ''}">${keyboardLayout.map(row => `<div class="keyboard-row">${row.map(key => `<div class="key ${showFingerGuide ? 'finger-' + fingerZones[key] : ''}" data-key="${key}">${key}</div>`).join('')}</div>`).join('')}<div class="keyboard-row"><div class="key space ${showFingerGuide ? 'finger-thumb' : ''}" data-key=" ">Space</div></div></div>` : '';
             return `
             <div id="typing-screen" class="screen active">
+                <div class="progress-bar-container"><div id="typing-progress-bar" class="progress-bar" style="width: 0%"></div></div>
                 <div class="card">
                     <div class="typing-controls">
                         <button id="back-to-home-btn" class="icon-button" title="Back to Home (Esc)"><svg viewBox="0 0 24 24"><path d="M10 20v-6h4v6h5v-8h3L12 3 2 12h3v8z"></path></svg></button>
@@ -212,10 +271,31 @@ export function getScreenHtml(screenName, state, DATA) {
                             <label class="toggle-switch">${DATA.COPY.focusLineOn}<input type="checkbox" id="focusline-toggle" ${state.runtime.flags.focusLine ? 'checked' : ''}><span class="slider"></span></label>
                         </div>
                     </div>
-                    <p>${DATA.COPY.typingHeaderReady} <span id="next-key-bubble" class="next-key-bubble"></span></p>
+                    <div id="finger-hint" class="finger-hint">
+                        <svg viewBox="0 0 160 38" class="finger-diagram">
+                            <!-- Left hand (5 fingers in arc) -->
+                            <circle cx="11" cy="27" r="7" class="finger" data-finger="lp"/>
+                            <circle cx="24" cy="16" r="7" class="finger" data-finger="lr"/>
+                            <circle cx="37" cy="11" r="7" class="finger" data-finger="lm"/>
+                            <circle cx="50" cy="16" r="7" class="finger" data-finger="li"/>
+                            <circle cx="64" cy="27" r="8" class="finger thumb" data-finger="thumb"/>
+                            <!-- Right hand (5 fingers in arc) -->
+                            <circle cx="96" cy="27" r="8" class="finger thumb" data-finger="thumb"/>
+                            <circle cx="110" cy="16" r="7" class="finger" data-finger="ri"/>
+                            <circle cx="123" cy="11" r="7" class="finger" data-finger="rm"/>
+                            <circle cx="136" cy="16" r="7" class="finger" data-finger="rr"/>
+                            <circle cx="149" cy="27" r="7" class="finger" data-finger="rp"/>
+                        </svg>
+                    </div>
                     <div id="typing-target" class="typing-target ${state.runtime.flags.focusLine ? 'focus-line-active' : ''}">${initialHtml}</div>
                     <textarea id="typing-input" class="typing-input" rows="3" spellcheck="false" autocomplete="off" autocorrect="off" autocapitalize="off"></textarea>
                     ${keyboardHtml}
+                </div>
+                <div id="pause-overlay" class="pause-overlay hidden">
+                    <div class="pause-content">
+                        <h2>⏸️ Paused</h2>
+                        <p>Press <kbd>Space</kbd> or <kbd>Escape</kbd> to resume</p>
+                    </div>
                 </div>
             </div>`;
         case 'summary':
@@ -228,12 +308,12 @@ export function getScreenHtml(screenName, state, DATA) {
             
             // Personal best comparison
             let comparisonHtml = '';
+            const isNewBest = personalBest && !isDrill && (netWPM > personalBest.netWPM || accuracy > personalBest.accuracy);
             if (personalBest && !isDrill) {
                 const wpmDiff = netWPM - personalBest.netWPM;
                 const accDiff = accuracy - personalBest.accuracy;
                 const wpmIcon = wpmDiff > 0 ? '🎉' : wpmDiff === 0 ? '➡️' : '⬇️';
                 const accIcon = accDiff > 0 ? '🎉' : accDiff === 0 ? '➡️' : '⬇️';
-                const isNewBest = wpmDiff > 0 || accDiff > 0;
                 comparisonHtml = `
                     <div class="personal-best-comparison ${isNewBest ? 'new-best' : ''}">
                         <h3>${isNewBest ? '🏆 New Personal Best!' : 'Compared to your best'}</h3>
@@ -250,8 +330,27 @@ export function getScreenHtml(screenName, state, DATA) {
                     </div>`;
             }
             
+            // WPM Sparkline - tiny graph of speed during session
+            const wpmSamples = state.runtime.wpmSamples || [];
+            const sparklineHtml = wpmSamples.length > 2 ? (() => {
+                const maxWpm = Math.max(...wpmSamples, 1);
+                const points = wpmSamples.map((wpm, i) => {
+                    const x = (i / (wpmSamples.length - 1)) * 100;
+                    const y = 30 - (wpm / maxWpm) * 28;
+                    return `${x},${y}`;
+                }).join(' ');
+                return `
+                    <div class="sparkline-container">
+                        <h3>Speed During Session</h3>
+                        <svg class="sparkline" viewBox="0 0 100 32" preserveAspectRatio="none">
+                            <polyline fill="none" stroke="var(--color-accent)" stroke-width="2" points="${points}"/>
+                        </svg>
+                        <div class="sparkline-labels"><span>Start</span><span>End</span></div>
+                    </div>`;
+            })() : '';
+            
             return `
-            <div id="summary-screen" class="screen active">
+            <div id="summary-screen" class="screen active ${isNewBest ? 'show-confetti' : ''}">
                 <div class="card">
                     <div class="text-center"><h1>${isDrill ? 'Drill Complete!' : DATA.COPY.summaryNiceWork}</h1><p>${DATA.COPY.encourageGentle[Math.floor(Math.random() * DATA.COPY.encourageGentle.length)]}</p></div>
                     ${newBadges.map(id => { const badge = DATA.BADGES.find(b => b.id === id); return `<div class="badge-earned"><h3>Badge Earned: ${badge.label}!</h3><p>${badge.desc}</p></div>`; }).join('')}
@@ -261,6 +360,7 @@ export function getScreenHtml(screenName, state, DATA) {
                         <div class="metric-item"><h3>${DATA.COPY.metricTime}</h3><div class="value">${durationSec}s</div></div>
                         <div class="metric-item"><h3>${DATA.COPY.metricErrors}</h3><div class="value">${errors}</div></div>
                     </div>
+                    ${sparklineHtml}
                     ${comparisonHtml}
                     <div class="summary-feedback">
                         ${hardestKeys.length > 0 ? `<div><h3>${DATA.COPY.summaryHardestKeys}</h3><ul>${hardestKeys.map(k => `<li>'${prettyKeyName(k)}'</li>`).join('')}</ul></div>` : ''}
@@ -363,6 +463,14 @@ export function getModalHtml(modalName, state, DATA) {
                         <li>Short breaks help hands and eyes stay fresh.</li>
                     </ul>
                 </div>
+                <div class="info-block">
+                    <h3>Keyboard Shortcuts</h3>
+                    <ul class="shortcuts-list">
+                        <li><kbd>Enter</kbd> Start lesson / Try again</li>
+                        <li><kbd>Escape</kbd> Pause typing / Go home</li>
+                        <li><kbd>Space</kbd> Resume when paused</li>
+                    </ul>
+                </div>
             </div></div>`;
         case 'badges':
             const earnedBadges = state.progress.badges.map(entry => {
@@ -421,6 +529,8 @@ export function getModalHtml(modalName, state, DATA) {
                     <div class="setting-item"><div><b>Keyboard Hint Default</b><p>Show an on-screen keyboard guide.</p></div><label class="toggle-switch"><input type="checkbox" id="setting-keyboard"><span class="slider"></span></label></div>
                     <div class="setting-item"><div><b>Timer Display</b><p>Show a timer chip during typing sessions.</p></div><label class="toggle-switch"><input type="checkbox" id="setting-timer-display"><span class="slider"></span></label></div>
                     <div class="setting-item"><div><b>Typing Sounds</b><p>Play soft sounds while typing.</p></div><label class="toggle-switch"><input type="checkbox" id="setting-sound"><span class="slider"></span></label></div>
+                    <div class="setting-item"><div><b>Finger Guide</b><p>Show which finger to use for each key.</p></div><label class="toggle-switch"><input type="checkbox" id="setting-finger-guide"><span class="slider"></span></label></div>
+                    <div class="setting-item"><div><b>Reduce Motion</b><p>Disable animations for accessibility.</p></div><label class="toggle-switch"><input type="checkbox" id="setting-reduce-motion"><span class="slider"></span></label></div>
                     <div class="setting-item"><div><b>Default Stage</b><p>The stage used for 'Quick Start'.</p></div><select id="setting-default-stage" class="button button-secondary"><option value="KS1">KS1</option><option value="KS2">KS2</option><option value="KS3">KS3</option><option value="KS4">KS4</option></select></div>
                 </details>
                 <details class="settings-section">
@@ -593,7 +703,7 @@ function renderLessonListDOM(vm) {
         listEl.innerHTML = `<p class="no-results">No lessons found. Try adjusting your search or filters.</p>`;
     } else {
         listEl.innerHTML = vm.items.map(item => `
-            <div class="lesson-item" data-id="${item.id}" data-type="${item.type}" data-lesson-id="${item.lessonId}">
+            <div class="lesson-item" data-id="${item.id}" data-type="${item.type}" data-lesson-id="${item.lessonId}" title="${escapeHtml(item.preview)}">
                 <div class="lesson-icon">${item.icon}</div>
                 <div class="lesson-details">
                     <b>${item.title}</b>
@@ -605,7 +715,6 @@ function renderLessonListDOM(vm) {
                         <span class="meta-chip ${item.isComplete ? 'complete-chip' : 'progress-chip'}">${item.completionLabel}</span>
                         ${item.isLastVisited ? '<span class="last-visited">← Last visited</span>' : ''}
                     </div>
-                    ${item.preview ? `<p class="lesson-preview">"${escapeHtml(item.preview)}"</p>` : ''}
                 </div>
                 <button class="button button-primary lesson-start-btn" data-start="true">Start</button>
             </div>
