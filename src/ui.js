@@ -66,6 +66,23 @@ let lastRenderedState = null;
 let lastRenderedData = null;
 let hasAutoScrolledToLastLesson = false;
 
+// Helper to read draft info for home screen display
+function getDraftInfo() {
+    try {
+        const raw = localStorage.getItem('storykeys_draft');
+        if (!raw) return null;
+        const draft = JSON.parse(raw);
+        // Expire drafts older than 24 hours
+        if (Date.now() - draft.savedAt > 24 * 60 * 60 * 1000) {
+            localStorage.removeItem('storykeys_draft');
+            return null;
+        }
+        return draft;
+    } catch (e) {
+        return null;
+    }
+}
+
 export function getLessonPickerState() {
     return lessonPickerState;
 }
@@ -79,7 +96,15 @@ export function applySettings(settings, progress) {
     const htmlEl = document.documentElement;
     htmlEl.classList.remove('theme-light', 'theme-cream', 'theme-dark');
     htmlEl.classList.add(`theme-${settings.theme}`);
-    htmlEl.style.setProperty('--font-family', settings.font === 'dyslexia' ? 'var(--font-family-dyslexia)' : 'var(--font-family-default)');
+    
+    // Handle font family based on setting
+    const fontMap = {
+        'default': 'var(--font-family-default)',
+        'dyslexia': 'var(--font-family-dyslexia)',
+        'opendyslexic': 'var(--font-family-opendyslexic)'
+    };
+    htmlEl.style.setProperty('--font-family', fontMap[settings.font] || fontMap.default);
+    
     htmlEl.style.setProperty('--line-height', settings.lineHeight);
     htmlEl.style.setProperty('--letter-spacing', `${settings.letterSpacing / 100}em`);
     
@@ -99,12 +124,25 @@ export function getScreenHtml(screenName, state, DATA) {
         case 'home':
             const petIndex = Math.min(PET_LEVELS.length - 1, Math.floor(state.progress.minutesTotal / 30));
             const currentPet = PET_LEVELS[petIndex];
+            // Check for draft session
+            const draft = getDraftInfo();
+            const draftHtml = draft ? `
+                <div id="resume-draft-card" class="card home-card resume-card">
+                    <h2>📝 Resume Your Session</h2>
+                    <p>You have an unfinished ${draft.lessonType}: <strong>${draft.lessonData.title || draft.lessonData.name}</strong></p>
+                    <p class="draft-progress">Progress: ${draft.typedText.length} characters typed</p>
+                    <div class="button-row">
+                        <button id="resume-draft-btn" class="button button-primary">Resume</button>
+                        <button id="discard-draft-btn" class="button button-secondary">Discard Draft</button>
+                    </div>
+                </div>` : '';
             return `
             <div id="home-screen" class="screen active">
                 <div class="home-header">
                     <h1>Welcome to StoryKeys</h1>
                     <p>Your calm and friendly space to practice typing.</p>
                 </div>
+                ${draftHtml}
                 <div id="new-story-card" class="card home-card">
                     <h2>Start a New Story</h2>
                     <p>Choose a Key Stage to begin a new passage or jump straight into spelling and phonics practice.</p>
@@ -157,7 +195,7 @@ export function getScreenHtml(screenName, state, DATA) {
             <div id="typing-screen" class="screen active">
                 <div class="card">
                     <div class="typing-controls">
-                        <button id="back-to-home-btn" class="icon-button" title="Back to Home"><svg viewBox="0 0 24 24"><path d="M10 20v-6h4v6h5v-8h3L12 3 2 12h3v8z"></path></svg></button>
+                        <button id="back-to-home-btn" class="icon-button" title="Back to Home (Esc)"><svg viewBox="0 0 24 24"><path d="M10 20v-6h4v6h5v-8h3L12 3 2 12h3v8z"></path></svg></button>
                         <div class="typing-controls__title"><h2>${state.runtime.lesson.data.title || state.runtime.lesson.data.name}</h2></div>
                         <div class="button-group">
                             ${state.runtime.flags.showTimerChip ? `<div id="timer-chip" class="timer-chip">--:--</div>` : ''}
@@ -172,12 +210,37 @@ export function getScreenHtml(screenName, state, DATA) {
                 </div>
             </div>`;
         case 'summary':
-            const { accuracy, durationSec, errors, netWPM, grossWPM, hardestKeys, trickyWords, newBadges, isDrill } = state.runtime.summaryResults;
+            const { accuracy, durationSec, errors, netWPM, grossWPM, hardestKeys, trickyWords, newBadges, isDrill, personalBest } = state.runtime.summaryResults;
             const wpmLabel = DATA.COPY.metricWPM || DATA.COPY.metricNetWPM || 'Words per minute';
             const safeNet = typeof netWPM === 'number' ? netWPM : '—';
             const safeGross = typeof grossWPM === 'number' ? grossWPM : '—';
             const drillBtnHtml = !isDrill && (hardestKeys.length > 0 || trickyWords.length > 0) ? `<button id="start-drill-btn" class="button button-secondary">${DATA.COPY.summaryDrill}</button>` : '';
             const prettyKeyName = (k) => k === ' ' ? 'Space' : k;
+            
+            // Personal best comparison
+            let comparisonHtml = '';
+            if (personalBest && !isDrill) {
+                const wpmDiff = netWPM - personalBest.netWPM;
+                const accDiff = accuracy - personalBest.accuracy;
+                const wpmIcon = wpmDiff > 0 ? '🎉' : wpmDiff === 0 ? '➡️' : '⬇️';
+                const accIcon = accDiff > 0 ? '🎉' : accDiff === 0 ? '➡️' : '⬇️';
+                const isNewBest = wpmDiff > 0 || accDiff > 0;
+                comparisonHtml = `
+                    <div class="personal-best-comparison ${isNewBest ? 'new-best' : ''}">
+                        <h3>${isNewBest ? '🏆 New Personal Best!' : 'Compared to your best'}</h3>
+                        <div class="comparison-row">
+                            <span>WPM: ${personalBest.netWPM}</span>
+                            <span class="comparison-arrow">${wpmIcon}</span>
+                            <span>${safeNet} ${wpmDiff !== 0 ? `(${wpmDiff > 0 ? '+' : ''}${wpmDiff})` : ''}</span>
+                        </div>
+                        <div class="comparison-row">
+                            <span>Accuracy: ${personalBest.accuracy}%</span>
+                            <span class="comparison-arrow">${accIcon}</span>
+                            <span>${accuracy}% ${accDiff !== 0 ? `(${accDiff > 0 ? '+' : ''}${accDiff})` : ''}</span>
+                        </div>
+                    </div>`;
+            }
+            
             return `
             <div id="summary-screen" class="screen active">
                 <div class="card">
@@ -189,6 +252,7 @@ export function getScreenHtml(screenName, state, DATA) {
                         <div class="metric-item"><h3>${DATA.COPY.metricTime}</h3><div class="value">${durationSec}s</div></div>
                         <div class="metric-item"><h3>${DATA.COPY.metricErrors}</h3><div class="value">${errors}</div></div>
                     </div>
+                    ${comparisonHtml}
                     <div class="summary-feedback">
                         ${hardestKeys.length > 0 ? `<div><h3>${DATA.COPY.summaryHardestKeys}</h3><ul>${hardestKeys.map(k => `<li>'${prettyKeyName(k)}'</li>`).join('')}</ul></div>` : ''}
                         ${trickyWords.length > 0 ? `<div><h3>${DATA.COPY.summaryTrickyWords}</h3><ul>${trickyWords.map(w => `<li>${w}</li>`).join('')}</ul></div>` : ''}
@@ -198,6 +262,7 @@ export function getScreenHtml(screenName, state, DATA) {
                         ${drillBtnHtml}
                         <button id="home-btn" class="button button-secondary">${DATA.COPY.summaryHome}</button>
                     </div>
+                    <p class="keyboard-hint-text">Press <kbd>Enter</kbd> to try again • <kbd>Esc</kbd> to go home</p>
                 </div>
             </div>`;
         default: return `<h1>Error</h1>`;
@@ -294,10 +359,12 @@ export function getModalHtml(modalName, state, DATA) {
                 const dateLine = earnedDate ? `<small>Earned on ${earnedDate}</small>` : '';
                 return `<div class="badge-card"><h4>${badge.label}</h4><p>${badge.desc}</p>${dateLine}</div>`;
             });
+            const hasBadges = earnedBadges.length > 0;
             return `
             <div class="modal" role="dialog" aria-modal="true" aria-labelledby="badges-title"><div class="modal-content">
                 <div class="modal-header"><h2 id="badges-title" class="modal-title">Your Badges</h2>${closeModalBtn}</div>
-                ${earnedBadges.length ? `<div class="badge-grid">${earnedBadges.join('')}</div>` : '<p>You have not earned any badges yet. Complete lessons to unlock them!</p>'}
+                ${hasBadges ? `<div class="badge-grid">${earnedBadges.join('')}</div>` : '<p>You have not earned any badges yet. Complete lessons to unlock them!</p>'}
+                ${hasBadges ? `<div class="modal-footer"><button id="print-certificate-btn" class="button button-secondary">🎓 Print Certificate</button></div>` : ''}
             </div></div>`;
         case 'lessonPicker':
             // Note: State is set in resetLessonPickerState(), not here (render purity)
@@ -331,7 +398,7 @@ export function getModalHtml(modalName, state, DATA) {
                 <details class="settings-section" open>
                     <summary>Readability</summary>
                     <div class="setting-item"><div><b>Theme</b><p>Change the app's colour scheme.</p></div><select id="setting-theme" class="button button-secondary"><option value="cream">Cream</option><option value="light">Light</option><option value="dark">Dark</option></select></div>
-                    <div class="setting-item"><div><b>Font</b><p>Choose a standard or clearer font.</p></div><select id="setting-font" class="button button-secondary"><option value="default">Default</option><option value="dyslexia">Clear</option></select></div>
+                    <div class="setting-item"><div><b>Font</b><p>Choose a standard or clearer font.</p></div><select id="setting-font" class="button button-secondary"><option value="default">Default</option><option value="dyslexia">Clear (Arial)</option><option value="opendyslexic">OpenDyslexic</option></select></div>
                     <div class="setting-item"><div><b>Line Height: <span id="lh-val"></span></b><p>Increase space between lines.</p></div><input type="range" id="setting-line-height" min="1.4" max="2.0" step="0.1"></div>
                     <div class="setting-item"><div><b>Letter Spacing: <span id="ls-val"></span></b><p>Increase space between letters.</p></div><input type="range" id="setting-letter-spacing" min="0" max="8" step="1"></div>
                 </details>
@@ -466,6 +533,10 @@ export function deriveLessonPickerViewModel(lessonPickerState, state, DATA) {
         const completionPercent = getLessonCompletionPercent(state, lessonId);
         const tags = l.tags?.complexity ?? { caps: true, punct: true };
 
+        // Generate preview text (first ~100 chars)
+        const rawText = l.text || (l.words ? l.words.slice(0, 15).join(' ') : '');
+        const preview = rawText.slice(0, 100) + (rawText.length > 100 ? '…' : '');
+
         return {
             id: l.id,
             type: currentType,
@@ -479,7 +550,8 @@ export function deriveLessonPickerViewModel(lessonPickerState, state, DATA) {
             isComplete: completionPercent === 100,
             isLastVisited: isLastLesson(state, lessonId),
             hasCaps: tags.caps,
-            hasPunct: tags.punct
+            hasPunct: tags.punct,
+            preview
         };
     });
 
@@ -520,7 +592,9 @@ function renderLessonListDOM(vm) {
                         <span class="meta-chip ${item.isComplete ? 'complete-chip' : 'progress-chip'}">${item.completionLabel}</span>
                         ${item.isLastVisited ? '<span class="last-visited">← Last visited</span>' : ''}
                     </div>
+                    ${item.preview ? `<p class="lesson-preview">"${escapeHtml(item.preview)}"</p>` : ''}
                 </div>
+                <button class="button button-primary lesson-start-btn" data-start="true">Start</button>
             </div>
         `).join('');
     }
@@ -646,4 +720,125 @@ export function toast(msg) {
     t.textContent = msg;
     document.body.appendChild(t);
     setTimeout(() => t.remove(), 2500);
+}
+/**
+ * Generates and opens a printable certificate in a new window.
+ * @param {object} state - The main application state.
+ * @param {object} DATA - The global data object.
+ */
+export function printCertificate(state, DATA) {
+    const badges = state.progress.badges.map(entry => {
+        const badge = DATA.BADGES.find(b => b.id === entry.id) || { label: entry.id };
+        return badge.label;
+    });
+    const totalMinutes = Math.round(state.progress.minutesTotal);
+    const dateString = new Date().toLocaleDateString('en-GB', { year: 'numeric', month: 'long', day: 'numeric' });
+    
+    const certificateHtml = `
+<!DOCTYPE html>
+<html>
+<head>
+    <title>StoryKeys Certificate</title>
+    <style>
+        @page { size: landscape; margin: 0.5in; }
+        body {
+            font-family: Georgia, 'Times New Roman', serif;
+            text-align: center;
+            padding: 40px;
+            background: linear-gradient(135deg, #fef3c7, #fff);
+            min-height: 100vh;
+            box-sizing: border-box;
+        }
+        .certificate {
+            border: 8px double #b45309;
+            padding: 40px;
+            background: #fffbeb;
+            max-width: 900px;
+            margin: 0 auto;
+        }
+        h1 {
+            color: #92400e;
+            font-size: 2.5rem;
+            margin: 0;
+            letter-spacing: 0.1em;
+        }
+        .subtitle {
+            font-size: 1.2rem;
+            color: #78350f;
+            margin: 10px 0 30px;
+        }
+        .recipient {
+            font-size: 1.8rem;
+            font-style: italic;
+            color: #1f2937;
+            margin: 30px 0;
+            border-bottom: 2px solid #d97706;
+            padding-bottom: 10px;
+            display: inline-block;
+            min-width: 300px;
+        }
+        .achievement-text {
+            font-size: 1.1rem;
+            color: #374151;
+            margin: 20px 0;
+        }
+        .badges {
+            margin: 30px 0;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 10px;
+        }
+        .badge-chip {
+            background: #fef3c7;
+            border: 1px solid #f59e0b;
+            padding: 5px 15px;
+            border-radius: 20px;
+            font-size: 0.9rem;
+        }
+        .stats {
+            margin: 20px 0;
+            font-size: 1rem;
+            color: #6b7280;
+        }
+        .date {
+            margin-top: 40px;
+            font-size: 0.95rem;
+            color: #9ca3af;
+        }
+        .logo {
+            font-size: 2rem;
+            margin-bottom: 10px;
+        }
+        @media print {
+            body { background: white; }
+            .certificate { box-shadow: none; }
+        }
+    </style>
+</head>
+<body>
+    <div class="certificate">
+        <div class="logo">📚✨</div>
+        <h1>Certificate of Achievement</h1>
+        <p class="subtitle">StoryKeys Typing Practice</p>
+        <p class="achievement-text">This certificate is awarded to</p>
+        <div class="recipient">________________</div>
+        <p class="achievement-text">for demonstrating dedication and skill in typing practice,<br>earning ${badges.length} badge${badges.length !== 1 ? 's' : ''} and practicing for ${totalMinutes} minutes.</p>
+        <div class="badges">
+            ${badges.slice(0, 12).map(b => `<span class="badge-chip">${b}</span>`).join('')}
+            ${badges.length > 12 ? `<span class="badge-chip">+${badges.length - 12} more</span>` : ''}
+        </div>
+        <p class="date">Awarded on ${dateString}</p>
+    </div>
+    <script>window.onload = () => window.print();</script>
+</body>
+</html>`;
+    
+    const printWindow = window.open('', '_blank');
+    if (printWindow) {
+        printWindow.document.write(certificateHtml);
+        printWindow.document.close();
+    } else {
+        toast('Pop-up blocked. Please allow pop-ups to print the certificate.');
+    }
 }

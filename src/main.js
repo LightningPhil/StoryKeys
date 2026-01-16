@@ -8,7 +8,7 @@
 // --- MODULE IMPORTS ---
 import { config } from './config.js';
 import { DATA, loadInitialData, loadStageData } from './dataLoader.js';
-import { applySettings, getScreenHtml, getModalHtml, updateLessonPicker, resetLessonPickerState, triggerConfetti, toast, getLessonPickerState, handleLessonPickerPagination } from './ui.js';
+import { applySettings, getScreenHtml, getModalHtml, updateLessonPicker, resetLessonPickerState, triggerConfetti, toast, getLessonPickerState, handleLessonPickerPagination, printCertificate } from './ui.js';
 import { startSession, endSession, startFocusDrill } from './lessons.js';
 import { sha256Hex, debounce } from './utils.js';
 import { handleTypingInput, calculateVisualLines } from './keyboard.js';
@@ -18,6 +18,51 @@ const APP_VERSION = "8.0.0";
 const SCHEMA_VERSION = 1;
 const CURRENT_WELCOME_VERSION = 1;
 const DEFAULT_META = { hasSeenWelcome: false, welcomeVersion: CURRENT_WELCOME_VERSION, lastLessonId: null };
+const DRAFT_KEY = 'storykeys_draft';
+
+// --- Draft Session Management ---
+function saveDraft(lessonId, lessonType, typedText, lessonData) {
+    try {
+        localStorage.setItem(DRAFT_KEY, JSON.stringify({
+            lessonId,
+            lessonType,
+            typedText,
+            lessonData,
+            savedAt: Date.now()
+        }));
+    } catch (e) {
+        console.warn('Unable to save draft:', e);
+    }
+}
+
+function loadDraft() {
+    try {
+        const raw = localStorage.getItem(DRAFT_KEY);
+        if (!raw) return null;
+        const draft = JSON.parse(raw);
+        // Expire drafts older than 24 hours
+        if (Date.now() - draft.savedAt > 24 * 60 * 60 * 1000) {
+            clearDraft();
+            return null;
+        }
+        return draft;
+    } catch (e) {
+        return null;
+    }
+}
+
+function clearDraft() {
+    localStorage.removeItem(DRAFT_KEY);
+}
+
+// Debounced draft saver (saves at most once every 2 seconds)
+const debouncedSaveDraft = debounce((state, typedText) => {
+    const lessonId = state.runtime?.lesson?.data?.id;
+    const lessonType = state.runtime?.lesson?.type;
+    if (lessonId && typedText.length > 0) {
+        saveDraft(lessonId, lessonType, typedText, state.runtime.lesson.data);
+    }
+}, 2000);
 
 // --- 1. STATE MANAGEMENT ---
 let state = {
@@ -96,6 +141,12 @@ function pickFreshLesson(pool, type) {
 
 // --- 3. UI ROUTING & RENDERING ---
 function showScreen(screenName) {
+    // Clean up previous screen's event listeners
+    if (state.runtime?._cleanupSummaryKeys) {
+        state.runtime._cleanupSummaryKeys();
+        state.runtime._cleanupSummaryKeys = null;
+    }
+    
     state.ui.currentScreen = screenName;
     mainContent.innerHTML = getScreenHtml(screenName, state, DATA);
     bindScreenEvents(screenName);
@@ -163,6 +214,41 @@ function bindAppEvents() {
 
 function bindScreenEvents(screenName) {
     if (screenName === 'home') {
+        // Resume draft button handler
+        const resumeBtn = document.getElementById('resume-draft-btn');
+        if (resumeBtn) {
+            resumeBtn.addEventListener('click', () => {
+                const draft = loadDraft();
+                if (draft && draft.lessonData) {
+                    // Start session with saved draft text
+                    const onSessionStart = () => {
+                        // After a short delay, restore the typed text
+                        setTimeout(() => {
+                            const input = document.getElementById('typing-input');
+                            if (input) {
+                                input.value = draft.typedText;
+                                input.dispatchEvent(new Event('input', { bubbles: true }));
+                            }
+                        }, 100);
+                    };
+                    startSession({ type: draft.lessonType, data: draft.lessonData }, state, (screen) => {
+                        showScreen(screen);
+                        if (screen === 'typing') onSessionStart();
+                    }, saveState);
+                }
+            });
+        }
+        
+        // Discard draft button handler
+        const discardBtn = document.getElementById('discard-draft-btn');
+        if (discardBtn) {
+            discardBtn.addEventListener('click', () => {
+                clearDraft();
+                showScreen('home');
+                toast('Draft discarded.');
+            });
+        }
+
         // Use event delegation for the new story buttons
         document.getElementById('new-story-card').addEventListener('click', async (e) => {
             if (e.target.matches('[data-stage]')) {
@@ -227,7 +313,18 @@ function bindScreenEvents(screenName) {
         window.addEventListener('resize', debounce(() => calculateVisualLines(state, DATA), 250));
 
         const input = document.getElementById('typing-input');
-        input.addEventListener('input', e => handleTypingInput(e, state, DATA, (finalInput) => endSession(finalInput, state, DATA, showScreen, saveState)));
+        
+        // Session end callback with draft clearing
+        const sessionEndCallback = (finalInput) => {
+            clearDraft();
+            endSession(finalInput, state, DATA, showScreen, saveState);
+        };
+        
+        input.addEventListener('input', e => {
+            handleTypingInput(e, state, DATA, sessionEndCallback);
+            // Auto-save draft every 2 seconds via debounce
+            debouncedSaveDraft(state, input.value);
+        });
         input.addEventListener('paste', e => { e.preventDefault(); toast(DATA.COPY.pasteBlocked); });
         
         document.getElementById('lockstep-toggle').addEventListener('change', e => { state.runtime.flags.lockstep = e.target.checked; });
@@ -236,7 +333,14 @@ function bindScreenEvents(screenName) {
             document.getElementById('typing-target').classList.toggle('focus-line-active', e.target.checked); 
         });
         document.getElementById('back-to-home-btn').addEventListener('click', () => {
-            if (confirm('Are you sure you want to exit? Your progress in this session will be lost.')) {
+            if (confirm('Are you sure you want to exit? Your progress will be saved as a draft.')) {
+                // Save draft before exiting
+                const lessonId = state.runtime.lesson?.data?.id;
+                const lessonType = state.runtime.lesson?.type;
+                if (lessonId && input.value.length > 0) {
+                    saveDraft(lessonId, lessonType, input.value, state.runtime.lesson.data);
+                    toast('Draft saved. You can resume later.');
+                }
                 showScreen('home');
             }
         });
@@ -246,7 +350,10 @@ function bindScreenEvents(screenName) {
             const chip = document.getElementById('timer-chip');
             const tick = () => {
                 if (state.runtime.timer.paused) return;
-                const sessionEndCallback = (finalInput) => endSession(finalInput, state, DATA, showScreen, saveState);
+                const timerEndCallback = (finalInput) => {
+                    clearDraft();
+                    endSession(finalInput, state, DATA, showScreen, saveState);
+                };
 
                 if (state.runtime.flags.countdownTimer) {
                     state.runtime.timer.remaining--;
@@ -255,7 +362,7 @@ function bindScreenEvents(screenName) {
                     }
                     if (state.runtime.timer.remaining <= 0) {
                         clearInterval(state.runtime.timer.handle);
-                        sessionEndCallback(document.getElementById('typing-input').value);
+                        timerEndCallback(document.getElementById('typing-input').value);
                     }
                 } else {
                     const sec = Math.floor((new Date() - state.runtime.startTime) / 1000);
@@ -278,6 +385,18 @@ function bindScreenEvents(screenName) {
         if (drillBtn) drillBtn.addEventListener('click', () => startFocusDrill(state, DATA, showScreen, saveState));
         
         document.getElementById('home-btn').addEventListener('click', () => showScreen('home'));
+        
+        // Keyboard shortcuts for summary screen
+        const summaryKeyHandler = (e) => {
+            if (e.key === 'Enter' && replayBtn && !state.runtime.summaryResults.isDrill) {
+                startSession(state.runtime.lesson, state, showScreen, saveState);
+            } else if (e.key === 'Escape') {
+                showScreen('home');
+            }
+        };
+        window.addEventListener('keydown', summaryKeyHandler);
+        // Clean up when leaving the screen
+        state.runtime._cleanupSummaryKeys = () => window.removeEventListener('keydown', summaryKeyHandler);
     }
 }
 
@@ -345,6 +464,10 @@ function bindModalEvents(modalName) {
         });
 
         lessonListEl.addEventListener('click', (e) => {
+            // Only start lesson when clicking the Start button
+            const startBtn = e.target.closest('[data-start]');
+            if (!startBtn) return;
+            
             const item = e.target.closest('.lesson-item');
             if (item) {
                 const { id, type } = item.dataset;
@@ -430,6 +553,12 @@ function bindModalEvents(modalName) {
                 location.reload();
             }
         });
+    }
+    if (modalName === 'badges') {
+        const printBtn = document.getElementById('print-certificate-btn');
+        if (printBtn) {
+            printBtn.addEventListener('click', () => printCertificate(state, DATA));
+        }
     }
     if (modalName === 'pin') {
         const pinInput = document.getElementById('pin-input');

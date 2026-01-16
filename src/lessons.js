@@ -112,7 +112,19 @@ export function endSession(finalInput, state, DATA, showScreen, saveState) {
         if (state.sessions.length > 500) state.sessions.shift();
     }
 
-    state.runtime.summaryResults = { ...results, newBadges, isDrill: state.runtime.isDrill };
+    // Calculate personal best for this lesson (excluding current session)
+    const lessonId = state.runtime.lesson?.data?.id;
+    const previousSessions = state.sessions.filter(s => 
+        s.contentId === lessonId && s.id !== `sess_${Date.now()}`
+    );
+    let personalBest = null;
+    if (previousSessions.length > 0) {
+        const bestWPM = Math.max(...previousSessions.map(s => s.netWPM || 0));
+        const bestAccuracy = Math.max(...previousSessions.map(s => s.accuracy || 0));
+        personalBest = { netWPM: bestWPM, accuracy: bestAccuracy };
+    }
+
+    state.runtime.summaryResults = { ...results, newBadges, isDrill: state.runtime.isDrill, personalBest };
     
     saveState();
     showScreen('summary');
