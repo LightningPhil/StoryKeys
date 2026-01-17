@@ -274,29 +274,31 @@ export function getScreenHtml(screenName, state, DATA) {
                             <label class="toggle-switch">${DATA.COPY.focusLineOn}<input type="checkbox" id="focusline-toggle" ${state.runtime.flags.focusLine ? 'checked' : ''}><span class="slider"></span></label>
                         </div>
                     </div>
-                    <div id="finger-hint" class="finger-hint">
-                        <svg viewBox="0 0 160 38" class="finger-diagram">
-                            <!-- Left hand (5 fingers in arc) -->
-                            <circle cx="11" cy="27" r="7" class="finger" data-finger="lp"/>
-                            <circle cx="24" cy="16" r="7" class="finger" data-finger="lr"/>
-                            <circle cx="37" cy="11" r="7" class="finger" data-finger="lm"/>
-                            <circle cx="50" cy="16" r="7" class="finger" data-finger="li"/>
-                            <circle cx="64" cy="27" r="8" class="finger thumb" data-finger="thumb"/>
-                            <!-- Right hand (5 fingers in arc) -->
-                            <circle cx="96" cy="27" r="8" class="finger thumb" data-finger="thumb"/>
-                            <circle cx="110" cy="16" r="7" class="finger" data-finger="ri"/>
-                            <circle cx="123" cy="11" r="7" class="finger" data-finger="rm"/>
-                            <circle cx="136" cy="16" r="7" class="finger" data-finger="rr"/>
-                            <circle cx="149" cy="27" r="7" class="finger" data-finger="rp"/>
-                        </svg>
-                    </div>
-                    <div id="typing-target" class="typing-target ${state.runtime.flags.focusLine ? 'focus-line-active' : ''}">${initialHtml}</div>
-                    <div class="typing-input-wrapper">
-                        <textarea id="typing-input" class="typing-input" rows="3" spellcheck="false" autocomplete="off" autocorrect="off" autocapitalize="off"></textarea>
+                    <div class="finger-hint-row">
                         <div id="caps-lock-indicator" class="caps-lock-indicator" title="Caps Lock">
                             <span class="caps-lock-led"></span>
                             <span class="caps-lock-label">Caps</span>
                         </div>
+                        <div id="finger-hint" class="finger-hint">
+                            <svg viewBox="0 0 160 38" class="finger-diagram">
+                                <!-- Left hand (5 fingers in arc) -->
+                                <circle cx="11" cy="27" r="7" class="finger" data-finger="lp"/>
+                                <circle cx="24" cy="16" r="7" class="finger" data-finger="lr"/>
+                                <circle cx="37" cy="11" r="7" class="finger" data-finger="lm"/>
+                                <circle cx="50" cy="16" r="7" class="finger" data-finger="li"/>
+                                <circle cx="64" cy="27" r="8" class="finger thumb" data-finger="thumb"/>
+                                <!-- Right hand (5 fingers in arc) -->
+                                <circle cx="96" cy="27" r="8" class="finger thumb" data-finger="thumb"/>
+                                <circle cx="110" cy="16" r="7" class="finger" data-finger="ri"/>
+                                <circle cx="123" cy="11" r="7" class="finger" data-finger="rm"/>
+                                <circle cx="136" cy="16" r="7" class="finger" data-finger="rr"/>
+                                <circle cx="149" cy="27" r="7" class="finger" data-finger="rp"/>
+                            </svg>
+                        </div>
+                    </div>
+                    <div id="typing-target" class="typing-target ${state.runtime.flags.focusLine ? 'focus-line-active' : ''}">${initialHtml}</div>
+                    <div class="typing-input-wrapper">
+                        <textarea id="typing-input" class="typing-input" rows="3" spellcheck="false" autocomplete="off" autocorrect="off" autocapitalize="off"></textarea>
                     </div>
                     ${keyboardHtml}
                 </div>
