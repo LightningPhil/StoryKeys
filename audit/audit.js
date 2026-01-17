@@ -152,7 +152,7 @@ function updatePhonicsSection() {
 
     phonics.forEach(p => {
         if (p.theme) themes[p.theme] = (themes[p.theme] || 0) + 1;
-        if (p.meta?.est_chars) totalChars += p.meta.est_chars;
+        if (p.text) totalChars += p.text.length;
     });
 
     const avgChars = phonics.length > 0 ? Math.round(totalChars / phonics.length) : 0;
@@ -403,7 +403,7 @@ function generatePDF(keyStage) {
 
             doc.setFont('helvetica', 'normal');
             y = addText(doc, y, passage.text, 10);
-            y = addSmallText(doc, y, `ID: ${passage.id} | Est. chars: ${passage.meta?.est_chars || 'N/A'}`, 10);
+            y = addSmallText(doc, y, `ID: ${passage.id} | Chars: ${passage.text?.length || 0}`, 10);
             y += 3;
         }
         y += 5;
@@ -534,7 +534,7 @@ function generatePhonicsPDF() {
     // Statistics
     y = addSectionHeader(doc, y, 'Statistics');
     let totalChars = 0;
-    phonics.forEach(p => { if (p.meta?.est_chars) totalChars += p.meta.est_chars; });
+    phonics.forEach(p => { if (p.text) totalChars += p.text.length; });
     y = addText(doc, y, `Total Lessons: ${phonics.length}`);
     y = addText(doc, y, `Total Characters: ${totalChars.toLocaleString()}`);
     y = addText(doc, y, `Average Length: ${Math.round(totalChars / phonics.length)} characters`);
@@ -558,7 +558,7 @@ function generatePhonicsPDF() {
         y = addText(doc, y, lesson.text, 10);
 
         const phonicsTags = lesson.tags?.phonics?.join(', ') || 'N/A';
-        y = addSmallText(doc, y, `ID: ${lesson.id} | Tags: ${phonicsTags} | Est. chars: ${lesson.meta?.est_chars || 'N/A'}`, 10);
+        y = addSmallText(doc, y, `ID: ${lesson.id} | Tags: ${phonicsTags} | Chars: ${lesson.text?.length || 0}`, 10);
         y = addDivider(doc, y);
         y += 3;
     }

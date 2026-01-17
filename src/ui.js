@@ -57,6 +57,7 @@ function renderMarkdownBlock(md) {
 let lessonPickerState = {
     searchTerm: '',
     sortKey: config.DEFAULT_SORT_KEY,
+    statusFilter: 'all',
     currentPage: 1,
     currentType: 'passage',
     currentStage: 'KS2'
@@ -495,7 +496,7 @@ export function getModalHtml(modalName, state, DATA) {
             <div class="modal" role="dialog" aria-modal="true" aria-labelledby="lesson-picker-title"><div class="modal-content lesson-picker-modal">
                 <div class="modal-header"><h2 id="lesson-picker-title" class="modal-title">${DATA.COPY.homeChangeLesson}</h2>${closeModalBtn}</div>
                 <div class="tabs"><button class="tab-button active" data-type="passage">Passages</button><button class="tab-button" data-type="phonics">Phonics</button><button class="tab-button" data-type="spelling">Spelling Tutor</button><button class="tab-button" data-type="wordset">Word Sets</button></div>
-                <div class="filter-group">
+                <div class="filter-group stage-filter-group">
                     <label>Stage:</label>
                     <div class="stage-filter button-group">
                         <button class="button button-secondary" data-stage="KS1">KS1</button>
@@ -506,6 +507,11 @@ export function getModalHtml(modalName, state, DATA) {
                 </div>
                 <div class="search-sort-container">
                     <input type="search" id="search-input" class="search-input" placeholder="Search by title or theme...">
+                    <select id="status-filter" class="sort-select">
+                        <option value="all">All</option>
+                        <option value="complete">Complete</option>
+                        <option value="todo">To-do</option>
+                    </select>
                     <select id="sort-select" class="sort-select">
                         <option value="title">Sort by Title</option>
                         <option value="length">Sort by Length</option>
@@ -585,7 +591,6 @@ export function getModalHtml(modalName, state, DATA) {
  * @returns {number} The length of the lesson content.
  */
 function getLessonLength(lesson) {
-    if (lesson.meta?.est_chars) return lesson.meta.est_chars;
     if (lesson.text) return lesson.text.length;
     if (lesson.words) return lesson.words.join(' ').length;
     return 0;
@@ -619,7 +624,7 @@ function updateStageProgressBadges(state, DATA, type) {
  * @returns {object} The derived view model.
  */
 export function deriveLessonPickerViewModel(lessonPickerState, state, DATA) {
-    const { currentType, currentStage, searchTerm, sortKey, currentPage } = lessonPickerState;
+    const { currentType, currentStage, searchTerm, sortKey, statusFilter, currentPage } = lessonPickerState;
     const poolMap = {
         passage: DATA.PASSAGES,
         phonics: DATA.PHONICS,
@@ -628,15 +633,28 @@ export function deriveLessonPickerViewModel(lessonPickerState, state, DATA) {
     };
     const pool = poolMap[currentType] || DATA.PASSAGES;
 
-    // 1. Filter
+    // 1. Filter by stage
     const useStageFilter = currentType !== 'phonics';
     let filtered = useStageFilter ? pool.filter(l => !l.stage || l.stage === currentStage) : [...pool];
+    
+    // 1b. Filter by search term
     if (searchTerm) {
         const term = searchTerm.toLowerCase();
         filtered = filtered.filter(l =>
             (l.title || l.name).toLowerCase().includes(term) ||
             l.theme.toLowerCase().includes(term)
         );
+    }
+
+    // 1c. Filter by completion status
+    if (statusFilter && statusFilter !== 'all') {
+        filtered = filtered.filter(l => {
+            const lessonId = buildLessonId(currentType, l);
+            const completionPercent = getLessonCompletionPercent(state, lessonId);
+            if (statusFilter === 'complete') return completionPercent === 100;
+            if (statusFilter === 'todo') return completionPercent < 100;
+            return true;
+        });
     }
 
     // 2. Sort
@@ -739,16 +757,14 @@ function renderPaginationDOM(vm) {
     const container = document.querySelector('.pagination-controls');
     if (!container) return;
 
-    if (vm.totalPages <= 1) {
-        container.innerHTML = '';
-        return;
-    }
+    const showingAll = vm.totalPages <= 1;
+    const pageText = showingAll ? 'Showing all' : `Page ${vm.currentPage} of ${vm.totalPages}`;
 
-    // Use data attributes for event delegation in main.js
+    // Always show pagination buttons to maintain consistent layout
     container.innerHTML = `
-        <button class="button button-secondary" data-action="prev-page" ${!vm.hasPrevPage ? 'disabled' : ''}>Previous</button>
-        <span>Page ${vm.currentPage} of ${vm.totalPages}</span>
-        <button class="button button-secondary" data-action="next-page" ${!vm.hasNextPage ? 'disabled' : ''}>Next</button>
+        <button class="button button-secondary" data-action="prev-page" ${!vm.hasPrevPage || showingAll ? 'disabled' : ''}>Previous</button>
+        <span>${pageText}</span>
+        <button class="button button-secondary" data-action="next-page" ${!vm.hasNextPage || showingAll ? 'disabled' : ''}>Next</button>
     `;
 }
 
@@ -816,6 +832,7 @@ export function resetLessonPickerState(defaultStage) {
     lessonPickerState = {
         searchTerm: '',
         sortKey: config.DEFAULT_SORT_KEY,
+        statusFilter: 'all',
         currentPage: 1,
         currentType: 'passage',
         currentStage: defaultStage

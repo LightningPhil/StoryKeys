@@ -1,15 +1,19 @@
 [
-    {
+  {
     "id": "ks4_poetry_harmony_of_sound_v1",
     "stage": "KS4",
     "theme": "Analysing Poetry",
     "title": "The Harmony of Sound",
     "text": "In a well-crafted sonnet, the interplay of consonance and dissonance enhances both rhythm and tone. The poet’s manipulation of sound patterns creates resonance that mirrors emotional tension, allowing the structure itself to echo the poem’s inner conflict. This auditory texture gives the reader a sensory route into meaning, reinforcing thematic unity through sonic craft.",
     "tags": {
-      "complexity": { "caps": true, "punct": true },
-      "phonics": ["ks4-etymology-son"]
-    },
-    "meta": { "est_chars": 487 }
+      "complexity": {
+        "caps": true,
+        "punct": true
+      },
+      "phonics": [
+        "ks4-etymology-son"
+      ]
+    }
   },
   {
     "id": "ks4_poetry_dissonant_voice_v1",
@@ -18,10 +22,14 @@
     "title": "A Dissonant Voice",
     "text": "When a poet employs dissonance deliberately, they fracture musical expectation to foreground unease or rebellion. Such sonic disruption becomes a metaphor for social conflict or inner turmoil. In modernist poetry, this technique rejects harmony, insisting instead on a raw authenticity that challenges readers to engage critically with tone and texture alike.",
     "tags": {
-      "complexity": { "caps": true, "punct": true },
-      "phonics": ["ks4-etymology-son"]
-    },
-    "meta": { "est_chars": 469 }
+      "complexity": {
+        "caps": true,
+        "punct": true
+      },
+      "phonics": [
+        "ks4-etymology-son"
+      ]
+    }
   },
   {
     "id": "ks4_poetry_resonant_imagery_v1",
@@ -30,10 +38,14 @@
     "title": "Resonant Imagery",
     "text": "Resonance in poetry occurs not only in sound but also in imagery. When metaphors reverberate through multiple stanzas, they create conceptual echoes. The repetition of symbolic language functions like a sonic refrain, guiding interpretation. This layered resonance invites the reader to detect subtleties beneath the surface of the verse’s apparent simplicity.",
     "tags": {
-      "complexity": { "caps": true, "punct": true },
-      "phonics": ["ks4-etymology-son"]
-    },
-    "meta": { "est_chars": 463 }
+      "complexity": {
+        "caps": true,
+        "punct": true
+      },
+      "phonics": [
+        "ks4-etymology-son"
+      ]
+    }
   },
   {
     "id": "ks4_poetry_sonorous_lines_v1",
@@ -42,10 +54,14 @@
     "title": "Sonorous Lines",
     "text": "A sonorous poem often relies on repetition and rhythmic symmetry. Through the interplay of stressed and unstressed syllables, the poet achieves an almost musical cadence. This harmony enhances the poem’s aesthetic pleasure while deepening its meaning, as sound and sense converge into a unified experience of beauty and thoughtfulness.",
     "tags": {
-      "complexity": { "caps": true, "punct": true },
-      "phonics": ["ks4-etymology-son"]
-    },
-    "meta": { "est_chars": 448 }
+      "complexity": {
+        "caps": true,
+        "punct": true
+      },
+      "phonics": [
+        "ks4-etymology-son"
+      ]
+    }
   },
   {
     "id": "ks4_poetry_consonant_patterns_v1",
@@ -54,10 +70,14 @@
     "title": "Consonant Patterns",
     "text": "In analysing consonant repetition, one identifies subtle effects on pace and tone. Consonance produces cohesion, allowing separate ideas to bind through sound. In contrast, shifting consonant clusters can create tension, hinting at conflict or irony. Thus, the smallest phonetic choice carries interpretive weight, revealing a poet’s meticulous control of language.",
     "tags": {
-      "complexity": { "caps": true, "punct": true },
-      "phonics": ["ks4-etymology-son"]
-    },
-    "meta": { "est_chars": 473 }
+      "complexity": {
+        "caps": true,
+        "punct": true
+      },
+      "phonics": [
+        "ks4-etymology-son"
+      ]
+    }
   },
   {
     "id": "ks4_poetry_pathos_in_tragedy_v1",
@@ -66,10 +86,14 @@
     "title": "Pathos in Tragedy",
     "text": "Poets often evoke pathos to connect readers with suffering or loss. This emotional resonance encourages empathy, transforming personal grief into universal reflection. The balance between restraint and revelation is crucial: too much sentiment risks cliché, yet too little leaves the verse emotionally barren. True artistry lies in controlled compassion.",
     "tags": {
-      "complexity": { "caps": true, "punct": true },
-      "phonics": ["ks4-etymology-path"]
-    },
-    "meta": { "est_chars": 457 }
+      "complexity": {
+        "caps": true,
+        "punct": true
+      },
+      "phonics": [
+        "ks4-etymology-path"
+      ]
+    }
   },
   {
     "id": "ks4_poetry_empathy_and_perspective_v1",
@@ -78,10 +102,14 @@
     "title": "Empathy and Perspective",
     "text": "Empathy allows the poet to inhabit diverse perspectives, giving voice to marginalised emotions. In doing so, poetry transcends the personal to express collective experience. The act of reading becomes a moral exercise, inviting the audience to feel with, rather than for, the subject. Thus, empathy becomes both aesthetic and ethical.",
     "tags": {
-      "complexity": { "caps": true, "punct": true },
-      "phonics": ["ks4-etymology-path"]
-    },
-    "meta": { "est_chars": 450 }
+      "complexity": {
+        "caps": true,
+        "punct": true
+      },
+      "phonics": [
+        "ks4-etymology-path"
+      ]
+    }
   },
   {
     "id": "ks4_poetry_apathetic_speaker_v1",
@@ -90,10 +118,14 @@
     "title": "The Apathetic Speaker",
     "text": "An apathetic speaker in poetry may seem emotionally distant, yet such detachment can serve as critique. By withholding feeling, the poet exposes desensitisation or irony. This lack of empathy challenges the reader to confront indifference as both a psychological state and a social condition, turning absence into analytical presence.",
     "tags": {
-      "complexity": { "caps": true, "punct": true },
-      "phonics": ["ks4-etymology-path"]
-    },
-    "meta": { "est_chars": 465 }
+      "complexity": {
+        "caps": true,
+        "punct": true
+      },
+      "phonics": [
+        "ks4-etymology-path"
+      ]
+    }
   },
   {
     "id": "ks4_poetry_pathos_and_symbolism_v1",
@@ -102,10 +134,14 @@
     "title": "Pathos and Symbolism",
     "text": "Symbolism amplifies pathos when the concrete becomes emotional metaphor. A fading light may evoke despair, while blooming flowers suggest renewal. These visual cues trigger empathetic response, allowing abstract ideas to feel immediate. The reader’s emotion is guided subtly, creating a bridge between intellect and instinct through poetic design.",
     "tags": {
-      "complexity": { "caps": true, "punct": true },
-      "phonics": ["ks4-etymology-path"]
-    },
-    "meta": { "est_chars": 460 }
+      "complexity": {
+        "caps": true,
+        "punct": true
+      },
+      "phonics": [
+        "ks4-etymology-path"
+      ]
+    }
   },
   {
     "id": "ks4_poetry_antipathy_in_satire_v1",
@@ -114,10 +150,14 @@
     "title": "Antipathy in Satire",
     "text": "In satirical poetry, antipathy often replaces empathy. The poet’s scorn for hypocrisy or power becomes a form of moral intensity. Through irony and juxtaposition, satire channels emotional rejection into intellectual critique. The reader’s laughter masks discomfort, revealing that hostility, too, can serve an ethical and transformative poetic function.",
     "tags": {
-      "complexity": { "caps": true, "punct": true },
-      "phonics": ["ks4-etymology-path"]
-    },
-    "meta": { "est_chars": 471 }
+      "complexity": {
+        "caps": true,
+        "punct": true
+      },
+      "phonics": [
+        "ks4-etymology-path"
+      ]
+    }
   },
   {
     "id": "ks4_poetry_emotional_craft_v1",
@@ -126,10 +166,14 @@
     "title": "Emotional Craft",
     "text": "Every poem manipulates emotion through rhythm, diction, and structure. When empathy and sound converge, meaning deepens. The caesura halts thought, while enjambment releases it forward, mirroring emotional fluctuation. The poet’s technical craft transforms feeling into form, proving that emotion, like music, can be engineered through linguistic precision.",
     "tags": {
-      "complexity": { "caps": true, "punct": true },
-      "phonics": ["ks4-etymology-path"]
-    },
-    "meta": { "est_chars": 468 }
+      "complexity": {
+        "caps": true,
+        "punct": true
+      },
+      "phonics": [
+        "ks4-etymology-path"
+      ]
+    }
   },
   {
     "id": "ks4_poetry_sound_and_emotion_v1",
@@ -138,10 +182,14 @@
     "title": "Sound and Emotion",
     "text": "When consonance complements empathy, the poem achieves harmony between technique and theme. The sonic structure reflects emotional rhythm, merging the analytical and the affective. This synthesis exemplifies how poetic language can operate on multiple levels—intellectual, musical, and emotional—inviting interpretation that resonates beyond the literal text.",
     "tags": {
-      "complexity": { "caps": true, "punct": true },
-      "phonics": ["ks4-etymology-son"]
-    },
-    "meta": { "est_chars": 465 }
+      "complexity": {
+        "caps": true,
+        "punct": true
+      },
+      "phonics": [
+        "ks4-etymology-son"
+      ]
+    }
   },
   {
     "id": "ks4_poetry_sonic_symbolism_v1",
@@ -150,10 +198,14 @@
     "title": "Sonic Symbolism",
     "text": "Sonic patterns can symbolise meaning beyond the words themselves. Dissonant syllables may convey fragmentation, while smooth assonance evokes harmony. The soundscape becomes interpretive terrain, guiding the reader toward tone and mood. By analysing such patterns, one perceives the poem’s structure as both music and message intertwined.",
     "tags": {
-      "complexity": { "caps": true, "punct": true },
-      "phonics": ["ks4-etymology-son"]
-    },
-    "meta": { "est_chars": 457 }
+      "complexity": {
+        "caps": true,
+        "punct": true
+      },
+      "phonics": [
+        "ks4-etymology-son"
+      ]
+    }
   },
   {
     "id": "ks4_poetry_resonant_empathy_v1",
@@ -162,10 +214,14 @@
     "title": "Resonant Empathy",
     "text": "When sound resonates with feeling, poetry transcends linguistic boundaries. The reader experiences not just ideas but vibrations of emotion. Through deliberate use of consonance and pathos, poets craft meaning that lingers beyond comprehension. Such resonance transforms reading into listening, revealing that thought itself can have an audible rhythm.",
     "tags": {
-      "complexity": { "caps": true, "punct": true },
-      "phonics": ["ks4-etymology-son"]
-    },
-    "meta": { "est_chars": 471 }
+      "complexity": {
+        "caps": true,
+        "punct": true
+      },
+      "phonics": [
+        "ks4-etymology-son"
+      ]
+    }
   },
   {
     "id": "ks4_poetry_empathic_form_v1",
@@ -174,10 +230,14 @@
     "title": "Empathic Form",
     "text": "The structure of a poem can mirror its emotion. An empathetic arrangement—using enjambment, caesura, or volta—reflects shifts in feeling. This sensitivity to structure ensures that form does not merely contain emotion but expresses it. The reader thus experiences both the poem’s sound and its sentiment as an inseparable whole.",
     "tags": {
-      "complexity": { "caps": true, "punct": true },
-      "phonics": ["ks4-etymology-path"]
-    },
-    "meta": { "est_chars": 464 }
+      "complexity": {
+        "caps": true,
+        "punct": true
+      },
+      "phonics": [
+        "ks4-etymology-path"
+      ]
+    }
   },
   {
     "id": "ks4_shakespeare_macbeth-hamartia_v1",
@@ -186,10 +246,14 @@
     "title": "Macbeth’s Fatal Error",
     "text": "Macbeth’s hamartia is often identified as his unchecked ambition, which distorts his moral judgement. Influenced by prophecy and manipulation, he chooses a path that accelerates his downfall. This hamartic flaw not only destroys Macbeth but also destabilises Scotland, illustrating how personal error can trigger widespread consequences within a tragic structure.",
     "tags": {
-      "complexity": { "caps": true, "punct": true },
-      "phonics": ["ks4-etym-hamartia"]
-    },
-    "meta": { "est_chars": 363 }
+      "complexity": {
+        "caps": true,
+        "punct": true
+      },
+      "phonics": [
+        "ks4-etym-hamartia"
+      ]
+    }
   },
   {
     "id": "ks4_shakespeare_hamlet-soliloquy_v1",
@@ -198,10 +262,14 @@
     "title": "Hamlet’s Solitary Reflection",
     "text": "Hamlet’s prolonged solitude and frequent soliloquies reveal a mind in conflict. His reflective speeches expose philosophical doubt and emotional paralysis. Through each soliloquy, Hamlet analyses action versus inaction, deepening our understanding of his desolate psychological state and the tragic implications of self-imposed isolation.",
     "tags": {
-      "complexity": { "caps": true, "punct": true },
-      "phonics": ["ks4-etym-sol"]
-    },
-    "meta": { "est_chars": 338 }
+      "complexity": {
+        "caps": true,
+        "punct": true
+      },
+      "phonics": [
+        "ks4-etym-sol"
+      ]
+    }
   },
   {
     "id": "ks4_shakespeare_hamartia-concept_v1",
@@ -210,10 +278,14 @@
     "title": "Understanding Hamartia",
     "text": "In Greek tragedy, hamartia does not necessarily imply wickedness, but rather a misjudgement leading to suffering. Shakespeare adapts this concept, presenting characters whose hamartic decisions stem from human vulnerability. This interpretation encourages students to analyse tragic heroes with nuance, recognising the complexity of moral responsibility.",
     "tags": {
-      "complexity": { "caps": true, "punct": true },
-      "phonics": ["ks4-etym-hamartia"]
-    },
-    "meta": { "est_chars": 354 }
+      "complexity": {
+        "caps": true,
+        "punct": true
+      },
+      "phonics": [
+        "ks4-etym-hamartia"
+      ]
+    }
   },
   {
     "id": "ks4_shakespeare_lady-macbeth-desolation_v1",
@@ -222,10 +294,14 @@
     "title": "Lady Macbeth’s Isolation",
     "text": "Lady Macbeth’s descent into a desolate mental landscape contrasts sharply with her early confidence. Isolated by guilt and unable to confide in others, she experiences a psychological solitude that manifests through hallucination and sleepwalking. Her deterioration illustrates how ambition corrodes stability when ethical boundaries are ignored.",
     "tags": {
-      "complexity": { "caps": true, "punct": true },
-      "phonics": ["ks4-etym-sol"]
-    },
-    "meta": { "est_chars": 346 }
+      "complexity": {
+        "caps": true,
+        "punct": true
+      },
+      "phonics": [
+        "ks4-etym-sol"
+      ]
+    }
   },
   {
     "id": "ks4_shakespeare_lear-hamartia_v1",
@@ -234,10 +310,14 @@
     "title": "Lear’s Misjudgement",
     "text": "King Lear’s hamartia lies in his inability to discern genuine loyalty from flattery. His hamartic misjudgement fractures family bonds and destabilises the kingdom. The play demonstrates how one ruler’s error can provoke societal chaos, reinforcing a key tragic convention: personal flaws yield political catastrophe.",
     "tags": {
-      "complexity": { "caps": true, "punct": true },
-      "phonics": ["ks4-etym-hamartia"]
-    },
-    "meta": { "est_chars": 316 }
+      "complexity": {
+        "caps": true,
+        "punct": true
+      },
+      "phonics": [
+        "ks4-etym-hamartia"
+      ]
+    }
   },
   {
     "id": "ks4_shakespeare_power-of-soliloquy_v1",
@@ -246,10 +326,14 @@
     "title": "Purpose of Soliloquy",
     "text": "Soliloquy is a powerful dramatic device in Shakespearean tragedy. By vocalising internal thoughts, characters reveal motivations the audience must evaluate critically. Macbeth’s “Tomorrow, and tomorrow” soliloquy captures existential despair, while Hamlet’s “To be, or not to be” articulates philosophical conflict, emphasising the introspective nature of tragic narrative.",
     "tags": {
-      "complexity": { "caps": true, "punct": true },
-      "phonics": ["ks4-etym-sol"]
-    },
-    "meta": { "est_chars": 373 }
+      "complexity": {
+        "caps": true,
+        "punct": true
+      },
+      "phonics": [
+        "ks4-etym-sol"
+      ]
+    }
   },
   {
     "id": "ks4_shakespeare_othello-hamartia_v1",
@@ -258,10 +342,14 @@
     "title": "Othello’s Tragic Flaw",
     "text": "Analysing Othello through the lens of hamartia highlights how insecurity becomes his tragic flaw. Manipulated by Iago, Othello’s hamartic jealousy eclipses rational judgement, leading to devastating consequences. This interpretation encourages students to examine how emotional vulnerability can overpower reason within tragic frameworks.",
     "tags": {
-      "complexity": { "caps": true, "punct": true },
-      "phonics": ["ks4-etym-hamartia"]
-    },
-    "meta": { "est_chars": 338 }
+      "complexity": {
+        "caps": true,
+        "punct": true
+      },
+      "phonics": [
+        "ks4-etym-hamartia"
+      ]
+    }
   },
   {
     "id": "ks4_shakespeare_romeo-hamartia_v1",
@@ -270,10 +358,14 @@
     "title": "Romeo’s Impulsiveness",
     "text": "Romeo’s impulsiveness functions as his hamartia, propelling the narrative towards irreversible tragedy. His hamartic haste disregards caution and escalates conflict between the houses of Montague and Capulet. Shakespeare uses this flaw to critique uncontrolled passion, demonstrating how youthful intensity can cloud reason and disrupt social harmony.",
     "tags": {
-      "complexity": { "caps": true, "punct": true },
-      "phonics": ["ks4-etym-hamartia"]
-    },
-    "meta": { "est_chars": 351 }
+      "complexity": {
+        "caps": true,
+        "punct": true
+      },
+      "phonics": [
+        "ks4-etym-hamartia"
+      ]
+    }
   },
   {
     "id": "ks4_shakespeare_solitude-theme_v1",
@@ -282,10 +374,14 @@
     "title": "The Role of Solitude",
     "text": "Characters experiencing solitude in Shakespeare often confront profound emotional challenges. Cordelia’s dignified solitude contrasts with Lear’s destructive isolation. Their experiences suggest that solitude may build resilience or induce despair, depending on personal integrity and external support within the tragic context.",
     "tags": {
-      "complexity": { "caps": true, "punct": true },
-      "phonics": ["ks4-etym-sol"]
-    },
-    "meta": { "est_chars": 328 }
+      "complexity": {
+        "caps": true,
+        "punct": true
+      },
+      "phonics": [
+        "ks4-etym-sol"
+      ]
+    }
   },
   {
     "id": "ks4_shakespeare_desolate-imagery_v1",
@@ -294,10 +390,14 @@
     "title": "Desolate Imagery",
     "text": "Desolate imagery frequently reinforces the emotional tone of tragic settings. Storms, barren landscapes, and decaying castles symbolise moral collapse and psychological turmoil. Such imagery enhances audience understanding of character suffering, linking environment with internal conflict.",
     "tags": {
-      "complexity": { "caps": true, "punct": true },
-      "phonics": ["ks4-etym-sol"]
-    },
-    "meta": { "est_chars": 290 }
+      "complexity": {
+        "caps": true,
+        "punct": true
+      },
+      "phonics": [
+        "ks4-etym-sol"
+      ]
+    }
   },
   {
     "id": "ks4_shakespeare_anagnorisis_v1",
@@ -306,10 +406,14 @@
     "title": "Recognition in Tragedy",
     "text": "Anagnorisis, or the moment of recognition, is essential to tragic structure. In Macbeth, recognition arrives too late to reverse the consequences of hamartia. This delayed awareness intensifies catharsis, compelling the audience to reflect on the irreversible impact of flawed choices.",
     "tags": {
-      "complexity": { "caps": true, "punct": true },
-      "phonics": ["ks4-etym-hamartia"]
-    },
-    "meta": { "est_chars": 285 }
+      "complexity": {
+        "caps": true,
+        "punct": true
+      },
+      "phonics": [
+        "ks4-etym-hamartia"
+      ]
+    }
   },
   {
     "id": "ks4_shakespeare_hubris-link_v1",
@@ -318,10 +422,14 @@
     "title": "Hubris and Hamartia",
     "text": "Hubris, meaning excessive pride, often entwines with hamartia in Shakespeare’s tragedies. Characters such as Macbeth and Coriolanus allow pride to override counsel, creating a destructive trajectory. Exploring hubris helps students understand how self-perception influences decision-making and contributes to downfall.",
     "tags": {
-      "complexity": { "caps": true, "punct": true },
-      "phonics": ["ks4-etym-hamartia"]
-    },
-    "meta": { "est_chars": 318 }
+      "complexity": {
+        "caps": true,
+        "punct": true
+      },
+      "phonics": [
+        "ks4-etym-hamartia"
+      ]
+    }
   },
   {
     "id": "ks4_shakespeare_stagecraft-soliloquy_v1",
@@ -330,10 +438,14 @@
     "title": "Staging a Soliloquy",
     "text": "Stagecraft enhances the delivery of soliloquy. Lighting, silence, and actor positioning direct audience focus towards the speaker’s internal turmoil. Effective staging transforms a soliloquy from simple monologue into a window of vulnerability, deepening the emotional resonance of tragic performance.",
     "tags": {
-      "complexity": { "caps": true, "punct": true },
-      "phonics": ["ks4-etym-sol"]
-    },
-    "meta": { "est_chars": 301 }
+      "complexity": {
+        "caps": true,
+        "punct": true
+      },
+      "phonics": [
+        "ks4-etym-sol"
+      ]
+    }
   },
   {
     "id": "ks4_shakespeare_solitude-catalyst_v1",
@@ -342,10 +454,14 @@
     "title": "Solitude as Catalyst",
     "text": "Solitude can act as a catalyst for reflection in Shakespearean tragedy. When characters withdraw from society, voluntary or enforced, they confront ethical dilemmas and hidden fears. This introspection often precedes pivotal decisions, shaping the tragic arc and heightening audience anticipation.",
     "tags": {
-      "complexity": { "caps": true, "punct": true },
-      "phonics": ["ks4-etym-sol"]
-    },
-    "meta": { "est_chars": 297 }
+      "complexity": {
+        "caps": true,
+        "punct": true
+      },
+      "phonics": [
+        "ks4-etym-sol"
+      ]
+    }
   },
   {
     "id": "ks4_shakespeare_catharsis-hamartia_v1",
@@ -354,10 +470,14 @@
     "title": "Catharsis and Accountability",
     "text": "Catharsis describes the emotional release experienced by the audience at the end of a tragedy. When characters recognise their hamartia and accept accountability, the resulting cathartic effect encourages moral reflection. Shakespeare utilises this emotional journey to reinforce the educational purpose of tragedy.",
     "tags": {
-      "complexity": { "caps": true, "punct": true },
-      "phonics": ["ks4-etym-hamartia"]
-    },
-    "meta": { "est_chars": 315 }
+      "complexity": {
+        "caps": true,
+        "punct": true
+      },
+      "phonics": [
+        "ks4-etym-hamartia"
+      ]
+    }
   },
   {
     "id": "ks4_coldwar_ideological-isms_v1",
@@ -366,10 +486,14 @@
     "title": "Opposing Isms",
     "text": "Communism and capitalism shaped the ideological landscape of the Cold War. Each ism promoted contrasting visions of how society and the economy should function. These competing beliefs influenced foreign policy and fuelled rivalries between global superpowers. Understanding these isms helps explain the persistent tension that defined international relations after 1945.",
     "tags": {
-      "complexity": { "caps": true, "punct": true },
-      "phonics": ["ks4-etym-ism"]
-    },
-    "meta": { "est_chars": 391 }
+      "complexity": {
+        "caps": true,
+        "punct": true
+      },
+      "phonics": [
+        "ks4-etym-ism"
+      ]
+    }
   },
   {
     "id": "ks4_coldwar_berlin-confrontation_v1",
@@ -378,10 +502,14 @@
     "title": "Berlin Confrontation",
     "text": "The Berlin Crisis marked a direct confrontation between the USA and the USSR. Berlin became a symbolic frontier where rival ideologies clashed. Each superpower sought to demonstrate strength without triggering war. This confrontation revealed how fragile post-war diplomacy was and how easily tensions could escalate into global conflict.",
     "tags": {
-      "complexity": { "caps": true, "punct": true },
-      "phonics": ["ks4-etym-front"]
-    },
-    "meta": { "est_chars": 360 }
+      "complexity": {
+        "caps": true,
+        "punct": true
+      },
+      "phonics": [
+        "ks4-etym-front"
+      ]
+    }
   },
   {
     "id": "ks4_coldwar_spread-of-communism_v1",
@@ -390,10 +518,14 @@
     "title": "Spread of Communism",
     "text": "After 1945, communism spread across Eastern Europe and parts of Asia, alarming Western nations. Its expansion challenged capitalism and encouraged the USA to adopt a policy of containment. This ideological ism led to proxy wars, diplomatic pressure, and long-term division between East and West across political, economic, and cultural spheres.",
     "tags": {
-      "complexity": { "caps": true, "punct": true },
-      "phonics": ["ks4-etym-ism"]
-    },
-    "meta": { "est_chars": 377 }
+      "complexity": {
+        "caps": true,
+        "punct": true
+      },
+      "phonics": [
+        "ks4-etym-ism"
+      ]
+    }
   },
   {
     "id": "ks4_coldwar_korean-frontier_v1",
@@ -402,10 +534,14 @@
     "title": "Korea as a Frontier",
     "text": "The Korean War transformed the Korean Peninsula into a geopolitical frontier between communism and capitalism. Fighting broke out when North Korea invaded the South in 1950. The conflict became a critical test of Cold War resolve, showing how regional disputes could quickly attract superpower involvement and intensify global division.",
     "tags": {
-      "complexity": { "caps": true, "punct": true },
-      "phonics": ["ks4-etym-front"]
-    },
-    "meta": { "est_chars": 372 }
+      "complexity": {
+        "caps": true,
+        "punct": true
+      },
+      "phonics": [
+        "ks4-etym-front"
+      ]
+    }
   },
   {
     "id": "ks4_coldwar_american-capitalism_v1",
@@ -414,10 +550,14 @@
     "title": "American Capitalism",
     "text": "American capitalism emphasised private ownership, free markets, and consumer choice. During the Cold War, the USA promoted capitalism as a model of freedom and prosperity. This ism was contrasted against Soviet communism, forming the basis of ideological competition. Propaganda highlighted capitalism as essential for democracy and individual liberty.",
     "tags": {
-      "complexity": { "caps": true, "punct": true },
-      "phonics": ["ks4-etym-ism"]
-    },
-    "meta": { "est_chars": 370 }
+      "complexity": {
+        "caps": true,
+        "punct": true
+      },
+      "phonics": [
+        "ks4-etym-ism"
+      ]
+    }
   },
   {
     "id": "ks4_coldwar_cuban-confrontation_v1",
@@ -426,10 +566,14 @@
     "title": "Cuban Missile Confrontation",
     "text": "The Cuban Missile Crisis represented one of the most dangerous confrontations of the Cold War. The presence of Soviet missiles in Cuba was viewed as an affront to American security. Diplomatic negotiation eventually prevented nuclear conflict, illustrating the importance of communication when powerful nations meet at the frontier of war and peace.",
     "tags": {
-      "complexity": { "caps": true, "punct": true },
-      "phonics": ["ks4-etym-front"]
-    },
-    "meta": { "est_chars": 401 }
+      "complexity": {
+        "caps": true,
+        "punct": true
+      },
+      "phonics": [
+        "ks4-etym-front"
+      ]
+    }
   },
   {
     "id": "ks4_coldwar_soviet-communism_v1",
@@ -438,10 +582,14 @@
     "title": "Soviet Communism",
     "text": "Soviet communism aimed to create a classless society with state control of industry. This ism influenced political systems across Eastern Europe. Many citizens faced restrictions on freedom, but supporters argued it ensured equality. The contrast between communism and capitalism remained central to the Cold War’s ideological struggle and global alliances.",
     "tags": {
-      "complexity": { "caps": true, "punct": true },
-      "phonics": ["ks4-etym-ism"]
-    },
-    "meta": { "est_chars": 386 }
+      "complexity": {
+        "caps": true,
+        "punct": true
+      },
+      "phonics": [
+        "ks4-etym-ism"
+      ]
+    }
   },
   {
     "id": "ks4_coldwar_iron-curtain-frontier_v1",
@@ -450,10 +598,14 @@
     "title": "The Iron Curtain Frontier",
     "text": "Churchill described Europe as divided by an ‘Iron Curtain’, a symbolic frontier separating communist East from capitalist West. This division represented more than geography; it reflected deep political and ideological hostility. The frontier shaped daily life, diplomacy, and security across Europe for over forty years of the Cold War.",
     "tags": {
-      "complexity": { "caps": true, "punct": true },
-      "phonics": ["ks4-etym-front"]
-    },
-    "meta": { "est_chars": 380 }
+      "complexity": {
+        "caps": true,
+        "punct": true
+      },
+      "phonics": [
+        "ks4-etym-front"
+      ]
+    }
   },
   {
     "id": "ks4_coldwar_anti-imperialism_v1",
@@ -462,10 +614,14 @@
     "title": "Anti-Imperialism",
     "text": "Post-war anti-imperialism influenced independence movements across Asia and Africa. Both the USA and the USSR criticised European imperialism, though often for self-interested reasons. This ism encouraged former colonies to seek new political identities, sometimes aligning with Cold War superpowers and reshaping global power structures during the twentieth century.",
     "tags": {
-      "complexity": { "caps": true, "punct": true },
-      "phonics": ["ks4-etym-ism"]
-    },
-    "meta": { "est_chars": 394 }
+      "complexity": {
+        "caps": true,
+        "punct": true
+      },
+      "phonics": [
+        "ks4-etym-ism"
+      ]
+    }
   },
   {
     "id": "ks4_coldwar_proxy-fronts_v1",
@@ -474,10 +630,14 @@
     "title": "Proxy War Fronts",
     "text": "Proxy wars created conflict fronts where superpowers supported opposing sides without direct combat. Vietnam, Korea, and Afghanistan became key fronts for ideological competition. These wars allowed communism and capitalism to confront one another indirectly, revealing the global reach and human cost of Cold War rivalry between the USA and USSR.",
     "tags": {
-      "complexity": { "caps": true, "punct": true },
-      "phonics": ["ks4-etym-front"]
-    },
-    "meta": { "est_chars": 410 }
+      "complexity": {
+        "caps": true,
+        "punct": true
+      },
+      "phonics": [
+        "ks4-etym-front"
+      ]
+    }
   },
   {
     "id": "ks4_coldwar_detente-ism_v1",
@@ -486,10 +646,14 @@
     "title": "Détente and Ideology",
     "text": "The period of détente reduced direct tension between communism and capitalism. Although ideological isms remained intact, leaders pursued diplomacy and arms control to prevent nuclear war. Treaties such as SALT signalled a shift from confrontation towards cooperation. Understanding détente shows how negotiation can temporarily ease long-standing ideological divisions.",
     "tags": {
-      "complexity": { "caps": true, "punct": true },
-      "phonics": ["ks4-etym-ism"]
-    },
-    "meta": { "est_chars": 395 }
+      "complexity": {
+        "caps": true,
+        "punct": true
+      },
+      "phonics": [
+        "ks4-etym-ism"
+      ]
+    }
   },
   {
     "id": "ks4_coldwar_affronts-to-peace_v1",
@@ -498,10 +662,14 @@
     "title": "Affronts to Peace",
     "text": "Acts considered an affront by either superpower could rapidly heighten Cold War hostility. Spy scandals, military exercises, or missile deployments were interpreted as deliberate challenges. These affronts often led to diplomatic crises, demonstrating how easily mistrust turned cooperation into confrontation when global security hung in the balance.",
     "tags": {
-      "complexity": { "caps": true, "punct": true },
-      "phonics": ["ks4-etym-front"]
-    },
-    "meta": { "est_chars": 395 }
+      "complexity": {
+        "caps": true,
+        "punct": true
+      },
+      "phonics": [
+        "ks4-etym-front"
+      ]
+    }
   },
   {
     "id": "ks4_coldwar_chinese-communism_v1",
@@ -510,10 +678,14 @@
     "title": "Chinese Communism",
     "text": "Chinese communism developed differently from its Soviet counterpart, yet the ism still challenged Western influence in Asia. Following the 1949 revolution, China’s alignment with the USSR intensified Cold War tensions. However, later disagreements showed that communism was not a single unified ideology, shaping diplomatic relations across the globe.",
     "tags": {
-      "complexity": { "caps": true, "punct": true },
-      "phonics": ["ks4-etym-ism"]
-    },
-    "meta": { "est_chars": 387 }
+      "complexity": {
+        "caps": true,
+        "punct": true
+      },
+      "phonics": [
+        "ks4-etym-ism"
+      ]
+    }
   },
   {
     "id": "ks4_coldwar_frontier-of-space_v1",
@@ -522,10 +694,14 @@
     "title": "The Space Frontier",
     "text": "The Space Race opened a new frontier for Cold War competition. Achievements in space exploration were seen as measures of technological superiority and ideological value. Rather than military confrontation, the USA and USSR sought prestige through scientific success, influencing education, innovation, and national pride throughout the twentieth century.",
     "tags": {
-      "complexity": { "caps": true, "punct": true },
-      "phonics": ["ks4-etym-front"]
-    },
-    "meta": { "est_chars": 395 }
+      "complexity": {
+        "caps": true,
+        "punct": true
+      },
+      "phonics": [
+        "ks4-etym-front"
+      ]
+    }
   },
   {
     "id": "ks4_coldwar_ending-communism_v1",
@@ -534,10 +710,14 @@
     "title": "The End of Communism",
     "text": "By the late 1980s, communism began to collapse across Eastern Europe. Economic failure, public protest, and demands for reform weakened support for the ism. The fall of the Berlin Wall symbolised the end of division in Europe and marked a turning point that led to the Cold War’s conclusion in 1991.",
     "tags": {
-      "complexity": { "caps": true, "punct": true },
-      "phonics": ["ks4-etym-ism"]
-    },
-    "meta": { "est_chars": 395 }
+      "complexity": {
+        "caps": true,
+        "punct": true
+      },
+      "phonics": [
+        "ks4-etym-ism"
+      ]
+    }
   },
   {
     "id": "ks4_medicine_role-of-pathogens_v1",
@@ -546,10 +726,14 @@
     "title": "The Role of Pathogens",
     "text": "A pathogen is a microorganism capable of causing disease, such as bacteria, viruses, or fungi. Understanding how pathogens spread supports effective public health strategies. Through genetics, scientists can identify variations in pathogens, enabling the development of targeted treatments and preventative measures to reduce infection rates across communities.",
     "tags": {
-      "complexity": { "caps": true, "punct": true },
-      "phonics": ["ks4-etym-gen"]
-    },
-    "meta": { "est_chars": 382 }
+      "complexity": {
+        "caps": true,
+        "punct": true
+      },
+      "phonics": [
+        "ks4-etym-gen"
+      ]
+    }
   },
   {
     "id": "ks4_medicine_importance-of-vaccines_v1",
@@ -558,10 +742,14 @@
     "title": "Importance of Vaccines",
     "text": "A vaccine prepares the immune system to recognise and combat disease-causing organisms. By introducing a harmless form of a pathogen, vaccines stimulate antibody production. This prevents serious illness and reduces transmission. Widespread vaccination protects vulnerable individuals and helps maintain community health during outbreaks.",
     "tags": {
-      "complexity": { "caps": true, "punct": true },
-      "phonics": ["ks4-etym-vac"]
-    },
-    "meta": { "est_chars": 365 }
+      "complexity": {
+        "caps": true,
+        "punct": true
+      },
+      "phonics": [
+        "ks4-etym-vac"
+      ]
+    }
   },
   {
     "id": "ks4_medicine_genetic-disorders_v1",
@@ -570,10 +758,14 @@
     "title": "Genetic Disorders",
     "text": "Genetic disorders occur when changes in DNA affect how the body functions. These conditions can be inherited or develop through random mutation. Understanding genetics enables doctors to diagnose inherited illnesses and offer informed support to families. Research continues to explore treatments that target specific genes to improve patient outcomes.",
     "tags": {
-      "complexity": { "caps": true, "punct": true },
-      "phonics": ["ks4-etym-gen"]
-    },
-    "meta": { "est_chars": 381 }
+      "complexity": {
+        "caps": true,
+        "punct": true
+      },
+      "phonics": [
+        "ks4-etym-gen"
+      ]
+    }
   },
   {
     "id": "ks4_medicine_vaccination-programmes_v1",
@@ -582,10 +774,14 @@
     "title": "Vaccination Programmes",
     "text": "National vaccination programmes aim to protect entire populations from infectious diseases. By offering vaccines in schools and clinics, governments increase immunity and reduce outbreaks. Vaccination has successfully controlled illnesses such as measles. These programmes show how prevention can be more effective and economical than treating widespread infection.",
     "tags": {
-      "complexity": { "caps": true, "punct": true },
-      "phonics": ["ks4-etym-vac"]
-    },
-    "meta": { "est_chars": 378 }
+      "complexity": {
+        "caps": true,
+        "punct": true
+      },
+      "phonics": [
+        "ks4-etym-vac"
+      ]
+    }
   },
   {
     "id": "ks4_medicine_carcinogens_v1",
@@ -594,10 +790,14 @@
     "title": "Carcinogens",
     "text": "A carcinogen is a substance capable of causing cancer by altering cell genetics. Examples include tobacco smoke, UV radiation, and asbestos. Identifying carcinogens helps scientists and governments introduce safety regulations. Public awareness encourages healthier choices and reduces exposure, lowering cancer rates within communities over time.",
     "tags": {
-      "complexity": { "caps": true, "punct": true },
-      "phonics": ["ks4-etym-gen"]
-    },
-    "meta": { "est_chars": 372 }
+      "complexity": {
+        "caps": true,
+        "punct": true
+      },
+      "phonics": [
+        "ks4-etym-gen"
+      ]
+    }
   },
   {
     "id": "ks4_medicine_vacuoles_v1",
@@ -606,10 +806,14 @@
     "title": "Vacuoles in Cells",
     "text": "A vacuole is a membrane-bound space within a cell that stores water, nutrients, and waste. Plant cells typically contain a large central vacuole, which helps maintain structure. In animal cells, smaller vacuoles manage storage and transport. Understanding cell components supports learning about how living organisms function at a microscopic level.",
     "tags": {
-      "complexity": { "caps": true, "punct": true },
-      "phonics": ["ks4-etym-vac"]
-    },
-    "meta": { "est_chars": 385 }
+      "complexity": {
+        "caps": true,
+        "punct": true
+      },
+      "phonics": [
+        "ks4-etym-vac"
+      ]
+    }
   },
   {
     "id": "ks4_medicine_genetic-engineering_v1",
@@ -618,10 +822,14 @@
     "title": "Genetic Engineering",
     "text": "Genetic engineering involves modifying DNA to introduce useful characteristics. In medicine, this technology can create bacteria that produce insulin or develop therapies for genetic disorders. Understanding genetics enables scientists to design precise treatments. Ethical debate continues over how far genetic modification should be used in humans and other organisms.",
     "tags": {
-      "complexity": { "caps": true, "punct": true },
-      "phonics": ["ks4-etym-gen"]
-    },
-    "meta": { "est_chars": 401 }
+      "complexity": {
+        "caps": true,
+        "punct": true
+      },
+      "phonics": [
+        "ks4-etym-gen"
+      ]
+    }
   },
   {
     "id": "ks4_medicine_evacuating-hospitals_v1",
@@ -630,10 +838,14 @@
     "title": "Evacuating Hospitals",
     "text": "Hospitals may evacuate patients during emergencies such as fires or floods. Evacuating vulnerable individuals requires careful planning to maintain medical care. Staff must protect life-support equipment and medicines during the process. Effective evacuation procedures ensure safety while minimising disruption to essential treatment and patient wellbeing.",
     "tags": {
-      "complexity": { "caps": true, "punct": true },
-      "phonics": ["ks4-etym-vac"]
-    },
-    "meta": { "est_chars": 361 }
+      "complexity": {
+        "caps": true,
+        "punct": true
+      },
+      "phonics": [
+        "ks4-etym-vac"
+      ]
+    }
   },
   {
     "id": "ks4_medicine_how-antibodies-work_v1",
@@ -642,10 +854,14 @@
     "title": "How Antibodies Work",
     "text": "Antibodies are proteins that recognise and neutralise pathogens. Produced by lymphocytes, they attach to specific antigens on the pathogen’s surface. This process marks the invader for destruction by phagocytes. The immune system’s targeted response prevents infection from spreading and helps the body remember pathogens for faster defence in future.",
     "tags": {
-      "complexity": { "caps": true, "punct": true },
-      "phonics": ["ks4-etym-gen"]
-    },
-    "meta": { "est_chars": 398 }
+      "complexity": {
+        "caps": true,
+        "punct": true
+      },
+      "phonics": [
+        "ks4-etym-gen"
+      ]
+    }
   },
   {
     "id": "ks4_medicine_vaccine-hesitancy_v1",
@@ -654,10 +870,14 @@
     "title": "Vaccine Hesitancy",
     "text": "Vaccine hesitancy occurs when people delay or refuse vaccination despite availability. Misinformation, fear, or lack of trust can influence decisions. Public health campaigns aim to provide clear evidence about vaccine safety and effectiveness. Encouraging open discussion helps address concerns and maintain high levels of community protection against disease.",
     "tags": {
-      "complexity": { "caps": true, "punct": true },
-      "phonics": ["ks4-etym-vac"]
-    },
-    "meta": { "est_chars": 393 }
+      "complexity": {
+        "caps": true,
+        "punct": true
+      },
+      "phonics": [
+        "ks4-etym-vac"
+      ]
+    }
   },
   {
     "id": "ks4_medicine_inherited-traits_v1",
@@ -666,10 +886,14 @@
     "title": "Inherited Traits",
     "text": "Inherited traits are characteristics passed from parents to offspring through genetics. Examples include eye colour, blood type, and certain disorders. Studying genetics helps explain variation within species and supports research into hereditary diseases. Understanding inheritance allows scientists to predict patterns and provide informed medical advice for families.",
     "tags": {
-      "complexity": { "caps": true, "punct": true },
-      "phonics": ["ks4-etym-gen"]
-    },
-    "meta": { "est_chars": 389 }
+      "complexity": {
+        "caps": true,
+        "punct": true
+      },
+      "phonics": [
+        "ks4-etym-gen"
+      ]
+    }
   },
   {
     "id": "ks4_medicine_vacuole-functions_v1",
@@ -678,10 +902,14 @@
     "title": "Vacuole Functions",
     "text": "Vacuoles perform several functions essential for cell survival. They store important substances, maintain water balance, and remove waste. In plant cells, the vacuole also supports structure by creating pressure against the cell wall. Understanding vacuole function helps students appreciate how cells maintain stability and adapt to environmental changes.",
     "tags": {
-      "complexity": { "caps": true, "punct": true },
-      "phonics": ["ks4-etym-vac"]
-    },
-    "meta": { "est_chars": 389 }
+      "complexity": {
+        "caps": true,
+        "punct": true
+      },
+      "phonics": [
+        "ks4-etym-vac"
+      ]
+    }
   },
   {
     "id": "ks4_medicine_cancer-development_v1",
@@ -690,10 +918,14 @@
     "title": "Cancer Development",
     "text": "Cancer develops when cells grow uncontrollably, often triggered by a carcinogen or genetic mutation. Tumours can spread to other parts of the body, affecting vital organs. Early detection improves survival rates. Research into genetics and lifestyle factors helps doctors create personalised treatments and encourage healthier choices to reduce cancer risk.",
     "tags": {
-      "complexity": { "caps": true, "punct": true },
-      "phonics": ["ks4-etym-gen"]
-    },
-    "meta": { "est_chars": 409 }
+      "complexity": {
+        "caps": true,
+        "punct": true
+      },
+      "phonics": [
+        "ks4-etym-gen"
+      ]
+    }
   },
   {
     "id": "ks4_medicine_vaccinated-populations_v1",
@@ -702,10 +934,14 @@
     "title": "Vaccinated Populations",
     "text": "When a high percentage of a population is vaccinated, herd immunity forms. This protects individuals who cannot receive vaccines due to medical conditions. Maintaining vaccination levels is essential for preventing disease resurgence. Successful vaccination campaigns show how science and community cooperation safeguard public health across local and global communities.",
     "tags": {
-      "complexity": { "caps": true, "punct": true },
-      "phonics": ["ks4-etym-vac"]
-    },
-    "meta": { "est_chars": 408 }
+      "complexity": {
+        "caps": true,
+        "punct": true
+      },
+      "phonics": [
+        "ks4-etym-vac"
+      ]
+    }
   },
   {
     "id": "ks4_medicine_genomics-in-medicine_v1",
@@ -714,10 +950,14 @@
     "title": "Genomics in Medicine",
     "text": "Genomics involves studying the entire DNA sequence of an organism to understand how genes influence health. In modern medicine, genomics helps identify disease risks and personalise treatment plans. Advances in genetics allow doctors to predict how patients may respond to medicines, improving outcomes and reducing harmful side effects.",
     "tags": {
-      "complexity": { "caps": true, "punct": true },
-      "phonics": ["ks4-etym-gen"]
-    },
-    "meta": { "est_chars": 401 }
+      "complexity": {
+        "caps": true,
+        "punct": true
+      },
+      "phonics": [
+        "ks4-etym-gen"
+      ]
+    }
   },
   {
     "id": "ks4_atomic_structure-of-atom_v1",
@@ -725,8 +965,15 @@
     "theme": "Atomic Structure",
     "title": "Structure of the Atom",
     "text": "Atoms consist of a nucleus surrounded by electrons arranged in shells. Protons carry a positive charge, while neutrons have no charge. Electrons move around the nucleus and influence chemical reactions. Understanding the role of each -tron particle helps explain atomic behaviour and the differences between elements in the periodic table.",
-    "tags": { "complexity": { "caps": true, "punct": true }, "phonics": ["ks4-etym-tron"] },
-    "meta": { "est_chars": 393 }
+    "tags": {
+      "complexity": {
+        "caps": true,
+        "punct": true
+      },
+      "phonics": [
+        "ks4-etym-tron"
+      ]
+    }
   },
   {
     "id": "ks4_atomic_isotopes-defined_v1",
@@ -734,8 +981,15 @@
     "theme": "Atomic Structure",
     "title": "What Are Isotopes?",
     "text": "Isotopes are atoms of the same element with equal numbers of protons but different numbers of neutrons. This means they share chemical properties but vary in mass. Some isotopes are unstable and release radiation. Understanding the iso concept helps explain atomic models and nuclear processes used in medicine and industry.",
-    "tags": { "complexity": { "caps": true, "punct": true }, "phonics": ["ks4-etym-iso"] },
-    "meta": { "est_chars": 383 }
+    "tags": {
+      "complexity": {
+        "caps": true,
+        "punct": true
+      },
+      "phonics": [
+        "ks4-etym-iso"
+      ]
+    }
   },
   {
     "id": "ks4_atomic_electron-shells_v1",
@@ -743,8 +997,15 @@
     "theme": "Atomic Structure",
     "title": "Electron Shells",
     "text": "Electrons occupy shells around the nucleus, and each shell holds a fixed number of electrons. The arrangement of electrons determines an element’s reactivity. Atoms with full outer shells are stable, while those missing electrons bond to achieve stability. Understanding electron structure is essential for learning about chemical reactions and bonding.",
-    "tags": { "complexity": { "caps": true, "punct": true }, "phonics": ["ks4-etym-tron"] },
-    "meta": { "est_chars": 388 }
+    "tags": {
+      "complexity": {
+        "caps": true,
+        "punct": true
+      },
+      "phonics": [
+        "ks4-etym-tron"
+      ]
+    }
   },
   {
     "id": "ks4_atomic_isobar-vs-isotope_v1",
@@ -752,8 +1013,15 @@
     "theme": "Atomic Structure",
     "title": "Isobars and Isotopes",
     "text": "Isobars have equal mass numbers but belong to different elements, whereas isotopes are forms of the same element. Both use the iso root meaning equal, yet they refer to different atomic features. Recognising the distinction between isobars and isotopes supports deeper understanding of nuclear chemistry and atomic classification.",
-    "tags": { "complexity": { "caps": true, "punct": true }, "phonics": ["ks4-etym-iso"] },
-    "meta": { "est_chars": 383 }
+    "tags": {
+      "complexity": {
+        "caps": true,
+        "punct": true
+      },
+      "phonics": [
+        "ks4-etym-iso"
+      ]
+    }
   },
   {
     "id": "ks4_atomic_charges-of-trons_v1",
@@ -761,8 +1029,15 @@
     "theme": "Atomic Structure",
     "title": "Charges of the -trons",
     "text": "The three -tron particles have distinct charges. Protons are positive, electrons negative, and neutrons neutral. These charges determine how atoms interact, bond, and form compounds. For example, oppositely charged particles attract. Understanding these charges helps explain why elements combine in predictable ways and why compounds remain stable.",
-    "tags": { "complexity": { "caps": true, "punct": true }, "phonics": ["ks4-etym-tron"] },
-    "meta": { "est_chars": 383 }
+    "tags": {
+      "complexity": {
+        "caps": true,
+        "punct": true
+      },
+      "phonics": [
+        "ks4-etym-tron"
+      ]
+    }
   },
   {
     "id": "ks4_atomic_isomer-definition_v1",
@@ -770,8 +1045,15 @@
     "theme": "Atomic Structure",
     "title": "Understanding Isomers",
     "text": "Isomers are molecules with equal numbers of atoms of each element but arranged differently. Although their formulas appear identical, their structures vary, leading to different properties. This iso concept is important in organic chemistry because small structural changes can produce substances with contrasting uses, behaviours, and biological effects.",
-    "tags": { "complexity": { "caps": true, "punct": true }, "phonics": ["ks4-etym-iso"] },
-    "meta": { "est_chars": 390 }
+    "tags": {
+      "complexity": {
+        "caps": true,
+        "punct": true
+      },
+      "phonics": [
+        "ks4-etym-iso"
+      ]
+    }
   },
   {
     "id": "ks4_atomic_ionic-bonding_v1",
@@ -779,8 +1061,15 @@
     "theme": "Atomic Structure",
     "title": "Ionic Bonding",
     "text": "Ionic bonding occurs when electrons transfer from one atom to another. Atoms form ions with opposite charges, attracting to create a strong bond. This often happens between metals and non-metals. The structure of ionic compounds produces high melting points and distinctive crystal lattices found in many everyday substances such as salt.",
-    "tags": { "complexity": { "caps": true, "punct": true }, "phonics": ["ks4-etym-tron"] },
-    "meta": { "est_chars": 392 }
+    "tags": {
+      "complexity": {
+        "caps": true,
+        "punct": true
+      },
+      "phonics": [
+        "ks4-etym-tron"
+      ]
+    }
   },
   {
     "id": "ks4_atomic_iso-chemistry-models_v1",
@@ -788,8 +1077,15 @@
     "theme": "Atomic Structure",
     "title": "Iso Prefix in Chemistry",
     "text": "The prefix iso helps scientists group substances with equal or similar features. For example, isotopes share proton numbers, and isomers share formulae but differ structurally. Learning the iso meaning enables students to decode scientific vocabulary more confidently and recognise patterns across different branches of chemistry and physics.",
-    "tags": { "complexity": { "caps": true, "punct": true }, "phonics": ["ks4-etym-iso"] },
-    "meta": { "est_chars": 387 }
+    "tags": {
+      "complexity": {
+        "caps": true,
+        "punct": true
+      },
+      "phonics": [
+        "ks4-etym-iso"
+      ]
+    }
   },
   {
     "id": "ks4_atomic_covalent-bonding_v1",
@@ -797,8 +1093,15 @@
     "theme": "Atomic Structure",
     "title": "Covalent Bonding",
     "text": "Covalent bonding involves atoms sharing electrons to achieve stable outer shells. This type of bonding commonly occurs between non-metals. Covalent substances can form simple molecules or giant structures like diamond. Understanding covalent bonding explains why materials vary in hardness, melting point, and conductivity, linking structure to observable properties.",
-    "tags": { "complexity": { "caps": true, "punct": true }, "phonics": ["ks4-etym-tron"] },
-    "meta": { "est_chars": 389 }
+    "tags": {
+      "complexity": {
+        "caps": true,
+        "punct": true
+      },
+      "phonics": [
+        "ks4-etym-tron"
+      ]
+    }
   },
   {
     "id": "ks4_atomic_radioactivity-overview_v1",
@@ -806,8 +1109,15 @@
     "theme": "Atomic Structure",
     "title": "Radioactivity Overview",
     "text": "Radioactivity occurs when unstable isotopes release energy as radiation. Alpha, beta, and gamma emissions differ in charge, mass, and penetration. Radioactive decay follows predictable patterns and is measured using half-life. Understanding radioactivity helps explain nuclear medicine, energy production, and the safety measures needed to handle radioactive materials responsibly.",
-    "tags": { "complexity": { "caps": true, "punct": true }, "phonics": ["ks4-etym-iso"] },
-    "meta": { "est_chars": 400 }
+    "tags": {
+      "complexity": {
+        "caps": true,
+        "punct": true
+      },
+      "phonics": [
+        "ks4-etym-iso"
+      ]
+    }
   },
   {
     "id": "ks4_atomic_subatomic-particles_v1",
@@ -815,8 +1125,15 @@
     "theme": "Atomic Structure",
     "title": "Subatomic Particles",
     "text": "Atoms are built from three subatomic particles: protons, neutrons, and electrons. Each particle contributes to atomic mass, charge, and chemical behaviour. Protons define the element, neutrons affect stability, and electrons control bonding. Knowing the function of each -tron supports accurate understanding of the periodic table and chemical reactions.",
-    "tags": { "complexity": { "caps": true, "punct": true }, "phonics": ["ks4-etym-tron"] },
-    "meta": { "est_chars": 396 }
+    "tags": {
+      "complexity": {
+        "caps": true,
+        "punct": true
+      },
+      "phonics": [
+        "ks4-etym-tron"
+      ]
+    }
   },
   {
     "id": "ks4_atomic_half-life_v1",
@@ -824,8 +1141,15 @@
     "theme": "Atomic Structure",
     "title": "Half-Life Explained",
     "text": "Half-life is the time it takes for half of the atoms in a radioactive isotope to decay. Different isotopes have different half-lives, ranging from fractions of a second to millions of years. Understanding half-life helps scientists select suitable isotopes for medical scans, carbon dating, and nuclear technology applications.",
-    "tags": { "complexity": { "caps": true, "punct": true }, "phonics": ["ks4-etym-iso"] },
-    "meta": { "est_chars": 381 }
+    "tags": {
+      "complexity": {
+        "caps": true,
+        "punct": true
+      },
+      "phonics": [
+        "ks4-etym-iso"
+      ]
+    }
   },
   {
     "id": "ks4_atomic_metallic-bonding_v1",
@@ -833,8 +1157,15 @@
     "theme": "Atomic Structure",
     "title": "Metallic Bonding",
     "text": "Metallic bonding occurs when positive metal ions are surrounded by a sea of delocalised electrons. This structure explains why metals conduct electricity and heat. The strong attraction between ions and electrons makes metals malleable and ductile. Understanding metallic bonding links atomic structure to the useful properties of everyday metals.",
-    "tags": { "complexity": { "caps": true, "punct": true }, "phonics": ["ks4-etym-tron"] },
-    "meta": { "est_chars": 400 }
+    "tags": {
+      "complexity": {
+        "caps": true,
+        "punct": true
+      },
+      "phonics": [
+        "ks4-etym-tron"
+      ]
+    }
   },
   {
     "id": "ks4_atomic_isotope-uses_v1",
@@ -842,8 +1173,15 @@
     "theme": "Atomic Structure",
     "title": "Uses of Isotopes",
     "text": "Isotopes have important uses in medicine, industry, and research. Radioactive isotopes can track chemical processes, diagnose illness, or sterilise equipment. Stable isotopes help scientists study climate change by analysing ice and rock samples. The iso concept supports understanding of why atoms with equal protons but differing neutrons behave uniquely.",
-    "tags": { "complexity": { "caps": true, "punct": true }, "phonics": ["ks4-etym-iso"] },
-    "meta": { "est_chars": 404 }
+    "tags": {
+      "complexity": {
+        "caps": true,
+        "punct": true
+      },
+      "phonics": [
+        "ks4-etym-iso"
+      ]
+    }
   },
   {
     "id": "ks4_atomic_periodic-table-links_v1",
@@ -851,8 +1189,15 @@
     "theme": "Atomic Structure",
     "title": "Periodic Table Connections",
     "text": "The periodic table is organised by atomic number, which counts protons. Electrons influence group trends, while neutrons explain isotope variation. Understanding -tron particles helps students recognise patterns in reactivity, bonding, and physical properties. This knowledge links atomic structure to the wider organisation of elements and chemical behaviour.",
-    "tags": { "complexity": { "caps": true, "punct": true }, "phonics": ["ks4-etym-tron"] },
-    "meta": { "est_chars": 395 }
+    "tags": {
+      "complexity": {
+        "caps": true,
+        "punct": true
+      },
+      "phonics": [
+        "ks4-etym-tron"
+      ]
+    }
   },
   {
     "id": "ks4_energy_energy-transfer_v1",
@@ -860,8 +1205,15 @@
     "theme": "Energy & Electricity",
     "title": "Energy Transfer",
     "text": "Energy transfer occurs when energy moves from one store to another, such as electrical energy changing to heat in a resistor. Understanding how energy transfers helps evaluate efficiency in devices. For example, a kettle transfers electrical energy into thermal energy to heat water, but some energy is always wasted to the surroundings.",
-    "tags": { "complexity": { "caps": true, "punct": true }, "phonics": ["ks4-etym-trans"] },
-    "meta": { "est_chars": 403 }
+    "tags": {
+      "complexity": {
+        "caps": true,
+        "punct": true
+      },
+      "phonics": [
+        "ks4-etym-trans"
+      ]
+    }
   },
   {
     "id": "ks4_energy_what-is-electricity_v1",
@@ -869,8 +1221,15 @@
     "theme": "Energy & Electricity",
     "title": "What Is Electricity?",
     "text": "Electricity is the flow of charge through a circuit, enabling devices to work. It powers lighting, heating, and communication systems worldwide. Understanding electricity helps explain how circuits operate and how energy is transmitted over long distances. Safe use of electricity is vital to prevent shocks, fires, and equipment damage in homes and schools.",
-    "tags": { "complexity": { "caps": true, "punct": true }, "phonics": ["ks4-etym-ity"] },
-    "meta": { "est_chars": 405 }
+    "tags": {
+      "complexity": {
+        "caps": true,
+        "punct": true
+      },
+      "phonics": [
+        "ks4-etym-ity"
+      ]
+    }
   },
   {
     "id": "ks4_energy_transformers_v1",
@@ -878,8 +1237,15 @@
     "theme": "Energy & Electricity",
     "title": "Transformers",
     "text": "A transformer changes the potential difference of an alternating current. Step-up transformers increase voltage for efficient transmission across long distances, while step-down transformers reduce voltage for safe domestic use. Understanding how transformers operate supports learning about energy transfer in the National Grid and the importance of reducing energy losses.",
-    "tags": { "complexity": { "caps": true, "punct": true }, "phonics": ["ks4-etym-trans"] },
-    "meta": { "est_chars": 405 }
+    "tags": {
+      "complexity": {
+        "caps": true,
+        "punct": true
+      },
+      "phonics": [
+        "ks4-etym-trans"
+      ]
+    }
   },
   {
     "id": "ks4_energy_resistance-resistivity_v1",
@@ -887,8 +1253,15 @@
     "theme": "Energy & Electricity",
     "title": "Resistance and Resistivity",
     "text": "Resistance opposes the flow of charge in a circuit, while resistivity is a property of a material that determines how strongly it resists current. Metals usually have low resistivity, enabling efficient conduction. Understanding resistivity helps engineers choose suitable materials for wires and components to reduce energy loss in electrical systems.",
-    "tags": { "complexity": { "caps": true, "punct": true }, "phonics": ["ks4-etym-ity"] },
-    "meta": { "est_chars": 405 }
+    "tags": {
+      "complexity": {
+        "caps": true,
+        "punct": true
+      },
+      "phonics": [
+        "ks4-etym-ity"
+      ]
+    }
   },
   {
     "id": "ks4_energy_transverse-waves_v1",
@@ -896,8 +1269,15 @@
     "theme": "Energy & Electricity",
     "title": "Transverse Waves",
     "text": "Transverse waves oscillate at right angles to the direction of energy transfer. Light and water waves are common examples. Understanding transverse wave behaviour helps students compare them with longitudinal waves, such as sound. Key features include wavelength, frequency, and amplitude, which influence the wave’s energy and observable effects in experiments.",
-    "tags": { "complexity": { "caps": true, "punct": true }, "phonics": ["ks4-etym-trans"] },
-    "meta": { "est_chars": 396 }
+    "tags": {
+      "complexity": {
+        "caps": true,
+        "punct": true
+      },
+      "phonics": [
+        "ks4-etym-trans"
+      ]
+    }
   },
   {
     "id": "ks4_energy_circuit-measurement_v1",
@@ -905,8 +1285,15 @@
     "theme": "Energy & Electricity",
     "title": "Measuring Circuits",
     "text": "An ammeter measures current in a circuit, and a voltmeter measures potential difference across components. A thermistor changes resistance with temperature, making it useful in sensors. Knowing how to connect components safely enables accurate data collection. Understanding circuit measurement is essential for investigating how different variables affect electrical performance.",
-    "tags": { "complexity": { "caps": true, "punct": true }, "phonics": ["ks4-etym-ity"] },
-    "meta": { "est_chars": 401 }
+    "tags": {
+      "complexity": {
+        "caps": true,
+        "punct": true
+      },
+      "phonics": [
+        "ks4-etym-ity"
+      ]
+    }
   },
   {
     "id": "ks4_energy_national-grid-transfer_v1",
@@ -914,8 +1301,15 @@
     "theme": "Energy & Electricity",
     "title": "National Grid Transfer",
     "text": "The National Grid transfers electrical energy from power stations to homes and businesses across the country. Step-up and step-down transformers reduce energy losses during transmission. Understanding energy transfer in the Grid highlights the importance of efficiency and infrastructure in supplying reliable electricity to support modern society and technology.",
-    "tags": { "complexity": { "caps": true, "punct": true }, "phonics": ["ks4-etym-trans"] },
-    "meta": { "est_chars": 403 }
+    "tags": {
+      "complexity": {
+        "caps": true,
+        "punct": true
+      },
+      "phonics": [
+        "ks4-etym-trans"
+      ]
+    }
   },
   {
     "id": "ks4_energy_energy-security_v1",
@@ -923,8 +1317,15 @@
     "theme": "Energy & Electricity",
     "title": "Energy Security",
     "text": "Energy security means ensuring a stable and affordable supply of energy for a nation. Electricity plays a key role in transport, healthcare, and communication. Countries invest in a mix of renewable and non-renewable resources to avoid shortages. Improving energy security supports economic stability and protects communities from power outages and rising costs.",
-    "tags": { "complexity": { "caps": true, "punct": true }, "phonics": ["ks4-etym-ity"] },
-    "meta": { "est_chars": 408 }
+    "tags": {
+      "complexity": {
+        "caps": true,
+        "punct": true
+      },
+      "phonics": [
+        "ks4-etym-ity"
+      ]
+    }
   },
   {
     "id": "ks4_energy_transmission-losses_v1",
@@ -932,8 +1333,15 @@
     "theme": "Energy & Electricity",
     "title": "Transmission Losses",
     "text": "Energy is lost as heat when electricity travels through long cables due to resistance. To reduce losses, electricity is transmitted at high voltage and low current. Transformers adjust voltage levels during transfer across the National Grid. Understanding transmission losses highlights the importance of efficient design in large-scale energy distribution networks.",
-    "tags": { "complexity": { "caps": true, "punct": true }, "phonics": ["ks4-etym-trans"] },
-    "meta": { "est_chars": 401 }
+    "tags": {
+      "complexity": {
+        "caps": true,
+        "punct": true
+      },
+      "phonics": [
+        "ks4-etym-trans"
+      ]
+    }
   },
   {
     "id": "ks4_energy_velocity-and-waves_v1",
@@ -941,8 +1349,15 @@
     "theme": "Energy & Electricity",
     "title": "Velocity of Waves",
     "text": "Velocity describes the speed a wave travels in a given direction. It is calculated using frequency and wavelength. Understanding velocity helps compare wave behaviour in different materials, such as light travelling faster in air than glass. This knowledge supports learning in both electricity and physics, especially when studying electromagnetic waves and communication technologies.",
-    "tags": { "complexity": { "caps": true, "punct": true }, "phonics": ["ks4-etym-ity"] },
-    "meta": { "est_chars": 413 }
+    "tags": {
+      "complexity": {
+        "caps": true,
+        "punct": true
+      },
+      "phonics": [
+        "ks4-etym-ity"
+      ]
+    }
   },
   {
     "id": "ks4_energy_solar-transfer_v1",
@@ -950,8 +1365,15 @@
     "theme": "Energy & Electricity",
     "title": "Solar Energy Transfer",
     "text": "Solar panels transfer energy from sunlight into electrical energy using photovoltaic cells. They provide renewable energy with low emissions, but output varies with weather and location. Understanding energy transfer in solar systems helps evaluate their advantages and limitations, guiding decisions about sustainable energy use in homes and communities.",
-    "tags": { "complexity": { "caps": true, "punct": true }, "phonics": ["ks4-etym-trans"] },
-    "meta": { "est_chars": 395 }
+    "tags": {
+      "complexity": {
+        "caps": true,
+        "punct": true
+      },
+      "phonics": [
+        "ks4-etym-trans"
+      ]
+    }
   },
   {
     "id": "ks4_energy_electricity-demand_v1",
@@ -959,8 +1381,15 @@
     "theme": "Energy & Electricity",
     "title": "Electricity Demand",
     "text": "Electricity demand changes throughout the day, increasing in the morning and evening. Power stations must respond quickly to ensure supply meets demand. Reliable electricity is essential for healthcare, transport, and communication. Managing electricity demand encourages efficient energy use and reduces environmental impact by lowering reliance on fossil fuels during peak times.",
-    "tags": { "complexity": { "caps": true, "punct": true }, "phonics": ["ks4-etym-ity"] },
-    "meta": { "est_chars": 419 }
+    "tags": {
+      "complexity": {
+        "caps": true,
+        "punct": true
+      },
+      "phonics": [
+        "ks4-etym-ity"
+      ]
+    }
   },
   {
     "id": "ks4_energy_transverse-vs-longitudinal_v1",
@@ -968,8 +1397,15 @@
     "theme": "Energy & Electricity",
     "title": "Transverse vs Longitudinal",
     "text": "Transverse waves vibrate perpendicular to energy transfer, while longitudinal waves vibrate parallel to it. Understanding these differences explains how sound and electromagnetic waves travel. Transverse waves include light and water waves. Recognising wave behaviour supports learning in electricity, as electromagnetic waves enable communication, remote sensing, and modern digital technology.",
-    "tags": { "complexity": { "caps": true, "punct": true }, "phonics": ["ks4-etym-trans"] },
-    "meta": { "est_chars": 419 }
+    "tags": {
+      "complexity": {
+        "caps": true,
+        "punct": true
+      },
+      "phonics": [
+        "ks4-etym-trans"
+      ]
+    }
   },
   {
     "id": "ks4_energy_sustainability_v1",
@@ -977,8 +1413,15 @@
     "theme": "Energy & Electricity",
     "title": "Sustainability and Energy",
     "text": "Sustainability focuses on meeting current energy needs without harming future generations. Electricity generation must balance environmental impact, cost, and reliability. Renewable resources like wind and solar reduce emissions, while nuclear provides consistent power. Understanding sustainability encourages informed choices about energy use at home, school, and within wider society.",
-    "tags": { "complexity": { "caps": true, "punct": true }, "phonics": ["ks4-etym-ity"] },
-    "meta": { "est_chars": 407 }
+    "tags": {
+      "complexity": {
+        "caps": true,
+        "punct": true
+      },
+      "phonics": [
+        "ks4-etym-ity"
+      ]
+    }
   },
   {
     "id": "ks4_coasts_coastal-deposition_v1",
@@ -986,8 +1429,15 @@
     "theme": "Coasts & Glaciation",
     "title": "Coastal Deposition",
     "text": "Deposition occurs when waves lose energy and drop sediment, forming features such as beaches and spits. The process involves placing material along the coastline, changing its shape over time. Understanding deposition helps explain why some coastal areas accumulate sand while others experience erosion and sediment removal by the sea.",
-    "tags": { "complexity": { "caps": true, "punct": true }, "phonics": ["ks4-etym-pos"] },
-    "meta": { "est_chars": 369 }
+    "tags": {
+      "complexity": {
+        "caps": true,
+        "punct": true
+      },
+      "phonics": [
+        "ks4-etym-pos"
+      ]
+    }
   },
   {
     "id": "ks4_coasts_hydraulic-action_v1",
@@ -995,8 +1445,15 @@
     "theme": "Coasts & Glaciation",
     "title": "Hydraulic Action",
     "text": "Hydraulic action is a form of erosion caused by water forcing air into cracks within rock. The pressure weakens the rock, breaking pieces away. This hydro process is particularly powerful during storms. Understanding hydraulic action helps explain how coastal landforms, such as cliffs and headlands, gradually change through wave attack.",
-    "tags": { "complexity": { "caps": true, "punct": true }, "phonics": ["ks4-etym-hydro"] },
-    "meta": { "est_chars": 390 }
+    "tags": {
+      "complexity": {
+        "caps": true,
+        "punct": true
+      },
+      "phonics": [
+        "ks4-etym-hydro"
+      ]
+    }
   },
   {
     "id": "ks4_coasts_spit-formation_v1",
@@ -1004,8 +1461,15 @@
     "theme": "Coasts & Glaciation",
     "title": "Spit Formation",
     "text": "Spits form when longshore drift transports sediment along the coast and deposition occurs as the coastline changes direction. Over time, sediment is placed in a curve extending out to sea. The sheltered area behind a spit often becomes a salt marsh. This demonstrates the importance of deposition in creating coastal features.",
-    "tags": { "complexity": { "caps": true, "punct": true }, "phonics": ["ks4-etym-pos"] },
-    "meta": { "est_chars": 386 }
+    "tags": {
+      "complexity": {
+        "caps": true,
+        "punct": true
+      },
+      "phonics": [
+        "ks4-etym-pos"
+      ]
+    }
   },
   {
     "id": "ks4_coasts_hydrology-coasts_v1",
@@ -1013,8 +1477,15 @@
     "theme": "Coasts & Glaciation",
     "title": "Hydrology and Coasts",
     "text": "Hydrology examines the movement and distribution of water on Earth. In coastal environments, hydrology influences tides, river flow, and groundwater. These hydro processes interact to shape coastal landscapes. Understanding hydrology is essential for predicting flooding, managing freshwater supplies, and protecting habitats near estuaries and shorelines.",
-    "tags": { "complexity": { "caps": true, "punct": true }, "phonics": ["ks4-etym-hydro"] },
-    "meta": { "est_chars": 382 }
+    "tags": {
+      "complexity": {
+        "caps": true,
+        "punct": true
+      },
+      "phonics": [
+        "ks4-etym-hydro"
+      ]
+    }
   },
   {
     "id": "ks4_coasts_wave-superposition_v1",
@@ -1022,8 +1493,15 @@
     "theme": "Coasts & Glaciation",
     "title": "Wave Superposition",
     "text": "Superposition describes the interaction of two waves that meet and combine to create a larger or smaller wave. This pos concept explains why wave heights vary along coastlines. Constructive interference builds higher waves, while destructive interference lowers them. Superposition influences erosion rates and coastal processes during different weather conditions.",
-    "tags": { "complexity": { "caps": true, "punct": true }, "phonics": ["ks4-etym-pos"] },
-    "meta": { "est_chars": 395 }
+    "tags": {
+      "complexity": {
+        "caps": true,
+        "punct": true
+      },
+      "phonics": [
+        "ks4-etym-pos"
+      ]
+    }
   },
   {
     "id": "ks4_coasts_hydrolysis-weathering_v1",
@@ -1031,8 +1509,15 @@
     "theme": "Coasts & Glaciation",
     "title": "Hydrolysis Weathering",
     "text": "Hydrolysis is a chemical weathering process where minerals react with water, forming new compounds. This hydro reaction weakens rocks, especially those containing feldspar. Over time, hydrolysis contributes to the breakdown of rock on both coastal cliffs and glacial landscapes. Understanding hydrolysis reveals how water influences long-term landscape evolution.",
-    "tags": { "complexity": { "caps": true, "punct": true }, "phonics": ["ks4-etym-hydro"] },
-    "meta": { "est_chars": 405 }
+    "tags": {
+      "complexity": {
+        "caps": true,
+        "punct": true
+      },
+      "phonics": [
+        "ks4-etym-hydro"
+      ]
+    }
   },
   {
     "id": "ks4_coasts_headlands-erosion_v1",
@@ -1040,8 +1525,15 @@
     "theme": "Coasts & Glaciation",
     "title": "Headlands and Erosion",
     "text": "Headlands form where harder rock resists erosion more effectively than surrounding softer rock. Waves concentrate energy on headlands, widening cracks through hydraulic action and abrasion. Over time, landforms such as caves, arches, and stacks may develop. Studying headlands shows how erosion and deposition interact to shape coastlines.",
-    "tags": { "complexity": { "caps": true, "punct": true }, "phonics": ["ks4-etym-hydro"] },
-    "meta": { "est_chars": 393 }
+    "tags": {
+      "complexity": {
+        "caps": true,
+        "punct": true
+      },
+      "phonics": [
+        "ks4-etym-hydro"
+      ]
+    }
   },
   {
     "id": "ks4_coasts_juxtaposition-processes_v1",
@@ -1049,8 +1541,15 @@
     "theme": "Coasts & Glaciation",
     "title": "Juxtaposition of Processes",
     "text": "Coastal landscapes result from the juxtaposition of erosion, transportation, and deposition. These pos processes operate together, sometimes at the same location. For example, one beach may erode at one end while deposition builds up the other. Understanding this juxtaposition helps explain why coastlines constantly change in response to wind and waves.",
-    "tags": { "complexity": { "caps": true, "punct": true }, "phonics": ["ks4-etym-pos"] },
-    "meta": { "est_chars": 399 }
+    "tags": {
+      "complexity": {
+        "caps": true,
+        "punct": true
+      },
+      "phonics": [
+        "ks4-etym-pos"
+      ]
+    }
   },
   {
     "id": "ks4_coasts_moraine-formation_v1",
@@ -1058,8 +1557,15 @@
     "theme": "Coasts & Glaciation",
     "title": "Moraine Formation",
     "text": "Moraines are ridges of sediment deposited by glaciers. As ice moves, it transports material and places it at the glacier’s sides or terminus. When the glacier melts, the deposited sediment remains, forming distinct landforms. Studying moraines helps explain how deposition shapes glaciated landscapes long after the ice has retreated.",
-    "tags": { "complexity": { "caps": true, "punct": true }, "phonics": ["ks4-etym-pos"] },
-    "meta": { "est_chars": 392 }
+    "tags": {
+      "complexity": {
+        "caps": true,
+        "punct": true
+      },
+      "phonics": [
+        "ks4-etym-pos"
+      ]
+    }
   },
   {
     "id": "ks4_coasts_corrie-formation_v1",
@@ -1067,8 +1573,15 @@
     "theme": "Coasts & Glaciation",
     "title": "Corrie Formation",
     "text": "Corries form in mountainous areas where snow collects and compacts into ice. The glacier erodes the hollow through abrasion and plucking. Meltwater from hydro processes aids erosion and movement. When the glacier retreats, a deep bowl-shaped hollow remains, often containing a tarn. Corries are key features of glacial landscapes.",
-    "tags": { "complexity": { "caps": true, "punct": true }, "phonics": ["ks4-etym-hydro"] },
-    "meta": { "est_chars": 391 }
+    "tags": {
+      "complexity": {
+        "caps": true,
+        "punct": true
+      },
+      "phonics": [
+        "ks4-etym-hydro"
+      ]
+    }
   },
   {
     "id": "ks4_coasts_transportation_v1",
@@ -1076,8 +1589,15 @@
     "theme": "Coasts & Glaciation",
     "title": "Transportation of Material",
     "text": "Transportation moves sediment along coastlines through processes such as longshore drift. Waves approach the shore at an angle, carrying material before depositing it further along the beach. This pos movement influences the development of spits and beaches. Understanding transportation is essential for managing coastal change and protecting vulnerable areas from erosion.",
-    "tags": { "complexity": { "caps": true, "punct": true }, "phonics": ["ks4-etym-pos"] },
-    "meta": { "est_chars": 405 }
+    "tags": {
+      "complexity": {
+        "caps": true,
+        "punct": true
+      },
+      "phonics": [
+        "ks4-etym-pos"
+      ]
+    }
   },
   {
     "id": "ks4_coasts_hydraulic-eruption_v1",
@@ -1085,8 +1605,15 @@
     "theme": "Coasts & Glaciation",
     "title": "Hydraulic Erosion in Glaciers",
     "text": "Glacial meltwater contributes to erosion through hydraulic pressure. Water flows into cracks beneath the ice and widens them as it freezes and thaws. This hydro action helps loosen rock, which the glacier later transports. Understanding hydraulic erosion explains how glaciers reshape valleys into characteristic U-shaped landforms over thousands of years.",
-    "tags": { "complexity": { "caps": true, "punct": true }, "phonics": ["ks4-etym-hydro"] },
-    "meta": { "est_chars": 402 }
+    "tags": {
+      "complexity": {
+        "caps": true,
+        "punct": true
+      },
+      "phonics": [
+        "ks4-etym-hydro"
+      ]
+    }
   },
   {
     "id": "ks4_coasts_arete-formation_v1",
@@ -1094,8 +1621,15 @@
     "theme": "Coasts & Glaciation",
     "title": "Arete Formation",
     "text": "Aretes form when two corries develop back-to-back, eroding the mountain ridge between them. Over time, freeze-thaw weathering and glacial erosion sharpen the ridge. Although no deposition occurs on the arete itself, nearby valleys display glacial sediment. Aretes highlight how erosion and deposition shape contrasting features in glacial landscapes.",
-    "tags": { "complexity": { "caps": true, "punct": true }, "phonics": ["ks4-etym-pos"] },
-    "meta": { "est_chars": 399 }
+    "tags": {
+      "complexity": {
+        "caps": true,
+        "punct": true
+      },
+      "phonics": [
+        "ks4-etym-pos"
+      ]
+    }
   },
   {
     "id": "ks4_coasts_hydro-power_v1",
@@ -1103,8 +1637,15 @@
     "theme": "Coasts & Glaciation",
     "title": "Hydro Power",
     "text": "Hydro power uses moving water to generate electricity. Dams store water, which flows through turbines to produce energy. This renewable hydro resource reduces reliance on fossil fuels and lowers carbon emissions. However, hydro schemes can impact habitats and local communities. Understanding hydro power helps assess its benefits and challenges in sustainable energy planning.",
-    "tags": { "complexity": { "caps": true, "punct": true }, "phonics": ["ks4-etym-hydro"] },
-    "meta": { "est_chars": 407 }
+    "tags": {
+      "complexity": {
+        "caps": true,
+        "punct": true
+      },
+      "phonics": [
+        "ks4-etym-hydro"
+      ]
+    }
   },
   {
     "id": "ks4_coasts_depositional-vs-erosional_v1",
@@ -1112,8 +1653,15 @@
     "theme": "Coasts & Glaciation",
     "title": "Depositional vs Erosional Coasts",
     "text": "Some coastlines are dominated by deposition, forming beaches, spits, and bars, while others experience more erosion, forming headlands, arches, and stacks. The juxtaposition of these contrasting landscapes can occur over short distances. Understanding deposition and erosion helps explain coastal management strategies such as groynes and beach nourishment.",
-    "tags": { "complexity": { "caps": true, "punct": true }, "phonics": ["ks4-etym-pos"] },
-    "meta": { "est_chars": 405 }
+    "tags": {
+      "complexity": {
+        "caps": true,
+        "punct": true
+      },
+      "phonics": [
+        "ks4-etym-pos"
+      ]
+    }
   },
   {
     "id": "ks4_econ_inflation-impact_v1",
@@ -1121,8 +1669,15 @@
     "theme": "Economic Principles",
     "title": "Impact of Inflation",
     "text": "Inflation occurs when the general price level of goods and services rises over time. It reduces the purchasing power of money and can influence consumer behaviour. Governments use taxation and interest rates to manage inflation. Understanding inflation helps explain why prices change and how it affects households, businesses, and the wider economy.",
-    "tags": { "complexity": { "caps": true, "punct": true }, "phonics": ["ks4-etym-ation"] },
-    "meta": { "est_chars": 409 }
+    "tags": {
+      "complexity": {
+        "caps": true,
+        "punct": true
+      },
+      "phonics": [
+        "ks4-etym-ation"
+      ]
+    }
   },
   {
     "id": "ks4_econ_market-equilibrium_v1",
@@ -1130,8 +1685,15 @@
     "theme": "Economic Principles",
     "title": "Market Equilibrium",
     "text": "Market equilibrium is achieved when supply and demand are equal, resulting in a stable price. If demand rises or supply falls, equilibrium changes and prices adjust. Understanding equilibrium helps explain how markets respond to consumer choices and production costs, influencing decisions made by firms and governments in different economic situations.",
-    "tags": { "complexity": { "caps": true, "punct": true }, "phonics": ["ks4-etym-equi"] },
-    "meta": { "est_chars": 408 }
+    "tags": {
+      "complexity": {
+        "caps": true,
+        "punct": true
+      },
+      "phonics": [
+        "ks4-etym-equi"
+      ]
+    }
   },
   {
     "id": "ks4_econ_globalisation_v1",
@@ -1139,8 +1701,15 @@
     "theme": "Economic Principles",
     "title": "Globalisation",
     "text": "Globalisation increases connections between countries through trade, communication, and the movement of people. Businesses expand across borders, influencing employment and cultural exchange. Critics argue that globalisation can widen inequality, while supporters highlight new opportunities for growth. Understanding globalisation helps students evaluate its benefits and challenges in modern economies.",
-    "tags": { "complexity": { "caps": true, "punct": true }, "phonics": ["ks4-etym-ation"] },
-    "meta": { "est_chars": 396 }
+    "tags": {
+      "complexity": {
+        "caps": true,
+        "punct": true
+      },
+      "phonics": [
+        "ks4-etym-ation"
+      ]
+    }
   },
   {
     "id": "ks4_econ_equity-fairness_v1",
@@ -1148,8 +1717,15 @@
     "theme": "Economic Principles",
     "title": "Equity and Fairness",
     "text": "Equity refers to fairness in the distribution of resources and opportunities. Governments may use taxation and welfare to reduce inequality. Although equality treats everyone the same, equity recognises that people may need different support to reach similar outcomes. Understanding equity helps explain debates about fairness and economic justice in society.",
-    "tags": { "complexity": { "caps": true, "punct": true }, "phonics": ["ks4-etym-equi"] },
-    "meta": { "est_chars": 405 }
+    "tags": {
+      "complexity": {
+        "caps": true,
+        "punct": true
+      },
+      "phonics": [
+        "ks4-etym-equi"
+      ]
+    }
   },
   {
     "id": "ks4_econ_taxation-purpose_v1",
@@ -1157,8 +1733,15 @@
     "theme": "Economic Principles",
     "title": "Purpose of Taxation",
     "text": "Taxation provides governments with revenue to fund essential services such as healthcare, education, and transport. Taxes also influence behaviour, for example through charges on pollution. Understanding taxation helps explain how governments manage public spending, redistribute wealth, and stabilise the economy during periods of growth or recession.",
-    "tags": { "complexity": { "caps": true, "punct": true }, "phonics": ["ks4-etym-ation"] },
-    "meta": { "est_chars": 388 }
+    "tags": {
+      "complexity": {
+        "caps": true,
+        "punct": true
+      },
+      "phonics": [
+        "ks4-etym-ation"
+      ]
+    }
   },
   {
     "id": "ks4_econ_equidistant-locations_v1",
@@ -1166,8 +1749,15 @@
     "theme": "Economic Principles",
     "title": "Equidistant Locations",
     "text": "Businesses consider whether locations are equidistant from suppliers and customers to reduce transport costs and improve efficiency. Being equidistant can help firms reach wider markets fairly. Understanding this equi concept supports analysis of business geography and explains why certain areas attract industries while others remain less economically developed.",
-    "tags": { "complexity": { "caps": true, "punct": true }, "phonics": ["ks4-etym-equi"] },
-    "meta": { "est_chars": 398 }
+    "tags": {
+      "complexity": {
+        "caps": true,
+        "punct": true
+      },
+      "phonics": [
+        "ks4-etym-equi"
+      ]
+    }
   },
   {
     "id": "ks4_econ_supply-and-demand_v1",
@@ -1175,8 +1765,15 @@
     "theme": "Economic Principles",
     "title": "Supply and Demand",
     "text": "Supply is the amount producers are willing to sell, while demand is the desire and ability of consumers to buy. Scarcity and surplus influence price changes in a market. Understanding supply and demand helps explain how everyday prices are set and why they vary during events like sales or shortages in shops.",
-    "tags": { "complexity": { "caps": true, "punct": true }, "phonics": ["ks4-etym-ation"] },
-    "meta": { "est_chars": 393 }
+    "tags": {
+      "complexity": {
+        "caps": true,
+        "punct": true
+      },
+      "phonics": [
+        "ks4-etym-ation"
+      ]
+    }
   },
   {
     "id": "ks4_econ_monopoly_v1",
@@ -1184,8 +1781,15 @@
     "theme": "Economic Principles",
     "title": "Monopoly Power",
     "text": "A monopoly exists when one firm dominates a market and can influence prices. Without competition, consumers may face higher costs or fewer choices. Governments regulate monopolies to protect consumer interests. Studying market structures such as monopoly helps explain how different levels of competition affect prices, quality, and innovation in the economy.",
-    "tags": { "complexity": { "caps": true, "punct": true }, "phonics": ["ks4-etym-equi"] },
-    "meta": { "est_chars": 413 }
+    "tags": {
+      "complexity": {
+        "caps": true,
+        "punct": true
+      },
+      "phonics": [
+        "ks4-etym-equi"
+      ]
+    }
   },
   {
     "id": "ks4_econ_inflation-causes_v1",
@@ -1193,8 +1797,15 @@
     "theme": "Economic Principles",
     "title": "Causes of Inflation",
     "text": "Inflation can be caused by demand rising faster than supply or by increased production costs. For example, higher wages or energy prices push up the cost of goods. Governments monitor inflation to maintain economic stability. Understanding inflation helps explain why central banks adjust interest rates to control spending and borrowing in the economy.",
-    "tags": { "complexity": { "caps": true, "punct": true }, "phonics": ["ks4-etym-ation"] },
-    "meta": { "est_chars": 416 }
+    "tags": {
+      "complexity": {
+        "caps": true,
+        "punct": true
+      },
+      "phonics": [
+        "ks4-etym-ation"
+      ]
+    }
   },
   {
     "id": "ks4_econ_equilibrium-changes_v1",
@@ -1202,8 +1813,15 @@
     "theme": "Economic Principles",
     "title": "Changing Equilibrium",
     "text": "Market equilibrium can change when external factors influence supply or demand. For instance, new technology may increase supply, lowering prices. Alternatively, trends can increase demand, raising prices. Understanding equilibrium changes helps explain how markets respond to events and why businesses adapt strategies to remain competitive and meet consumer expectations.",
-    "tags": { "complexity": { "caps": true, "punct": true }, "phonics": ["ks4-etym-equi"] },
-    "meta": { "est_chars": 409 }
+    "tags": {
+      "complexity": {
+        "caps": true,
+        "punct": true
+      },
+      "phonics": [
+        "ks4-etym-equi"
+      ]
+    }
   },
   {
     "id": "ks4_econ_globalisation-trade_v1",
@@ -1211,8 +1829,15 @@
     "theme": "Economic Principles",
     "title": "Globalisation and Trade",
     "text": "Globalisation encourages international trade, enabling countries to specialise in goods they produce efficiently. It increases consumer choice and can reduce prices. However, some local industries may struggle to compete. Understanding globalisation helps students evaluate how trade links economies, influences employment, and affects environmental and ethical decisions worldwide.",
-    "tags": { "complexity": { "caps": true, "punct": true }, "phonics": ["ks4-etym-ation"] },
-    "meta": { "est_chars": 405 }
+    "tags": {
+      "complexity": {
+        "caps": true,
+        "punct": true
+      },
+      "phonics": [
+        "ks4-etym-ation"
+      ]
+    }
   },
   {
     "id": "ks4_econ_equity-investment_v1",
@@ -1220,8 +1845,15 @@
     "theme": "Economic Principles",
     "title": "Equity in Business",
     "text": "Equity in business refers to ownership of a company, often through shares. Investors provide capital in return for equity, gaining a share of profits. Equity financing helps businesses expand without borrowing. Understanding equity supports analysis of business growth, investor decisions, and the balance between risk and potential financial reward.",
-    "tags": { "complexity": { "caps": true, "punct": true }, "phonics": ["ks4-etym-equi"] },
-    "meta": { "est_chars": 402 }
+    "tags": {
+      "complexity": {
+        "caps": true,
+        "punct": true
+      },
+      "phonics": [
+        "ks4-etym-equi"
+      ]
+    }
   },
   {
     "id": "ks4_econ_taxation-effects_v1",
@@ -1229,8 +1861,15 @@
     "theme": "Economic Principles",
     "title": "Effects of Taxation",
     "text": "Taxation influences consumer spending and business behaviour. Higher taxes may reduce disposable income, lowering demand for goods. Lower taxes can stimulate economic activity. Governments balance taxation to fund public services while supporting growth. Understanding taxation helps explain how policies impact living standards and economic performance across different income groups.",
-    "tags": { "complexity": { "caps": true, "punct": true }, "phonics": ["ks4-etym-ation"] },
-    "meta": { "est_chars": 411 }
+    "tags": {
+      "complexity": {
+        "caps": true,
+        "punct": true
+      },
+      "phonics": [
+        "ks4-etym-ation"
+      ]
+    }
   },
   {
     "id": "ks4_econ_competition_v1",
@@ -1238,8 +1877,15 @@
     "theme": "Economic Principles",
     "title": "Competition in Markets",
     "text": "Competition occurs when multiple firms offer similar products. It encourages lower prices, higher quality, and innovation. In highly competitive markets, consumers benefit from choice and value. Understanding competition helps explain why governments may prevent monopolies forming and support fair market conditions that protect consumer interests and economic growth.",
-    "tags": { "complexity": { "caps": true, "punct": true }, "phonics": ["ks4-etym-equi"] },
-    "meta": { "est_chars": 406 }
+    "tags": {
+      "complexity": {
+        "caps": true,
+        "punct": true
+      },
+      "phonics": [
+        "ks4-etym-equi"
+      ]
+    }
   },
   {
     "id": "ks4_econ_globalisation-labour_v1",
@@ -1247,8 +1893,15 @@
     "theme": "Economic Principles",
     "title": "Globalisation and Labour",
     "text": "Globalisation affects labour markets as businesses relocate production to countries with lower costs. This can create jobs abroad but reduce employment in higher-cost regions. Understanding globalisation helps explain debates about working conditions, wages, and ethical production. It encourages students to consider how economic choices impact people around the world.",
-    "tags": { "complexity": { "caps": true, "punct": true }, "phonics": ["ks4-etym-ation"] },
-    "meta": { "est_chars": 402 }
+    "tags": {
+      "complexity": {
+        "caps": true,
+        "punct": true
+      },
+      "phonics": [
+        "ks4-etym-ation"
+      ]
+    }
   },
   {
     "id": "ks4_cs_what-is-an-algorithm_v1",
@@ -1256,8 +1909,15 @@
     "theme": "Computer Science Fundamentals",
     "title": "What Is an Algorithm?",
     "text": "An algorithm is a set of clear, step-by-step instructions designed to solve a problem. Algorithms are essential in computer programming, helping systems complete tasks efficiently. Understanding algorithms enables students to break complex problems into manageable parts and design logical solutions that computers can execute accurately and repeatedly.",
-    "tags": { "complexity": { "caps": true, "punct": true }, "phonics": ["ks4-etym-ithm"] },
-    "meta": { "est_chars": 399 }
+    "tags": {
+      "complexity": {
+        "caps": true,
+        "punct": true
+      },
+      "phonics": [
+        "ks4-etym-ithm"
+      ]
+    }
   },
   {
     "id": "ks4_cs_binary-basics_v1",
@@ -1265,8 +1925,15 @@
     "theme": "Computer Science Fundamentals",
     "title": "Binary Basics",
     "text": "Binary is a number system based on two digits: 0 and 1. Each binary digit is called a bit. Computers use binary to represent data because digital circuits operate using two states, on and off. Understanding binary is fundamental to learning how computers store numbers, text, images, and instructions internally.",
-    "tags": { "complexity": { "caps": true, "punct": true }, "phonics": ["ks4-etym-bi"] },
-    "meta": { "est_chars": 394 }
+    "tags": {
+      "complexity": {
+        "caps": true,
+        "punct": true
+      },
+      "phonics": [
+        "ks4-etym-bi"
+      ]
+    }
   },
   {
     "id": "ks4_cs_flowcharts_v1",
@@ -1274,8 +1941,15 @@
     "theme": "Computer Science Fundamentals",
     "title": "Flowcharts and Algorithms",
     "text": "Flowcharts are visual representations of algorithms, using shapes and arrows to show the flow of steps. They help programmers plan solutions before writing code. Understanding flowcharts supports clear thinking and reduces errors during development. This approach ensures algorithms are well structured, logical, and easy to translate into programming languages.",
-    "tags": { "complexity": { "caps": true, "punct": true }, "phonics": ["ks4-etym-ithm"] },
-    "meta": { "est_chars": 389 }
+    "tags": {
+      "complexity": {
+        "caps": true,
+        "punct": true
+      },
+      "phonics": [
+        "ks4-etym-ithm"
+      ]
+    }
   },
   {
     "id": "ks4_cs_bits-bytes_v1",
@@ -1283,8 +1957,15 @@
     "theme": "Computer Science Fundamentals",
     "title": "Bits and Bytes",
     "text": "A bit is the smallest unit of data in computing, and eight bits form a byte. Larger quantities, such as kilobytes and gigabytes, measure storage capacity. Understanding bits helps explain how files are stored and transferred. For example, images and videos require more bits to represent detailed colour and sound information.",
-    "tags": { "complexity": { "caps": true, "punct": true }, "phonics": ["ks4-etym-bi"] },
-    "meta": { "est_chars": 401 }
+    "tags": {
+      "complexity": {
+        "caps": true,
+        "punct": true
+      },
+      "phonics": [
+        "ks4-etym-bi"
+      ]
+    }
   },
   {
     "id": "ks4_cs_logarithms-computing_v1",
@@ -1292,8 +1973,15 @@
     "theme": "Computer Science Fundamentals",
     "title": "Logarithms in Computing",
     "text": "A logarithm is a mathematical function that helps measure the time complexity of algorithms, especially those that divide data repeatedly. Understanding logarithms supports efficient programming, as many searching and sorting algorithms rely on logarithmic steps to reduce processing time. This enables computers to handle large datasets more effectively.",
-    "tags": { "complexity": { "caps": true, "punct": true }, "phonics": ["ks4-etym-ithm"] },
-    "meta": { "est_chars": 397 }
+    "tags": {
+      "complexity": {
+        "caps": true,
+        "punct": true
+      },
+      "phonics": [
+        "ks4-etym-ithm"
+      ]
+    }
   },
   {
     "id": "ks4_cs_network-topologies_v1",
@@ -1301,8 +1989,15 @@
     "theme": "Computer Science Fundamentals",
     "title": "Network Topologies",
     "text": "Network topologies describe how devices are arranged in a network. A star topology connects devices to a central switch, while a ring topology links them in a loop. A mesh topology provides multiple connections for reliability. Understanding topologies helps explain how data travels across networks and how faults affect communication.",
-    "tags": { "complexity": { "caps": true, "punct": true }, "phonics": ["ks4-etym-bi"] },
-    "meta": { "est_chars": 398 }
+    "tags": {
+      "complexity": {
+        "caps": true,
+        "punct": true
+      },
+      "phonics": [
+        "ks4-etym-bi"
+      ]
+    }
   },
   {
     "id": "ks4_cs_copyright-law_v1",
@@ -1310,8 +2005,15 @@
     "theme": "Computer Science Fundamentals",
     "title": "Copyright Law",
     "text": "Copyright protects original work such as music, software, and writing. It prevents others from using or copying work without permission. Understanding copyright helps students behave responsibly online and respect creators’ rights. Breaking copyright law can result in legal consequences, affecting both individuals and organisations that misuse digital content.",
-    "tags": { "complexity": { "caps": true, "punct": true }, "phonics": ["ks4-etym-ithm"] },
-    "meta": { "est_chars": 400 }
+    "tags": {
+      "complexity": {
+        "caps": true,
+        "punct": true
+      },
+      "phonics": [
+        "ks4-etym-ithm"
+      ]
+    }
   },
   {
     "id": "ks4_cs_binary-calculations_v1",
@@ -1319,8 +2021,15 @@
     "theme": "Computer Science Fundamentals",
     "title": "Binary Calculations",
     "text": "Binary addition follows similar rules to decimal addition but uses only 0 and 1. When digits exceed one, values carry over to the next place. Understanding binary calculations is essential for programming, networking, and hardware design. It helps students comprehend how computers perform arithmetic and process logic-based operations internally.",
-    "tags": { "complexity": { "caps": true, "punct": true }, "phonics": ["ks4-etym-bi"] },
-    "meta": { "est_chars": 397 }
+    "tags": {
+      "complexity": {
+        "caps": true,
+        "punct": true
+      },
+      "phonics": [
+        "ks4-etym-bi"
+      ]
+    }
   },
   {
     "id": "ks4_cs_algorithm-efficiency_v1",
@@ -1328,8 +2037,15 @@
     "theme": "Computer Science Fundamentals",
     "title": "Algorithm Efficiency",
     "text": "Algorithm efficiency measures how quickly an algorithm completes a task. Efficient algorithms save time and computer resources, especially with large inputs. Understanding efficiency supports better programming decisions and encourages students to choose suitable techniques. Comparing algorithms helps learners identify when a faster or more memory-friendly solution is needed.",
-    "tags": { "complexity": { "caps": true, "punct": true }, "phonics": ["ks4-etym-ithm"] },
-    "meta": { "est_chars": 406 }
+    "tags": {
+      "complexity": {
+        "caps": true,
+        "punct": true
+      },
+      "phonics": [
+        "ks4-etym-ithm"
+      ]
+    }
   },
   {
     "id": "ks4_cs_privacy-online_v1",
@@ -1337,8 +2053,15 @@
     "theme": "Computer Science Fundamentals",
     "title": "Online Privacy",
     "text": "Online privacy concerns how personal data is collected, stored, and shared by websites and apps. Users must be aware of what information they provide and how it may be used. Understanding privacy helps students protect themselves from identity theft and encourages responsible digital behaviour in social media, gaming, and communication platforms.",
-    "tags": { "complexity": { "caps": true, "punct": true }, "phonics": ["ks4-etym-bi"] },
-    "meta": { "est_chars": 413 }
+    "tags": {
+      "complexity": {
+        "caps": true,
+        "punct": true
+      },
+      "phonics": [
+        "ks4-etym-bi"
+      ]
+    }
   },
   {
     "id": "ks4_cs_rhythm-in-coding_v1",
@@ -1346,8 +2069,15 @@
     "theme": "Computer Science Fundamentals",
     "title": "Rhythm in Coding",
     "text": "Although rhythm is associated with music, coding also benefits from rhythm through consistent structure, indentation, and naming. These patterns make programs easier to read and maintain. Understanding rhythm in code encourages good programming habits, helping teams collaborate effectively and reducing errors caused by unclear or inconsistent coding styles.",
-    "tags": { "complexity": { "caps": true, "punct": true }, "phonics": ["ks4-etym-ithm"] },
-    "meta": { "est_chars": 401 }
+    "tags": {
+      "complexity": {
+        "caps": true,
+        "punct": true
+      },
+      "phonics": [
+        "ks4-etym-ithm"
+      ]
+    }
   },
   {
     "id": "ks4_cs_malware-threats_v1",
@@ -1355,8 +2085,15 @@
     "theme": "Computer Science Fundamentals",
     "title": "Malware Threats",
     "text": "Malware is harmful software designed to damage systems or steal data. Viruses, worms, and spyware are common types. Understanding malware helps students recognise online risks and avoid unsafe downloads. Organisations use firewalls, antivirus software, and policies to protect data. Awareness of malware supports safe and responsible digital use in school and beyond.",
-    "tags": { "complexity": { "caps": true, "punct": true }, "phonics": ["ks4-etym-ithm"] },
-    "meta": { "est_chars": 416 }
+    "tags": {
+      "complexity": {
+        "caps": true,
+        "punct": true
+      },
+      "phonics": [
+        "ks4-etym-ithm"
+      ]
+    }
   },
   {
     "id": "ks4_cs_binary-images_v1",
@@ -1364,8 +2101,15 @@
     "theme": "Computer Science Fundamentals",
     "title": "Binary and Images",
     "text": "Images are stored using binary, with bits representing colours and brightness. Higher resolution and colour depth require more bits, increasing file size. Understanding how binary stores images helps explain compression techniques used to reduce storage. This knowledge supports learning in digital media, graphics, and computer systems that handle image processing.",
-    "tags": { "complexity": { "caps": true, "punct": true }, "phonics": ["ks4-etym-bi"] },
-    "meta": { "est_chars": 407 }
+    "tags": {
+      "complexity": {
+        "caps": true,
+        "punct": true
+      },
+      "phonics": [
+        "ks4-etym-bi"
+      ]
+    }
   },
   {
     "id": "ks4_cs_algorithm-ethics_v1",
@@ -1373,8 +2117,15 @@
     "theme": "Computer Science Fundamentals",
     "title": "Ethical Use of Algorithms",
     "text": "Algorithms influence decisions in daily life, from recommending videos to allocating school places. Ethical concerns arise when algorithms are biased or lack transparency. Understanding algorithm ethics helps students consider fairness, accountability, and privacy. This encourages responsible development and use of technology in society and the workplace.",
-    "tags": { "complexity": { "caps": true, "punct": true }, "phonics": ["ks4-etym-ithm"] },
-    "meta": { "est_chars": 392 }
+    "tags": {
+      "complexity": {
+        "caps": true,
+        "punct": true
+      },
+      "phonics": [
+        "ks4-etym-ithm"
+      ]
+    }
   },
   {
     "id": "ks4_cs_network-protocols_v1",
@@ -1382,8 +2133,15 @@
     "theme": "Computer Science Fundamentals",
     "title": "Network Protocols",
     "text": "Network protocols are rules that control how devices communicate. They ensure data is transmitted, received, and understood correctly across networks. Common protocols include TCP/IP for internet communication. Understanding protocols helps students see how networks function reliably, allowing devices worldwide to share information securely and efficiently between users and systems.",
-    "tags": { "complexity": { "caps": true, "punct": true }, "phonics": ["ks4-etym-bi"] },
-    "meta": { "est_chars": 415 }
+    "tags": {
+      "complexity": {
+        "caps": true,
+        "punct": true
+      },
+      "phonics": [
+        "ks4-etym-bi"
+      ]
+    }
   },
   {
     "id": "ks4_statutory_self_discipline_v1",
@@ -1392,10 +2150,14 @@
     "title": "Self-Discipline and Success",
     "text": "Teachers emphasise self-discipline as a crucial attribute for success in GCSE studies. Students often ascend to higher levels of achievement when they remain conscious of their learning habits and adjust them thoughtfully. This passage examines how disciplined routines can fascinate educators by demonstrating measurable academic progress. Maintaining a balanced schedule supports wellbeing and academic resilience.",
     "tags": {
-      "complexity": { "caps": true, "punct": true },
-      "phonics": ["ks4-sc"]
-    },
-    "meta": { "est_chars": 492 }
+      "complexity": {
+        "caps": true,
+        "punct": true
+      },
+      "phonics": [
+        "ks4-sc"
+      ]
+    }
   },
   {
     "id": "ks4_statutory_thorough_review_v1",
@@ -1404,10 +2166,14 @@
     "title": "Thorough Review of Defences",
     "text": "Although the local council carried out a thorough review of the borough’s flood defences, the unexpected drought highlighted weaknesses that ought to have been addressed earlier. The report argued that communities must remain resilient and adaptive when planning for environmental change. This situation illustrates the importance of proactive planning and collaborative problem-solving among local agencies.",
     "tags": {
-      "complexity": { "caps": true, "punct": true },
-      "phonics": ["ks4-ough"]
-    },
-    "meta": { "est_chars": 408 }
+      "complexity": {
+        "caps": true,
+        "punct": true
+      },
+      "phonics": [
+        "ks4-ough"
+      ]
+    }
   },
   {
     "id": "ks4_statutory_conscience_v1",
@@ -1416,10 +2182,14 @@
     "title": "Conscience and Ethics",
     "text": "Conscience often influences ethical decision-making within school communities. When learners become more conscious of their responsibilities, they ascend beyond simple rule-following and develop mature judgement. Discipline shapes character, ensuring that actions align with moral values. Such reflection nurtures a supportive culture where integrity guides choices within and beyond school life.",
     "tags": {
-      "complexity": { "caps": true, "punct": true },
-      "phonics": ["ks4-sc"]
-    },
-    "meta": { "est_chars": 396 }
+      "complexity": {
+        "caps": true,
+        "punct": true
+      },
+      "phonics": [
+        "ks4-sc"
+      ]
+    }
   },
   {
     "id": "ks4_statutory_drought_research_v1",
@@ -1428,10 +2198,14 @@
     "title": "Researching Drought Impact",
     "text": "Scientists conducted a thorough investigation into how drought conditions affect crop yield across the borough. They argued that farmers ought to adopt sustainable methods to ensure enough food production, even when rainfall is scarce. Collaboration between scientists and local authorities can strengthen strategies and protect livelihoods during future climate challenges.",
     "tags": {
-      "complexity": { "caps": true, "punct": true },
-      "phonics": ["ks4-ough"]
-    },
-    "meta": { "est_chars": 374 }
+      "complexity": {
+        "caps": true,
+        "punct": true
+      },
+      "phonics": [
+        "ks4-ough"
+      ]
+    }
   },
   {
     "id": "ks4_statutory_historical_discipline_v1",
@@ -1440,10 +2214,14 @@
     "title": "Historical Uses of Discipline",
     "text": "Fascinating historical studies show how monarchs used discipline to maintain control, ensuring subjects remained conscious of their duty to the crown. These accounts enable students to ascend beyond basic facts and evaluate the ethics of power and governance. By comparing different eras, learners can draw parallels with modern leadership and civic responsibility.",
     "tags": {
-      "complexity": { "caps": true, "punct": true },
-      "phonics": ["ks4-sc"]
-    },
-    "meta": { "est_chars": 365 }
+      "complexity": {
+        "caps": true,
+        "punct": true
+      },
+      "phonics": [
+        "ks4-sc"
+      ]
+    }
   },
   {
     "id": "ks4_statutory_literary_drought_v1",
@@ -1452,10 +2230,14 @@
     "title": "Drought Imagery in Literature",
     "text": "Through a thorough analysis of literature, students learned that authors often use pathetic fallacy during drought scenes to evoke emotional responses. Readers ought to recognise how such techniques influence their interpretation of characters’ struggles. Understanding symbolism in weather descriptions deepens appreciation of narrative structure and authorial intent. This encourages critical reading. It also boosts confidence.",
     "tags": {
-      "complexity": { "caps": true, "punct": true },
-      "phonics": ["ks4-ough"]
-    },
-    "meta": { "est_chars": 403 }
+      "complexity": {
+        "caps": true,
+        "punct": true
+      },
+      "phonics": [
+        "ks4-ough"
+      ]
+    }
   },
   {
     "id": "ks4_statutory_classroom_management_v1",
@@ -1464,10 +2246,14 @@
     "title": "Effective Classroom Management",
     "text": "Effective classroom management relies on consistent discipline and a conscious awareness of student needs. Teachers who ascend to leadership positions often demonstrate a fascinating ability to balance empathy with authority, creating positive learning environments. This balance fosters motivation, reduces conflict, and promotes sustained academic engagement across diverse subjects. It also boosts confidence.",
     "tags": {
-      "complexity": { "caps": true, "punct": true },
-      "phonics": ["ks4-sc"]
-    },
-    "meta": { "est_chars": 412 }
+      "complexity": {
+        "caps": true,
+        "punct": true
+      },
+      "phonics": [
+        "ks4-sc"
+      ]
+    }
   },
   {
     "id": "ks4_statutory_community_resilience_v1",
@@ -1476,10 +2262,14 @@
     "title": "Community Resilience Planning",
     "text": "The borough council announced a thorough consultation to address the recent drought and ensure there is enough support for vulnerable residents. Citizens ought to contribute constructive ideas to shape long-term community resilience. Working together, organisations can create innovative solutions that protect both the environment and public health. Local volunteers played a key role.",
     "tags": {
-      "complexity": { "caps": true, "punct": true },
-      "phonics": ["ks4-ough"]
-    },
-    "meta": { "est_chars": 386 }
+      "complexity": {
+        "caps": true,
+        "punct": true
+      },
+      "phonics": [
+        "ks4-ough"
+      ]
+    }
   },
   {
     "id": "ks4_statutory_cognitive_bias_v1",
@@ -1488,10 +2278,14 @@
     "title": "Understanding Cognitive Bias",
     "text": "Psychology lessons encourage learners to become conscious of cognitive biases that influence behaviour. When students apply discipline to challenge assumptions, their thinking can ascend to more sophisticated levels of analysis, which many find intellectually fascinating. Over time, this metacognitive awareness can enhance academic performance and improve interpersonal communication. This skill benefits all subjects.",
     "tags": {
-      "complexity": { "caps": true, "punct": true },
-      "phonics": ["ks4-sc"]
-    },
-    "meta": { "est_chars": 420 }
+      "complexity": {
+        "caps": true,
+        "punct": true
+      },
+      "phonics": [
+        "ks4-sc"
+      ]
+    }
   },
   {
     "id": "ks4_statutory_economic_impact_v1",
@@ -1500,10 +2294,14 @@
     "title": "Economic Impact of Drought",
     "text": "During a thorough evaluation of historical evidence, researchers noted that a prolonged drought had significantly altered the borough’s economy. They concluded that policymakers ought to consider preventative measures to safeguard essential resources. Their findings urged immediate investment in infrastructure to reduce long-term economic vulnerability. Such resilience is vital for future stability.",
     "tags": {
-      "complexity": { "caps": true, "punct": true },
-      "phonics": ["ks4-ough"]
-    },
-    "meta": { "est_chars": 402 }
+      "complexity": {
+        "caps": true,
+        "punct": true
+      },
+      "phonics": [
+        "ks4-ough"
+      ]
+    }
   },
   {
     "id": "ks4_statutory_school_culture_v1",
@@ -1512,10 +2310,14 @@
     "title": "Discipline and School Culture",
     "text": "Schools promote disciplinary policies that encourage students to reflect on their conscience and remain conscious of the impact of their actions. Such approaches help learners ascend towards more responsible behaviour, which can positively fascinate peers and staff alike. When embraced consistently, such systems also cultivate trust and contribute to a positive school culture.",
     "tags": {
-      "complexity": { "caps": true, "punct": true },
-      "phonics": ["ks4-sc"]
-    },
-    "meta": { "est_chars": 379 }
+      "complexity": {
+        "caps": true,
+        "punct": true
+      },
+      "phonics": [
+        "ks4-sc"
+      ]
+    }
   },
   {
     "id": "ks4_statutory_gcse_spelling_v1",
@@ -1524,10 +2326,14 @@
     "title": "GCSE Spelling Accuracy",
     "text": "Exam boards conducted a thorough review of frequently misspelt GCSE words to ensure marking remains fair, as students ought to demonstrate accurate spelling. Drought-related topics in geography required enough subject knowledge to apply key terminology effectively. Teachers can support this by integrating spelling drills and feedback into routine classroom practice.",
     "tags": {
-      "complexity": { "caps": true, "punct": true },
-      "phonics": ["ks4-ough"]
-    },
-    "meta": { "est_chars": 368 }
+      "complexity": {
+        "caps": true,
+        "punct": true
+      },
+      "phonics": [
+        "ks4-ough"
+      ]
+    }
   },
   {
     "id": "ks4_statutory_french_vocabulary_v1",
@@ -1536,10 +2342,14 @@
     "title": "French-Origin Vocabulary",
     "text": "Literature featuring French origins often includes words such as liaison and entrepreneur, which can fascinate students with their cultural nuance. Applying discipline when studying vocabulary helps learners become conscious of etymology and ascend to more advanced written expression. Exploring such loanwords enriches cultural understanding and broadens students’ expressive range. These words appear frequently in academic texts.",
     "tags": {
-      "complexity": { "caps": true, "punct": true },
-      "phonics": ["ks4-sc"]
-    },
-    "meta": { "est_chars": 432 }
+      "complexity": {
+        "caps": true,
+        "punct": true
+      },
+      "phonics": [
+        "ks4-sc"
+      ]
+    }
   },
   {
     "id": "ks4_statutory_crisis_management_v1",
@@ -1548,10 +2358,14 @@
     "title": "Crisis Management Response",
     "text": "The borough experienced a severe drought, and although emergency services completed a thorough assessment, some residents felt not enough was done. They argued officials ought to improve coordination to prevent future crises from escalating. Community engagement and transparent communication are essential to rebuilding confidence after such events. Ongoing training for staff could also enhance readiness.",
     "tags": {
-      "complexity": { "caps": true, "punct": true },
-      "phonics": ["ks4-ough"]
-    },
-    "meta": { "est_chars": 407 }
+      "complexity": {
+        "caps": true,
+        "punct": true
+      },
+      "phonics": [
+        "ks4-ough"
+      ]
+    }
   },
   {
     "id": "ks4_statutory_active_citizenship_v1",
@@ -1560,9 +2374,13 @@
     "title": "Active Citizenship in Action",
     "text": "In citizenship lessons, students examine how personal conscience informs ethical behaviour. Those who remain conscious of social issues and apply discipline to their actions can ascend to active citizenship, inspiring others through fascinating community initiatives. These initiatives demonstrate how small acts of service can lead to meaningful social change. Such leadership is highly valued.",
     "tags": {
-      "complexity": { "caps": true, "punct": true },
-      "phonics": ["ks4-sc"]
-    },
-    "meta": { "est_chars": 395 }
+      "complexity": {
+        "caps": true,
+        "punct": true
+      },
+      "phonics": [
+        "ks4-sc"
+      ]
+    }
   }
 ]

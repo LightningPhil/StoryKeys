@@ -12,9 +12,6 @@
       "phonics": [
         "ks1-phonics-a"
       ]
-    },
-    "meta": {
-      "est_chars": 259
     }
   },
   {
@@ -30,9 +27,6 @@
       "phonics": [
         "ks1-phonics-e"
       ]
-    },
-    "meta": {
-      "est_chars": 223
     }
   },
   {
@@ -48,9 +42,6 @@
       "phonics": [
         "ks1-phonics-i"
       ]
-    },
-    "meta": {
-      "est_chars": 242
     }
   },
   {
@@ -66,9 +57,6 @@
       "phonics": [
         "ks1-phonics-o"
       ]
-    },
-    "meta": {
-      "est_chars": 257
     }
   },
   {
@@ -84,9 +72,6 @@
       "phonics": [
         "ks1-phonics-u"
       ]
-    },
-    "meta": {
-      "est_chars": 236
     }
   },
   {
@@ -102,9 +87,6 @@
       "phonics": [
         "ks1-phonics-sh"
       ]
-    },
-    "meta": {
-      "est_chars": 270
     }
   },
   {
@@ -120,9 +102,6 @@
       "phonics": [
         "ks1-phonics-ch"
       ]
-    },
-    "meta": {
-      "est_chars": 262
     }
   },
   {
@@ -138,9 +117,6 @@
       "phonics": [
         "ks2-phonics-split"
       ]
-    },
-    "meta": {
-      "est_chars": 287
     }
   },
   {
@@ -156,9 +132,6 @@
       "phonics": [
         "blend-bl"
       ]
-    },
-    "meta": {
-      "est_chars": 276
     }
   },
   {
@@ -174,9 +147,6 @@
       "phonics": [
         "blend-cr"
       ]
-    },
-    "meta": {
-      "est_chars": 275
     }
   },
   {
@@ -192,9 +162,6 @@
       "phonics": [
         "blend-dr"
       ]
-    },
-    "meta": {
-      "est_chars": 264
     }
   },
   {
@@ -210,9 +177,6 @@
       "phonics": [
         "blend-fl"
       ]
-    },
-    "meta": {
-      "est_chars": 282
     }
   },
   {
@@ -228,9 +192,6 @@
       "phonics": [
         "blend-gr"
       ]
-    },
-    "meta": {
-      "est_chars": 287
     }
   },
   {
@@ -246,9 +207,6 @@
       "phonics": [
         "blend-pl"
       ]
-    },
-    "meta": {
-      "est_chars": 267
     }
   },
   {
@@ -264,9 +222,6 @@
       "phonics": [
         "blend-sm"
       ]
-    },
-    "meta": {
-      "est_chars": 289
     }
   },
   {
@@ -282,9 +237,6 @@
       "phonics": [
         "blend-tr"
       ]
-    },
-    "meta": {
-      "est_chars": 279
     }
   },
   {
@@ -300,9 +252,6 @@
       "phonics": [
         "r-controlled-ar"
       ]
-    },
-    "meta": {
-      "est_chars": 288
     }
   },
   {
@@ -318,9 +267,6 @@
       "phonics": [
         "r-controlled-er"
       ]
-    },
-    "meta": {
-      "est_chars": 274
     }
   },
   {
@@ -336,9 +282,6 @@
       "phonics": [
         "r-controlled-ir"
       ]
-    },
-    "meta": {
-      "est_chars": 303
     }
   },
   {
@@ -354,9 +297,6 @@
       "phonics": [
         "r-controlled-or"
       ]
-    },
-    "meta": {
-      "est_chars": 277
     }
   },
   {
@@ -372,9 +312,6 @@
       "phonics": [
         "r-controlled-ur"
       ]
-    },
-    "meta": {
-      "est_chars": 283
     }
   },
   {
@@ -391,9 +328,6 @@
         "long-a-ai",
         "long-a-ay"
       ]
-    },
-    "meta": {
-      "est_chars": 302
     }
   },
   {
@@ -410,9 +344,6 @@
         "long-e-ee",
         "long-e-ea"
       ]
-    },
-    "meta": {
-      "est_chars": 326
     }
   },
   {
@@ -429,9 +360,6 @@
         "long-i-igh",
         "long-i-y"
       ]
-    },
-    "meta": {
-      "est_chars": 330
     }
   },
   {
@@ -448,9 +376,6 @@
         "long-o-oa",
         "long-o-ow"
       ]
-    },
-    "meta": {
-      "est_chars": 307
     }
   },
   {
@@ -467,9 +392,6 @@
         "long-u-oo",
         "long-u-ew"
       ]
-    },
-    "meta": {
-      "est_chars": 315
     }
   },
   {
@@ -485,9 +407,6 @@
       "phonics": [
         "suffix-ing"
       ]
-    },
-    "meta": {
-      "est_chars": 311
     }
   },
   {
@@ -503,9 +422,6 @@
       "phonics": [
         "suffix-ed"
       ]
-    },
-    "meta": {
-      "est_chars": 335
     }
   },
   {
@@ -521,9 +437,6 @@
       "phonics": [
         "soft-c"
       ]
-    },
-    "meta": {
-      "est_chars": 300
     }
   },
   {
@@ -539,9 +452,6 @@
       "phonics": [
         "soft-g"
       ]
-    },
-    "meta": {
-      "est_chars": 293
     }
   },
   {
@@ -557,9 +467,6 @@
       "phonics": [
         "digraph-th"
       ]
-    },
-    "meta": {
-      "est_chars": 317
     }
   },
   {
@@ -575,9 +482,6 @@
       "phonics": [
         "digraph-wh"
       ]
-    },
-    "meta": {
-      "est_chars": 184
     }
   },
   {
@@ -593,9 +497,6 @@
       "phonics": [
         "digraph-ph"
       ]
-    },
-    "meta": {
-      "est_chars": 217
     }
   },
   {
@@ -611,9 +512,6 @@
       "phonics": [
         "digraph-ng"
       ]
-    },
-    "meta": {
-      "est_chars": 196
     }
   },
   {
@@ -629,9 +527,6 @@
       "phonics": [
         "digraph-ck"
       ]
-    },
-    "meta": {
-      "est_chars": 189
     }
   },
   {
@@ -647,9 +542,6 @@
       "phonics": [
         "blend-br"
       ]
-    },
-    "meta": {
-      "est_chars": 167
     }
   },
   {
@@ -665,9 +557,6 @@
       "phonics": [
         "blend-cl"
       ]
-    },
-    "meta": {
-      "est_chars": 174
     }
   },
   {
@@ -683,9 +572,6 @@
       "phonics": [
         "blend-fr"
       ]
-    },
-    "meta": {
-      "est_chars": 165
     }
   },
   {
@@ -701,9 +587,6 @@
       "phonics": [
         "blend-gl"
       ]
-    },
-    "meta": {
-      "est_chars": 153
     }
   },
   {
@@ -719,9 +602,6 @@
       "phonics": [
         "blend-pr"
       ]
-    },
-    "meta": {
-      "est_chars": 168
     }
   },
   {
@@ -737,9 +617,6 @@
       "phonics": [
         "blend-sc"
       ]
-    },
-    "meta": {
-      "est_chars": 165
     }
   },
   {
@@ -755,9 +632,6 @@
       "phonics": [
         "blend-sk"
       ]
-    },
-    "meta": {
-      "est_chars": 161
     }
   },
   {
@@ -773,9 +647,6 @@
       "phonics": [
         "blend-sl"
       ]
-    },
-    "meta": {
-      "est_chars": 161
     }
   },
   {
@@ -791,9 +662,6 @@
       "phonics": [
         "blend-sn"
       ]
-    },
-    "meta": {
-      "est_chars": 167
     }
   },
   {
@@ -809,9 +677,6 @@
       "phonics": [
         "blend-sp"
       ]
-    },
-    "meta": {
-      "est_chars": 157
     }
   },
   {
@@ -827,9 +692,6 @@
       "phonics": [
         "blend-st"
       ]
-    },
-    "meta": {
-      "est_chars": 169
     }
   },
   {
@@ -845,9 +707,6 @@
       "phonics": [
         "blend-sw"
       ]
-    },
-    "meta": {
-      "est_chars": 181
     }
   },
   {
@@ -863,9 +722,6 @@
       "phonics": [
         "final-blend-ft"
       ]
-    },
-    "meta": {
-      "est_chars": 151
     }
   },
   {
@@ -881,9 +737,6 @@
       "phonics": [
         "final-blend-mp"
       ]
-    },
-    "meta": {
-      "est_chars": 153
     }
   },
   {
@@ -899,9 +752,6 @@
       "phonics": [
         "final-blend-nd"
       ]
-    },
-    "meta": {
-      "est_chars": 142
     }
   },
   {
@@ -917,9 +767,6 @@
       "phonics": [
         "final-blend-nk"
       ]
-    },
-    "meta": {
-      "est_chars": 168
     }
   },
   {
@@ -935,9 +782,6 @@
       "phonics": [
         "final-blend-st"
       ]
-    },
-    "meta": {
-      "est_chars": 156
     }
   },
   {
@@ -953,9 +797,6 @@
       "phonics": [
         "final-blend-ld"
       ]
-    },
-    "meta": {
-      "est_chars": 144
     }
   },
   {
@@ -972,9 +813,6 @@
         "diphthong-oi",
         "diphthong-oy"
       ]
-    },
-    "meta": {
-      "est_chars": 203
     }
   },
   {
@@ -991,9 +829,6 @@
         "diphthong-ou",
         "diphthong-ow"
       ]
-    },
-    "meta": {
-      "est_chars": 232
     }
   },
   {
@@ -1010,9 +845,6 @@
         "diphthong-au",
         "diphthong-aw"
       ]
-    },
-    "meta": {
-      "est_chars": 222
     }
   },
   {
@@ -1028,9 +860,6 @@
       "phonics": [
         "vowel-team-oo-short"
       ]
-    },
-    "meta": {
-      "est_chars": 200
     }
   },
   {
@@ -1047,9 +876,6 @@
         "vowel-team-ew",
         "vowel-team-eu"
       ]
-    },
-    "meta": {
-      "est_chars": 217
     }
   },
   {
@@ -1066,9 +892,6 @@
         "long-i-ie",
         "long-i-igh"
       ]
-    },
-    "meta": {
-      "est_chars": 228
     }
   },
   {
@@ -1085,9 +908,6 @@
         "sound-aw-au",
         "sound-aw-al"
       ]
-    },
-    "meta": {
-      "est_chars": 199
     }
   },
   {
@@ -1103,9 +923,6 @@
       "phonics": [
         "short-e-ea"
       ]
-    },
-    "meta": {
-      "est_chars": 195
     }
   },
   {
@@ -1121,9 +938,6 @@
       "phonics": [
         "syllable-consonant-le"
       ]
-    },
-    "meta": {
-      "est_chars": 186
     }
   },
   {
@@ -1139,9 +953,6 @@
       "phonics": [
         "silent-k"
       ]
-    },
-    "meta": {
-      "est_chars": 183
     }
   },
   {
@@ -1157,9 +968,6 @@
       "phonics": [
         "silent-w"
       ]
-    },
-    "meta": {
-      "est_chars": 180
     }
   },
   {
@@ -1175,9 +983,6 @@
       "phonics": [
         "silent-b"
       ]
-    },
-    "meta": {
-      "est_chars": 167
     }
   },
   {
@@ -1193,9 +998,6 @@
       "phonics": [
         "tch-pattern"
       ]
-    },
-    "meta": {
-      "est_chars": 220
     }
   },
   {
@@ -1211,9 +1013,6 @@
       "phonics": [
         "silent-gh"
       ]
-    },
-    "meta": {
-      "est_chars": 179
     }
   },
   {
@@ -1229,9 +1028,6 @@
       "phonics": [
         "plural-s-es"
       ]
-    },
-    "meta": {
-      "est_chars": 193
     }
   },
   {
@@ -1247,9 +1043,6 @@
       "phonics": [
         "comparatives-er-est"
       ]
-    },
-    "meta": {
-      "est_chars": 198
     }
   },
   {
@@ -1266,9 +1059,6 @@
         "suffix-ful",
         "suffix-less"
       ]
-    },
-    "meta": {
-      "est_chars": 225
     }
   },
   {
@@ -1284,9 +1074,6 @@
       "phonics": [
         "suffix-ly"
       ]
-    },
-    "meta": {
-      "est_chars": 197
     }
   },
   {
@@ -1302,9 +1089,6 @@
       "phonics": [
         "prefix-re"
       ]
-    },
-    "meta": {
-      "est_chars": 165
     }
   },
   {
@@ -1320,9 +1104,6 @@
       "phonics": [
         "prefix-un"
       ]
-    },
-    "meta": {
-      "est_chars": 186
     }
   },
   {
@@ -1338,9 +1119,6 @@
       "phonics": [
         "prefix-dis"
       ]
-    },
-    "meta": {
-      "est_chars": 172
     }
   },
   {
@@ -1356,9 +1134,6 @@
       "phonics": [
         "prefix-mis"
       ]
-    },
-    "meta": {
-      "est_chars": 170
     }
   },
   {
@@ -1374,9 +1149,6 @@
       "phonics": [
         "open-syllable"
       ]
-    },
-    "meta": {
-      "est_chars": 192
     }
   },
   {
@@ -1392,9 +1164,6 @@
       "phonics": [
         "closed-syllable"
       ]
-    },
-    "meta": {
-      "est_chars": 216
     }
   },
   {
@@ -1410,9 +1179,6 @@
       "phonics": [
         "r-controlled-syllable"
       ]
-    },
-    "meta": {
-      "est_chars": 196
     }
   },
   {
@@ -1428,9 +1194,6 @@
       "phonics": [
         "vce-pattern"
       ]
-    },
-    "meta": {
-      "est_chars": 203
     }
   },
   {
@@ -1446,9 +1209,6 @@
       "phonics": [
         "double-consonants"
       ]
-    },
-    "meta": {
-      "est_chars": 193
     }
   },
   {
@@ -1464,9 +1224,6 @@
       "phonics": [
         "soft-c-patterns"
       ]
-    },
-    "meta": {
-      "est_chars": 179
     }
   },
   {
@@ -1482,9 +1239,6 @@
       "phonics": [
         "soft-g-patterns"
       ]
-    },
-    "meta": {
-      "est_chars": 166
     }
   },
   {
@@ -1500,9 +1254,6 @@
       "phonics": [
         "trigraph-igh"
       ]
-    },
-    "meta": {
-      "est_chars": 197
     }
   },
   {
@@ -1518,9 +1269,6 @@
       "phonics": [
         "trigraph-spl"
       ]
-    },
-    "meta": {
-      "est_chars": 185
     }
   },
   {
@@ -1536,9 +1284,6 @@
       "phonics": [
         "trigraph-spr"
       ]
-    },
-    "meta": {
-      "est_chars": 175
     }
   },
   {
@@ -1554,9 +1299,6 @@
       "phonics": [
         "trigraph-str"
       ]
-    },
-    "meta": {
-      "est_chars": 176
     }
   },
   {
@@ -1572,9 +1314,6 @@
       "phonics": [
         "trigraph-thr"
       ]
-    },
-    "meta": {
-      "est_chars": 166
     }
   },
   {
@@ -1590,9 +1329,6 @@
       "phonics": [
         "trigraph-scr"
       ]
-    },
-    "meta": {
-      "est_chars": 175
     }
   },
   {
@@ -1608,9 +1344,6 @@
       "phonics": [
         "silent-e-soften"
       ]
-    },
-    "meta": {
-      "est_chars": 194
     }
   },
   {
@@ -1626,9 +1359,6 @@
       "phonics": [
         "ending-tion"
       ]
-    },
-    "meta": {
-      "est_chars": 191
     }
   },
   {
@@ -1644,9 +1374,6 @@
       "phonics": [
         "ending-sion"
       ]
-    },
-    "meta": {
-      "est_chars": 225
     }
   },
   {
@@ -1662,9 +1389,6 @@
       "phonics": [
         "ending-ture"
       ]
-    },
-    "meta": {
-      "est_chars": 197
     }
   },
   {
@@ -1681,9 +1405,6 @@
         "ending-ible",
         "ending-able"
       ]
-    },
-    "meta": {
-      "est_chars": 227
     }
   },
   {
@@ -1699,9 +1420,6 @@
       "phonics": [
         "ending-ous"
       ]
-    },
-    "meta": {
-      "est_chars": 209
     }
   },
   {
@@ -1717,9 +1435,6 @@
       "phonics": [
         "ending-ive"
       ]
-    },
-    "meta": {
-      "est_chars": 189
     }
   },
   {
@@ -1735,9 +1450,6 @@
       "phonics": [
         "vowel-team-ai"
       ]
-    },
-    "meta": {
-      "est_chars": 212
     }
   },
   {
@@ -1753,9 +1465,6 @@
       "phonics": [
         "vowel-team-ay"
       ]
-    },
-    "meta": {
-      "est_chars": 195
     }
   },
   {
@@ -1771,9 +1480,6 @@
       "phonics": [
         "vowel-team-eigh"
       ]
-    },
-    "meta": {
-      "est_chars": 193
     }
   },
   {
@@ -1789,9 +1495,6 @@
       "phonics": [
         "vowel-team-ea"
       ]
-    },
-    "meta": {
-      "est_chars": 194
     }
   },
   {
@@ -1807,9 +1510,6 @@
       "phonics": [
         "vowel-team-ee"
       ]
-    },
-    "meta": {
-      "est_chars": 191
     }
   },
   {
@@ -1825,9 +1525,6 @@
       "phonics": [
         "vowel-team-ie"
       ]
-    },
-    "meta": {
-      "est_chars": 190
     }
   },
   {
@@ -1843,9 +1540,6 @@
       "phonics": [
         "vowel-team-y"
       ]
-    },
-    "meta": {
-      "est_chars": 186
     }
   },
   {
@@ -1861,9 +1555,6 @@
       "phonics": [
         "vowel-team-ey"
       ]
-    },
-    "meta": {
-      "est_chars": 193
     }
   },
   {
@@ -1879,9 +1570,6 @@
       "phonics": [
         "vowel-team-oa"
       ]
-    },
-    "meta": {
-      "est_chars": 202
     }
   },
   {
@@ -1897,9 +1585,6 @@
       "phonics": [
         "vowel-team-oe"
       ]
-    },
-    "meta": {
-      "est_chars": 189
     }
   },
   {
@@ -1915,9 +1600,6 @@
       "phonics": [
         "vowel-team-ow-o"
       ]
-    },
-    "meta": {
-      "est_chars": 210
     }
   },
   {
@@ -1933,9 +1615,6 @@
       "phonics": [
         "vowel-team-ough-o"
       ]
-    },
-    "meta": {
-      "est_chars": 203
     }
   },
   {
@@ -1951,9 +1630,6 @@
       "phonics": [
         "vowel-team-ui"
       ]
-    },
-    "meta": {
-      "est_chars": 215
     }
   },
   {
@@ -1969,9 +1645,6 @@
       "phonics": [
         "vowel-team-ue"
       ]
-    },
-    "meta": {
-      "est_chars": 212
     }
   },
   {
@@ -1987,9 +1660,6 @@
       "phonics": [
         "vowel-team-ew"
       ]
-    },
-    "meta": {
-      "est_chars": 198
     }
   },
   {
@@ -2005,9 +1675,6 @@
       "phonics": [
         "vowel-team-ou-u"
       ]
-    },
-    "meta": {
-      "est_chars": 204
     }
   },
   {
@@ -2023,9 +1690,6 @@
       "phonics": [
         "vowel-team-oo-long"
       ]
-    },
-    "meta": {
-      "est_chars": 217
     }
   },
   {
@@ -2041,9 +1705,6 @@
       "phonics": [
         "vowel-variant-augh"
       ]
-    },
-    "meta": {
-      "est_chars": 209
     }
   },
   {
@@ -2059,9 +1720,6 @@
       "phonics": [
         "vowel-variant-all-alk"
       ]
-    },
-    "meta": {
-      "est_chars": 217
     }
   },
   {
@@ -2077,9 +1735,6 @@
       "phonics": [
         "diphthong-ow-ou"
       ]
-    },
-    "meta": {
-      "est_chars": 194
     }
   },
   {
@@ -2095,9 +1750,6 @@
       "phonics": [
         "diphthong-oy"
       ]
-    },
-    "meta": {
-      "est_chars": 202
     }
   },
   {
@@ -2113,9 +1765,6 @@
       "phonics": [
         "diphthong-aw"
       ]
-    },
-    "meta": {
-      "est_chars": 218
     }
   },
   {
@@ -2131,9 +1780,6 @@
       "phonics": [
         "vowel-team-ea-short"
       ]
-    },
-    "meta": {
-      "est_chars": 197
     }
   },
   {
@@ -2149,9 +1795,6 @@
       "phonics": [
         "consonant-dge"
       ]
-    },
-    "meta": {
-      "est_chars": 210
     }
   },
   {
@@ -2167,9 +1810,6 @@
       "phonics": [
         "consonant-ge-soft"
       ]
-    },
-    "meta": {
-      "est_chars": 205
     }
   },
   {
@@ -2185,9 +1825,6 @@
       "phonics": [
         "consonant-tch"
       ]
-    },
-    "meta": {
-      "est_chars": 219
     }
   },
   {
@@ -2203,9 +1840,6 @@
       "phonics": [
         "consonant-ch-k"
       ]
-    },
-    "meta": {
-      "est_chars": 217
     }
   },
   {
@@ -2221,9 +1855,6 @@
       "phonics": [
         "consonant-qu"
       ]
-    },
-    "meta": {
-      "est_chars": 209
     }
   },
   {
@@ -2239,9 +1870,6 @@
       "phonics": [
         "blend-tw"
       ]
-    },
-    "meta": {
-      "est_chars": 175
     }
   },
   {
@@ -2257,9 +1885,6 @@
       "phonics": [
         "blend-squ"
       ]
-    },
-    "meta": {
-      "est_chars": 218
     }
   },
   {
@@ -2275,9 +1900,6 @@
       "phonics": [
         "blend-shr"
       ]
-    },
-    "meta": {
-      "est_chars": 192
     }
   },
   {
@@ -2293,9 +1915,6 @@
       "phonics": [
         "final-blend-lk"
       ]
-    },
-    "meta": {
-      "est_chars": 191
     }
   },
   {
@@ -2311,9 +1930,6 @@
       "phonics": [
         "final-blend-nch"
       ]
-    },
-    "meta": {
-      "est_chars": 203
     }
   },
   {
@@ -2329,9 +1945,6 @@
       "phonics": [
         "final-blend-rch"
       ]
-    },
-    "meta": {
-      "est_chars": 193
     }
   },
   {
@@ -2347,9 +1960,6 @@
       "phonics": [
         "suffix-ness"
       ]
-    },
-    "meta": {
-      "est_chars": 196
     }
   },
   {
@@ -2365,9 +1975,6 @@
       "phonics": [
         "suffix-ment"
       ]
-    },
-    "meta": {
-      "est_chars": 214
     }
   },
   {
@@ -2383,9 +1990,6 @@
       "phonics": [
         "suffix-ship"
       ]
-    },
-    "meta": {
-      "est_chars": 195
     }
   },
   {
@@ -2401,9 +2005,6 @@
       "phonics": [
         "suffix-ward"
       ]
-    },
-    "meta": {
-      "est_chars": 205
     }
   },
   {
@@ -2419,9 +2020,6 @@
       "phonics": [
         "suffix-ish"
       ]
-    },
-    "meta": {
-      "est_chars": 199
     }
   },
   {
@@ -2437,9 +2035,6 @@
       "phonics": [
         "suffix-en"
       ]
-    },
-    "meta": {
-      "est_chars": 204
     }
   },
   {
@@ -2455,9 +2050,6 @@
       "phonics": [
         "suffix-age"
       ]
-    },
-    "meta": {
-      "est_chars": 215
     }
   },
   {
@@ -2473,9 +2065,6 @@
       "phonics": [
         "suffix-cian"
       ]
-    },
-    "meta": {
-      "est_chars": 225
     }
   },
   {
@@ -2491,9 +2080,6 @@
       "phonics": [
         "suffix-al"
       ]
-    },
-    "meta": {
-      "est_chars": 207
     }
   },
   {
@@ -2509,9 +2095,6 @@
       "phonics": [
         "prefix-over"
       ]
-    },
-    "meta": {
-      "est_chars": 224
     }
   },
   {
@@ -2527,9 +2110,6 @@
       "phonics": [
         "prefix-under"
       ]
-    },
-    "meta": {
-      "est_chars": 220
     }
   },
   {
@@ -2545,9 +2125,6 @@
       "phonics": [
         "prefix-inter"
       ]
-    },
-    "meta": {
-      "est_chars": 217
     }
   },
   {
@@ -2563,9 +2140,6 @@
       "phonics": [
         "prefix-super"
       ]
-    },
-    "meta": {
-      "est_chars": 204
     }
   },
   {
@@ -2581,9 +2155,6 @@
       "phonics": [
         "prefix-sub"
       ]
-    },
-    "meta": {
-      "est_chars": 194
     }
   },
   {
@@ -2599,9 +2170,6 @@
       "phonics": [
         "prefix-tele"
       ]
-    },
-    "meta": {
-      "est_chars": 206
     }
   },
   {
@@ -2617,9 +2185,6 @@
       "phonics": [
         "prefix-auto"
       ]
-    },
-    "meta": {
-      "est_chars": 218
     }
   }
 ]

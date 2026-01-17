@@ -170,6 +170,9 @@ function showModal(modalName, options = {}) {
         resetLessonPickerState(state.settings.defaultStage);
     }
 
+    // Prevent background scrolling while modal is open
+    document.body.classList.add('modal-open');
+
     bindModalEvents(modalName);
     const modal = modalContainer.querySelector('.modal');
     modal.classList.add('active');
@@ -190,6 +193,7 @@ function closeModal() {
             markWelcomeSeen();
         }
         modalEl.classList.remove('active');
+        document.body.classList.remove('modal-open');
         setTimeout(() => {
             modalContainer.innerHTML = '';
             state.ui.modal = null;
@@ -589,14 +593,20 @@ function bindModalEvents(modalName) {
     }
 
     if (modalName === 'lessonPicker') {
+        const stageFilterGroup = modalContainer.querySelector('.stage-filter-group');
         const stageFilter = modalContainer.querySelector('.stage-filter');
         const searchInput = document.getElementById('search-input');
         const sortSelect = document.getElementById('sort-select');
+        const statusFilter = document.getElementById('status-filter');
         const lessonListEl = modalContainer.querySelector('.lesson-list');
 
-        const setStageFilterVisibility = (type) => {
+        const setStageFilterDisabled = (type) => {
             if (stageFilter) {
-                stageFilter.parentElement.classList.toggle('hidden', type === 'phonics');
+                const isPhonics = type === 'phonics';
+                stageFilter.classList.toggle('disabled', isPhonics);
+                stageFilter.querySelectorAll('.button').forEach(btn => {
+                    btn.disabled = isPhonics;
+                });
             }
         };
         
@@ -613,14 +623,22 @@ function bindModalEvents(modalName) {
             modalContainer.querySelector('.tab-button.active').classList.remove('active');
             e.target.classList.add('active');
             const newType = e.target.dataset.type;
-            setStageFilterVisibility(newType);
+            setStageFilterDisabled(newType);
             handleFilterChange({ currentType: newType, currentPage: 1 });
         }));
 
         stageFilter.querySelectorAll('.button').forEach(b => b.addEventListener('click', (e) => {
-            stageFilter.querySelector('.active').classList.remove('active');
-            e.target.classList.add('active');
-            handleFilterChange({ currentStage: e.target.dataset.stage, currentPage: 1 });
+            // Get the button element - handle clicks on child elements (like the progress badge)
+            const button = e.target.closest('.button[data-stage]');
+            if (!button || button.disabled) return;
+            
+            const clickedStage = button.dataset.stage;
+            const currentActive = stageFilter.querySelector('.active');
+            // If clicking the already-selected stage, do nothing
+            if (currentActive && currentActive.dataset.stage === clickedStage) return;
+            currentActive?.classList.remove('active');
+            button.classList.add('active');
+            handleFilterChange({ currentStage: clickedStage, currentPage: 1 });
         }));
 
         searchInput.addEventListener('input', debounce(() => {
@@ -629,6 +647,10 @@ function bindModalEvents(modalName) {
 
         sortSelect.addEventListener('change', () => {
             handleFilterChange({ sortKey: sortSelect.value, currentPage: 1 });
+        });
+
+        statusFilter.addEventListener('change', () => {
+            handleFilterChange({ statusFilter: statusFilter.value, currentPage: 1 });
         });
 
         lessonListEl.addEventListener('click', (e) => {
@@ -661,7 +683,7 @@ function bindModalEvents(modalName) {
         // Initial load and render – ensure the default stage data is available
         stageFilter.querySelector(`[data-stage="${state.settings.defaultStage}"]`).classList.add('active');
         const pickerState = getLessonPickerState();
-        setStageFilterVisibility(pickerState.currentType);
+        setStageFilterDisabled(pickerState.currentType);
         handleFilterChange({ currentStage: pickerState.currentStage });
     }
     if (modalName === 'welcome') {

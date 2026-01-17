@@ -234,6 +234,11 @@ p {
 /* --- Display Utilities --- */
 .hidden { display: none !important; }
 
+/* --- Modal scroll lock --- */
+body.modal-open {
+    overflow: hidden;
+}
+
 /* ==========================================================================
    5. BUTTONS
    ========================================================================== */
@@ -514,6 +519,7 @@ p {
     width: 640px;
     max-height: 90vh;
     overflow-y: auto;
+    overscroll-behavior: contain;
     display: flex;
     flex-direction: column;
     gap: var(--space-lg);
@@ -1202,6 +1208,13 @@ kbd {
     color: white;
 }
 
+/* Disabled state for stage filter (e.g., when Phonics tab is active) */
+.stage-filter.disabled .button {
+    opacity: 0.4;
+    cursor: not-allowed;
+    pointer-events: none;
+}
+
 .stage-filter .stage-progress {
     display: inline-block;
     margin-left: 0.35rem;
@@ -1214,6 +1227,7 @@ kbd {
 .lesson-list {
     flex-grow: 1;
     overflow-y: auto;
+    overscroll-behavior: contain;
 }
 
 .lesson-picker-modal .lesson-list {
