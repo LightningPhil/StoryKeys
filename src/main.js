@@ -378,6 +378,19 @@ function bindScreenEvents(screenName) {
         const input = document.getElementById('typing-input');
         const progressBar = document.getElementById('typing-progress-bar');
         const pauseOverlay = document.getElementById('pause-overlay');
+        const capsLockIndicator = document.getElementById('caps-lock-indicator');
+        
+        // Caps Lock detection
+        const updateCapsLockState = (e) => {
+            if (capsLockIndicator && e.getModifierState) {
+                const capsOn = e.getModifierState('CapsLock');
+                capsLockIndicator.classList.toggle('active', capsOn);
+            }
+        };
+        
+        // Listen for keydown/keyup to detect caps lock state
+        input.addEventListener('keydown', updateCapsLockState);
+        input.addEventListener('keyup', updateCapsLockState);
         
         // Initialize WPM sampling for sparkline
         state.runtime.wpmSamples = [];

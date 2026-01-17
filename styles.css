@@ -850,6 +850,61 @@ body.modal-open {
     border-color: var(--color-accent);
 }
 
+/* Typing Input Wrapper (for caps lock indicator positioning) */
+.typing-input-wrapper {
+    position: relative;
+    width: 100%;
+}
+
+.typing-input-wrapper .typing-input {
+    padding-right: 5rem;
+}
+
+/* Caps Lock Indicator */
+.caps-lock-indicator {
+    position: absolute;
+    right: 0.75rem;
+    top: 50%;
+    transform: translateY(-50%);
+    display: flex;
+    align-items: center;
+    gap: 0.35rem;
+    padding: 0.3rem 0.6rem;
+    background: var(--color-subtle-bg);
+    border: 1px solid var(--color-border);
+    border-radius: 4px;
+    font-size: 0.7rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    color: var(--color-muted);
+    opacity: 0.6;
+    transition: opacity 0.15s, background 0.15s;
+    pointer-events: none;
+    user-select: none;
+}
+
+.caps-lock-indicator.active {
+    opacity: 1;
+    background: var(--color-card-bg);
+    border-color: var(--color-accent);
+    color: var(--color-text);
+}
+
+.caps-lock-led {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: var(--color-border);
+    box-shadow: inset 0 1px 2px rgba(0,0,0,0.2);
+    transition: background 0.15s, box-shadow 0.15s;
+}
+
+.caps-lock-indicator.active .caps-lock-led {
+    background: #22c55e;
+    box-shadow: 0 0 6px rgba(34, 197, 94, 0.6), inset 0 1px 2px rgba(255,255,255,0.3);
+}
+
 .typing-controls {
     display: flex;
     justify-content: space-between;

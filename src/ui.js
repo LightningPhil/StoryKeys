@@ -291,7 +291,13 @@ export function getScreenHtml(screenName, state, DATA) {
                         </svg>
                     </div>
                     <div id="typing-target" class="typing-target ${state.runtime.flags.focusLine ? 'focus-line-active' : ''}">${initialHtml}</div>
-                    <textarea id="typing-input" class="typing-input" rows="3" spellcheck="false" autocomplete="off" autocorrect="off" autocapitalize="off"></textarea>
+                    <div class="typing-input-wrapper">
+                        <textarea id="typing-input" class="typing-input" rows="3" spellcheck="false" autocomplete="off" autocorrect="off" autocapitalize="off"></textarea>
+                        <div id="caps-lock-indicator" class="caps-lock-indicator" title="Caps Lock">
+                            <span class="caps-lock-led"></span>
+                            <span class="caps-lock-label">Caps</span>
+                        </div>
+                    </div>
                     ${keyboardHtml}
                 </div>
                 <div id="pause-overlay" class="pause-overlay hidden">
