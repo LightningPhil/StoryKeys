@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>StoryKeys Content Audit Dashboard</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+    <link rel="stylesheet" href="audit/audit.css">
+</head>
+<body>
+    <header>
+        <h1>📊 StoryKeys Content Audit Dashboard</h1>
+        <p class="subtitle">Content suitability review for educational materials</p>
+    </header>
+
+    <main>
+        <!-- Summary Stats -->
+        <section class="summary-section">
+            <h2>Overview Summary</h2>
+            <div class="stats-grid" id="summaryStats">
+                <div class="stat-card">
+                    <span class="stat-value" id="totalPassages">-</span>
+                    <span class="stat-label">Total Passages</span>
+                </div>
+                <div class="stat-card">
+                    <span class="stat-value" id="totalPatterns">-</span>
+                    <span class="stat-label">Total Patterns</span>
+                </div>
+                <div class="stat-card">
+                    <span class="stat-value" id="totalWordsets">-</span>
+                    <span class="stat-label">Total Wordsets</span>
+                </div>
+                <div class="stat-card">
+                    <span class="stat-value" id="totalBadges">-</span>
+                    <span class="stat-label">Badges</span>
+                </div>
+                <div class="stat-card">
+                    <span class="stat-value" id="totalPhonics">-</span>
+                    <span class="stat-label">Phonics Lessons</span>
+                </div>
+                <div class="stat-card">
+                    <span class="stat-value" id="totalSpelling">-</span>
+                    <span class="stat-label">Spelling Sets</span>
+                </div>
+            </div>
+        </section>
+
+        <!-- Key Stages Section -->
+        <section class="keystage-section">
+            <h2>Key Stage Breakdown</h2>
+            <div class="keystage-grid">
+                <!-- KS1 -->
+                <div class="keystage-card">
+                    <h3>KS1 (Ages 5-7)</h3>
+                    <div class="ks-stats">
+                        <div class="ks-stat">
+                            <span class="ks-value" id="ks1Passages">-</span>
+                            <span class="ks-label">Passages</span>
+                        </div>
+                        <div class="ks-stat">
+                            <span class="ks-value" id="ks1Patterns">-</span>
+                            <span class="ks-label">Patterns</span>
+                        </div>
+                        <div class="ks-stat">
+                            <span class="ks-value" id="ks1Wordsets">-</span>
+                            <span class="ks-label">Wordsets</span>
+                        </div>
+                    </div>
+                    <p class="themes-label">Themes:</p>
+                    <div class="themes-list" id="ks1Themes">Loading...</div>
+                    <button class="pdf-btn" onclick="generatePDF('KS1')">📄 Download KS1 PDF</button>
+                </div>
+
+                <!-- KS2 -->
+                <div class="keystage-card">
+                    <h3>KS2 (Ages 7-11)</h3>
+                    <div class="ks-stats">
+                        <div class="ks-stat">
+                            <span class="ks-value" id="ks2Passages">-</span>
+                            <span class="ks-label">Passages</span>
+                        </div>
+                        <div class="ks-stat">
+                            <span class="ks-value" id="ks2Patterns">-</span>
+                            <span class="ks-label">Patterns</span>
+                        </div>
+                        <div class="ks-stat">
+                            <span class="ks-value" id="ks2Wordsets">-</span>
+                            <span class="ks-label">Wordsets</span>
+                        </div>
+                    </div>
+                    <p class="themes-label">Themes:</p>
+                    <div class="themes-list" id="ks2Themes">Loading...</div>
+                    <button class="pdf-btn" onclick="generatePDF('KS2')">📄 Download KS2 PDF</button>
+                </div>
+
+                <!-- KS3 -->
+                <div class="keystage-card">
+                    <h3>KS3 (Ages 11-14)</h3>
+                    <div class="ks-stats">
+                        <div class="ks-stat">
+                            <span class="ks-value" id="ks3Passages">-</span>
+                            <span class="ks-label">Passages</span>
+                        </div>
+                        <div class="ks-stat">
+                            <span class="ks-value" id="ks3Patterns">-</span>
+                            <span class="ks-label">Patterns</span>
+                        </div>
+                        <div class="ks-stat">
+                            <span class="ks-value" id="ks3Wordsets">-</span>
+                            <span class="ks-label">Wordsets</span>
+                        </div>
+                    </div>
+                    <p class="themes-label">Themes:</p>
+                    <div class="themes-list" id="ks3Themes">Loading...</div>
+                    <button class="pdf-btn" onclick="generatePDF('KS3')">📄 Download KS3 PDF</button>
+                </div>
+
+                <!-- KS4 -->
+                <div class="keystage-card">
+                    <h3>KS4 (Ages 14-16)</h3>
+                    <div class="ks-stats">
+                        <div class="ks-stat">
+                            <span class="ks-value" id="ks4Passages">-</span>
+                            <span class="ks-label">Passages</span>
+                        </div>
+                        <div class="ks-stat">
+                            <span class="ks-value" id="ks4Patterns">-</span>
+                            <span class="ks-label">Patterns</span>
+                        </div>
+                        <div class="ks-stat">
+                            <span class="ks-value" id="ks4Wordsets">-</span>
+                            <span class="ks-label">Wordsets</span>
+                        </div>
+                    </div>
+                    <p class="themes-label">Themes:</p>
+                    <div class="themes-list" id="ks4Themes">Loading...</div>
+                    <button class="pdf-btn" onclick="generatePDF('KS4')">📄 Download KS4 PDF</button>
+                </div>
+            </div>
+        </section>
+
+        <!-- Badges Section -->
+        <section class="data-section">
+            <h2>Badges</h2>
+            <div class="section-content">
+                <div class="section-stats" id="badgeStats">
+                    <p>Loading badge statistics...</p>
+                </div>
+                <button class="pdf-btn" onclick="generateBadgesPDF()">📄 Download Badges PDF</button>
+            </div>
+        </section>
+
+        <!-- Phonics Section -->
+        <section class="data-section">
+            <h2>Phonics Lessons</h2>
+            <div class="section-content">
+                <div class="section-stats" id="phonicsStats">
+                    <p>Loading phonics statistics...</p>
+                </div>
+                <button class="pdf-btn" onclick="generatePhonicsPDF()">📄 Download Phonics PDF</button>
+            </div>
+        </section>
+
+        <!-- Spelling Section -->
+        <section class="data-section">
+            <h2>Spelling Sets</h2>
+            <div class="section-content">
+                <div class="section-stats" id="spellingStats">
+                    <p>Loading spelling statistics...</p>
+                </div>
+                <button class="pdf-btn" onclick="generateSpellingPDF()">📄 Download Spelling PDF</button>
+            </div>
+        </section>
+
+        <!-- Download All Section -->
+        <section class="download-all-section">
+            <h2>Bulk Downloads</h2>
+            <div class="bulk-buttons">
+                <button class="pdf-btn large" onclick="generateAllKeyStagesPDF()">📄 Download All Key Stages PDF</button>
+                <button class="pdf-btn large" onclick="generateCompletePDF()">📄 Download Complete Content Review PDF</button>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <p>StoryKeys Content Audit Tool • Generated: <span id="generatedDate"></span></p>
+    </footer>
+
+    <script src="audit/audit.js"></script>
+</body>
+</html>

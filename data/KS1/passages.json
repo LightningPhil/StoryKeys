@@ -859,9 +859,9 @@
     "stage": "KS1",
     "theme": "School Day",
     "title": "Break Time",
-    "text": "The bell rings for break. We run to the yard. The boys play ball and the girls skip rope. It is bright and warm.",
+    "text": "The bell rings for break. We run to the yard. We play ball and skip rope. It is bright and warm.",
     "tags": { "complexity": { "caps": true, "punct": true }, "phonics": ["ks1-phonics-or"] },
-    "meta": { "est_chars": 138 }
+    "meta": { "est_chars": 118 }
   },
   {
     "id": "ks1_school-art_class_v1",
