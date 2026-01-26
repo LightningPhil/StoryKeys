@@ -78,3 +78,16 @@ export function debounce(func, wait) {
         timeout = setTimeout(later, wait);
     };
 }
+
+/**
+ * Shuffles an array in place using the Fisher-Yates algorithm.
+ * @param {Array} arr - The array to shuffle.
+ * @returns {Array} The same array, now shuffled.
+ */
+export function shuffleArray(arr) {
+    for (let i = arr.length - 1; i > 0; i--) {
+        const j = Math.floor(Math.random() * (i + 1));
+        [arr[i], arr[j]] = [arr[j], arr[i]];
+    }
+    return arr;
+}

@@ -28,5 +28,18 @@
         "Calm and careful.",
         "That looked smooth.",
         "Brilliant effort!"
-    ]
+    ],
+    "spellingModeTutor": "Tutor Mode",
+    "spellingModeRecall": "Recall Mode",
+    "spellingModeTutorDesc": "Words appear as you type – great for learning new words.",
+    "spellingModeRecallDesc": "Memorise the list, then type from memory – a real challenge!",
+    "recallMemorisePhase": "Memorise these words. Press Read Aloud to hear them, then click Ready when you're set.",
+    "recallReadyBtn": "Ready",
+    "recallSayWordBtn": "Repeat Word",
+    "recallCountdownLabel": "Starting in…",
+    "recallTypePrompt": "Type the word you hear, then press Enter.",
+    "recallListenPrompt": "Listen for the next word. Use Repeat Word to hear it again.",
+    "recallTryAgain": "Try again. Press Repeat Word if you want to hear it again.",
+    "recallComplete": "All words complete!",
+    "speechNotAvailable": "Text-to-speech is not available in this browser."
 }

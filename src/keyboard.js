@@ -169,6 +169,7 @@ export function updateTypingDisplay(userInput, state, DATA) {
  * @param {object} DATA - The global data object.
  */
 export function calculateVisualLines(state, DATA) {
+    if (state.runtime?.lesson?.mode === 'recall') return;
     const container = document.getElementById('typing-target');
     if (!container) return;
 

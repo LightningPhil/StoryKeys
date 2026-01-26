@@ -242,7 +242,10 @@ export function getScreenHtml(screenName, state, DATA) {
                 </div>` : ''}
             </div>`;
         case 'typing':
-            const initialHtml = state.runtime.targetText.split('').map((char, idx) =>
+            const isRecallMode = state.runtime.lesson?.mode === 'recall';
+            const recallPhase = state.runtime.spellingRecall?.phase || 'memorise';
+            const displayText = isRecallMode && state.runtime.recallDisplayText ? state.runtime.recallDisplayText : state.runtime.targetText;
+            const initialHtml = displayText.split('').map((char, idx) =>
                 `<span class="char" data-idx="${idx}">${char}</span>`
             ).join('');
 
@@ -261,19 +264,38 @@ export function getScreenHtml(screenName, state, DATA) {
             const showFingerGuide = state.settings.fingerGuide && state.runtime.flags.keyboardHint;
             const keyboardLayout = [['q', 'w', 'e', 'r', 't', 'y', 'u', 'i', 'o', 'p'], ['a', 's', 'd', 'f', 'g', 'h', 'j', 'k', 'l', ';'], ['z', 'x', 'c', 'v', 'b', 'n', 'm', ',', '.']];
             const keyboardHtml = state.runtime.flags.keyboardHint ? `<div id="keyboard-hint" class="${showFingerGuide ? 'finger-guide' : ''}">${keyboardLayout.map(row => `<div class="keyboard-row">${row.map(key => `<div class="key ${showFingerGuide ? 'finger-' + fingerZones[key] : ''}" data-key="${key}">${key}</div>`).join('')}</div>`).join('')}<div class="keyboard-row"><div class="key space ${showFingerGuide ? 'finger-thumb' : ''}" data-key=" ">Space</div></div></div>` : '';
+            
+            // Recall mode specific controls
+            const recallControlsHtml = isRecallMode ? `
+                <div id="recall-controls" class="recall-controls" data-phase="${recallPhase}">
+                    <div id="recall-instruction" class="recall-instruction">
+                        ${DATA.COPY.recallMemorisePhase || 'Memorise these words. Press Read Aloud to hear them, then click Ready when you\'re set.'}
+                    </div>
+                    <div class="recall-buttons">
+                        <button id="recall-ready-btn" class="button button-primary">${DATA.COPY.recallReadyBtn || 'Ready'}</button>
+                        <button id="recall-say-word-btn" class="button button-secondary" disabled>${DATA.COPY.recallSayWordBtn || 'Repeat Word'}</button>
+                    </div>
+                    <div id="recall-countdown" class="recall-countdown hidden">
+                        <span class="countdown-label">${DATA.COPY.recallCountdownLabel || 'Starting in…'}</span>
+                        <span id="recall-countdown-value" class="countdown-value">10</span>
+                    </div>
+                </div>
+            ` : '';
+            
             return `
-            <div id="typing-screen" class="screen active">
+            <div id="typing-screen" class="screen active ${isRecallMode ? 'recall-mode' : ''}">
                 <div class="progress-bar-container"><div id="typing-progress-bar" class="progress-bar" style="width: 0%"></div></div>
                 <div class="card">
                     <div class="typing-controls">
-                        <div class="typing-controls__title"><h2>${state.runtime.lesson.data.title || state.runtime.lesson.data.name}</h2></div>
+                        <div class="typing-controls__title"><h2>${state.runtime.lesson.data.title || state.runtime.lesson.data.name}${isRecallMode ? ' <span class="mode-badge">Recall</span>' : ''}</h2></div>
                         <div class="button-group">
                             ${state.runtime.flags.showTimerChip ? `<div id="timer-chip" class="timer-chip">--:--</div>` : ''}
                             <button id="read-aloud-btn" class="button button-secondary read-aloud-btn" title="Read passage aloud">🔊 Read Aloud</button>
                             <label class="toggle-switch">${DATA.COPY.lockstepOn}<input type="checkbox" id="lockstep-toggle" ${state.runtime.flags.lockstep ? 'checked' : ''}><span class="slider"></span></label>
-                            <label class="toggle-switch">${DATA.COPY.focusLineOn}<input type="checkbox" id="focusline-toggle" ${state.runtime.flags.focusLine ? 'checked' : ''}><span class="slider"></span></label>
+                            ${!isRecallMode ? `<label class="toggle-switch">${DATA.COPY.focusLineOn}<input type="checkbox" id="focusline-toggle" ${state.runtime.flags.focusLine ? 'checked' : ''}><span class="slider"></span></label>` : ''}
                         </div>
                     </div>
+                    ${recallControlsHtml}
                     <div id="finger-hint" class="finger-hint">
                         <svg viewBox="0 0 160 38" class="finger-diagram">
                             <!-- Left hand (5 fingers in arc) -->
@@ -290,9 +312,9 @@ export function getScreenHtml(screenName, state, DATA) {
                             <circle cx="149" cy="27" r="7" class="finger" data-finger="rp"/>
                         </svg>
                     </div>
-                    <div id="typing-target" class="typing-target ${state.runtime.flags.focusLine ? 'focus-line-active' : ''}">${initialHtml}</div>
+                    <div id="typing-target" class="typing-target ${state.runtime.flags.focusLine ? 'focus-line-active' : ''} ${isRecallMode ? 'recall-target' : ''}">${initialHtml}</div>
                     <div class="typing-input-wrapper">
-                        <textarea id="typing-input" class="typing-input" rows="3" spellcheck="false" autocomplete="off" autocorrect="off" autocapitalize="off"></textarea>
+                        <textarea id="typing-input" class="typing-input" rows="3" spellcheck="false" autocomplete="off" autocorrect="off" autocapitalize="off" ${isRecallMode ? 'disabled' : ''}></textarea>
                         <div id="caps-lock-indicator" class="caps-lock-indicator" title="Caps Lock">
                             <span class="caps-lock-led"></span>
                             <span class="caps-lock-label">Caps</span>
@@ -548,8 +570,10 @@ export function getModalHtml(modalName, state, DATA) {
                 <details class="settings-section" open>
                     <summary>Sound &amp; Speech</summary>
                     <div class="setting-item"><div><b>Typing Sounds</b><p>Play soft clicks while typing.</p></div><label class="toggle-switch"><input type="checkbox" id="setting-sound"><span class="slider"></span></label></div>
-                    <div class="setting-item"><div><b>Read Aloud Voice</b><p>Voice for passage previews.</p></div><select id="setting-voice-gender" class="button button-secondary"><option value="female">Female</option><option value="male">Male</option></select></div>
-                    <div class="setting-item"><div><b>Voice Speed: <span id="vs-val"></span></b><p>How fast text is read aloud.</p></div><input type="range" id="setting-voice-speed" min="0.5" max="1.2" step="0.05"></div>
+                    <div class="setting-item"><div><b>High Quality Speech</b><p>Download a ~82MB Kokoro voice model for clearer Read Aloud and Repeat Word.</p></div><label class="toggle-switch"><input type="checkbox" id="setting-high-quality-speech"><span class="slider"></span></label></div>
+                    <div class="setting-item kokoro-setting"><div><b>Voice Language</b><p>Accent for Read Aloud.</p></div><select id="setting-voice-language" class="button button-secondary"><option value="en-gb">British English</option><option value="en-us">American English</option></select></div>
+                    <div class="setting-item kokoro-setting"><div><b>Voice</b><p>Select a voice for Read Aloud.</p></div><select id="setting-voice" class="button button-secondary"></select></div>
+                    <div class="setting-item"><div><b>Voice Speed: <span id="vs-val"></span></b><p>How fast text is read aloud.</p></div><input type="range" id="setting-voice-speed" min="0.5" max="1.5" step="0.05"></div>
                 </details>
                 <details class="settings-section">
                     <summary>General</summary>
@@ -585,6 +609,25 @@ export function getModalHtml(modalName, state, DATA) {
                 <input type="password" id="pin-input" class="pin-input pin-input-lg" maxlength="4">
                 <div class="modal-footer">
                     <button id="pin-submit-btn" class="button button-primary">Unlock</button>
+                </div>
+            </div></div>`;
+        case 'spellingMode': 
+            const selectedStage = state.ui.spellingModeStage || 'KS2';
+            return `
+            <div class="modal" role="dialog" aria-modal="true" aria-labelledby="spelling-mode-title"><div class="modal-content spelling-mode-modal">
+                <div class="modal-header"><h2 id="spelling-mode-title" class="modal-title">Choose Spelling Mode</h2>${closeModalBtn}</div>
+                <p class="modal-subtitle">How would you like to practice ${selectedStage} spelling?</p>
+                <div class="spelling-mode-options">
+                    <button class="spelling-mode-card" data-spelling-mode="tutor">
+                        <div class="mode-icon">📖</div>
+                        <h3>${DATA.COPY.spellingModeTutor || 'Tutor Mode'}</h3>
+                        <p>${DATA.COPY.spellingModeTutorDesc || 'Words appear as you type – great for learning new words.'}</p>
+                    </button>
+                    <button class="spelling-mode-card" data-spelling-mode="recall">
+                        <div class="mode-icon">🧠</div>
+                        <h3>${DATA.COPY.spellingModeRecall || 'Recall Mode'}</h3>
+                        <p>${DATA.COPY.spellingModeRecallDesc || 'Memorise the list, then type from memory – a real challenge!'}</p>
+                    </button>
                 </div>
             </div></div>`;
     }

@@ -1,4 +1,4 @@
-/**
+﻿/**
  * @file main.js
  * @description Main application controller for the StoryKeys typing tutor. (Version 8.0 - Stage 2)
  * This file initializes the app, manages state, and wires up event listeners,
@@ -10,9 +10,9 @@ import { config } from './config.js';
 import { DATA, loadInitialData, loadStageData } from './dataLoader.js';
 import { applySettings, getScreenHtml, getModalHtml, updateLessonPicker, resetLessonPickerState, triggerConfetti, toast, getLessonPickerState, handleLessonPickerPagination, printCertificate } from './ui.js';
 import { startSession, endSession, startFocusDrill } from './lessons.js';
-import { sha256Hex, debounce } from './utils.js';
+import { sha256Hex, debounce, normaliseString } from './utils.js';
 import { handleTypingInput, calculateVisualLines } from './keyboard.js';
-import { speakText, stopSpeaking, isSpeaking, isSpeechAvailable } from './sounds.js';
+import { speakText, stopSpeaking, isSpeaking, isSpeechAvailable, prepareSpeech, prepareSpeechBatch, isSpeechReady, getVoices, initializeKokoro, initAudioKeepAlive } from './sounds.js';
 
 'use strict';
 const APP_VERSION = "8.0.0";
@@ -67,7 +67,7 @@ const debouncedSaveDraft = debounce((state, typedText) => {
 
 // --- 1. STATE MANAGEMENT ---
 let state = {
-    settings: { font: 'default', lineHeight: 1.7, letterSpacing: 2, theme: 'cream', lockstepDefault: true, focusLineDefault: true, keyboardHintDefault: false, showTimerDisplay: true, defaultStage: 'KS2', pin: null, soundEnabled: false, fingerGuide: false, reduceMotion: false, voiceGender: 'female', voiceSpeed: 0.85 },
+    settings: { font: 'default', lineHeight: 1.7, letterSpacing: 2, theme: 'cream', lockstepDefault: true, focusLineDefault: true, keyboardHintDefault: false, showTimerDisplay: true, defaultStage: 'KS2', pin: null, soundEnabled: false, fingerGuide: false, reduceMotion: false, voiceLanguage: 'en-us', voice: 'af_bella', voiceSpeed: 1.0, highQualitySpeech: false },
     progress: { minutesTotal: 0, wordsTotal: 0, badges: [], themesCompleted: {}, stagesCompleted: {}, lastPlayed: null, consecutiveDays: 0, completedPassages: [], completedSpellings: [], completedPhonics: [] },
     sessions: [],
     meta: { ...DEFAULT_META },
@@ -146,6 +146,12 @@ function showScreen(screenName) {
     if (state.runtime?._cleanupSummaryKeys) {
         state.runtime._cleanupSummaryKeys();
         state.runtime._cleanupSummaryKeys = null;
+    }
+    
+    // Clean up recall mode if leaving typing screen
+    if (state.runtime?._cleanupRecallMode) {
+        state.runtime._cleanupRecallMode();
+        state.runtime._cleanupRecallMode = null;
     }
     
     // Stop any ongoing speech when changing screens
@@ -310,12 +316,9 @@ function bindScreenEvents(screenName) {
                     return;
                 }
 
-                const lessonData = pickFreshLesson(stageSpellings, 'spelling');
-                if (!lessonData) {
-                    toast(`No fresh spelling lists found for ${stage}. Please try another stage.`);
-                    return;
-                }
-                startSession({ type: 'spelling', data: lessonData }, state, showScreen, saveState);
+                // Store the stage for the modal and show mode chooser
+                state.ui.spellingModeStage = stage;
+                showModal('spellingMode');
             }
         });
 
@@ -413,9 +416,14 @@ function bindScreenEvents(screenName) {
             }
         };
         
+        // For recall mode, skip the standard typing handler - we use a custom one
+        const isRecallMode = state.runtime.lesson?.mode === 'recall';
+        
         input.addEventListener('input', e => {
-            handleTypingInput(e, state, DATA, sessionEndCallback);
-            updateProgressBar();
+            if (!isRecallMode) {
+                handleTypingInput(e, state, DATA, sessionEndCallback);
+                updateProgressBar();
+            }
             // Auto-save draft every 2 seconds via debounce
             debouncedSaveDraft(state, input.value);
             
@@ -435,11 +443,18 @@ function bindScreenEvents(screenName) {
         });
         input.addEventListener('paste', e => { e.preventDefault(); toast(DATA.COPY.pasteBlocked); });
         
-        document.getElementById('lockstep-toggle').addEventListener('change', e => { state.runtime.flags.lockstep = e.target.checked; });
-        document.getElementById('focusline-toggle').addEventListener('change', e => { 
-            state.runtime.flags.focusLine = e.target.checked; 
-            document.getElementById('typing-target').classList.toggle('focus-line-active', e.target.checked); 
-        });
+        const lockstepToggle = document.getElementById('lockstep-toggle');
+        const focuslineToggle = document.getElementById('focusline-toggle');
+        
+        if (lockstepToggle) {
+            lockstepToggle.addEventListener('change', e => { state.runtime.flags.lockstep = e.target.checked; });
+        }
+        if (focuslineToggle) {
+            focuslineToggle.addEventListener('change', e => { 
+                state.runtime.flags.focusLine = e.target.checked; 
+                document.getElementById('typing-target').classList.toggle('focus-line-active', e.target.checked); 
+            });
+        }
         
         // Pause/Resume functionality
         const togglePause = () => {
@@ -475,37 +490,91 @@ function bindScreenEvents(screenName) {
         };
         window.addEventListener('keydown', pauseKeyHandler);
         state.runtime._cleanupPauseHandler = () => window.removeEventListener('keydown', pauseKeyHandler);
-        
         // Read Aloud button
         const readAloudBtn = document.getElementById('read-aloud-btn');
+        const getSpeechOptions = () => ({
+            voice: state.settings.voice,
+            language: state.settings.voiceLanguage,
+            speed: state.settings.voiceSpeed,
+            highQuality: state.settings.highQualitySpeech
+        });
+        const initialSpeechOptions = getSpeechOptions();
+        const setButtonBuffering = (btn, isBuffering) => {
+            if (!btn) return;
+            btn.classList.toggle('buffering', isBuffering);
+            if (isBuffering) {
+                btn.setAttribute('aria-busy', 'true');
+            } else {
+                btn.removeAttribute('aria-busy');
+            }
+        };
+        const setReadAloudIdle = () => {
+            if (!readAloudBtn) return;
+            readAloudBtn.textContent = '🔊 Read Aloud';
+            readAloudBtn.classList.remove('speaking');
+            setButtonBuffering(readAloudBtn, false);
+        };
+        const setReadAloudSpeaking = () => {
+            if (!readAloudBtn) return;
+            readAloudBtn.textContent = '⏹️ Stop';
+            readAloudBtn.classList.add('speaking');
+            setButtonBuffering(readAloudBtn, false);
+        };
+        const setReadAloudBuffering = () => {
+            if (!readAloudBtn) return;
+            readAloudBtn.textContent = '⏹️ Stop';
+            readAloudBtn.classList.remove('speaking');
+            setButtonBuffering(readAloudBtn, true);
+        };
         if (readAloudBtn) {
-            if (!isSpeechAvailable()) {
+            if (!isSpeechAvailable(initialSpeechOptions)) {
                 readAloudBtn.disabled = true;
                 readAloudBtn.title = 'Text-to-speech not available in this browser';
             } else {
                 readAloudBtn.addEventListener('click', () => {
-                    if (isSpeaking()) {
-                        // Stop if already speaking
+                    const speechOptions = getSpeechOptions();
+                    if (isSpeaking(speechOptions)) {
                         stopSpeaking();
-                        readAloudBtn.textContent = '🔊 Read Aloud';
-                        readAloudBtn.classList.remove('speaking');
+                        setReadAloudIdle();
                     } else {
-                        // Start reading
-                        const textToRead = state.runtime.targetText;
-                        readAloudBtn.textContent = '⏹️ Stop';
-                        readAloudBtn.classList.add('speaking');
-                        speakText(
+                        const textToRead = state.runtime.lesson?.mode === 'recall' && state.runtime.recallDisplayText
+                            ? state.runtime.recallDisplayText
+                            : state.runtime.targetText;
+                        if (speechOptions.highQuality && !isSpeechReady(textToRead, speechOptions)) {
+                            setReadAloudBuffering();
+                        } else {
+                            setReadAloudSpeaking();
+                        }
+                        void speakText(
                             textToRead,
-                            () => {
-                                // On end
-                                readAloudBtn.textContent = '🔊 Read Aloud';
-                                readAloudBtn.classList.remove('speaking');
-                            },
-                            null,
-                            { gender: state.settings.voiceGender, speed: state.settings.voiceSpeed }
+                            () => setReadAloudIdle(),
+                            () => setReadAloudSpeaking(),
+                            {
+                                ...speechOptions,
+                                onBufferStart: setReadAloudBuffering,
+                                onBufferEnd: () => setButtonBuffering(readAloudBtn, false)
+                            }
                         );
                     }
                 });
+            }
+        }
+        if (initialSpeechOptions.highQuality && isSpeechAvailable(initialSpeechOptions)) {
+            const readAloudText = state.runtime.lesson?.mode === 'recall' && state.runtime.recallDisplayText
+                ? state.runtime.recallDisplayText
+                : state.runtime.targetText;
+            // Pre-buffer speech for faster playback
+            // The queue in sounds.js ensures requests are processed one at a time
+            if (state.runtime.lesson?.mode === 'recall') {
+                // For recall mode, pre-buffer the list plus each shuffled word
+                const words = state.runtime.spellingRecall?.shuffledWords || [];
+                if (readAloudText) {
+                    void prepareSpeech(readAloudText, initialSpeechOptions);
+                }
+                void prepareSpeechBatch(words, initialSpeechOptions);
+            } else {
+                // For tutor mode and passages, buffer the full text
+                void prepareSpeech(readAloudText, initialSpeechOptions);
             }
         }
         
@@ -552,6 +621,290 @@ function bindScreenEvents(screenName) {
                 }
             };
             // Timer will be started by keyboard.js on first correct keystroke
+        }
+        // --- Recall Mode Event Handlers ---
+        if (state.runtime.lesson?.mode === 'recall') {
+            const recallReadyBtn = document.getElementById('recall-ready-btn');
+            const recallSayWordBtn = document.getElementById('recall-say-word-btn');
+            const recallCountdown = document.getElementById('recall-countdown');
+            const recallCountdownValue = document.getElementById('recall-countdown-value');
+            const recallInstruction = document.getElementById('recall-instruction');
+            const recallControls = document.getElementById('recall-controls');
+            const typingTarget = document.getElementById('typing-target');
+            const initialRecallSpeechOptions = getSpeechOptions();
+            const setSayWordIdle = () => {
+                if (!recallSayWordBtn) return;
+                recallSayWordBtn.classList.remove('speaking');
+                setButtonBuffering(recallSayWordBtn, false);
+            };
+            const setSayWordSpeaking = () => {
+                if (!recallSayWordBtn) return;
+                recallSayWordBtn.classList.add('speaking');
+                setButtonBuffering(recallSayWordBtn, false);
+            };
+            const setSayWordBuffering = () => {
+                if (!recallSayWordBtn) return;
+                recallSayWordBtn.classList.remove('speaking');
+                setButtonBuffering(recallSayWordBtn, true);
+            };
+            const getCurrentRecallWord = () => {
+                const recall = state.runtime.spellingRecall;
+                return recall?.shuffledWords?.[recall.currentIndex] || '';
+            };
+            const lockRecallInput = () => {
+                const recall = state.runtime.spellingRecall;
+                if (!recall) return;
+                recall.inputLocked = true;
+                input.disabled = true;
+            };
+            const unlockRecallInput = () => {
+                const recall = state.runtime.spellingRecall;
+                if (!recall) return;
+                recall.inputLocked = false;
+                input.disabled = false;
+                input.focus();
+            };
+            const countRecallErrors = (expected, typed) => {
+                const expectedNorm = normaliseString(expected).trim();
+                const typedNorm = normaliseString(typed).trim();
+                const maxLen = Math.max(expectedNorm.length, typedNorm.length);
+                let errors = 0;
+                for (let i = 0; i < maxLen; i++) {
+                    if (expectedNorm[i] !== typedNorm[i]) {
+                        errors++;
+                    }
+                }
+                return errors;
+            };
+            const speakCurrentRecallWord = (options = {}) => {
+                const recall = state.runtime.spellingRecall;
+                const currentWord = getCurrentRecallWord();
+                if (!recall || !currentWord) return;
+
+                const speechOptions = getSpeechOptions();
+                const unlockOnEnd = options.unlockOnEnd !== false;
+                const shouldUnlock = unlockOnEnd && recall.inputLocked;
+
+                if (recallSayWordBtn) {
+                    recallSayWordBtn.disabled = true;
+                }
+                if (speechOptions.highQuality && !isSpeechReady(currentWord, speechOptions)) {
+                    setSayWordBuffering();
+                } else {
+                    setSayWordSpeaking();
+                }
+
+                void speakText(
+                    currentWord,
+                    () => {
+                        setSayWordIdle();
+                        if (recallSayWordBtn) {
+                            recallSayWordBtn.disabled = false;
+                        }
+                        if (shouldUnlock) {
+                            unlockRecallInput();
+                            recallInstruction.textContent = DATA.COPY.recallTypePrompt || 'Type the word you hear, then press Enter.';
+                        }
+                        if (options.onEnd) options.onEnd();
+                    },
+                    () => {
+                        setSayWordSpeaking();
+                    },
+                    {
+                        ...speechOptions,
+                        onBufferStart: setSayWordBuffering,
+                        onBufferEnd: () => setButtonBuffering(recallSayWordBtn, false)
+                    }
+                );
+            };
+            
+            // Disable speech buttons if not available
+            if (!isSpeechAvailable(initialRecallSpeechOptions)) {
+                if (readAloudBtn) {
+                    readAloudBtn.disabled = true;
+                    readAloudBtn.title = DATA.COPY.speechNotAvailable || 'Text-to-speech not available';
+                }
+                recallSayWordBtn.disabled = true;
+                recallSayWordBtn.title = DATA.COPY.speechNotAvailable || 'Text-to-speech not available';
+            }
+            
+            // Ready button click - starts countdown
+            recallReadyBtn?.addEventListener('click', () => {
+                // Hide word list
+                typingTarget.classList.add('recall-hidden');
+                recallControls.dataset.phase = 'countdown';
+                recallReadyBtn.classList.add('hidden');
+                recallCountdown.classList.remove('hidden');
+                
+                // Stop any ongoing speech
+                stopSpeaking();
+                if (readAloudBtn) {
+                    setReadAloudIdle();
+                    readAloudBtn.disabled = true;
+                }
+                lockRecallInput();
+                if (recallSayWordBtn) {
+                    recallSayWordBtn.disabled = true;
+                }
+                
+                // Start 10 second countdown
+                state.runtime.spellingRecall.phase = 'countdown';
+                state.runtime.spellingRecall.countdownValue = 10;
+                recallCountdownValue.textContent = '10';
+                
+                state.runtime.spellingRecall.countdownTimer = setInterval(() => {
+                    state.runtime.spellingRecall.countdownValue--;
+                    recallCountdownValue.textContent = state.runtime.spellingRecall.countdownValue;
+                    
+                    if (state.runtime.spellingRecall.countdownValue <= 0) {
+                        clearInterval(state.runtime.spellingRecall.countdownTimer);
+                        state.runtime.spellingRecall.countdownTimer = null;
+                        
+                        // Transition to typing phase
+                        state.runtime.spellingRecall.phase = 'typing';
+                        recallControls.dataset.phase = 'typing';
+                        recallCountdown.classList.add('hidden');
+                        recallInstruction.textContent = DATA.COPY.recallListenPrompt || 'Listen for the next word.';
+
+                        const speechOptions = getSpeechOptions();
+                        if (speechOptions.highQuality && isSpeechAvailable(speechOptions)) {
+                            const currentWord = getCurrentRecallWord();
+                            if (currentWord) {
+                                void prepareSpeech(currentWord, speechOptions);
+                            }
+                        }
+                        
+                        // Start the timer now
+                        state.runtime.startTime = new Date();
+                        if (state.runtime.timer && state.runtime.flags.timer && !state.runtime.timer.started) {
+                            state.runtime.timer.started = true;
+                            if (state.runtime.timer.tick) {
+                                state.runtime.timer.handle = setInterval(state.runtime.timer.tick, 1000);
+                                state.runtime.timer.tick();
+                            }
+                        }
+                        
+                        setTimeout(() => {
+                            speakCurrentRecallWord({ unlockOnEnd: true });
+                        }, 200);
+                    }
+                }, 1000);
+            });
+            
+            // Repeat word button
+            recallSayWordBtn?.addEventListener('click', () => {
+                if (state.runtime.spellingRecall.phase !== 'typing') return;
+                const recall = state.runtime.spellingRecall;
+                if (!recall) return;
+                speakCurrentRecallWord({ unlockOnEnd: recall.inputLocked });
+            });
+            
+            // Override input handler for recall mode
+            input.removeEventListener('input', input._recallInputHandler);
+            input._recallInputHandler = (e) => {
+                const recall = state.runtime.spellingRecall;
+                if (!recall || recall.inputLocked) {
+                    e.preventDefault();
+                    input.value = '';
+                    return;
+                }
+                
+                // Update progress bar for recall mode
+                const totalWords = recall.shuffledWords.length;
+                const completedWords = recall.currentIndex;
+                const currentProgress = input.value.length / (recall.shuffledWords[recall.currentIndex]?.length || 1);
+                const percent = Math.min(100, ((completedWords + currentProgress * 0.5) / totalWords) * 100);
+                progressBar.style.width = `${percent}%`;
+            };
+            input.addEventListener('input', input._recallInputHandler);
+            
+            // Submit the current word and move to next
+            const submitCurrentWord = () => {
+                const recall = state.runtime.spellingRecall;
+                if (!recall || recall.inputLocked || recall.phase !== 'typing') return;
+                
+                const typedWord = input.value.trim();
+                const currentWord = getCurrentRecallWord();
+
+                if (state.runtime.flags.lockstep) {
+                    const errors = countRecallErrors(currentWord, typedWord);
+                    if (errors > 0) {
+                        state.runtime.runtimeErrors += errors;
+                        input.value = '';
+                        input.focus();
+                        recallInstruction.textContent = DATA.COPY.recallTryAgain || 'Try again. Press Repeat Word if you want to hear it again.';
+                        return;
+                    }
+                }
+                
+                // Append word to buffer (with newline separator like spelling tutor)
+                // Use the shuffled word order so results match what was spoken
+                if (recall.typedBuffer) {
+                    recall.typedBuffer += '\n' + typedWord;
+                } else {
+                    recall.typedBuffer = typedWord;
+                }
+                
+                // Lock input and clear for next word
+                lockRecallInput();
+                input.value = '';
+                recall.currentIndex++;
+                
+                const speechOptions = getSpeechOptions();
+                if (speechOptions.highQuality && isSpeechAvailable(speechOptions)) {
+                    const nextWord = getCurrentRecallWord();
+                    if (nextWord) {
+                        void prepareSpeech(nextWord, speechOptions);
+                    }
+                }
+                
+                // Update progress bar
+                const totalWords = recall.shuffledWords.length;
+                const percent = (recall.currentIndex / totalWords) * 100;
+                progressBar.style.width = `${percent}%`;
+                
+                // Check if done
+                if (recall.currentIndex >= recall.shuffledWords.length) {
+                    // All words complete
+                    recallInstruction.textContent = DATA.COPY.recallComplete || 'All words complete!';
+                    if (recallSayWordBtn) {
+                        recallSayWordBtn.disabled = true;
+                    }
+                    
+                    // End session with the typed buffer
+                    setTimeout(() => {
+                        clearDraft();
+                        endSession(recall.typedBuffer, state, DATA, showScreen, saveState);
+                    }, 500);
+                } else {
+                    // Ready for next word
+                    recallInstruction.textContent = DATA.COPY.recallListenPrompt || 'Listen for the next word.';
+                    if (recallSayWordBtn) {
+                        recallSayWordBtn.disabled = true;
+                    }
+                    setTimeout(() => {
+                        speakCurrentRecallWord({ unlockOnEnd: true });
+                    }, 500);
+                }
+            };
+            
+            // Handle Enter key to submit word
+            input.removeEventListener('keydown', input._recallKeyHandler);
+            input._recallKeyHandler = (e) => {
+                if (e.key === 'Enter') {
+                    e.preventDefault();
+                    submitCurrentWord();
+                }
+            };
+            input.addEventListener('keydown', input._recallKeyHandler);
+            
+            // Cleanup function for recall mode
+            state.runtime._cleanupRecallMode = () => {
+                if (state.runtime.spellingRecall?.countdownTimer) {
+                    clearInterval(state.runtime.spellingRecall.countdownTimer);
+                }
+                stopSpeaking();
+            };
         }
     }
     if (screenName === 'summary') {
@@ -693,7 +1046,7 @@ function bindModalEvents(modalName) {
             }
         });
 
-        // Initial load and render – ensure the default stage data is available
+        // Initial load and render â€“ ensure the default stage data is available
         stageFilter.querySelector(`[data-stage="${state.settings.defaultStage}"]`).classList.add('active');
         const pickerState = getLessonPickerState();
         setStageFilterDisabled(pickerState.currentType);
@@ -714,14 +1067,69 @@ function bindModalEvents(modalName) {
         document.getElementById('setting-keyboard').checked = s.keyboardHintDefault;
         document.getElementById('setting-timer-display').checked = s.showTimerDisplay;
         document.getElementById('setting-sound').checked = s.soundEnabled || false;
+        document.getElementById('setting-high-quality-speech').checked = s.highQualitySpeech || false;
         document.getElementById('setting-finger-guide').checked = s.fingerGuide || false;
         document.getElementById('setting-reduce-motion').checked = s.reduceMotion || false;
-        document.getElementById('setting-voice-gender').value = s.voiceGender || 'female';
-        document.getElementById('setting-voice-speed').value = s.voiceSpeed ?? 0.85;
+        document.getElementById('setting-voice-language').value = s.voiceLanguage || 'en-gb';
+        document.getElementById('setting-voice-speed').value = s.voiceSpeed ?? 1.0;
         document.getElementById('setting-default-stage').value = s.defaultStage;
         document.getElementById('lh-val').textContent = s.lineHeight;
         document.getElementById('ls-val').textContent = `+${s.letterSpacing}%`;
-        document.getElementById('vs-val').textContent = `${Math.round((s.voiceSpeed ?? 0.85) * 100)}%`;
+        document.getElementById('vs-val').textContent = `${Math.round((s.voiceSpeed ?? 1.0) * 100)}%`;
+
+        // Populate voice dropdown
+        const voiceSelect = document.getElementById('setting-voice');
+        const languageSelect = document.getElementById('setting-voice-language');
+        const populateVoices = () => {
+            const language = languageSelect.value;
+            const voices = getVoices({ language });
+            voiceSelect.innerHTML = '';
+            
+            // Group by gender
+            const femaleVoices = voices.filter(v => v.gender === 'female');
+            const maleVoices = voices.filter(v => v.gender === 'male');
+            
+            if (femaleVoices.length) {
+                const group = document.createElement('optgroup');
+                group.label = 'Female';
+                femaleVoices.forEach(v => {
+                    const opt = document.createElement('option');
+                    opt.value = v.id;
+                    opt.textContent = `${v.name} (${v.quality})`;
+                    group.appendChild(opt);
+                });
+                voiceSelect.appendChild(group);
+            }
+            if (maleVoices.length) {
+                const group = document.createElement('optgroup');
+                group.label = 'Male';
+                maleVoices.forEach(v => {
+                    const opt = document.createElement('option');
+                    opt.value = v.id;
+                    opt.textContent = `${v.name} (${v.quality})`;
+                    group.appendChild(opt);
+                });
+                voiceSelect.appendChild(group);
+            }
+            
+            // Select saved voice if it matches language, otherwise first
+            if (s.voice && voices.some(v => v.id === s.voice)) {
+                voiceSelect.value = s.voice;
+            }
+        };
+        
+        populateVoices();
+        languageSelect.addEventListener('change', populateVoices);
+        
+        // Toggle kokoro-specific settings visibility
+        const updateKokoroVisibility = () => {
+            const isHighQuality = document.getElementById('setting-high-quality-speech').checked;
+            document.querySelectorAll('.kokoro-setting').forEach(el => {
+                el.style.display = isHighQuality ? '' : 'none';
+            });
+        };
+        updateKokoroVisibility();
+        document.getElementById('setting-high-quality-speech').addEventListener('change', updateKokoroVisibility);
 
         document.getElementById('setting-line-height').addEventListener('input', e => document.getElementById('lh-val').textContent = e.target.value);
         document.getElementById('setting-letter-spacing').addEventListener('input', e => document.getElementById('ls-val').textContent = `+${e.target.value}%`);
@@ -737,11 +1145,38 @@ function bindModalEvents(modalName) {
             s.keyboardHintDefault = document.getElementById('setting-keyboard').checked;
             s.showTimerDisplay = document.getElementById('setting-timer-display').checked;
             s.soundEnabled = document.getElementById('setting-sound').checked;
+            s.highQualitySpeech = document.getElementById('setting-high-quality-speech').checked;
             s.fingerGuide = document.getElementById('setting-finger-guide').checked;
             s.reduceMotion = document.getElementById('setting-reduce-motion').checked;
-            s.voiceGender = document.getElementById('setting-voice-gender').value;
+            s.voiceLanguage = document.getElementById('setting-voice-language').value;
+            s.voice = document.getElementById('setting-voice').value;
             s.voiceSpeed = parseFloat(document.getElementById('setting-voice-speed').value);
             s.defaultStage = document.getElementById('setting-default-stage').value;
+            const speechWarmOptions = {
+                voice: s.voice,
+                language: s.voiceLanguage,
+                speed: s.voiceSpeed,
+                highQuality: s.highQualitySpeech
+            };
+            if (s.highQualitySpeech) {
+                void initializeKokoro();
+            }
+            if (s.highQualitySpeech && state.ui.currentScreen === 'typing' && isSpeechAvailable(speechWarmOptions)) {
+                const readAloudText = state.runtime.lesson?.mode === 'recall' && state.runtime.recallDisplayText
+                    ? state.runtime.recallDisplayText
+                    : state.runtime.targetText;
+                if (state.runtime.lesson?.mode === 'recall') {
+                    const words = state.runtime.spellingRecall?.shuffledWords || [];
+                    if (readAloudText) {
+                        void prepareSpeech(readAloudText, speechWarmOptions);
+                    }
+                    if (words.length) {
+                        void prepareSpeechBatch(words, speechWarmOptions);
+                    }
+                } else {
+                    void prepareSpeech(readAloudText, speechWarmOptions);
+                }
+            }
             
             const newPin = document.getElementById('setting-pin').value;
             if (/^\d{4}$/.test(newPin)) s.pin = await sha256Hex(newPin);
@@ -792,6 +1227,31 @@ function bindModalEvents(modalName) {
         pinInput.addEventListener('input', () => { if (pinInput.value.length === 4) submit(); });
         document.getElementById('pin-submit-btn').addEventListener('click', submit);
     }
+    if (modalName === 'spellingMode') {
+        const stage = state.ui.spellingModeStage || state.settings.defaultStage;
+        const stageSpellings = DATA.SPELLING.filter(item => item.stage === stage);
+        
+        modalContainer.querySelectorAll('[data-spelling-mode]').forEach(btn => {
+            btn.addEventListener('click', () => {
+                const mode = btn.dataset.spellingMode;
+                const lessonData = pickFreshLesson(stageSpellings, 'spelling');
+                
+                if (!lessonData) {
+                    toast(`No fresh spelling lists found for ${stage}. Please try another stage.`);
+                    closeModal();
+                    return;
+                }
+                
+                closeModal();
+                // Start session with the chosen mode
+                startSession({ 
+                    type: 'spelling', 
+                    data: lessonData,
+                    mode: mode  // 'tutor' or 'recall'
+                }, state, showScreen, saveState);
+            });
+        });
+    }
 }
 
 // --- 5. APP INITIALIZATION ---
@@ -823,6 +1283,15 @@ async function init() {
         // This is a small workaround to avoid complex event bubbling or state management libraries
         window.StoryKeys = { DATA };
 
+        // Initialize audio keep-alive on first user interaction (prevents audio fade-in on Windows)
+        const initAudioOnInteraction = () => {
+            initAudioKeepAlive();
+            document.removeEventListener('click', initAudioOnInteraction);
+            document.removeEventListener('keydown', initAudioOnInteraction);
+        };
+        document.addEventListener('click', initAudioOnInteraction, { once: true });
+        document.addEventListener('keydown', initAudioOnInteraction, { once: true });
+
         loadingOverlay.style.opacity = '0';
         appContainer.style.display = 'block';
         setTimeout(() => loadingOverlay.style.display = 'none', 300);
@@ -837,3 +1306,27 @@ async function init() {
 
 // Start the application once the DOM is ready.
 document.addEventListener('DOMContentLoaded', init);
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

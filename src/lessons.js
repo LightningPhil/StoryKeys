@@ -6,7 +6,7 @@
 import { calculateMetrics } from './stats.js';
 import { checkAndAwardBadges } from './badges.js';
 import { toast } from './ui.js';
-import { normaliseString, transformText } from './utils.js';
+import { normaliseString, transformText, shuffleArray } from './utils.js';
 import { buildLessonId, calculateSessionCompletionPercent } from './progress.js';
 import { playSuccessSound } from './sounds.js';
 
@@ -51,7 +51,17 @@ export function startSession(lesson, state, showScreen, persistState) {
     if (!lesson || !lesson.data) return;
     const isDrill = lesson.type === 'drill';
     const isSpelling = lesson.type === 'spelling';
-    const sourceText = lesson.data.text || (isSpelling ? lesson.data.words.join('\n') : lesson.data.words.join(' '));
+    const isRecallMode = lesson.mode === 'recall';
+    
+    // For recall mode, shuffle the words
+    const displayWords = lesson.data.words ? [...lesson.data.words] : null;
+    let words = displayWords ? [...displayWords] : null;
+    if (isRecallMode && words) {
+        shuffleArray(words);
+    }
+    
+    const wordsForTarget = isRecallMode ? words : displayWords;
+    const sourceText = lesson.data.text || (isSpelling ? (wordsForTarget || lesson.data.words).join('\n') : (wordsForTarget || lesson.data.words).join(' '));
     const targetText = isSpelling ? sourceText : transformText(sourceText);
 
     const lessonId = buildLessonId(lesson.type, lesson.data);
@@ -70,8 +80,8 @@ export function startSession(lesson, state, showScreen, persistState) {
         runtimeErrors: 0,
         hardestKeys: {},
         flags: {
-            lockstep: state.settings.lockstepDefault,
-            focusLine: state.settings.focusLineDefault,
+            lockstep: isRecallMode ? false : state.settings.lockstepDefault,
+            focusLine: isRecallMode ? false : state.settings.focusLineDefault,
             keyboardHint: state.settings.keyboardHintDefault,
             timer: timerCountdown || showTimerChip,
             countdownTimer: timerCountdown,
@@ -88,6 +98,24 @@ export function startSession(lesson, state, showScreen, persistState) {
         lineElements: [],
         vanishedLines: new Set()
     };
+    
+    if (isRecallMode && displayWords) {
+        state.runtime.recallDisplayText = displayWords.join('\n');
+    }
+    
+    // Initialize recall mode state if needed
+    if (isRecallMode && words) {
+        state.runtime.spellingRecall = {
+            phase: 'memorise',  // 'memorise' | 'countdown' | 'typing'
+            shuffledWords: words,
+            currentIndex: 0,
+            typedBuffer: '',
+            countdownTimer: null,
+            countdownValue: 10,
+            inputLocked: true
+        };
+    }
+    
     showScreen('typing');
 }
 
