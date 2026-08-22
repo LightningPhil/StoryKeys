@@ -1,0 +1,21 @@
+{
+  "name": "storykeys",
+  "private": true,
+  "version": "8.0.0",
+  "type": "module",
+  "description": "A calm, dyslexia-friendly typing tutor for young learners.",
+  "scripts": {
+    "dev": "vite",
+    "build": "tsc --noEmit && vite build",
+    "preview": "vite preview",
+    "check:contrast": "node tools/contrast.mjs",
+    "check:smoke": "node tools/smoke.mjs",
+    "shots": "node tools/screenshot.mjs shots"
+  },
+  "devDependencies": {
+    "@tailwindcss/vite": "^4.1.12",
+    "tailwindcss": "^4.1.12",
+    "typescript": "^5.9.2",
+    "vite": "^7.1.3"
+  }
+}

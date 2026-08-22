@@ -1,25 +1,25 @@
-# =========================================================
-# StoryKeys Typing Tutor — Minimal .gitignore
-# For static HTML/JS/CSS/JSON web app projects
-# =========================================================
+# Dependencies and build output
+node_modules/
+dist/
 
-# --- VS Code settings ---
+# Screenshots from tools/screenshot.mjs
+shots/
+
+# Editor and OS
 .vscode/
 *.code-workspace
-
-# --- OS-specific junk ---
 .DS_Store
 Thumbs.db
 Desktop.ini
 
-# --- Temporary or backup files ---
+# Temporary or backup files
 *.log
 *.tmp
 *.bak
 *.swp
 *.swo
 
-# --- Cache or local config ---
+# Cache or local config
 .cache/
 .env
 .env.*

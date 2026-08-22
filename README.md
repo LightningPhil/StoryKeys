@@ -46,61 +46,77 @@ Content types include passages (stories by theme), spelling tutor (statutory lis
 
 ### Customisation
 
-- Themes: Light, Dark, Cream
+- Themes: Cream, Light, Dark - all meeting WCAG AA contrast
 - Fonts: System default, Arial, OpenDyslexic
-- Letter spacing: 0-8px
-- Line height: 1.4-2.0
+- Letter spacing and line height adjustable
 - Toggle timer display, keyboard guide, finger guide, sounds, and animations
 
 ### Privacy
 
 - 100% offline after initial load
 - No user accounts
-- Progress stored in browser localStorage only
+- Progress stored in browser localStorage only (`storykeys_state`, `storykeys_draft`)
 - No analytics or tracking
 - Export or delete data anytime via Parent Glance
 
 ## Getting Started
 
-StoryKeys uses ES6 modules, so it must be served via HTTP rather than opened directly as a file.
+StoryKeys is a Vite + TypeScript + Tailwind CSS app. You need [Node.js](https://nodejs.org/) 20 or later.
+
+```bash
+npm install
+npm run dev
+```
+
+Then open the URL Vite prints (usually `http://localhost:5173`).
+
+| Script | What it does |
+| --- | --- |
+| `npm run dev` | Start the local development server |
+| `npm run build` | Type-check and create a production build in `dist/` |
+| `npm run preview` | Preview the production build locally |
+| `npm run check:contrast` | Assert WCAG AA contrast across every theme colour pair |
+| `npm run check:smoke` | Drive the app in headless Chrome and check the UI still works |
+| `npm run shots` | Screenshot every screen, modal and breakpoint into `shots/` |
+
+The last three need Chrome installed; the two that drive the browser also need `npm run dev` running in
+another terminal. Override the defaults with `SK_CHROME`, `SK_BASE` or `SK_PORT` if needed.
 
 ## Project Structure
 
 ```
 StoryKeys/
-├── index.html          # Application shell
-├── styles.css          # All styling
+├── index.html              # Vite entry / application shell
+├── vite.config.ts
+├── package.json
 ├── src/
-│   ├── main.js         # App controller and state
-│   ├── ui.js           # HTML rendering
-│   ├── lessons.js      # Session lifecycle
-│   ├── keyboard.js     # Typing input handling
-│   ├── stats.js        # WPM and accuracy calculation
-│   ├── badges.js       # Badge awarding logic
-│   ├── sounds.js       # Audio and text-to-speech
-│   ├── progress.js     # Progress tracking
-│   ├── dataLoader.js   # Lazy-loading JSON data
-│   ├── config.js       # Configuration constants
-│   └── utils.js        # Helper functions
-└── data/
-    ├── KS1/            # Key Stage 1 content
-    ├── KS2/            # Key Stage 2 content
-    ├── KS3/            # Key Stage 3 content
-    ├── KS4/            # Key Stage 4 content
-    ├── spelling.json   # Statutory spelling lists
-    ├── phonics.json    # Phonics exercises
-    ├── badges.json     # Badge definitions
-    ├── copy.json       # UI text
-    └── keymap.json     # Keyboard layout
+│   ├── main.ts             # Init, routing, event binding
+│   ├── types.ts            # Shared domain types
+│   ├── state.ts            # State, save/load
+│   ├── draft.ts            # Draft localStorage helpers
+│   ├── config.ts
+│   ├── utils.ts
+│   ├── data/loader.ts      # Lazy-load JSON
+│   ├── session/            # Lesson lifecycle, keyboard, stats
+│   ├── progress/           # Progress helpers and badges
+│   ├── audio/sounds.ts     # Web Audio + TTS
+│   ├── ui/                 # Screens, modals, picker, feedback
+│   └── styles/app.css      # Tailwind + small custom CSS
+├── public/
+│   ├── data/               # Curriculum JSON (served at /data/...)
+│   └── audit/              # Audit dashboard script and styles
+├── tools/                  # Contrast check, smoke test, screenshot capture
+├── data/                   # Legacy copy of the JSON; not used at runtime
+└── audit.html              # Content audit dashboard (second Vite entry)
 ```
 
 ## Adding Content
 
-All content lives in JSON files - no code changes required.
+All content lives in JSON files - no code changes required. Edit files under `public/data/`; both the app and the audit dashboard read from there, so the root `data/` folder no longer needs to be kept in sync. Fetch paths stay `data/copy.json`, `data/KS2/passages.json`, and so on.
 
 ### Add a Passage
 
-Edit `data/KS2/passages.json`:
+Edit `public/data/KS2/passages.json`:
 
 ```json
 {
@@ -114,7 +130,7 @@ Edit `data/KS2/passages.json`:
 
 ### Add Spelling Words
 
-Edit `data/spelling.json`:
+Edit `public/data/spelling.json`:
 
 ```json
 {
@@ -125,13 +141,13 @@ Edit `data/spelling.json`:
 
 ## Tech Stack
 
-Intentionally simple and dependency-free:
-
-- HTML5, CSS3, vanilla JavaScript (ES6 modules)
+- Vite
+- TypeScript
+- Tailwind CSS
 - Web Audio API for synthesised sounds
 - Speech Synthesis API for read aloud
 - localStorage for progress
-- No frameworks, no build tools, no npm
+- No React, Vue, or backend
 
 ## Browser Support
 
