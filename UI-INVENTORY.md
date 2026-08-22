@@ -8,8 +8,8 @@ This document describes the UI structure, components, and rules for maintaining 
 
 | Screen Name | ID/Selector | Description |
 |-------------|-------------|-------------|
-| **home** | `#home-screen` | Main welcome screen with stage buttons, lesson picker CTA, badges view, and progress card |
-| **typing** | `#typing-screen` | Active typing practice with target text, input area, timer, and toggles |
+| **home** | `#home-screen` | One primary action for the learner's own key stage, with the other stages behind a `<details>` disclosure; an Explore card (all lessons + badges); and a combined progress/streak card |
+| **typing** | `#typing-screen` | Exit button, lesson title and timer; a helper row (read aloud, lockstep, focus line, caps); labelled "Read this" and "Type here" panels; optional finger guide and on-screen keyboard |
 | **summary** | `#summary-screen` | Results display with metrics, badges earned, and navigation buttons |
 
 ---
@@ -19,7 +19,6 @@ This document describes the UI structure, components, and rules for maintaining 
 | Modal Name | Role | Aria Label ID | Description |
 |------------|------|---------------|-------------|
 | **welcome** | dialog | `#welcome-title` | First-time user intro |
-| **about** | dialog | `#about-title` | App info and license |
 | **help** | dialog | `#help-title` | How-to-use guide with privacy info |
 | **badges** | dialog | `#badges-title` | Earned badges display |
 | **lessonPicker** | dialog | `#lesson-picker-title` | Full lesson browsing with tabs, filters, search, pagination |
@@ -31,130 +30,68 @@ This document describes the UI structure, components, and rules for maintaining 
 
 ## Shared UI Components
 
+Shared class strings live in `src/ui/classes.ts`. Screens and modals compose Tailwind utilities from there.
+
 ### Buttons
-- **Base class:** `.button`
-- **Variants:** `.button-primary`, `.button-secondary`, `.button-danger`, `.button-phonics`, `.button-spelling`
-- **Size:** `.button-sm` for smaller buttons
-- **Icon buttons:** `.icon-button` (round, icon-only)
-- **Containers:** `.button-group`, `.button-row`, `.button-row-center`, `.stage-row`
+- Compose with `buttonClass(...)`, never by hand
+- Colour variants: `primary`, `secondary`, `quiet`, `danger`, `phonics`, `spelling`
+- Size/shape modifiers: `sm`, `lg`, `block`
+- Icon buttons: `ui.iconButton`
+- Containers: `ui.buttonGroup`, `ui.buttonRow`, `ui.buttonRowCenter`, `ui.stageRow`
+- The base includes `min-h-12` so every control stays a comfortable touch target. Keep it.
 
 ### Cards
-- **Base class:** `.card`
-- **Variants:** `.home-card`, `.progress-card`, `.badge-card`
+- Base: `ui.card` (or `ui.cardTight` for denser rows)
+- Add `ui.tile` for cards that behave like buttons and should lift on hover
 
 ### Toggle Switch
-- **Class:** `.toggle-switch`
-- Structure: `<label class="toggle-switch">Label<input type="checkbox"><span class="slider"></span></label>`
+- Class: `.toggle-switch` (custom CSS for the slider)
+- The `<input>` must be **immediately followed** by `<span class="slider">` — the CSS relies on
+  `input:checked + .slider`. Put label text either before the input (visually hidden) or after the slider.
+- Structure: `<label class="toggle-switch"><input type="checkbox"><span class="slider"></span><span>Label</span></label>`
 
 ### Modal Structure
-```html
-<div class="modal" role="dialog" aria-modal="true" aria-labelledby="[modal-title-id]">
-  <div class="modal-content [variant-class]">
-    <div class="modal-header">
-      <h2 id="[modal-title-id]" class="modal-title">Title</h2>
-      <button id="close-modal-btn" class="icon-button">...</button>
-    </div>
-    <!-- Modal body content -->
-    <div class="modal-footer">
-      <button class="button button-primary">Action</button>
-    </div>
-  </div>
-</div>
-```
+Every modal uses `role="dialog"`, `aria-modal="true"`, `aria-labelledby`, a header with close button, and a footer when actions are needed.
 
----
-
-## Layout Utilities
-
-### Spacing (use CSS variables)
-- `--space-xs`: 0.25rem
-- `--space-sm`: 0.5rem
-- `--space-md`: 1rem
-- `--space-lg`: 1.5rem
-- `--space-xl`: 2rem
-
-### Utility Classes
-| Class | Purpose |
-|-------|---------|
-| `.stack-sm/md/lg/xl` | Vertical spacing between children |
-| `.flex`, `.flex-col`, `.flex-wrap` | Flexbox display |
-| `.items-center`, `.justify-center`, `.justify-between` | Flex alignment |
-| `.gap-sm/md/lg/xl` | Gap between flex/grid items |
-| `.w-full`, `.max-w-420`, `.max-w-md`, `.mx-auto` | Width control |
-| `.text-center`, `.text-left` | Text alignment |
-| `.mt-sm/md/lg/xl`, `.mb-0/sm/md/lg` | Margin utilities |
-| `.hidden` | Hide element |
-
----
-
-## CSS Organisation
-
-The CSS lives in `styles.css` at the repository root, organised into these sections:
-
-1. **CSS Custom Properties** – Theme variables, spacing scale
-2. **Base & Reset** – Box-sizing, html/body defaults
-3. **Typography** – Headings, paragraphs, links
-4. **Layout Utilities** – Spacing, flexbox, width helpers
-5. **Buttons** – Base button, variants, icon buttons, containers
-6. **Cards** – Card base and variants
-7. **Screen Wrappers** – `.screen` and optional sections
-8. **Header & Footer** – App chrome
-9. **Modals** – Modal overlay, content, header/footer
-10. **Home Screen** – Home-specific styles
-11. **Typing Screen** – Target, input, controls
-12. **Summary Screen** – Metrics, feedback
-13. **Lesson Picker** – Tabs, filters, list, pagination
-14. **Settings Modal** – Settings sections and items
-15. **Badges** – Badge cards and earned animation
-16. **Keyboard Hint** – On-screen keyboard
-17. **Effects** – Confetti, toast
-18. **Loading Overlay** – Initial load screen
+**The literal class names `modal` and `modal-content` are load-bearing.** `showModal()` finds the dialog
+with `querySelector('.modal')`, the stylesheet reveals it with `.modal.active`, and `bindModalEvents()`
+finds `.modal-content` to wire the close button and focus trap. They live in `ui.modal` / `ui.modalContent`
+alongside the Tailwind utilities — dropping them silently breaks every modal while still locking page
+scroll. The same applies to `card`, which `.show-confetti .card` depends on.
 
 ---
 
 ## Rules
 
-### 1. No Inline Styles
-- ❌ `style="margin-top: 2rem;"`
-- ✅ Use utility classes: `class="mt-xl"`
-- If a pattern recurs, add a semantic class to CSS.
+1. **Render purity** — `getScreenHtml()` and `getModalHtml()` return HTML strings only.
+2. **Controllers bind events** — `bindScreenEvents()` and `bindModalEvents()` in `src/main.ts`.
+3. **Focus** — opening a modal focuses the dialog container so screen readers announce its title, rather
+   than landing on the close button. A modal that wants a specific field focused marks it `data-autofocus`.
+   Tab then cycles inside the modal; Escape closes; focus returns to the opener.
+4. **localStorage keys** — `storykeys_state` and `storykeys_draft` must stay stable.
+5. **Escape hatch from a lesson** — the typing screen needs a visible way out (`#exit-lesson-btn`); it saves
+   a draft before leaving.
 
-### 2. Render Purity
-- **Render functions must be pure:** No state mutation, no DOM queries, no event binding.
-- Functions like `getScreenHtml()` and `getModalHtml()` return HTML strings only.
-- State changes happen in controller functions (`showModal`, `showScreen`, `startSession`).
-- Event binding happens in `bindScreenEvents()` and `bindModalEvents()`.
+---
 
-### 3. Modal Contract
-- Every modal must have:
-  - `role="dialog"` and `aria-modal="true"`
-  - `aria-labelledby` pointing to the title element
-  - `.modal-header` with title and close button
-  - `.modal-footer` for action buttons (when applicable)
-- Close behaviours:
-  - X button closes
-  - Escape key closes (handled globally)
-  - Click outside closes (click on `.modal` overlay)
-- Focus management:
-  - Focus moves into modal on open (first focusable element)
-  - Tab cycles within modal (focus trap)
-  - Focus returns to opener on close (`state.ui.lastFocus`)
+## Colour and Accessibility Rules
 
-### 4. Button System
-- Always use `.button` as base class
-- Add exactly one variant class for color
-- Wrap related buttons in `.button-row`, `.button-row-center`, or `.button-group`
-- Stage buttons go in `.stage-row` for equal-width layout
+Themes are defined as custom properties on `.theme-cream` / `.theme-light` / `.theme-dark` in
+`src/styles/app.css`. Use the tokens, not raw hex values, in component code.
 
-### 5. Event Delegation
-- Prefer event delegation from stable containers over binding to each item
-- Example: Lesson list items and pagination use delegation from parent containers
-- Bind events once in `bindModalEvents()`, not in render functions
+- **No pure white or pure black surfaces.** The British Dyslexia Association style guide advises off-white
+  or tinted grounds, which is why `--sk-card` is warm off-white rather than `#ffffff`.
+- **Never put `text-white` on an accent fill.** The dark theme's accent is a light blue, so filled controls
+  read `--sk-on-accent` (near-black there, white elsewhere). Same for `--sk-on-bad`.
+- **Avoid red and pink for positive feedback** — they are hard for colour-blind readers and read as
+  warnings. Celebrations use `--sk-warm` (amber).
+- **Never signal state by colour alone.** Correct letters gain weight as well as colour; errors keep their
+  wavy underline.
+- **Animations must respect motion preferences** — both `prefers-reduced-motion` and the in-app
+  `.reduce-motion` class already blanket-disable animation and transition.
 
-### 6. Class Naming
-- Use semantic class names (`.home-card`, `.typing-controls`)
-- For modifiers, append descriptively (`.button-primary`, `.meta-chip.complete-chip`)
-- Avoid deep nesting; prefer flat structures
+Run `npm run check:contrast` after touching any colour token; it parses the real values out of the
+stylesheet and asserts WCAG AA on every foreground/background pair the UI actually composes.
 
 ---
 
@@ -162,31 +99,18 @@ The CSS lives in `styles.css` at the repository root, organised into these secti
 
 | What | File |
 |------|------|
-| All CSS | `styles.css` |
-| Screen rendering | `src/ui.js` → `getScreenHtml()` |
-| Modal rendering | `src/ui.js` → `getModalHtml()` |
-| Screen event binding | `src/main.js` → `bindScreenEvents()` |
-| Modal event binding | `src/main.js` → `bindModalEvents()` |
-| Lesson picker view model | `src/ui.js` → `deriveLessonPickerViewModel()` |
-| State management | `src/main.js` → `state`, `saveState()`, `loadState()` |
-| Typing input handling | `src/keyboard.js` |
-| Session lifecycle | `src/lessons.js` |
-| Progress tracking | `src/progress.js` |
+| Tailwind + custom CSS | `src/styles/app.css` |
+| Screen rendering | `src/ui/screens.ts` |
+| Modal rendering | `src/ui/modals.ts` |
+| Lesson picker | `src/ui/picker.ts` |
+| Screen/modal events | `src/main.ts` |
+| State | `src/state.ts` |
+| Typing input | `src/session/keyboard.ts` |
+| Session lifecycle | `src/session/lessons.ts` |
+| Progress | `src/progress/progress.ts` |
+| Contrast check | `tools/contrast.mjs` (`npm run check:contrast`) |
+| Functional smoke test | `tools/smoke.mjs` (`npm run check:smoke`) |
+| Screenshot capture | `tools/screenshot.mjs` (`npm run shots`) |
 
----
-
-## Verification Checklist
-
-Before merging UI changes:
-
-- [ ] Home screen layout is consistent and not cramped
-- [ ] Typing screen: target, input, feedback, navigation look aligned
-- [ ] Summary screen: buttons and stats align, no overflow
-- [ ] Every modal opens and closes correctly
-- [ ] Escape closes modals
-- [ ] Focus starts in modal, tab cycles within, shift-tab works
-- [ ] Closing modal returns focus to opener
-- [ ] Lesson picker: search, pagination, stage selection work
-- [ ] Progress indicators still correct
-- [ ] No console errors during navigation
-- [ ] Responsive: works on laptop and tablet screen sizes
+The two check scripts need a dev server running (`npm run dev`) and drive headless Chrome. Point them at
+another browser or port with `SK_CHROME`, `SK_BASE` and `SK_PORT` if the defaults do not match your machine.
