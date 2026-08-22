@@ -1,0 +1,323 @@
+[
+  {
+    "id": "ks1_farm-shwords_v1",
+    "stage": "KS1",
+    "theme": "Farm Animals",
+    "name": "‘sh’ Pattern Words",
+    "words": ["sheep", "shed", "shop", "shut", "ship"],
+    "tags": { "complexity": { "caps": false, "punct": false } }
+  },
+  {
+    "id": "ks1_farm-ckwords_v1",
+    "stage": "KS1",
+    "theme": "Farm Animals",
+    "name": "‘ck’ Pattern Words",
+    "words": ["duck", "chick", "clock", "sack", "back"],
+    "tags": { "complexity": { "caps": false, "punct": false } }
+  },
+  {
+    "id": "ks1_farm-names_v1",
+    "stage": "KS1",
+    "theme": "Farm Animals",
+    "name": "Farm Animal Names",
+    "words": ["cow", "pig", "hen", "goat", "sheep"],
+    "tags": { "complexity": { "caps": false, "punct": false } }
+  },
+  {
+    "id": "ks1_farm-actions_v1",
+    "stage": "KS1",
+    "theme": "Farm Animals",
+    "name": "Farm Action Words",
+    "words": ["run", "hop", "peck", "sleep", "cluck"],
+    "tags": { "complexity": { "caps": false, "punct": false } }
+  },
+    {
+    "id": "ks1_garden-eewords_v1",
+    "stage": "KS1",
+    "theme": "In the Garden",
+    "name": "‘ee’ Pattern Words",
+    "words": ["bee", "seed", "green", "tree", "see"],
+    "tags": { "complexity": { "caps": false, "punct": false } }
+  },
+  {
+    "id": "ks1_garden-oowords_v1",
+    "stage": "KS1",
+    "theme": "In the Garden",
+    "name": "‘oo’ Pattern Words",
+    "words": ["root", "boot", "moon", "food", "room"],
+    "tags": { "complexity": { "caps": false, "punct": false } }
+  },
+  {
+    "id": "ks1_garden-minibeasts_v1",
+    "stage": "KS1",
+    "theme": "In the Garden",
+    "name": "Garden Minibeasts",
+    "words": ["ant", "bee", "worm", "slug", "snail"],
+    "tags": { "complexity": { "caps": false, "punct": false } }
+  },
+  {
+    "id": "ks1_garden-plants_v1",
+    "stage": "KS1",
+    "theme": "In the Garden",
+    "name": "Garden Plants",
+    "words": ["rose", "tree", "weed", "seed", "leaf"],
+    "tags": { "complexity": { "caps": false, "punct": false } }
+  },
+  {
+    "id": "ks1_beach-aiwords_v1",
+    "stage": "KS1",
+    "theme": "At the Beach",
+    "name": "‘ai’ Pattern Words",
+    "words": ["sail", "pail", "rain", "train", "paint"],
+    "tags": { "complexity": { "caps": false, "punct": false } }
+  },
+  {
+    "id": "ks1_beach-thwords_v1",
+    "stage": "KS1",
+    "theme": "At the Beach",
+    "name": "‘th’ Pattern Words",
+    "words": ["the", "that", "with", "this", "them"],
+    "tags": { "complexity": { "caps": false, "punct": false } }
+  },
+  {
+    "id": "ks1_beach-objects_v1",
+    "stage": "KS1",
+    "theme": "At the Beach",
+    "name": "Beach Objects",
+    "words": ["sand", "shell", "pail", "towel", "spade"],
+    "tags": { "complexity": { "caps": false, "punct": false } }
+  },
+  {
+    "id": "ks1_beach-creatures_v1",
+    "stage": "KS1",
+    "theme": "At the Beach",
+    "name": "Sea Creatures",
+    "words": ["crab", "fish", "seal", "whale", "shell"],
+    "tags": { "complexity": { "caps": false, "punct": false } }
+  },
+  {
+    "id": "ks1_food-chwords_v1",
+    "stage": "KS1",
+    "theme": "Food Fun",
+    "name": "‘ch’ Pattern Words",
+    "words": ["chip", "chop", "lunch", "munch", "cheese"],
+    "tags": { "complexity": { "caps": false, "punct": false } }
+  },
+  {
+    "id": "ks1_food-oawords_v1",
+    "stage": "KS1",
+    "theme": "Food Fun",
+    "name": "‘oa’ Pattern Words",
+    "words": ["toast", "goat", "boat", "soap", "coat"],
+    "tags": { "complexity": { "caps": false, "punct": false } }
+  },
+  {
+    "id": "ks1_food-fruit_v1",
+    "stage": "KS1",
+    "theme": "Food Fun",
+    "name": "Fruits",
+    "words": ["apple", "pear", "grape", "melon", "plum"],
+    "tags": { "complexity": { "caps": false, "punct": false } }
+  },
+  {
+    "id": "ks1_food-vegetables_v1",
+    "stage": "KS1",
+    "theme": "Food Fun",
+    "name": "Vegetables",
+    "words": ["carrot", "bean", "corn", "pea", "onion"],
+    "tags": { "complexity": { "caps": false, "punct": false } }
+  },
+  {
+    "id": "ks1_weather-owwords_v1",
+    "stage": "KS1",
+    "theme": "Weather Watchers",
+    "name": "‘ow’ Pattern Words",
+    "words": ["snow", "blow", "grow", "slow", "show"],
+    "tags": { "complexity": { "caps": false, "punct": false } }
+  },
+  {
+    "id": "ks1_weather-arwords_v1",
+    "stage": "KS1",
+    "theme": "Weather Watchers",
+    "name": "‘ar’ Pattern Words",
+    "words": ["dark", "start", "park", "farm", "car"],
+    "tags": { "complexity": { "caps": false, "punct": false } }
+  },
+  {
+    "id": "ks1_weather-types_v1",
+    "stage": "KS1",
+    "theme": "Weather Watchers",
+    "name": "Weather Types",
+    "words": ["rain", "sun", "wind", "snow", "storm"],
+    "tags": { "complexity": { "caps": false, "punct": false } }
+  },
+  {
+    "id": "ks1_weather-feelings_v1",
+    "stage": "KS1",
+    "theme": "Weather Watchers",
+    "name": "Weather Feelings",
+    "words": ["warm", "cold", "wet", "dry", "calm"],
+    "tags": { "complexity": { "caps": false, "punct": false } }
+  },
+  {
+    "id": "ks1_toybox-oywords_v1",
+    "stage": "KS1",
+    "theme": "Toy Box",
+    "name": "‘oy’ Pattern Words",
+    "words": ["toy", "boy", "enjoy", "joy", "roy"],
+    "tags": { "complexity": { "caps": false, "punct": false } }
+  },
+  {
+    "id": "ks1_toybox-allwords_v1",
+    "stage": "KS1",
+    "theme": "Toy Box",
+    "name": "‘all’ Pattern Words",
+    "words": ["ball", "fall", "small", "call", "wall"],
+    "tags": { "complexity": { "caps": false, "punct": false } }
+  },
+  {
+    "id": "ks1_toybox-toytypes_v1",
+    "stage": "KS1",
+    "theme": "Toy Box",
+    "name": "Types of Toys",
+    "words": ["doll", "train", "car", "kite", "drum"],
+    "tags": { "complexity": { "caps": false, "punct": false } }
+  },
+  {
+    "id": "ks1_toybox-playactions_v1",
+    "stage": "KS1",
+    "theme": "Toy Box",
+    "name": "Playing Actions",
+    "words": ["play", "run", "roll", "build", "share"],
+    "tags": { "complexity": { "caps": false, "punct": false } }
+  },
+  {
+    "id": "ks1_school-erwords_v1",
+    "stage": "KS1",
+    "theme": "School Day",
+    "name": "‘er’ Pattern Words",
+    "words": ["teacher", "letter", "paper", "corner", "rubber"],
+    "tags": { "complexity": { "caps": false, "punct": false } }
+  },
+  {
+    "id": "ks1_school-orwords_v1",
+    "stage": "KS1",
+    "theme": "School Day",
+    "name": "‘or’ Pattern Words",
+    "words": ["story", "for", "short", "morning", "floor"],
+    "tags": { "complexity": { "caps": false, "punct": false } }
+  },
+  {
+    "id": "ks1_school-objects_v1",
+    "stage": "KS1",
+    "theme": "School Day",
+    "name": "Classroom Objects",
+    "words": ["pencil", "book", "desk", "board", "chair"],
+    "tags": { "complexity": { "caps": false, "punct": false } }
+  },
+  {
+    "id": "ks1_school-subjects_v1",
+    "stage": "KS1",
+    "theme": "School Day",
+    "name": "School Subjects",
+    "words": ["maths", "art", "music", "reading", "science"],
+    "tags": { "complexity": { "caps": false, "punct": false } }
+  },
+  {
+    "id": "ks1_monsters-ighwords_v1",
+    "stage": "KS1",
+    "theme": "Silly Monsters",
+    "name": "‘igh’ Pattern Words",
+    "words": ["high", "light", "night", "bright", "sight"],
+    "tags": { "complexity": { "caps": false, "punct": false } }
+  },
+  {
+    "id": "ks1_monsters-urwords_v1",
+    "stage": "KS1",
+    "theme": "Silly Monsters",
+    "name": "‘ur’ Pattern Words",
+    "words": ["fur", "purple", "burp", "curl", "blur"],
+    "tags": { "complexity": { "caps": false, "punct": false } }
+  },
+  {
+    "id": "ks1_monsters-bodyparts_v1",
+    "stage": "KS1",
+    "theme": "Silly Monsters",
+    "name": "Monster Body Parts",
+    "words": ["claw", "tail", "eye", "horn", "tooth"],
+    "tags": { "complexity": { "caps": false, "punct": false } }
+  },
+  {
+    "id": "ks1_monsters-actions_v1",
+    "stage": "KS1",
+    "theme": "Silly Monsters",
+    "name": "Monster Actions",
+    "words": ["roar", "stomp", "jump", "spin", "dance"],
+    "tags": { "complexity": { "caps": false, "punct": false } }
+  },
+  {
+    "id": "ks1_town-owwords_v1",
+    "stage": "KS1",
+    "theme": "My Town",
+    "name": "‘ow’ Pattern Words",
+    "words": ["town", "down", "clown", "brown", "crown"],
+    "tags": { "complexity": { "caps": false, "punct": false } }
+  },
+  {
+    "id": "ks1_town-irwords_v1",
+    "stage": "KS1",
+    "theme": "My Town",
+    "name": "‘ir’ Pattern Words",
+    "words": ["bird", "girl", "first", "shirt", "third"],
+    "tags": { "complexity": { "caps": false, "punct": false } }
+  },
+  {
+    "id": "ks1_town-places_v1",
+    "stage": "KS1",
+    "theme": "My Town",
+    "name": "Places in Town",
+    "words": ["park", "shop", "school", "library", "post"],
+    "tags": { "complexity": { "caps": false, "punct": false } }
+  },
+  {
+    "id": "ks1_town-vehicles_v1",
+    "stage": "KS1",
+    "theme": "My Town",
+    "name": "Vehicles",
+    "words": ["car", "bus", "bike", "train", "lorry"],
+    "tags": { "complexity": { "caps": false, "punct": false } }
+  },
+  {
+    "id": "ks1_bedtime-quwords_v1",
+    "stage": "KS1",
+    "theme": "Bedtime Stories",
+    "name": "‘qu’ Pattern Words",
+    "words": ["queen", "quick", "quiet", "quack", "quiz"],
+    "tags": { "complexity": { "caps": false, "punct": false } }
+  },
+  {
+    "id": "ks1_bedtime-ngwords_v1",
+    "stage": "KS1",
+    "theme": "Bedtime Stories",
+    "name": "‘ng’ Pattern Words",
+    "words": ["king", "sing", "long", "song", "ring"],
+    "tags": { "complexity": { "caps": false, "punct": false } }
+  },
+  {
+    "id": "ks1_bedtime-nightwords_v1",
+    "stage": "KS1",
+    "theme": "Bedtime Stories",
+    "name": "Night Time Words",
+    "words": ["moon", "star", "sleep", "dream", "night"],
+    "tags": { "complexity": { "caps": false, "punct": false } }
+  },
+  {
+    "id": "ks1_bedtime-characters_v1",
+    "stage": "KS1",
+    "theme": "Bedtime Stories",
+    "name": "Story Characters",
+    "words": ["bear", "fairy", "wizard", "princess", "dragon"],
+    "tags": { "complexity": { "caps": false, "punct": false } }
+  }
+  
+]

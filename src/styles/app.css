@@ -1,0 +1,716 @@
+@import "tailwindcss";
+
+@theme {
+  --color-sk-bg: var(--sk-bg);
+  --color-sk-text: var(--sk-text);
+  --color-sk-muted: var(--sk-muted);
+  --color-sk-card: var(--sk-card);
+  --color-sk-subtle: var(--sk-subtle);
+  --color-sk-border: var(--sk-border);
+  --color-sk-accent: var(--sk-accent);
+  --color-sk-accent-soft: var(--sk-accent-soft);
+  --color-sk-good: var(--sk-good);
+  --color-sk-warm: var(--sk-warm);
+  --radius-xl: 14px;
+  --radius-2xl: 20px;
+}
+
+:root {
+  --font-family-default: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+  --font-family-dyslexia: "Arial", sans-serif;
+  --font-family-opendyslexic: "OpenDyslexic", "Arial", sans-serif;
+}
+
+/*
+ * Surfaces deliberately avoid pure white and pure black: the British Dyslexia
+ * Association style guide recommends dark text on an off-white / tinted ground
+ * to reduce the visual stress that can cause text to appear to swim.
+ */
+.theme-cream {
+  --sk-bg: #f6f2e8;
+  --sk-text: #26231d;
+  --sk-muted: #5d574c;
+  --sk-card: #fffdf7;
+  --sk-subtle: #f0ebdd;
+  --sk-border: #ddd5c2;
+  --sk-accent: #2560b8;
+  --sk-accent-strong: #1c4a90;
+  --sk-on-accent: #ffffff;
+  --sk-accent-soft: #e4edfb;
+  --sk-good: #16794a;
+  --sk-bad: #c0342b;
+  --sk-on-bad: #ffffff;
+  --sk-warm: #875000;
+  --sk-warm-soft: #fdf0d8;
+  --sk-shadow: 210 30% 40%;
+}
+
+.theme-light {
+  --sk-bg: #f2f4f7;
+  --sk-text: #1e2430;
+  --sk-muted: #58616f;
+  --sk-card: #fcfdfe;
+  --sk-subtle: #e8ecf2;
+  --sk-border: #d3dae3;
+  --sk-accent: #2563c9;
+  --sk-accent-strong: #1c4c9c;
+  --sk-on-accent: #ffffff;
+  --sk-accent-soft: #e3ecfb;
+  --sk-good: #16794a;
+  --sk-bad: #c0342b;
+  --sk-on-bad: #ffffff;
+  --sk-warm: #8c5200;
+  --sk-warm-soft: #fdf1dd;
+  --sk-shadow: 215 30% 35%;
+}
+
+.theme-dark {
+  --sk-bg: #14171d;
+  --sk-text: #e9edf3;
+  --sk-muted: #a3adbb;
+  --sk-card: #1d222b;
+  --sk-subtle: #262d38;
+  --sk-border: #38414f;
+  --sk-accent: #7cb0f7;
+  --sk-accent-strong: #9cc6fb;
+  /* The dark theme's accent is a light blue, so filled controls need dark ink
+     on top of it rather than white. */
+  --sk-on-accent: #0f141c;
+  --sk-accent-soft: #23364f;
+  --sk-good: #5cd6a0;
+  --sk-bad: #ff8f85;
+  --sk-on-bad: #2b0d0a;
+  --sk-warm: #f0b95e;
+  --sk-warm-soft: #35291a;
+  --sk-shadow: 220 40% 3%;
+}
+
+html {
+  font-family: var(--font-family, var(--font-family-default));
+  font-size: clamp(16px, 1.8vw, 20px);
+  line-height: var(--line-height, 1.7);
+  letter-spacing: var(--letter-spacing, 0.02em);
+  background-color: var(--sk-bg);
+  color: var(--sk-text);
+  scroll-behavior: smooth;
+  -webkit-text-size-adjust: 100%;
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  overflow-x: hidden;
+}
+
+h1, h2, h3, h4 {
+  line-height: 1.25;
+  font-family: inherit;
+  text-wrap: balance;
+}
+
+h1 { font-size: 2.1rem; font-weight: 800; letter-spacing: -0.01em; }
+h2 { font-size: 1.5rem; font-weight: 750; }
+h3 { font-size: 1.15rem; font-weight: 700; }
+
+p { max-width: 62ch; }
+
+/* One consistent, high-visibility focus ring for every interactive element. */
+:focus-visible {
+  outline: 3px solid var(--sk-accent);
+  outline-offset: 3px;
+  border-radius: 6px;
+}
+
+details summary { cursor: pointer; }
+details summary::-webkit-details-marker { display: none; }
+details summary::marker { content: ''; }
+
+/* --- Shared surfaces --------------------------------------------------- */
+
+.card {
+  background-color: var(--sk-card);
+  border: 1px solid var(--sk-border);
+  border-radius: var(--radius-2xl);
+  box-shadow: 0 1px 2px hsl(var(--sk-shadow) / 0.06), 0 6px 18px -8px hsl(var(--sk-shadow) / 0.12);
+}
+
+/* Filled accent button. Kept in CSS (not utilities) so the "ink on accent"
+   colour can flip per theme. */
+.btn-primary {
+  background-color: var(--sk-accent);
+  border-color: var(--sk-accent);
+  color: var(--sk-on-accent);
+}
+
+.btn-primary:hover:not(:disabled) {
+  background-color: var(--sk-accent-strong);
+  border-color: var(--sk-accent-strong);
+}
+
+.eyebrow {
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.09em;
+  text-transform: uppercase;
+  color: var(--sk-muted);
+}
+
+/* Cards that are also buttons get a gentle, non-distracting lift. */
+.tile {
+  transition: transform 0.16s ease, box-shadow 0.16s ease, border-color 0.16s ease;
+}
+
+.tile:hover {
+  transform: translateY(-2px);
+  border-color: var(--sk-accent);
+  box-shadow: 0 2px 4px hsl(var(--sk-shadow) / 0.08), 0 12px 24px -10px hsl(var(--sk-shadow) / 0.2);
+}
+
+.tile:active { transform: translateY(0); }
+
+/* --- Modals ----------------------------------------------------------- */
+
+body.modal-open { overflow: hidden; }
+
+.modal.active { display: flex; }
+
+.modal {
+  backdrop-filter: blur(3px);
+  animation: modal-fade 0.18s ease-out;
+}
+
+.modal-content {
+  box-shadow: 0 24px 60px -12px hsl(var(--sk-shadow) / 0.45);
+  animation: modal-rise 0.2s ease-out;
+}
+
+/* The dialog is focused on open purely so screen readers announce its title;
+   it is not an actionable target, so it should not draw a ring. Every control
+   inside it keeps its own. */
+.modal-content:focus,
+.modal-content:focus-visible {
+  outline: none;
+}
+
+@keyframes modal-fade {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes modal-rise {
+  from { opacity: 0; transform: translateY(12px) scale(0.99); }
+  to { opacity: 1; transform: none; }
+}
+
+/* --- Lesson picker ---------------------------------------------------- */
+
+.tab-button {
+  padding: 0.6rem 0.9rem;
+  border: none;
+  background: none;
+  cursor: pointer;
+  font-size: 0.95rem;
+  font-weight: 600;
+  border-bottom: 3px solid transparent;
+  color: var(--sk-muted);
+  white-space: nowrap;
+  transition: color 0.15s ease, border-color 0.15s ease;
+}
+
+.tab-button:hover { color: var(--sk-text); }
+
+.tab-button.active {
+  border-bottom-color: var(--sk-accent);
+  color: var(--sk-accent);
+  font-weight: 750;
+}
+
+.stage-filter .active {
+  background-color: var(--sk-accent);
+  color: var(--sk-on-accent);
+  border-color: var(--sk-accent);
+}
+
+.stage-filter.disabled button {
+  opacity: 0.4;
+  cursor: not-allowed;
+  pointer-events: none;
+}
+
+.lesson-list.loading { opacity: 0.45; }
+
+.lesson-item {
+  border: 1px solid transparent;
+  transition: background-color 0.14s ease, border-color 0.14s ease;
+}
+
+.lesson-item:hover { border-color: var(--sk-border); }
+
+.meta-chip {
+  background-color: var(--sk-subtle);
+  border: 1px solid var(--sk-border);
+  padding: 0.1rem 0.5rem;
+  border-radius: 99px;
+  flex-shrink: 0;
+  white-space: nowrap;
+}
+
+.meta-chip.complete-chip {
+  background-color: var(--sk-accent-soft);
+  border-color: var(--sk-accent);
+  color: var(--sk-accent);
+  font-weight: 700;
+}
+
+.meta-chip.progress-chip {
+  background-color: var(--sk-subtle);
+  color: var(--sk-muted);
+}
+
+.stage-progress {
+  font-variant-numeric: tabular-nums;
+  opacity: 0.85;
+}
+
+/* The selected stage button is filled with the accent, so its progress chip
+   needs a translucent treatment to stay legible. */
+.stage-filter .active .stage-progress {
+  /* Derived from currentColor so it stays legible whether the ink on the
+     accent is white (light themes) or near-black (dark theme). */
+  background-color: color-mix(in srgb, currentColor 18%, transparent);
+  border-color: transparent;
+  color: inherit;
+  opacity: 1;
+}
+
+/* --- Typing screen ---------------------------------------------------- */
+
+.panel-label {
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--sk-muted);
+  margin-bottom: 0.4rem;
+}
+
+.typing-target {
+  font-size: clamp(1.25rem, 4vw, 1.6rem);
+  background-color: var(--sk-subtle);
+  border: 1px solid var(--sk-border);
+  padding: 1.15rem 1.25rem;
+  border-radius: var(--radius-xl);
+  line-height: 1.85;
+  letter-spacing: 0.05em;
+  white-space: pre-wrap;
+  word-break: break-word;
+  color: var(--sk-muted);
+}
+
+.typing-target.focus-line-active .line:not(.current-line) { opacity: 0.4; }
+.typing-target .line { transition: opacity 0.2s; }
+.typing-target .line.vanished { visibility: hidden; }
+
+/* Correct/incorrect never rely on colour alone: correct text also gains
+   weight, and errors keep the wavy underline. */
+.char.correct {
+  color: var(--sk-good);
+  font-weight: 600;
+}
+
+.char.incorrect {
+  color: var(--sk-bad);
+  font-weight: 600;
+  text-decoration: underline wavy var(--sk-bad);
+  text-decoration-thickness: 2px;
+  text-underline-offset: 4px;
+}
+
+.char.current {
+  background-color: var(--sk-accent);
+  color: var(--sk-on-accent);
+  border-radius: 4px;
+  box-shadow: 0 0 0 2px var(--sk-accent);
+}
+
+.typing-input {
+  width: 100%;
+  font-family: inherit;
+  font-size: clamp(1.25rem, 4vw, 1.6rem);
+  line-height: 1.85;
+  letter-spacing: 0.05em;
+  padding: 1.15rem 1.25rem;
+  border: 2px solid var(--sk-border);
+  border-radius: var(--radius-xl);
+  outline: none;
+  resize: none;
+  background-color: var(--sk-card);
+  color: var(--sk-text);
+  transition: border-color 0.15s ease, box-shadow 0.15s ease;
+}
+
+.typing-input:focus {
+  border-color: var(--sk-accent);
+  box-shadow: 0 0 0 4px var(--sk-accent-soft);
+}
+
+.typing-input:focus-visible { outline: none; }
+
+.typing-input.is-error {
+  border-color: var(--sk-bad);
+  box-shadow: 0 0 0 4px hsl(0 70% 50% / 0.14);
+  animation: nudge 0.2s ease;
+}
+
+.typing-input:disabled {
+  opacity: 0.7;
+  cursor: default;
+}
+
+@keyframes nudge {
+  0%, 100% { transform: translateX(0); }
+  25% { transform: translateX(-3px); }
+  75% { transform: translateX(3px); }
+}
+
+.timer-chip {
+  font-variant-numeric: tabular-nums;
+  background-color: var(--sk-subtle);
+  border: 1px solid var(--sk-border);
+}
+
+/* --- Toggles ---------------------------------------------------------- */
+
+.toggle-switch input {
+  position: absolute;
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+.toggle-switch .slider {
+  width: 42px;
+  height: 24px;
+  background-color: var(--sk-border);
+  border-radius: 12px;
+  position: relative;
+  flex-shrink: 0;
+  transition: background-color 0.2s;
+}
+
+.toggle-switch .slider::before {
+  content: '';
+  position: absolute;
+  width: 18px;
+  height: 18px;
+  border-radius: 50%;
+  background-color: var(--sk-card);
+  box-shadow: 0 1px 3px hsl(var(--sk-shadow) / 0.4);
+  top: 3px;
+  left: 3px;
+  transition: transform 0.2s;
+}
+
+.toggle-switch input:checked + .slider { background-color: var(--sk-accent); }
+.toggle-switch input:checked + .slider::before { transform: translateX(18px); }
+
+.toggle-switch:focus-within {
+  outline: 3px solid var(--sk-accent);
+  outline-offset: 3px;
+  border-radius: 99px;
+}
+
+/* --- Caps lock + finger guide ----------------------------------------- */
+
+.caps-lock-indicator {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  padding: 0.3rem 0.6rem;
+  background: transparent;
+  border: 1px solid transparent;
+  border-radius: 99px;
+  font-size: 0.7rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  color: var(--sk-muted);
+  /* Hidden rather than dimmed so it never reads as stray text, but it still
+     reserves its space so switching Caps Lock never shifts the layout. */
+  visibility: hidden;
+  opacity: 0;
+  transition: opacity 0.2s ease, background-color 0.2s ease, border-color 0.2s ease;
+}
+
+.caps-lock-indicator.active {
+  visibility: visible;
+  opacity: 1;
+  background: var(--sk-warm-soft);
+  border-color: var(--sk-warm);
+  color: var(--sk-warm);
+}
+
+.caps-lock-led {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: var(--sk-border);
+}
+
+.caps-lock-indicator.active .caps-lock-led {
+  background: var(--sk-warm);
+  box-shadow: 0 0 6px var(--sk-warm);
+}
+
+.finger { fill: var(--sk-subtle); stroke: var(--sk-border); stroke-width: 1; transition: fill 0.15s ease; }
+.finger.active { fill: var(--sk-accent); stroke: var(--sk-accent); }
+.finger.thumb { opacity: 0.85; }
+.finger.thumb.active { opacity: 1; }
+
+/* --- On-screen keyboard ---------------------------------------------- */
+
+.key {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 2.1rem;
+  height: 2.1rem;
+  border: 1px solid var(--sk-border);
+  background: var(--sk-card);
+  color: var(--sk-muted);
+  margin: 2px;
+  border-radius: 7px;
+  font-size: 0.85rem;
+  font-weight: 600;
+  transition: transform 0.12s ease, background-color 0.12s ease, color 0.12s ease;
+}
+
+@media (min-width: 640px) {
+  .key { min-width: 44px; height: 44px; font-size: 1rem; }
+}
+
+.key.space { width: min(280px, 60vw); }
+
+.key.highlight {
+  background-color: var(--sk-accent);
+  border-color: var(--sk-accent);
+  color: var(--sk-on-accent);
+  transform: scale(1.12);
+  box-shadow: 0 4px 10px -2px hsl(var(--sk-shadow) / 0.35);
+}
+
+#keyboard-hint.finger-guide .key.finger-lp { background: #fbd5d5; color: #6b2020; }
+#keyboard-hint.finger-guide .key.finger-lr { background: #fde3c0; color: #6d4310; }
+#keyboard-hint.finger-guide .key.finger-lm { background: #fbf0ad; color: #5f5410; }
+#keyboard-hint.finger-guide .key.finger-li { background: #c6f2d4; color: #14522f; }
+#keyboard-hint.finger-guide .key.finger-ri { background: #b8e9f5; color: #10495a; }
+#keyboard-hint.finger-guide .key.finger-rm { background: #cdd6fb; color: #22307a; }
+#keyboard-hint.finger-guide .key.finger-rr { background: #ded4fb; color: #3b2277; }
+#keyboard-hint.finger-guide .key.finger-rp { background: #fbd2e8; color: #6d1f4c; }
+#keyboard-hint.finger-guide .key.finger-thumb { background: var(--sk-subtle); }
+
+#keyboard-hint.finger-guide .key.highlight {
+  outline: 3px solid var(--sk-accent);
+  outline-offset: 2px;
+}
+
+/* --- Progress + pause ------------------------------------------------- */
+
+.progress-track {
+  background-color: var(--sk-subtle);
+  border-radius: 99px;
+  overflow: hidden;
+}
+
+.progress-bar {
+  background: linear-gradient(90deg, var(--sk-accent), var(--sk-good));
+  border-radius: 99px;
+  transition: width 0.15s ease-out;
+}
+
+.pause-overlay {
+  position: fixed;
+  inset: 0;
+  background: hsl(var(--sk-shadow) / 0.72);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 100;
+  backdrop-filter: blur(5px);
+}
+
+.pause-overlay.hidden { display: none; }
+
+.read-aloud-btn.speaking {
+  background-color: var(--sk-bad);
+  border-color: var(--sk-bad);
+  color: var(--sk-on-bad);
+  animation: pulse-glow 1.6s ease-in-out infinite;
+}
+
+@keyframes pulse-glow {
+  0%, 100% { box-shadow: 0 0 0 0 hsl(0 70% 55% / 0.45); }
+  50% { box-shadow: 0 0 0 7px hsl(0 70% 55% / 0); }
+}
+
+/* --- Home cards ------------------------------------------------------- */
+
+/*
+ * Streak and resume use warm amber rather than red/pink: the BDA guide flags
+ * red/pink as problematic for colour-blind readers, and amber reads as
+ * "celebrate" rather than "warning".
+ */
+.streak-card {
+  background: var(--sk-warm-soft);
+  border: 1px solid var(--sk-warm);
+}
+
+.streak-card .streak-heading { color: var(--sk-warm); }
+
+.resume-card {
+  background: var(--sk-accent-soft);
+  border: 1px solid var(--sk-accent);
+}
+
+.resume-card h2 { color: var(--sk-accent); }
+
+.perfect-banner {
+  background: var(--sk-warm-soft);
+  border: 2px solid var(--sk-warm);
+  color: var(--sk-warm);
+  padding: 0.9rem 1.5rem;
+  border-radius: var(--radius-xl);
+  font-size: 1.3rem;
+  font-weight: 750;
+  text-align: center;
+  animation: perfect-glow 2.4s ease-in-out infinite;
+}
+
+@keyframes perfect-glow {
+  0%, 100% { box-shadow: 0 0 0 0 hsl(38 92% 50% / 0.35); }
+  50% { box-shadow: 0 0 0 8px hsl(38 92% 50% / 0); }
+}
+
+/* Card-coloured with a warm edge, so the amber "perfect score" banner stays
+   the single loudest thing on the summary. */
+.badge-earned {
+  background: var(--sk-card);
+  border: 2px solid var(--sk-warm);
+  box-shadow: inset 4px 0 0 var(--sk-warm);
+  animation: badge-pulse 1.6s ease-out;
+}
+
+@keyframes badge-pulse {
+  0% { transform: scale(0.97); }
+  40% { transform: scale(1.02); }
+  100% { transform: scale(1); }
+}
+
+.metric-value {
+  font-variant-numeric: tabular-nums;
+  font-weight: 800;
+  line-height: 1.1;
+  letter-spacing: -0.01em;
+}
+
+.personal-best-comparison.new-best {
+  background: var(--sk-warm-soft);
+  border: 2px solid var(--sk-warm);
+}
+
+.show-confetti .card { position: relative; overflow: visible; }
+
+.confetti {
+  position: absolute;
+  top: 0;
+  width: 9px;
+  height: 9px;
+  border-radius: 2px;
+  opacity: 0;
+  pointer-events: none;
+  animation: confetti-fall 2s ease-out forwards;
+}
+
+@keyframes confetti-fall {
+  0% { transform: translateY(-90px) rotate(0deg); opacity: 1; }
+  100% { transform: translateY(110px) rotate(360deg); opacity: 0; }
+}
+
+/* --- Toast ------------------------------------------------------------ */
+
+/* Sits above the footer rather than over the typing box. */
+.toast {
+  position: fixed;
+  bottom: 1.5rem;
+  left: 50%;
+  transform: translateX(-50%);
+  background: var(--sk-text);
+  color: var(--sk-bg);
+  padding: 0.65rem 1.15rem;
+  border-radius: 999px;
+  font-weight: 600;
+  z-index: 101;
+  max-width: calc(100vw - 2rem);
+  text-align: center;
+  box-shadow: 0 10px 30px -8px hsl(var(--sk-shadow) / 0.5);
+  animation: toast-in 0.22s ease-out;
+}
+
+@keyframes toast-in {
+  from { opacity: 0; transform: translate(-50%, 10px); }
+  to { opacity: 1; transform: translate(-50%, 0); }
+}
+
+#loading-overlay {
+  position: fixed;
+  inset: 0;
+  background: var(--sk-bg);
+  color: var(--sk-text);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 0.75rem;
+  font-size: 1.3rem;
+  font-weight: 700;
+  z-index: 200;
+  transition: opacity 300ms;
+}
+
+#loading-error {
+  color: var(--sk-bad);
+  font-size: 1rem;
+  font-weight: 500;
+}
+
+kbd {
+  display: inline-block;
+  padding: 0.15rem 0.45rem;
+  font-size: 0.75rem;
+  font-weight: 600;
+  background-color: var(--sk-subtle);
+  border: 1px solid var(--sk-border);
+  border-radius: 5px;
+  box-shadow: 0 1px 0 var(--sk-border);
+}
+
+/* --- Motion preferences ---------------------------------------------- */
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation: none !important;
+    transition: none !important;
+  }
+  html { scroll-behavior: auto; }
+}
+
+.reduce-motion *,
+.reduce-motion *::before,
+.reduce-motion *::after {
+  animation: none !important;
+  transition: none !important;
+}
+
+.reduce-motion { scroll-behavior: auto; }
