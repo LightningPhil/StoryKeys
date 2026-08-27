@@ -31,11 +31,12 @@ function serveDevHtml(): Plugin {
   };
 }
 
-export default defineConfig(({ command }) => ({
+export default defineConfig(({ command, isPreview }) => ({
   plugins: [tailwindcss(), serveDevHtml()],
   // Pages hosts this project at /StoryKeys/. Dev keeps `/` so local tooling
-  // (`npm run dev`, smoke tests) continues to work unchanged.
-  base: command === 'build' ? '/StoryKeys/' : '/',
+  // (`npm run dev`, smoke tests) continues to work unchanged. Preview uses
+  // the Pages base so it can serve the compiled asset URLs.
+  base: command === 'build' || isPreview ? '/StoryKeys/' : '/',
   build: {
     rollupOptions: {
       input: {
