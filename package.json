@@ -6,7 +6,7 @@
   "description": "A calm, dyslexia-friendly typing tutor for young learners.",
   "scripts": {
     "dev": "vite",
-    "build": "tsc --noEmit && vite build",
+    "build": "tsc --noEmit && vite build && node tools/publish-pages.mjs",
     "preview": "vite preview",
     "check:contrast": "node tools/contrast.mjs",
     "check:smoke": "node tools/smoke.mjs",

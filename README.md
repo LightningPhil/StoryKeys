@@ -73,8 +73,8 @@ Then open the URL Vite prints (usually `http://localhost:5173`).
 | Script | What it does |
 | --- | --- |
 | `npm run dev` | Start the local development server |
-| `npm run build` | Type-check and create a production build in `dist/` |
-| `npm run preview` | Preview the production build locally |
+| `npm run build` | Type-check, create a production build in `dist/`, and publish it to the repo root for GitHub Pages |
+| `npm run preview` | Preview the production build locally (open the `/StoryKeys/` path) |
 | `npm run check:contrast` | Assert WCAG AA contrast across every theme colour pair |
 | `npm run check:smoke` | Drive the app in headless Chrome and check the UI still works |
 | `npm run shots` | Screenshot every screen, modal and breakpoint into `shots/` |
@@ -82,11 +82,22 @@ Then open the URL Vite prints (usually `http://localhost:5173`).
 The last three need Chrome installed; the two that drive the browser also need `npm run dev` running in
 another terminal. Override the defaults with `SK_CHROME`, `SK_BASE` or `SK_PORT` if needed.
 
+GitHub Pages serves this repository from the `main` branch root, so it needs a compiled
+`index.html` plus bundled JavaScript and CSS. `npm run build` writes those files to the
+repo root (`index.html`, `audit.html`, `assets/`, `audit/`, `.nojekyll`). Commit them
+with your source changes. Edit the HTML shells in `dev/`, not the generated root copies.
+
 ## Project Structure
 
 ```
 StoryKeys/
-├── index.html              # Vite entry / application shell
+├── index.html              # Compiled app shell (GitHub Pages; generated)
+├── audit.html              # Compiled audit dashboard (generated)
+├── assets/                 # Compiled JS/CSS (generated)
+├── .nojekyll               # Stop GitHub Pages running Jekyll on the build
+├── dev/
+│   ├── index.html          # Vite entry / application shell
+│   └── audit.html          # Audit dashboard (second Vite entry)
 ├── vite.config.ts
 ├── package.json
 ├── src/
@@ -105,14 +116,13 @@ StoryKeys/
 ├── public/
 │   ├── data/               # Curriculum JSON (served at /data/...)
 │   └── audit/              # Audit dashboard script and styles
-├── tools/                  # Contrast check, smoke test, screenshot capture
-├── data/                   # Legacy copy of the JSON; not used at runtime
-└── audit.html              # Content audit dashboard (second Vite entry)
+├── tools/                  # Contrast check, smoke test, screenshot, Pages publish
+└── data/                   # Curriculum JSON copied to the repo root for GitHub Pages
 ```
 
 ## Adding Content
 
-All content lives in JSON files - no code changes required. Edit files under `public/data/`; both the app and the audit dashboard read from there, so the root `data/` folder no longer needs to be kept in sync. Fetch paths stay `data/copy.json`, `data/KS2/passages.json`, and so on.
+All content lives in JSON files - no code changes required. Edit files under `public/data/`; `npm run build` copies them to the root `data/` folder that GitHub Pages serves. Fetch paths stay `data/copy.json`, `data/KS2/passages.json`, and so on.
 
 ### Add a Passage
 

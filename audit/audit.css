@@ -1,0 +1,353 @@
+/* StoryKeys Content Audit Dashboard - Formal Grey Theme */
+
+:root {
+    --grey-900: #1a1a1a;
+    --grey-800: #2d2d2d;
+    --grey-700: #404040;
+    --grey-600: #525252;
+    --grey-500: #6b6b6b;
+    --grey-400: #8a8a8a;
+    --grey-300: #a3a3a3;
+    --grey-200: #d4d4d4;
+    --grey-100: #e8e8e8;
+    --grey-50: #f5f5f5;
+    --white: #ffffff;
+    --accent: #4a5568;
+    --accent-light: #718096;
+    --success: #48bb78;
+    --shadow: rgba(0, 0, 0, 0.1);
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: var(--grey-100);
+    color: var(--grey-800);
+    line-height: 1.6;
+    min-height: 100vh;
+}
+
+/* Header */
+header {
+    background: linear-gradient(135deg, var(--grey-800) 0%, var(--grey-700) 100%);
+    color: var(--white);
+    padding: 2rem;
+    text-align: center;
+    box-shadow: 0 4px 6px var(--shadow);
+}
+
+header h1 {
+    font-size: 2rem;
+    font-weight: 600;
+    margin-bottom: 0.5rem;
+    letter-spacing: -0.5px;
+}
+
+header .subtitle {
+    color: var(--grey-300);
+    font-size: 1rem;
+    font-weight: 400;
+}
+
+/* Main Content */
+main {
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 2rem;
+}
+
+/* Section Styles */
+section {
+    background: var(--white);
+    border-radius: 8px;
+    box-shadow: 0 2px 8px var(--shadow);
+    margin-bottom: 2rem;
+    overflow: hidden;
+}
+
+section h2 {
+    background: var(--grey-700);
+    color: var(--white);
+    padding: 1rem 1.5rem;
+    font-size: 1.2rem;
+    font-weight: 500;
+    border-bottom: 3px solid var(--grey-600);
+}
+
+/* Summary Stats Grid */
+.stats-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    gap: 1rem;
+    padding: 1.5rem;
+}
+
+.stat-card {
+    background: var(--grey-50);
+    border: 1px solid var(--grey-200);
+    border-radius: 6px;
+    padding: 1.25rem;
+    text-align: center;
+    transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.stat-card:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px var(--shadow);
+}
+
+.stat-value {
+    display: block;
+    font-size: 2.5rem;
+    font-weight: 700;
+    color: var(--grey-700);
+    line-height: 1;
+    margin-bottom: 0.5rem;
+}
+
+.stat-label {
+    display: block;
+    font-size: 0.85rem;
+    color: var(--grey-500);
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+/* Key Stage Grid */
+.keystage-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 1.5rem;
+    padding: 1.5rem;
+}
+
+.keystage-card {
+    background: var(--grey-50);
+    border: 1px solid var(--grey-200);
+    border-radius: 6px;
+    padding: 1.5rem;
+}
+
+.keystage-card h3 {
+    color: var(--grey-700);
+    font-size: 1.1rem;
+    margin-bottom: 1rem;
+    padding-bottom: 0.75rem;
+    border-bottom: 2px solid var(--grey-200);
+}
+
+.ks-stats {
+    display: flex;
+    justify-content: space-around;
+    margin-bottom: 1rem;
+}
+
+.ks-stat {
+    text-align: center;
+}
+
+.ks-value {
+    display: block;
+    font-size: 1.75rem;
+    font-weight: 700;
+    color: var(--grey-700);
+}
+
+.ks-label {
+    display: block;
+    font-size: 0.75rem;
+    color: var(--grey-500);
+    text-transform: uppercase;
+}
+
+.themes-label {
+    font-size: 0.85rem;
+    font-weight: 600;
+    color: var(--grey-600);
+    margin-bottom: 0.5rem;
+}
+
+.themes-list {
+    font-size: 0.85rem;
+    color: var(--grey-500);
+    line-height: 1.5;
+    margin-bottom: 1rem;
+    min-height: 40px;
+}
+
+.theme-tag {
+    display: inline-block;
+    background: var(--grey-200);
+    padding: 0.2rem 0.5rem;
+    border-radius: 3px;
+    margin: 0.15rem;
+    font-size: 0.75rem;
+}
+
+/* Data Sections */
+.section-content {
+    padding: 1.5rem;
+}
+
+.section-stats {
+    margin-bottom: 1rem;
+}
+
+.section-stats p {
+    margin-bottom: 0.5rem;
+    color: var(--grey-600);
+}
+
+.section-stats .stat-row {
+    display: flex;
+    justify-content: space-between;
+    padding: 0.5rem 0;
+    border-bottom: 1px solid var(--grey-100);
+}
+
+.section-stats .stat-row:last-child {
+    border-bottom: none;
+}
+
+.section-stats .stat-row span:first-child {
+    font-weight: 500;
+}
+
+.section-stats .stat-row span:last-child {
+    color: var(--grey-700);
+    font-weight: 600;
+}
+
+.track-breakdown {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    gap: 1rem;
+    margin-top: 1rem;
+}
+
+.track-item {
+    background: var(--grey-50);
+    border: 1px solid var(--grey-200);
+    border-radius: 4px;
+    padding: 0.75rem;
+    text-align: center;
+}
+
+.track-item .track-name {
+    display: block;
+    font-size: 0.75rem;
+    color: var(--grey-500);
+    text-transform: uppercase;
+    margin-bottom: 0.25rem;
+}
+
+.track-item .track-count {
+    display: block;
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: var(--grey-700);
+}
+
+/* PDF Buttons */
+.pdf-btn {
+    background: linear-gradient(135deg, var(--grey-700) 0%, var(--grey-600) 100%);
+    color: var(--white);
+    border: none;
+    padding: 0.75rem 1.5rem;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 0.9rem;
+    font-weight: 500;
+    transition: all 0.2s;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.pdf-btn:hover {
+    background: linear-gradient(135deg, var(--grey-600) 0%, var(--grey-500) 100%);
+    transform: translateY(-1px);
+    box-shadow: 0 4px 8px var(--shadow);
+}
+
+.pdf-btn:active {
+    transform: translateY(0);
+}
+
+.pdf-btn.large {
+    padding: 1rem 2rem;
+    font-size: 1rem;
+}
+
+/* Download All Section */
+.download-all-section .bulk-buttons {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+    padding: 1.5rem;
+    justify-content: center;
+}
+
+/* Footer */
+footer {
+    background: var(--grey-800);
+    color: var(--grey-400);
+    text-align: center;
+    padding: 1.5rem;
+    margin-top: 2rem;
+}
+
+footer p {
+    font-size: 0.85rem;
+}
+
+/* Loading State */
+.loading {
+    opacity: 0.6;
+    pointer-events: none;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    header h1 {
+        font-size: 1.5rem;
+    }
+
+    main {
+        padding: 1rem;
+    }
+
+    .stats-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .keystage-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .bulk-buttons {
+        flex-direction: column;
+    }
+
+    .pdf-btn.large {
+        width: 100%;
+        justify-content: center;
+    }
+}
+
+/* Print Styles */
+@media print {
+    body {
+        background: white;
+    }
+
+    .pdf-btn,
+    .download-all-section {
+        display: none;
+    }
+}

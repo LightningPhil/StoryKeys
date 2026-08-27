@@ -1,4 +1,6 @@
-# Dependencies and build output
+# Dependencies and Vite's local build folder.
+# GitHub Pages serves the compiled copies at the repo root (index.html,
+# audit.html, assets/, audit/), which are produced by `npm run build`.
 node_modules/
 dist/
 
