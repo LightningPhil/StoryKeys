@@ -16,7 +16,13 @@ export function normaliseChar(ch: string): string {
 }
 
 export function normaliseString(s: string): string {
-  return s.split('').map(normaliseChar).join('');
+  return Array.from(s).map(normaliseChar).join('');
+}
+
+export function prepareTargetText(text: string, isSpelling = false): string {
+  const base = isSpelling ? text : transformText(text);
+  // Expand multi-character ellipsis so rendered .char spans stay 1-to-1 with normalised indices.
+  return base.replace(/…/g, '...');
 }
 
 export function transformText(text: string): string {
@@ -89,8 +95,4 @@ export function debounce<Args extends unknown[]>(
 
 export function getElement<T extends HTMLElement>(id: string): T | null {
   return document.getElementById(id) as T | null;
-}
-
-export function isHtmlElement(value: EventTarget | null): value is HTMLElement {
-  return value instanceof HTMLElement;
 }

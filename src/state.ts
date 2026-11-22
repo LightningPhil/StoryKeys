@@ -1,8 +1,8 @@
-import { CURRENT_WELCOME_VERSION, SCHEMA_VERSION } from './config';
-import { STATE_KEY } from './draft';
+import { config, CURRENT_WELCOME_VERSION, SCHEMA_VERSION, STATE_KEY } from './config';
 import type {
   AppState,
   FontName,
+  LessonPickerState,
   Meta,
   PersistedState,
   Progress,
@@ -11,6 +11,7 @@ import type {
   ThemeName,
   VoiceGender,
 } from './types';
+import { isLessonKey } from './types';
 
 export const DEFAULT_META: Meta = {
   hasSeenWelcome: false,
@@ -50,6 +51,19 @@ export const DEFAULT_PROGRESS: Progress = {
   completedWordsets: [],
 };
 
+export function createInitialPickerState(defaultStage: string = DEFAULT_SETTINGS.defaultStage): LessonPickerState {
+  return {
+    searchTerm: '',
+    sortKey: config.DEFAULT_SORT_KEY,
+    statusFilter: 'all',
+    currentPage: 1,
+    currentType: 'passage',
+    currentStage: defaultStage,
+    totalPages: 1,
+    hasAutoScrolled: false,
+  };
+}
+
 export function createInitialState(): AppState {
   return {
     settings: { ...DEFAULT_SETTINGS },
@@ -65,7 +79,12 @@ export function createInitialState(): AppState {
     },
     sessions: [],
     meta: { ...DEFAULT_META },
-    ui: { currentScreen: 'home', modal: null, lastFocus: null },
+    ui: {
+      currentScreen: 'home',
+      modal: null,
+      lastFocus: null,
+      picker: createInitialPickerState(DEFAULT_SETTINGS.defaultStage),
+    },
     runtime: {},
   };
 }
@@ -84,6 +103,31 @@ function isStageValue(value: unknown): value is Stage {
 
 function isVoiceGender(value: unknown): value is VoiceGender {
   return value === 'female' || value === 'male';
+}
+
+export function sanitiseSettings(base: Settings, incoming?: Partial<Record<keyof Settings, unknown>>): Settings {
+  const merged = { ...base, ...(incoming ?? {}) } as Record<keyof Settings, unknown>;
+  const lineHeight = parseFloat(String(merged.lineHeight));
+  const letterSpacing = parseInt(String(merged.letterSpacing), 10);
+  const voiceSpeed = parseFloat(String(merged.voiceSpeed));
+
+  return {
+    theme: isTheme(merged.theme) ? merged.theme : DEFAULT_SETTINGS.theme,
+    font: isFont(merged.font) ? merged.font : DEFAULT_SETTINGS.font,
+    defaultStage: isStageValue(merged.defaultStage) ? merged.defaultStage : DEFAULT_SETTINGS.defaultStage,
+    voiceGender: isVoiceGender(merged.voiceGender) ? merged.voiceGender : DEFAULT_SETTINGS.voiceGender,
+    lineHeight: Number.isFinite(lineHeight) && lineHeight > 0 ? lineHeight : DEFAULT_SETTINGS.lineHeight,
+    letterSpacing: Number.isNaN(letterSpacing) ? DEFAULT_SETTINGS.letterSpacing : letterSpacing,
+    voiceSpeed: Number.isNaN(voiceSpeed) ? DEFAULT_SETTINGS.voiceSpeed : voiceSpeed,
+    lockstepDefault: Boolean(merged.lockstepDefault),
+    focusLineDefault: Boolean(merged.focusLineDefault),
+    keyboardHintDefault: Boolean(merged.keyboardHintDefault),
+    showTimerDisplay: Boolean(merged.showTimerDisplay),
+    soundEnabled: Boolean(merged.soundEnabled),
+    fingerGuide: Boolean(merged.fingerGuide),
+    reduceMotion: Boolean(merged.reduceMotion),
+    pin: typeof merged.pin === 'string' || merged.pin === null ? merged.pin : base.pin,
+  };
 }
 
 export function saveState(state: AppState): void {
@@ -106,16 +150,8 @@ export function loadState(state: AppState): void {
     const raw = localStorage.getItem(STATE_KEY);
     if (!raw) return;
     const parsed = JSON.parse(raw) as PersistedState;
-    state.settings = { ...state.settings, ...parsed.settings };
-    if (!isTheme(state.settings.theme)) state.settings.theme = DEFAULT_SETTINGS.theme;
-    if (!isFont(state.settings.font)) state.settings.font = DEFAULT_SETTINGS.font;
-    if (!isStageValue(state.settings.defaultStage)) state.settings.defaultStage = DEFAULT_SETTINGS.defaultStage;
-    if (!isVoiceGender(state.settings.voiceGender)) state.settings.voiceGender = DEFAULT_SETTINGS.voiceGender;
-    state.settings.lineHeight = parseFloat(String(state.settings.lineHeight)) || 1.7;
-    state.settings.letterSpacing = parseInt(String(state.settings.letterSpacing), 10);
-    if (Number.isNaN(state.settings.letterSpacing)) state.settings.letterSpacing = 2;
-    state.settings.voiceSpeed = parseFloat(String(state.settings.voiceSpeed));
-    if (Number.isNaN(state.settings.voiceSpeed)) state.settings.voiceSpeed = 0.85;
+    state.settings = sanitiseSettings(state.settings, parsed.settings);
+    state.ui.picker.currentStage = state.settings.defaultStage;
     state.progress = {
       ...state.progress,
       ...parsed.progress,
@@ -128,7 +164,14 @@ export function loadState(state: AppState): void {
       stagesCompleted: parsed.progress?.stagesCompleted || {},
     };
     state.sessions = parsed.sessions || [];
-    state.meta = { ...DEFAULT_META, ...(parsed.meta || {}) };
+    const parsedLastId = parsed.meta?.lastLessonId;
+    state.meta = {
+      hasSeenWelcome: Boolean(parsed.meta?.hasSeenWelcome),
+      welcomeVersion: typeof parsed.meta?.welcomeVersion === 'number'
+        ? parsed.meta.welcomeVersion
+        : DEFAULT_META.welcomeVersion,
+      lastLessonId: isLessonKey(parsedLastId) ? parsedLastId : null,
+    };
   } catch (e) {
     console.error('Failed to parse state from localStorage:', e);
   }

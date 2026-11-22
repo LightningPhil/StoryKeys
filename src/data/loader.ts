@@ -1,4 +1,16 @@
-import type { AppData, BadgeDefinition, CopyData, KeymapEntry, LessonData, LessonType, Passage, PatternPack, Wordset } from '../types';
+import type {
+  AppData,
+  BadgeDefinition,
+  ContentId,
+  CopyData,
+  DrillData,
+  Lesson,
+  LessonData,
+  LessonType,
+  Passage,
+  PatternPack,
+  Wordset,
+} from '../types';
 import { isStage, STAGES } from '../types';
 
 const STAGE_DATA_TYPES = ['passages', 'wordsets', 'patterns'] as const;
@@ -16,22 +28,13 @@ const POOL_BY_TYPE: Record<LessonType, keyof AppData> = {
 };
 
 const emptyCopy: CopyData = {
-  appTitle: '',
-  tagline: '',
-  homeStart: '',
-  homeChangeLesson: '',
-  tipAccuracyFirst: '',
-  typingHeaderReady: '',
+  homeChangeLesson: 'Choose something to type',
   lockstepOn: 'Lockstep',
   focusLineOn: 'Focus Line',
   metricAccuracy: 'Accuracy',
-  metricNetWPM: 'Net WPM',
   metricWPM: 'Words per minute',
   metricTime: 'Time',
   metricErrors: 'Errors',
-  nextKeyLabel: '',
-  spaceName: '',
-  enterName: '',
   summaryNiceWork: 'Lovely typing!',
   summaryReplay: 'Try again',
   summaryHome: 'Home',
@@ -49,7 +52,6 @@ export const DATA: AppData = {
   PHONICS: [],
   SPELLING: [],
   BADGES: [],
-  KEYMAP: [],
   COPY: { ...emptyCopy },
 };
 
@@ -72,23 +74,22 @@ function isRecord(value: unknown): value is Record<string, unknown> {
 }
 
 export async function loadInitialData(): Promise<boolean> {
-  const [badges, copy, keymap, phonics, spelling] = await Promise.all([
+  const [badges, copy, phonics, spelling] = await Promise.all([
     fetchJSON<BadgeDefinition[]>(`${DATA_PATH}badges.json`),
     fetchJSON<CopyData>(`${DATA_PATH}copy.json`),
-    fetchJSON<KeymapEntry[]>(`${DATA_PATH}keymap.json`),
     fetchJSON<Passage[]>(`${DATA_PATH}phonics.json`),
     fetchJSON<Wordset[]>(`${DATA_PATH}spelling.json`),
   ]);
 
+  if (!copy) {
+    throw new Error('Core data (copy.json) failed to load. The application cannot start.');
+  }
+
   DATA.BADGES = badges || [];
-  DATA.COPY = copy ? { ...emptyCopy, ...copy } : { ...emptyCopy };
-  DATA.KEYMAP = keymap || [];
+  DATA.COPY = { ...emptyCopy, ...copy };
   DATA.PHONICS = phonics || [];
   DATA.SPELLING = spelling || [];
 
-  if (!DATA.COPY.appTitle) {
-    throw new Error('Core data (copy.json) failed to load. The application cannot start.');
-  }
   return true;
 }
 
@@ -128,7 +129,26 @@ function isLessonLike(item: unknown): item is LessonData {
 
 const LESSON_POOLS = ['PASSAGES', 'WORDSETS', 'PHONICS', 'SPELLING'] as const;
 
-export function findLesson(type: LessonType | string, id: string): LessonData | null {
+export function createLesson(type: LessonType, data: LessonData, withTimer?: boolean): Lesson | null {
+  switch (type) {
+    case 'passage':
+    case 'phonics':
+      return 'text' in data && typeof data.text === 'string'
+        ? { type, data: data as Passage, withTimer }
+        : null;
+    case 'spelling':
+    case 'wordset':
+      return 'words' in data && Array.isArray(data.words)
+        ? { type, data: data as Wordset, withTimer }
+        : null;
+    case 'drill':
+      return ('words' in data && Array.isArray(data.words)) || ('text' in data && typeof data.text === 'string')
+        ? { type, data: data as DrillData, withTimer }
+        : null;
+  }
+}
+
+export function findLesson(type: LessonType | string, id: ContentId): LessonData | null {
   const key = POOL_BY_TYPE[type as LessonType] || 'PASSAGES';
   if (!LESSON_POOLS.includes(key as typeof LESSON_POOLS[number])) return null;
   const pool = DATA[key as typeof LESSON_POOLS[number]];
@@ -138,7 +158,7 @@ export function findLesson(type: LessonType | string, id: string): LessonData | 
 
 export async function ensureLessonLoaded(
   type: LessonType | string,
-  id: string,
+  id: ContentId,
   stage?: string,
 ): Promise<LessonData | null> {
   if (type === 'spelling' || type === 'phonics') {

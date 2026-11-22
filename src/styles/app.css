@@ -15,6 +15,22 @@
   --radius-2xl: 20px;
 }
 
+@font-face {
+  font-family: "OpenDyslexic";
+  src: url("/fonts/opendyslexic-regular.woff2") format("woff2");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "OpenDyslexic";
+  src: url("/fonts/opendyslexic-bold.woff2") format("woff2");
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+
 :root {
   --font-family-default: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
   --font-family-dyslexia: "Arial", sans-serif;
@@ -42,6 +58,28 @@
   --sk-on-bad: #ffffff;
   --sk-warm: #875000;
   --sk-warm-soft: #fdf0d8;
+  --sk-phonics-bg: #bde5c8;
+  --sk-phonics-ink: #12402f;
+  --sk-phonics-border: #9bcda9;
+  --sk-spelling-bg: #b3dfe2;
+  --sk-spelling-ink: #0f3c42;
+  --sk-spelling-border: #8ec5c9;
+  --sk-finger-lp-bg: #fbd5d5;
+  --sk-finger-lp-ink: #6b2020;
+  --sk-finger-lr-bg: #fde3c0;
+  --sk-finger-lr-ink: #6d4310;
+  --sk-finger-lm-bg: #fbf0ad;
+  --sk-finger-lm-ink: #5f5410;
+  --sk-finger-li-bg: #c6f2d4;
+  --sk-finger-li-ink: #14522f;
+  --sk-finger-ri-bg: #b8e9f5;
+  --sk-finger-ri-ink: #10495a;
+  --sk-finger-rm-bg: #cdd6fb;
+  --sk-finger-rm-ink: #22307a;
+  --sk-finger-rr-bg: #ded4fb;
+  --sk-finger-rr-ink: #3b2277;
+  --sk-finger-rp-bg: #fbd2e8;
+  --sk-finger-rp-ink: #6d1f4c;
   --sk-shadow: 210 30% 40%;
 }
 
@@ -61,6 +99,28 @@
   --sk-on-bad: #ffffff;
   --sk-warm: #8c5200;
   --sk-warm-soft: #fdf1dd;
+  --sk-phonics-bg: #bde5c8;
+  --sk-phonics-ink: #12402f;
+  --sk-phonics-border: #9bcda9;
+  --sk-spelling-bg: #b3dfe2;
+  --sk-spelling-ink: #0f3c42;
+  --sk-spelling-border: #8ec5c9;
+  --sk-finger-lp-bg: #fbd5d5;
+  --sk-finger-lp-ink: #6b2020;
+  --sk-finger-lr-bg: #fde3c0;
+  --sk-finger-lr-ink: #6d4310;
+  --sk-finger-lm-bg: #fbf0ad;
+  --sk-finger-lm-ink: #5f5410;
+  --sk-finger-li-bg: #c6f2d4;
+  --sk-finger-li-ink: #14522f;
+  --sk-finger-ri-bg: #b8e9f5;
+  --sk-finger-ri-ink: #10495a;
+  --sk-finger-rm-bg: #cdd6fb;
+  --sk-finger-rm-ink: #22307a;
+  --sk-finger-rr-bg: #ded4fb;
+  --sk-finger-rr-ink: #3b2277;
+  --sk-finger-rp-bg: #fbd2e8;
+  --sk-finger-rp-ink: #6d1f4c;
   --sk-shadow: 215 30% 35%;
 }
 
@@ -82,6 +142,28 @@
   --sk-on-bad: #2b0d0a;
   --sk-warm: #f0b95e;
   --sk-warm-soft: #35291a;
+  --sk-phonics-bg: #1c3b2e;
+  --sk-phonics-ink: #b9efd0;
+  --sk-phonics-border: #2f604a;
+  --sk-spelling-bg: #193840;
+  --sk-spelling-ink: #b4e8ed;
+  --sk-spelling-border: #2c5b67;
+  --sk-finger-lp-bg: #432226;
+  --sk-finger-lp-ink: #f9c6c9;
+  --sk-finger-lr-bg: #443019;
+  --sk-finger-lr-ink: #fbdba8;
+  --sk-finger-lm-bg: #3f3a18;
+  --sk-finger-lm-ink: #f5e89e;
+  --sk-finger-li-bg: #1b3c29;
+  --sk-finger-li-ink: #b8f0ca;
+  --sk-finger-ri-bg: #183945;
+  --sk-finger-ri-ink: #b2e5f5;
+  --sk-finger-rm-bg: #222c50;
+  --sk-finger-rm-ink: #c8d4fc;
+  --sk-finger-rr-bg: #30244f;
+  --sk-finger-rr-ink: #dfd2fc;
+  --sk-finger-rp-bg: #442038;
+  --sk-finger-rp-ink: #f9c6e2;
   --sk-shadow: 220 40% 3%;
 }
 
@@ -145,6 +227,36 @@ details summary::marker { content: ''; }
 .btn-primary:hover:not(:disabled) {
   background-color: var(--sk-accent-strong);
   border-color: var(--sk-accent-strong);
+}
+
+.btn-danger {
+  background-color: var(--sk-bad);
+  border-color: var(--sk-bad);
+  color: var(--sk-on-bad);
+}
+
+.btn-danger:hover:not(:disabled) {
+  filter: brightness(1.08);
+}
+
+.btn-phonics {
+  background-color: var(--sk-phonics-bg);
+  border-color: var(--sk-phonics-border);
+  color: var(--sk-phonics-ink);
+}
+
+.btn-phonics:hover:not(:disabled) {
+  border-color: var(--sk-phonics-ink);
+}
+
+.btn-spelling {
+  background-color: var(--sk-spelling-bg);
+  border-color: var(--sk-spelling-border);
+  color: var(--sk-spelling-ink);
+}
+
+.btn-spelling:hover:not(:disabled) {
+  border-color: var(--sk-spelling-ink);
 }
 
 .eyebrow {
@@ -501,15 +613,15 @@ body.modal-open { overflow: hidden; }
   box-shadow: 0 4px 10px -2px hsl(var(--sk-shadow) / 0.35);
 }
 
-#keyboard-hint.finger-guide .key.finger-lp { background: #fbd5d5; color: #6b2020; }
-#keyboard-hint.finger-guide .key.finger-lr { background: #fde3c0; color: #6d4310; }
-#keyboard-hint.finger-guide .key.finger-lm { background: #fbf0ad; color: #5f5410; }
-#keyboard-hint.finger-guide .key.finger-li { background: #c6f2d4; color: #14522f; }
-#keyboard-hint.finger-guide .key.finger-ri { background: #b8e9f5; color: #10495a; }
-#keyboard-hint.finger-guide .key.finger-rm { background: #cdd6fb; color: #22307a; }
-#keyboard-hint.finger-guide .key.finger-rr { background: #ded4fb; color: #3b2277; }
-#keyboard-hint.finger-guide .key.finger-rp { background: #fbd2e8; color: #6d1f4c; }
-#keyboard-hint.finger-guide .key.finger-thumb { background: var(--sk-subtle); }
+#keyboard-hint.finger-guide .key.finger-lp { background: var(--sk-finger-lp-bg); color: var(--sk-finger-lp-ink); }
+#keyboard-hint.finger-guide .key.finger-lr { background: var(--sk-finger-lr-bg); color: var(--sk-finger-lr-ink); }
+#keyboard-hint.finger-guide .key.finger-lm { background: var(--sk-finger-lm-bg); color: var(--sk-finger-lm-ink); }
+#keyboard-hint.finger-guide .key.finger-li { background: var(--sk-finger-li-bg); color: var(--sk-finger-li-ink); }
+#keyboard-hint.finger-guide .key.finger-ri { background: var(--sk-finger-ri-bg); color: var(--sk-finger-ri-ink); }
+#keyboard-hint.finger-guide .key.finger-rm { background: var(--sk-finger-rm-bg); color: var(--sk-finger-rm-ink); }
+#keyboard-hint.finger-guide .key.finger-rr { background: var(--sk-finger-rr-bg); color: var(--sk-finger-rr-ink); }
+#keyboard-hint.finger-guide .key.finger-rp { background: var(--sk-finger-rp-bg); color: var(--sk-finger-rp-ink); }
+#keyboard-hint.finger-guide .key.finger-thumb { background: var(--sk-subtle); color: var(--sk-text); }
 
 #keyboard-hint.finger-guide .key.highlight {
   outline: 3px solid var(--sk-accent);

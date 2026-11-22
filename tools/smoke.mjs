@@ -1,88 +1,41 @@
 /**
  * Functional smoke test.
  *
- * Drives the real app in headless Chrome and asserts that the interactive
- * wiring still holds: every screen's controls resolve, toggles take effect,
- * drafts round-trip, settings persist, and the lesson picker starts a lesson.
+ * Drives the real app in headless Chrome/Chromium/Edge and asserts that the
+ * interactive wiring holds: screens, lesson flow, badge awards, drafts,
+ * settings, Parent PIN verification/removal, lesson picker, and audit.html.
+ *
+ * Automatically starts and tears down an ephemeral Vite server when one is not
+ * already listening on SK_BASE / http://localhost:5173.
  *
  * Usage:
- *   npm run dev                # in another terminal
- *   node tools/smoke.mjs
+ *   npm run check:smoke
  */
-import { spawn } from 'node:child_process';
-import { join } from 'node:path';
-import { tmpdir } from 'node:os';
+import { ensureAppServer, launchHeadlessBrowser, sleep } from './lib/cdp.mjs';
 
-const CHROME = process.env.SK_CHROME || 'C:\\Program Files\\Google\\Chrome\\Application\\chrome.exe';
-const BASE = process.env.SK_BASE || 'http://localhost:5173';
-const PORT = Number(process.env.SK_PORT || 9334);
-const PROFILE = join(tmpdir(), `sk-smoke-profile-${Date.now()}`);
-
-const sleep = (ms) => new Promise((r) => setTimeout(r, ms));
-
-const chrome = spawn(CHROME, [
-  '--headless=new',
-  `--remote-debugging-port=${PORT}`,
-  `--user-data-dir=${PROFILE}`,
-  '--no-first-run', '--no-default-browser-check', '--disable-extensions',
-  'about:blank',
-], { stdio: 'ignore' });
-
-async function browserWs() {
-  for (let i = 0; i < 60; i++) {
-    try {
-      const r = await fetch(`http://127.0.0.1:${PORT}/json/version`);
-      const j = await r.json();
-      if (j.webSocketDebuggerUrl) return j.webSocketDebuggerUrl;
-    } catch { /* not up yet */ }
-    await sleep(250);
-  }
-  throw new Error('Chrome did not expose a debugging socket');
-}
-
-class Cdp {
-  constructor(url) {
-    this.ws = new WebSocket(url);
-    this.id = 0;
-    this.pending = new Map();
-    this.ready = new Promise((res, rej) => {
-      this.ws.addEventListener('open', () => res());
-      this.ws.addEventListener('error', rej);
-    });
-    this.ws.addEventListener('message', (ev) => {
-      const msg = JSON.parse(ev.data);
-      if (msg.id && this.pending.has(msg.id)) {
-        const { resolve, reject } = this.pending.get(msg.id);
-        this.pending.delete(msg.id);
-        if (msg.error) reject(new Error(JSON.stringify(msg.error)));
-        else resolve(msg.result);
-      }
-    });
-  }
-  send(method, params = {}, sessionId) {
-    const id = ++this.id;
-    const payload = { id, method, params };
-    if (sessionId) payload.sessionId = sessionId;
-    this.ws.send(JSON.stringify(payload));
-    return new Promise((resolve, reject) => this.pending.set(id, { resolve, reject }));
-  }
-}
-
-/** Runs in the page. Returns { checks: [[name, ok, detail]...] }. */
-const SCRIPT = `(async () => {
+/** Runs in the main app page. Returns { checks: [[name, ok, detail]...] }. */
+const APP_SCRIPT = `(async () => {
   const sleep = ms => new Promise(r => setTimeout(r, ms));
   const checks = [];
   const ok = (name, cond, detail = '') => checks.push([name, !!cond, String(detail)]);
   const $ = sel => document.querySelector(sel);
   const id = x => document.getElementById(x);
-  const waitFor = async (sel, tries = 40) => {
-    for (let i = 0; i < tries; i++) { if ($(sel)) return $(sel); await sleep(150); }
+  const waitUntil = async (fn, tries = 50, delay = 100) => {
+    for (let i = 0; i < tries; i++) {
+      const val = fn();
+      if (val) return val;
+      await sleep(delay);
+    }
     return null;
   };
-  window.confirm = () => true;   // requestLeaveTyping() asks before exiting
-  window.alert = () => {};
+  const waitFor = (sel, tries = 50) => waitUntil(() => $(sel), tries);
+
+  let alertCount = 0;
+  window.confirm = () => true;
+  window.alert = () => { alertCount++; };
 
   // --- home ---------------------------------------------------------------
+  await waitFor('#home-screen', 80);
   ok('home renders', !!id('home-screen'));
   ok('primary story button', !!$('#new-story-card [data-stage]'));
   ok('spelling button', !!$('#new-story-card [data-spelling-stage]'));
@@ -94,7 +47,7 @@ const SCRIPT = `(async () => {
   ok('other key stages disclosure', !!details);
   if (details) {
     details.open = true;
-    await sleep(120);
+    await waitUntil(() => document.querySelectorAll('#new-story-card [data-stage]').length >= 4);
     ok('all 4 stages reachable', document.querySelectorAll('#new-story-card [data-stage]').length >= 4,
        document.querySelectorAll('#new-story-card [data-stage]').length + ' stage buttons');
   }
@@ -109,6 +62,8 @@ const SCRIPT = `(async () => {
   ok('focus line toggle', !!id('focusline-toggle'));
   ok('caps indicator', !!id('caps-lock-indicator'));
   ok('target text rendered', document.querySelectorAll('#typing-target .char').length > 0);
+  ok('progressbar aria attributes', id('typing-progress-bar')?.parentElement?.getAttribute('aria-valuemin') === '0' &&
+     id('typing-progress-bar')?.parentElement?.getAttribute('aria-valuemax') === '100');
 
   // focus-line toggle should flip the class on the target
   const target = id('typing-target');
@@ -116,14 +71,14 @@ const SCRIPT = `(async () => {
   const fl = id('focusline-toggle');
   fl.checked = !fl.checked;
   fl.dispatchEvent(new Event('change', { bubbles: true }));
-  await sleep(150);
+  await waitUntil(() => target.classList.contains('focus-line-active') !== before);
   ok('focus line toggle works', target.classList.contains('focus-line-active') !== before);
 
   // --- type part of it ----------------------------------------------------
   const full = Array.from(document.querySelectorAll('#typing-target .char')).map(c => c.textContent).join('');
   input.value = full.slice(0, 20);
   input.dispatchEvent(new Event('input', { bubbles: true }));
-  await sleep(250);
+  await waitUntil(() => document.querySelectorAll('#typing-target .char.correct').length > 0);
   ok('correct letters marked', document.querySelectorAll('#typing-target .char.correct').length > 0,
      document.querySelectorAll('#typing-target .char.correct').length + ' correct');
   ok('cursor letter marked', document.querySelectorAll('#typing-target .char.current').length === 1);
@@ -132,7 +87,7 @@ const SCRIPT = `(async () => {
 
   // --- exit saves a draft -------------------------------------------------
   id('exit-lesson-btn').click();
-  await sleep(400);
+  await waitFor('#home-screen');
   ok('exit returns home', !!id('home-screen'));
   ok('draft card offered', !!id('resume-draft-card'));
   ok('resume button', !!id('resume-draft-btn'));
@@ -140,41 +95,69 @@ const SCRIPT = `(async () => {
   // --- resume it ----------------------------------------------------------
   id('resume-draft-btn').click();
   const input2 = await waitFor('#typing-input');
-  await sleep(500);
   ok('resume reopens lesson', !!input2);
-  ok('resume restores text', input2 && input2.value.length > 0, input2 ? input2.value.length + ' chars' : 'none');
+  ok('resume restores text', input2 && input2.value.length === 20, input2 ? input2.value.length + ' chars' : 'none');
 
-  // --- finish it ----------------------------------------------------------
+  // --- finish it & earn first badge --------------------------------------
   const full2 = Array.from(document.querySelectorAll('#typing-target .char')).map(c => c.textContent).join('');
   input2.value = full2;
   input2.dispatchEvent(new Event('input', { bubbles: true }));
   const summary = await waitFor('#summary-screen');
   ok('summary screen opens', !!summary);
+  ok('first completed lesson awards badge', document.querySelectorAll('#summary-screen .badge-earned').length > 0,
+     document.querySelectorAll('#summary-screen .badge-earned').length + ' earned');
   ok('replay button', !!id('replay-btn'));
   ok('home button', !!id('home-btn'));
-  await sleep(2600);   // outlast the 2s debounced draft save
+  await sleep(2200); // outlast any 2s draft debounce window
   ok('completed lesson clears draft', localStorage.getItem('storykeys_draft') === null);
 
   id('home-btn').click();
-  await sleep(400);
+  await waitFor('#home-screen');
 
-  // --- settings round-trip ------------------------------------------------
+  // --- settings round-trip + set Parent PIN -------------------------------
   id('settings-btn').click();
-  await sleep(400);
+  await waitUntil(() => $('#modal-container .modal') && getComputedStyle($('#modal-container .modal')).display === 'flex');
   ok('settings modal visible', $('#modal-container .modal') && getComputedStyle($('#modal-container .modal')).display === 'flex');
   ok('settings controls bound', !!id('setting-theme') && !!id('setting-line-height') && !!id('save-settings-btn'));
   ok('settings values populated', id('setting-line-height').value !== '');
   id('setting-theme').value = 'dark';
+  id('setting-pin').value = '1234';
   id('save-settings-btn').click();
-  await sleep(500);
+  await waitUntil(() => !$('#modal-container .modal'));
   ok('theme applied', document.documentElement.classList.contains('theme-dark'));
   ok('theme persisted', (JSON.parse(localStorage.getItem('storykeys_state')).settings || {}).theme === 'dark');
+  ok('parent PIN persisted as hash', Boolean((JSON.parse(localStorage.getItem('storykeys_state')).settings || {}).pin));
   ok('modal closed after save', !$('#modal-container .modal'));
   ok('scroll unlocked', !document.body.classList.contains('modal-open'));
 
+  // --- parent PIN verification & inline error + removal -------------------
+  id('parent-btn').click();
+  await waitFor('#pin-title');
+  ok('parent button opens PIN prompt', !!id('pin-title'));
+  id('pin-input').value = '9999';
+  id('pin-submit-btn').click();
+  await waitUntil(() => id('pin-error') && !id('pin-error').classList.contains('hidden'));
+  ok('wrong PIN shows inline alert without window.alert', !id('pin-error').classList.contains('hidden') && alertCount === 0);
+
+  id('pin-input').value = '1234';
+  id('pin-submit-btn').click();
+  await waitFor('#parent-title');
+  ok('correct PIN opens Parent view', !!id('parent-title'));
+  id('close-modal-btn').click();
+  await waitUntil(() => !$('#modal-container .modal'));
+
+  id('settings-btn').click();
+  await waitFor('#clear-pin-btn');
+  ok('settings shows current PIN & remove controls when PIN set', !!id('setting-current-pin') && !!id('clear-pin-btn'));
+  id('clear-pin-btn').click();
+  id('setting-current-pin').value = '1234';
+  id('save-settings-btn').click();
+  await waitUntil(() => !$('#modal-container .modal'));
+  ok('verified PIN removal clears stored PIN', (JSON.parse(localStorage.getItem('storykeys_state')).settings || {}).pin === null);
+
   // --- lesson picker ------------------------------------------------------
   id('browse-lessons-btn').click();
-  await sleep(900);
+  await waitUntil(() => document.querySelectorAll('.lesson-item').length > 0);
   ok('picker modal visible', $('#modal-container .modal') && getComputedStyle($('#modal-container .modal')).display === 'flex');
   ok('picker lists lessons', document.querySelectorAll('.lesson-item').length > 0,
      document.querySelectorAll('.lesson-item').length + ' items');
@@ -182,12 +165,12 @@ const SCRIPT = `(async () => {
 
   const spellingTab = $('.tab-button[data-type="spelling"]');
   spellingTab.click();
-  await sleep(900);
+  await waitUntil(() => $('.lesson-item')?.dataset.type === 'spelling');
   ok('tab switch reloads list', document.querySelectorAll('.lesson-item').length > 0,
      document.querySelectorAll('.lesson-item').length + ' items');
 
   $('.tab-button[data-type="passage"]').click();
-  await sleep(900);
+  await waitUntil(() => $('.lesson-item')?.dataset.type === 'passage');
   const startBtn = $('.lesson-item [data-start]');
   ok('picker start button', !!startBtn);
   startBtn.click();
@@ -196,54 +179,114 @@ const SCRIPT = `(async () => {
 
   // --- escape closes a modal ---------------------------------------------
   id('help-btn').click();
-  await sleep(350);
+  await waitFor('#help-title');
   const helpOpen = !!$('#modal-container .modal');
   window.dispatchEvent(new KeyboardEvent('keydown', { key: 'Escape', bubbles: true }));
-  await sleep(400);
+  await waitUntil(() => !$('#modal-container .modal'));
   ok('escape closes modal', helpOpen && !$('#modal-container .modal'));
 
   return { checks };
 })()`;
 
-(async () => {
-  const cdp = new Cdp(await browserWs());
-  await cdp.ready;
+const AUDIT_SCRIPT = `(async () => {
+  const sleep = ms => new Promise(r => setTimeout(r, ms));
+  for (let i = 0; i < 60; i++) {
+    const val = document.getElementById('totalPassages')?.textContent;
+    if (val && val !== '-') break;
+    await sleep(100);
+  }
+  const passages = document.getElementById('totalPassages')?.textContent;
+  const badges = document.getElementById('totalBadges')?.textContent;
+  const externalScripts = document.querySelectorAll('script[src^="http"]').length;
+
+  let pdfBlobSize = 0;
+  const origCreateObjectURL = URL.createObjectURL.bind(URL);
+  URL.createObjectURL = (obj) => {
+    if (obj instanceof Blob && obj.type === 'application/pdf') {
+      pdfBlobSize = obj.size;
+    }
+    return origCreateObjectURL(obj);
+  };
+  document.getElementById('pdf-badges-btn')?.click();
+  for (let i = 0; i < 60; i++) {
+    if (pdfBlobSize > 0) break;
+    await sleep(100);
+  }
+  URL.createObjectURL = origCreateObjectURL;
+
+  return {
+    checks: [
+      ['audit dashboard loads passages', passages === '608', String(passages)],
+      ['audit dashboard loads badges', badges === '62', String(badges)],
+      ['audit has zero external scripts', externalScripts === 0, externalScripts + ' external'],
+      ['audit offline PDF export generates PDF blob', pdfBlobSize > 1000, pdfBlobSize + ' bytes'],
+    ],
+  };
+})()`;
+
+let server;
+let browser;
+
+try {
+  server = await ensureAppServer();
+  browser = await launchHeadlessBrowser({ prefix: 'sk-smoke' });
+  const { cdp } = browser;
+
   const { targetId } = await cdp.send('Target.createTarget', { url: 'about:blank' });
   const { sessionId } = await cdp.send('Target.attachToTarget', { targetId, flatten: true });
   await cdp.send('Page.enable', {}, sessionId);
   await cdp.send('Runtime.enable', {}, sessionId);
 
-  await cdp.send('Emulation.setDeviceMetricsOverride',
-    { width: 1280, height: 1000, deviceScaleFactor: 1, mobile: false }, sessionId);
+  await cdp.send(
+    'Emulation.setDeviceMetricsOverride',
+    { width: 1280, height: 1000, deviceScaleFactor: 1, mobile: false },
+    sessionId,
+  );
 
   // Start from a clean slate.
-  await cdp.send('Page.navigate', { url: BASE }, sessionId);
-  await sleep(1800);
+  await cdp.send('Page.navigate', { url: server.baseUrl }, sessionId);
+  await sleep(1000);
   await cdp.send('Runtime.evaluate', {
     expression: `localStorage.clear(); localStorage.setItem('storykeys_state', JSON.stringify({_v:1,meta:{hasSeenWelcome:true,welcomeVersion:1,lastLessonId:null}})); location.reload();`,
   }, sessionId).catch(() => null);
-  await sleep(2500);
+  await sleep(1200);
 
-  const errors = [];
-  const res = await cdp.send('Runtime.evaluate', {
-    expression: SCRIPT, awaitPromise: true, returnByValue: true,
+  const appRes = await cdp.send('Runtime.evaluate', {
+    expression: APP_SCRIPT,
+    awaitPromise: true,
+    returnByValue: true,
   }, sessionId);
 
-  if (res.exceptionDetails) {
-    console.error('Page threw:', JSON.stringify(res.exceptionDetails.exception?.description || res.exceptionDetails));
-    chrome.kill();
-    process.exit(1);
+  if (appRes.exceptionDetails) {
+    throw new Error(`App page threw: ${JSON.stringify(appRes.exceptionDetails.exception?.description || appRes.exceptionDetails)}`);
   }
 
-  const checks = res.result.value.checks;
+  await cdp.send('Page.navigate', { url: `${server.baseUrl}/audit.html` }, sessionId);
+  await sleep(800);
+  const auditRes = await cdp.send('Runtime.evaluate', {
+    expression: AUDIT_SCRIPT,
+    awaitPromise: true,
+    returnByValue: true,
+  }, sessionId);
+
+  if (auditRes.exceptionDetails) {
+    throw new Error(`Audit page threw: ${JSON.stringify(auditRes.exceptionDetails.exception?.description || auditRes.exceptionDetails)}`);
+  }
+
+  const checks = [...appRes.result.value.checks, ...auditRes.result.value.checks];
   let failed = 0;
   for (const [name, pass, detail] of checks) {
     if (!pass) failed++;
     console.log(`${pass ? 'ok  ' : 'FAIL'} ${name}${detail ? `  (${detail})` : ''}`);
   }
-  errors.forEach((e) => console.error(e));
   console.log(`\n${checks.length - failed}/${checks.length} checks passed`);
 
-  chrome.kill();
+  await browser.close();
+  await server.close();
   process.exit(failed === 0 ? 0 : 1);
-})().catch((e) => { console.error(e); chrome.kill(); process.exit(1); });
+} catch (err) {
+  console.error(err);
+  if (browser) await browser.close();
+  if (server) await server.close();
+  process.exit(1);
+}

@@ -56,9 +56,9 @@
     "tags": { "phonics": ["ks3-gen-root"] }
   },
   {
-    "id": "ks3_tion_pattern_v1",
+    "id": "ks3_physics-tion_pattern_v1",
     "stage": "KS3",
-    "name": "Words Ending in -tion",
+    "name": "Words Ending in -tion (Physics)",
     "items": ["friction", "acceleration", "motion", "position", "direction", "rotation"],
     "tags": { "phonics": ["ks3-tion-suffix"] }
   },
@@ -102,32 +102,32 @@
     "stage": "KS3",
     "theme": "Literary Devices",
     "name": "Words with the Root -phor / -phorical",
-    "words": ["metaphor", "metaphorical", "euphoric", "aphorism", "anaphora", "phoresis"],
-    "tags": { "complexity": { "caps": true, "punct": false } }
+    "items": ["metaphor", "metaphorical", "euphoric", "aphorism", "anaphora", "phoresis"],
+    "tags": { "complexity": { "caps": true, "punct": false }, "phonics": ["ks3-phor-root"] }
   },
   {
     "id": "ks3_literarydevices_onomatopoeiawords_v1",
     "stage": "KS3",
     "theme": "Literary Devices",
     "name": "Onomatopoeia Examples",
-    "words": ["crash", "buzz", "whisper", "clang", "sizzle", "bang"],
-    "tags": { "complexity": { "caps": true, "punct": false } }
+    "items": ["crash", "buzz", "whisper", "clang", "sizzle", "bang"],
+    "tags": { "complexity": { "caps": true, "punct": false }, "phonics": ["ks3-onomatopoeia"] }
   },
   {
     "id": "ks3_literarydevices_figurativelanguage_v1",
     "stage": "KS3",
     "theme": "Literary Devices",
     "name": "Figurative Language",
-    "words": ["simile", "personification", "hyperbole", "imagery", "alliteration", "symbolism"],
-    "tags": { "complexity": { "caps": true, "punct": false } }
+    "items": ["simile", "personification", "hyperbole", "imagery", "alliteration", "symbolism"],
+    "tags": { "complexity": { "caps": true, "punct": false }, "phonics": ["ks3-figurative-language"] }
   },
   {
     "id": "ks3_literarydevices_poeticterms_v1",
     "stage": "KS3",
     "theme": "Literary Devices",
     "name": "Poetic Terms",
-    "words": ["stanza", "rhyme", "rhythm", "meter", "verse", "couplet"],
-    "tags": { "complexity": { "caps": true, "punct": false } }
+    "items": ["stanza", "rhyme", "rhythm", "meter", "verse", "couplet"],
+    "tags": { "complexity": { "caps": true, "punct": false }, "phonics": ["ks3-poetic-terms"] }
   },
   {
     "id": "ks3_able-ible-pattern_v1",

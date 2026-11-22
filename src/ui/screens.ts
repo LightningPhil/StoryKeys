@@ -1,7 +1,6 @@
-import { loadDraft } from '../draft';
 import { FINGER_ZONES } from '../session/keyboard';
 import { STAGES } from '../types';
-import type { AppData, AppState, ScreenName, SessionRecord, Stage } from '../types';
+import type { AppData, AppState, Draft, ScreenName, SessionRecord, Stage } from '../types';
 import { escapeHtml, getLessonTitle } from '../utils';
 import { buttonClass, cx, ui } from './classes';
 import { getPetEmoji } from './feedback';
@@ -19,6 +18,38 @@ const THEME_ICONS: Record<string, string> = {
   History: '🏛️',
   Geography: '🗺️',
 };
+
+const THEME_KEYWORD_ICONS: ReadonlyArray<[RegExp, string]> = [
+  [/phonic/i, '🔤'],
+  [/statut|exception|tricky/i, '📜'],
+  [/animal|farm|pet|wildlife|habitat|creature/i, '🐾'],
+  [/nature|forest|garden|beach|ocean|coast|biome|weather|season|outdoor|environment/i, '🌿'],
+  [/comput|tech|robot|digital|code|engineering|innovation/i, '💻'],
+  [/science|physics|chemistry|biology|atomic|quantum|energy|force|body|geology|space|lab/i, '🔬'],
+  [/math|logic|geometry|statistic|number/i, '📐'],
+  [/history|roman|egypt|tudor|victorian|ancient|war|modern/i, '🏛️'],
+  [/geograph|urban|map|town|place|travel|holiday|world/i, '🗺️'],
+  [/myth|legend|fantasy|magic|adventure|mystery/i, '🦄'],
+  [/poem|poet|literar|english|writing|drama|language|linguist|story|stories|book/i, '📖'],
+  [/art|craft|design|music|media/i, '🎨'],
+  [/food|cook|kitchen/i, '🍎'],
+  [/sport|pe\b|play|health|pshe/i, '⚽'],
+  [/econom|business|law|politic|civic|citizen|philosoph|psycholog|societ|community/i, '⚖️'],
+  [/academic|study|school|classroom|learn|general/i, '🎓'],
+];
+
+export function getThemeIcon(theme?: string, lessonType?: string): string {
+  if (!theme) {
+    if (lessonType === 'phonics') return '🔤';
+    if (lessonType === 'spelling') return '📜';
+    return '📝';
+  }
+  if (THEME_ICONS[theme]) return THEME_ICONS[theme];
+  for (const [pattern, icon] of THEME_KEYWORD_ICONS) {
+    if (pattern.test(theme)) return icon;
+  }
+  return '📝';
+}
 
 export { THEME_ICONS };
 
@@ -79,8 +110,7 @@ function getRecentLessonsHtml(state: AppState): string {
         </section>`;
 }
 
-function renderHome(state: AppState): string {
-  const draft = loadDraft();
+function renderHome(state: AppState, draft: Draft | null = null): string {
   const stage = state.settings.defaultStage;
   const minutes = Math.round(state.progress.minutesTotal);
   const streak = state.progress.consecutiveDays;
@@ -184,7 +214,7 @@ function renderHome(state: AppState): string {
 
 function renderTyping(state: AppState, data: AppData): string {
   const targetText = state.runtime.targetText ?? '';
-  const initialHtml = targetText.split('').map((char, idx) =>
+  const initialHtml = Array.from(targetText).map((char, idx) =>
     `<span class="char" data-idx="${idx}">${escapeHtml(char)}</span>`,
   ).join('');
 
@@ -225,7 +255,7 @@ function renderTyping(state: AppState, data: AppData): string {
 
   return `
             <div id="typing-screen" class="screen active flex flex-col gap-4">
-                <div class="sticky top-0 z-50 progress-track w-full h-2.5" role="progressbar" aria-label="Lesson progress">
+                <div class="sticky top-0 z-50 progress-track w-full h-2.5" role="progressbar" aria-label="Lesson progress" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0">
                     <div id="typing-progress-bar" class="progress-bar h-full w-0"></div>
                 </div>
 
@@ -287,7 +317,7 @@ function renderSummary(state: AppState, data: AppData): string {
   const results = state.runtime.summaryResults;
   if (!results) return '<h1>Error</h1>';
   const { accuracy, durationSec, errors, netWPM, grossWPM, hardestKeys, trickyWords, newBadges, isDrill, personalBest } = results;
-  const wpmLabel = data.COPY.metricWPM || data.COPY.metricNetWPM || 'Words per minute';
+  const wpmLabel = data.COPY.metricWPM || 'Words per minute';
   const safeNet = typeof netWPM === 'number' ? netWPM : '—';
   const safeGross = typeof grossWPM === 'number' ? grossWPM : '—';
   const drillBtnHtml = !isDrill && (hardestKeys.length > 0 || trickyWords.length > 0)
@@ -387,15 +417,24 @@ function renderSummary(state: AppState, data: AppData): string {
                         ${drillBtnHtml}
                         <button id="home-btn" type="button" class="${buttonClass('secondary')}">${escapeHtml(data.COPY.summaryHome)}</button>
                     </div>
-                    <p class="text-center text-sm text-sk-muted mt-5 m-0">Press <kbd>Enter</kbd> to try again, or <kbd>Esc</kbd> to go home.</p>
+                    <p class="text-center text-sm text-sk-muted mt-5 m-0">${
+                      isDrill
+                        ? 'Press <kbd>Esc</kbd> to go home.'
+                        : 'Press <kbd>Enter</kbd> to try again, or <kbd>Esc</kbd> to go home.'
+                    }</p>
                 </div>
             </div>`;
 }
 
-export function getScreenHtml(screenName: ScreenName, state: AppState, data: AppData): string {
+export function getScreenHtml(
+  screenName: ScreenName,
+  state: AppState,
+  data: AppData,
+  draft: Draft | null = null,
+): string {
   switch (screenName) {
     case 'home':
-      return renderHome(state);
+      return renderHome(state, draft);
     case 'typing':
       return renderTyping(state, data);
     case 'summary':

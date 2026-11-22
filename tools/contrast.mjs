@@ -65,6 +65,16 @@ const PAIRS = [
   ['accent on accent-soft panel', '--sk-accent', '--sk-accent-soft', 4.5],
   ['border against card', '--sk-border', '--sk-card', 1.2],
   ['focus ring against page', '--sk-accent', '--sk-bg', 3.0],
+  ['phonics button ink on fill', '--sk-phonics-ink', '--sk-phonics-bg', 4.5],
+  ['spelling button ink on fill', '--sk-spelling-ink', '--sk-spelling-bg', 4.5],
+  ['finger lp key ink on fill', '--sk-finger-lp-ink', '--sk-finger-lp-bg', 4.5],
+  ['finger lr key ink on fill', '--sk-finger-lr-ink', '--sk-finger-lr-bg', 4.5],
+  ['finger lm key ink on fill', '--sk-finger-lm-ink', '--sk-finger-lm-bg', 4.5],
+  ['finger li key ink on fill', '--sk-finger-li-ink', '--sk-finger-li-bg', 4.5],
+  ['finger ri key ink on fill', '--sk-finger-ri-ink', '--sk-finger-ri-bg', 4.5],
+  ['finger rm key ink on fill', '--sk-finger-rm-ink', '--sk-finger-rm-bg', 4.5],
+  ['finger rr key ink on fill', '--sk-finger-rr-ink', '--sk-finger-rr-bg', 4.5],
+  ['finger rp key ink on fill', '--sk-finger-rp-ink', '--sk-finger-rp-bg', 4.5],
 ];
 
 const themes = readThemes(css);

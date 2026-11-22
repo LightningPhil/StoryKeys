@@ -1,6 +1,5 @@
 [
     {
-        "_comment": "=== PRACTICE TRACK: Rewarding consistent effort over time ===",
         "id": "practice_1",
         "label": "First Steps",
         "desc": "Complete your very first lesson.",
@@ -49,7 +48,6 @@
     },
 
     {
-        "_comment": "=== ACCURACY TRACK: Celebrating careful work ===",
         "id": "accuracy_90",
         "label": "Careful Typer",
         "desc": "Finish a lesson with 90% accuracy or better.",
@@ -105,7 +103,6 @@
     },
 
     {
-        "_comment": "=== FLUENCY TRACK: Speed comes with confidence ===",
         "id": "fluency_20",
         "label": "Finding Flow",
         "desc": "Reach 20 words per minute.",
@@ -161,7 +158,6 @@
     },
 
     {
-        "_comment": "=== TIME TRACK: Patience and persistence ===",
         "id": "time_15",
         "label": "Quarter Hour",
         "desc": "Spend 15 minutes typing in total.",
@@ -233,7 +229,6 @@
     },
 
     {
-        "_comment": "=== CONSISTENCY TRACK: Gentle encouragement to return ===",
         "id": "routine_2",
         "label": "Coming Back",
         "desc": "Practice on two different days.",
@@ -289,7 +284,6 @@
     },
 
     {
-        "_comment": "=== VARIETY TRACK: Exploring different content ===",
         "id": "explorer_2",
         "label": "Theme Taster",
         "desc": "Try two different story themes.",
@@ -366,7 +360,6 @@
     },
 
     {
-        "_comment": "=== COURAGE TRACK: Trying harder or unfamiliar things ===",
         "id": "brave_longer",
         "label": "Going Further",
         "desc": "Finish a lesson with 200+ characters.",
@@ -403,7 +396,6 @@
     },
 
     {
-        "_comment": "=== SPECIALTY TRACK: Content-specific achievements ===",
         "id": "spelling_star",
         "label": "Spelling Star",
         "desc": "Complete a spelling list with zero errors.",
@@ -458,7 +450,6 @@
     },
 
     {
-        "_comment": "=== SURPRISE TRACK: Occasional delightful discoveries ===",
         "id": "surprise_early",
         "label": "Early Bird",
         "desc": "Complete a lesson before 9 AM.",

@@ -1,12 +1,13 @@
-import type { Draft, LessonData, LessonType } from './types';
+import { DRAFT_KEY, STATE_KEY } from './config';
+import type { ContentId, Draft, LessonData, LessonType } from './types';
 import { isLessonType } from './types';
 
-export const STATE_KEY = 'storykeys_state';
-export const DRAFT_KEY = 'storykeys_draft';
+export { DRAFT_KEY, STATE_KEY };
+
 const DRAFT_MAX_AGE_MS = 24 * 60 * 60 * 1000;
 
 export function saveDraft(
-  lessonId: string,
+  lessonId: ContentId,
   lessonType: LessonType,
   typedText: string,
   lessonData: LessonData,

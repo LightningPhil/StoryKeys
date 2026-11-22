@@ -37,7 +37,7 @@ Shared class strings live in `src/ui/classes.ts`. Screens and modals compose Tai
 - Colour variants: `primary`, `secondary`, `quiet`, `danger`, `phonics`, `spelling`
 - Size/shape modifiers: `sm`, `lg`, `block`
 - Icon buttons: `ui.iconButton`
-- Containers: `ui.buttonGroup`, `ui.buttonRow`, `ui.buttonRowCenter`, `ui.stageRow`
+- Containers: `ui.buttonGroup`, `ui.buttonRow`, `ui.buttonRowCenter`
 - The base includes `min-h-12` so every control stays a comfortable touch target. Keep it.
 
 ### Cards
@@ -63,12 +63,12 @@ scroll. The same applies to `card`, which `.show-confetti .card` depends on.
 
 ## Rules
 
-1. **Render purity** — `getScreenHtml()` and `getModalHtml()` return HTML strings only.
-2. **Controllers bind events** — `bindScreenEvents()` and `bindModalEvents()` in `src/main.ts`.
+1. **Render purity** — `getScreenHtml()` and `getModalHtml()` return HTML strings only and perform no storage reads or side effects.
+2. **Controllers bind events** — `src/main.ts` handles home/summary orchestration, `src/session/typingController.ts` handles typing-screen events and cleanup, and `src/ui/modalController.ts` handles modal events and focus trapping.
 3. **Focus** — opening a modal focuses the dialog container so screen readers announce its title, rather
    than landing on the close button. A modal that wants a specific field focused marks it `data-autofocus`.
-   Tab then cycles inside the modal; Escape closes; focus returns to the opener.
-4. **localStorage keys** — `storykeys_state` and `storykeys_draft` must stay stable.
+   Tab then cycles dynamically across visible enabled controls inside the modal; Escape closes; focus returns to the opener.
+4. **localStorage keys** — `storykeys_state` and `storykeys_draft` (defined in `src/config.ts`) must stay stable.
 5. **Escape hatch from a lesson** — the typing screen needs a visible way out (`#exit-lesson-btn`); it saves
    a draft before leaving.
 
@@ -103,14 +103,17 @@ stylesheet and asserts WCAG AA on every foreground/background pair the UI actual
 | Screen rendering | `src/ui/screens.ts` |
 | Modal rendering | `src/ui/modals.ts` |
 | Lesson picker | `src/ui/picker.ts` |
-| Screen/modal events | `src/main.ts` |
+| Screen/modal orchestration | `src/main.ts`, `src/session/typingController.ts`, `src/ui/modalController.ts` |
 | State | `src/state.ts` |
 | Typing input | `src/session/keyboard.ts` |
 | Session lifecycle | `src/session/lessons.ts` |
-| Progress | `src/progress/progress.ts` |
+| Progress & badges | `src/progress/progress.ts`, `src/progress/badges.ts` |
+| Content audit dashboard | `audit.html`, `src/audit/main.ts` |
+| Data validation | `tools/validate-data.mjs` (`npm run check:data`) |
 | Contrast check | `tools/contrast.mjs` (`npm run check:contrast`) |
 | Functional smoke test | `tools/smoke.mjs` (`npm run check:smoke`) |
 | Screenshot capture | `tools/screenshot.mjs` (`npm run shots`) |
 
-The two check scripts need a dev server running (`npm run dev`) and drive headless Chrome. Point them at
-another browser or port with `SK_CHROME`, `SK_BASE` and `SK_PORT` if the defaults do not match your machine.
+`check:smoke` and `shots` automatically start an ephemeral Vite dev server if one is not already listening
+and drive headless Chrome/Chromium/Edge. Point them at another browser, base URL, or port with
+`SK_CHROME`, `SK_BASE`, and `SK_PORT` if needed.

@@ -1,5 +1,6 @@
 import { config } from '../config';
-import { buildLessonId, getLessonCompletionPercent, getSectionCompletionPercent, isLastLesson } from '../progress/progress';
+import { buildLessonKey, getLessonCompletionPercent, getSectionCompletionPercent, isLastLesson } from '../progress/progress';
+import { createInitialPickerState } from '../state';
 import type {
   AppData,
   AppState,
@@ -12,24 +13,7 @@ import type {
 } from '../types';
 import { escapeHtml } from '../utils';
 import { buttonClass } from './classes';
-import { THEME_ICONS } from './screens';
-
-let lessonPickerState: LessonPickerState = {
-  searchTerm: '',
-  sortKey: config.DEFAULT_SORT_KEY,
-  statusFilter: 'all',
-  currentPage: 1,
-  currentType: 'passage',
-  currentStage: 'KS2',
-};
-
-let lastRenderedState: AppState | null = null;
-let lastRenderedData: AppData | null = null;
-let hasAutoScrolledToLastLesson = false;
-
-export function getLessonPickerState(): LessonPickerState {
-  return lessonPickerState;
-}
+import { getThemeIcon } from './screens';
 
 function getLessonLength(lesson: LessonData): number {
   if ('text' in lesson && lesson.text) return lesson.text.length;
@@ -87,8 +71,8 @@ export function deriveLessonPickerViewModel(
 
   if (statusFilter && statusFilter !== 'all') {
     filtered = filtered.filter((l) => {
-      const lessonId = buildLessonId(currentType, l);
-      const completionPercent = getLessonCompletionPercent(state, lessonId);
+      const lessonKey = buildLessonKey(currentType, l);
+      const completionPercent = getLessonCompletionPercent(state, lessonKey);
       if (statusFilter === 'complete') return completionPercent === 100;
       if (statusFilter === 'todo') return completionPercent < 100;
       return true;
@@ -114,8 +98,8 @@ export function deriveLessonPickerViewModel(
   const items = pageItems.map((l) => {
     const len = getLessonLength(l);
     const wordCount = 'words' in l && l.words ? l.words.length : Math.round(len / 5);
-    const lessonId = buildLessonId(currentType, l);
-    const completionPercent = getLessonCompletionPercent(state, lessonId);
+    const lessonKey = buildLessonKey(currentType, l);
+    const completionPercent = getLessonCompletionPercent(state, lessonKey);
     const tags = l.tags?.complexity ?? { caps: true, punct: true };
     const rawText = ('text' in l && l.text) || ('words' in l && l.words ? l.words.slice(0, 15).join(' ') : '');
     const preview = rawText.slice(0, 100) + (rawText.length > 100 ? '…' : '');
@@ -125,15 +109,15 @@ export function deriveLessonPickerViewModel(
     return {
       id: l.id ?? '',
       type: currentType,
-      lessonId,
+      lessonKey,
       title,
       theme,
-      icon: (theme && THEME_ICONS[theme]) || '📝',
+      icon: getThemeIcon(theme, currentType),
       lenDisplay: `≈ ${len} chars / ${wordCount} words`,
       completionPercent,
       completionLabel: completionPercent === 100 ? 'Completed ✓' : `${completionPercent}% complete`,
       isComplete: completionPercent === 100,
-      isLastVisited: isLastLesson(state, lessonId),
+      isLastVisited: isLastLesson(state, lessonKey),
       hasCaps: Boolean(tags.caps),
       hasPunct: Boolean(tags.punct),
       preview,
@@ -149,7 +133,7 @@ export function deriveLessonPickerViewModel(
     hasPrevPage: currentPage > 1,
     currentType,
     currentStage,
-    lastLessonId: state.meta.lastLessonId || null,
+    lastLessonKey: state.meta.lastLessonId || null,
   };
 }
 
@@ -164,7 +148,7 @@ function renderLessonListDOM(vm: LessonPickerViewModel): void {
         </div>`;
   } else {
     listEl.innerHTML = vm.items.map((item) => `
-            <div class="lesson-item flex gap-3 items-center p-3 rounded-xl mb-1 hover:bg-sk-subtle" data-id="${item.id}" data-type="${item.type}" data-lesson-id="${item.lessonId}" title="${escapeHtml(item.preview)}">
+            <div class="lesson-item flex gap-3 items-center p-3 rounded-xl mb-1 hover:bg-sk-subtle" data-id="${escapeHtml(item.id)}" data-type="${escapeHtml(item.type)}" data-lesson-id="${escapeHtml(item.lessonKey)}" title="${escapeHtml(item.preview)}">
                 <div class="text-2xl shrink-0" aria-hidden="true">${item.icon}</div>
                 <div class="grow min-w-0">
                     <b class="block">${escapeHtml(item.title)}</b>
@@ -199,32 +183,31 @@ function renderPaginationDOM(vm: LessonPickerViewModel): void {
 }
 
 export function renderLessonList(data: AppData, state: AppState): void {
-  lastRenderedState = state;
-  lastRenderedData = data;
-  const vm = deriveLessonPickerViewModel(lessonPickerState, state, data);
-  lessonPickerState._totalPages = vm.totalPages;
+  const picker = state.ui.picker;
+  const vm = deriveLessonPickerViewModel(picker, state, data);
+  picker.totalPages = vm.totalPages;
   updateStageProgressBadges(state, data, vm.currentType);
   renderLessonListDOM(vm);
   renderPaginationDOM(vm);
 
-  if (!hasAutoScrolledToLastLesson && vm.lastLessonId) {
+  if (!picker.hasAutoScrolled && vm.lastLessonKey) {
     const listEl = document.querySelector('.lesson-list');
-    const target = listEl?.querySelector(`[data-lesson-id="${vm.lastLessonId}"]`);
+    const target = listEl?.querySelector(`[data-lesson-id="${CSS.escape(vm.lastLessonKey)}"]`);
     if (target) {
       target.scrollIntoView({ block: 'center', behavior: 'smooth' });
-      hasAutoScrolledToLastLesson = true;
+      picker.hasAutoScrolled = true;
     }
   }
 }
 
-export function handleLessonPickerPagination(action: string): void {
-  if (!lastRenderedData || !lastRenderedState) return;
-  if (action === 'prev-page' && lessonPickerState.currentPage > 1) {
-    lessonPickerState.currentPage--;
-    renderLessonList(lastRenderedData, lastRenderedState);
-  } else if (action === 'next-page' && lessonPickerState.currentPage < (lessonPickerState._totalPages ?? 1)) {
-    lessonPickerState.currentPage++;
-    renderLessonList(lastRenderedData, lastRenderedState);
+export function handleLessonPickerPagination(action: string, state: AppState, data: AppData): void {
+  const picker = state.ui.picker;
+  if (action === 'prev-page' && picker.currentPage > 1) {
+    picker.currentPage--;
+    renderLessonList(data, state);
+  } else if (action === 'next-page' && picker.currentPage < picker.totalPages) {
+    picker.currentPage++;
+    renderLessonList(data, state);
   }
 }
 
@@ -241,18 +224,10 @@ export function updateLessonPicker(
     const allowed: StatusFilter[] = ['all', 'complete', 'todo'];
     if (!allowed.includes(updates.statusFilter)) delete updates.statusFilter;
   }
-  Object.assign(lessonPickerState, updates);
+  Object.assign(state.ui.picker, updates);
   renderLessonList(data, state);
 }
 
-export function resetLessonPickerState(defaultStage: string): void {
-  lessonPickerState = {
-    searchTerm: '',
-    sortKey: config.DEFAULT_SORT_KEY,
-    statusFilter: 'all',
-    currentPage: 1,
-    currentType: 'passage',
-    currentStage: defaultStage,
-  };
-  hasAutoScrolledToLastLesson = false;
+export function resetLessonPickerState(state: AppState): void {
+  state.ui.picker = createInitialPickerState(state.settings.defaultStage);
 }

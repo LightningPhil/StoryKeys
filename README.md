@@ -61,7 +61,7 @@ Content types include passages (stories by theme), spelling tutor (statutory lis
 
 ## Getting Started
 
-StoryKeys is a Vite + TypeScript + Tailwind CSS app. You need [Node.js](https://nodejs.org/) 20 or later.
+StoryKeys is a Vite + TypeScript + Tailwind CSS app. You need [Node.js](https://nodejs.org/) 22.6 or later.
 
 ```bash
 npm install
@@ -75,44 +75,50 @@ Then open the URL Vite prints (usually `http://localhost:5173`).
 | `npm run dev` | Start the local development server |
 | `npm run build` | Type-check and create a production build in `dist/` |
 | `npm run preview` | Preview the production build locally |
+| `npm test` | Run unit tests via Node's built-in test runner |
+| `npm run check:data` | Validate curriculum and badge JSON schemas and IDs |
 | `npm run check:contrast` | Assert WCAG AA contrast across every theme colour pair |
-| `npm run check:smoke` | Drive the app in headless Chrome and check the UI still works |
+| `npm run check` | Run data validation, contrast check, and unit tests |
+| `npm run check:smoke` | Drive the app and audit dashboard in headless Chromium |
 | `npm run shots` | Screenshot every screen, modal and breakpoint into `shots/` |
 
-The last three need Chrome installed; the two that drive the browser also need `npm run dev` running in
-another terminal. Override the defaults with `SK_CHROME`, `SK_BASE` or `SK_PORT` if needed.
+`check:smoke` and `shots` require Chrome, Chromium, or Edge installed locally and automatically start an
+ephemeral Vite server if one is not already listening on `http://localhost:5173`. Override browser path,
+base URL, or DevTools port with `SK_CHROME`, `SK_BASE`, or `SK_PORT` if needed.
 
 ## Project Structure
 
 ```
 StoryKeys/
-├── index.html              # Vite entry / application shell
+├── index.html              # Main Vite entry / application shell
+├── audit.html              # Content audit dashboard entry
 ├── vite.config.ts
 ├── package.json
 ├── src/
-│   ├── main.ts             # Init, routing, event binding
-│   ├── types.ts            # Shared domain types
-│   ├── state.ts            # State, save/load
+│   ├── main.ts             # Init, top-level navigation, home/summary binding
+│   ├── types.ts            # Shared domain types & discriminated unions
+│   ├── state.ts            # State, sanitisation, save/load
 │   ├── draft.ts            # Draft localStorage helpers
-│   ├── config.ts
-│   ├── utils.ts
-│   ├── data/loader.ts      # Lazy-load JSON
-│   ├── session/            # Lesson lifecycle, keyboard, stats
-│   ├── progress/           # Progress helpers and badges
-│   ├── audio/sounds.ts     # Web Audio + TTS
-│   ├── ui/                 # Screens, modals, picker, feedback
-│   └── styles/app.css      # Tailwind + small custom CSS
+│   ├── config.ts           # Constants & localStorage keys
+│   ├── utils.ts            # Text normalisation, escaping, DOM helpers
+│   ├── audit/main.ts       # Typed content audit & PDF export controller
+│   ├── data/loader.ts      # Lazy-load curriculum JSON
+│   ├── session/            # Lesson lifecycle, typingController, keyboard, stats
+│   ├── progress/           # Progress helpers and pure badge evaluation
+│   ├── audio/sounds.ts     # Web Audio + Speech Synthesis TTS
+│   ├── ui/                 # Screens, modals, modalController, picker, classes
+│   └── styles/app.css      # Tailwind + theme tokens + local @font-face
 ├── public/
-│   ├── data/               # Curriculum JSON (served at /data/...)
-│   └── audit/              # Audit dashboard script and styles
-├── tools/                  # Contrast check, smoke test, screenshot capture
-├── data/                   # Legacy copy of the JSON; not used at runtime
-└── audit.html              # Content audit dashboard (second Vite entry)
+│   ├── data/               # Curriculum & badge JSON (served at /data/...)
+│   ├── fonts/              # Self-hosted OpenDyslexic WOFF2 fonts
+│   └── audit/              # Audit dashboard styles
+├── tests/                  # Node unit tests for domain logic
+└── tools/                  # Data validator, contrast check, smoke test, screenshots
 ```
 
 ## Adding Content
 
-All content lives in JSON files - no code changes required. Edit files under `public/data/`; both the app and the audit dashboard read from there, so the root `data/` folder no longer needs to be kept in sync. Fetch paths stay `data/copy.json`, `data/KS2/passages.json`, and so on.
+All content lives in JSON files under `public/data/` - no code changes required. Both the app and the audit dashboard read from `public/data/` (fetched at `data/copy.json`, `data/KS2/passages.json`, and so on). Run `npm run check:data` after editing content to verify schemas and unique IDs.
 
 ### Add a Passage
 
@@ -134,7 +140,10 @@ Edit `public/data/spelling.json`:
 
 ```json
 {
+  "id": "spelling_ks1_tricky_words_1",
   "stage": "KS1",
+  "theme": "Common Exception Words",
+  "name": "KS1 Tricky Words",
   "words": ["the", "said", "have", "like", "some"]
 }
 ```

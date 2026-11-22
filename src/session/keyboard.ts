@@ -1,6 +1,7 @@
 import type { AppData, AppState, FingerZone } from '../types';
 import { playClickSound, playErrorSound } from '../audio/sounds';
-import { getElement, normaliseString, rawTrimToNormLen } from '../utils';
+import { getElement, normaliseChar, normaliseString, rawTrimToNormLen } from '../utils';
+import { startRuntimeClock } from './stats';
 
 export const FINGER_ZONES: Record<string, FingerZone> = {
   q: 'lp', a: 'lp', z: 'lp', '1': 'lp',
@@ -14,6 +15,10 @@ export const FINGER_ZONES: Record<string, FingerZone> = {
   ' ': 'thumb',
 };
 
+export interface UpdateTypingOptions {
+  isUserAction?: boolean;
+}
+
 export function handleTypingInput(
   e: Event,
   state: AppState,
@@ -24,7 +29,7 @@ export function handleTypingInput(
   const input = e.target;
   if (!(input instanceof HTMLTextAreaElement)) return;
 
-  updateTypingDisplay(input.value, state, data);
+  updateTypingDisplay(input.value, state, data, { isUserAction: true });
 
   if (normaliseString(input.value).length >= state.runtime.targetTextNorm.length) {
     input.disabled = true;
@@ -33,7 +38,13 @@ export function handleTypingInput(
   }
 }
 
-export function updateTypingDisplay(userInput: string, state: AppState, _data: AppData): void {
+export function updateTypingDisplay(
+  userInput: string,
+  state: AppState,
+  _data: AppData,
+  options: UpdateTypingOptions = {},
+): void {
+  const isUserAction = options.isUserAction === true;
   const targetTextNorm = state.runtime.targetTextNorm;
   const flags = state.runtime.flags;
   const hardestKeys = state.runtime.hardestKeys;
@@ -44,43 +55,43 @@ export function updateTypingDisplay(userInput: string, state: AppState, _data: A
   if (!targetEl) return;
   const userInputNorm = normaliseString(userInput);
 
-  if (flags.lockstep && userInputNorm.length > 0 && userInputNorm.slice(-1) !== targetTextNorm[userInputNorm.length - 1]) {
-    const inputEl = getElement<HTMLTextAreaElement>('typing-input');
-    if (!inputEl) return;
-    inputEl.value = userInput.slice(0, -1);
-    state.runtime.runtimeErrors = (state.runtime.runtimeErrors ?? 0) + 1;
-    const key = targetTextNorm[userInputNorm.length - 1];
-    if (key && key !== ' ') hardestKeys[key] = (hardestKeys[key] || 0) + 1;
-
-    playErrorSound(state.settings.soundEnabled);
-    inputEl.classList.add('is-error');
-    setTimeout(() => { inputEl.classList.remove('is-error'); }, 200);
-    return;
+  if (isUserAction && userInputNorm.length > 0) {
+    startRuntimeClock(state.runtime);
   }
 
-  if (userInputNorm.length > 0) {
+  if (isUserAction && flags.lockstep && userInputNorm.length > 0) {
+    const rawChars = Array.from(userInput);
+    const lastRawChar = rawChars[rawChars.length - 1] ?? '';
+    const lastNorm = normaliseChar(lastRawChar);
+    const checkStart = userInputNorm.length - lastNorm.length;
+    const expectedSlice = targetTextNorm.slice(checkStart, userInputNorm.length);
+
+    if (lastNorm.length > 0 && expectedSlice !== lastNorm) {
+      const inputEl = getElement<HTMLTextAreaElement>('typing-input');
+      if (!inputEl) return;
+      inputEl.value = rawChars.slice(0, -1).join('');
+      state.runtime.runtimeErrors = (state.runtime.runtimeErrors ?? 0) + 1;
+      const key = targetTextNorm[checkStart];
+      if (key && key !== ' ') hardestKeys[key] = (hardestKeys[key] || 0) + 1;
+
+      playErrorSound(state.settings.soundEnabled);
+      inputEl.classList.add('is-error');
+      setTimeout(() => { inputEl.classList.remove('is-error'); }, 200);
+      return;
+    }
+  }
+
+  if (isUserAction && userInputNorm.length > 0) {
     const lastIndex = userInputNorm.length - 1;
     const isCorrect = userInputNorm[lastIndex] === targetTextNorm[lastIndex];
     if (isCorrect) {
       playClickSound(state.settings.soundEnabled);
-      if (state.runtime.timer && !state.runtime.timer.started && state.runtime.flags?.timer) {
-        state.runtime.timer.started = true;
-        state.runtime.startTime = new Date();
-        if (state.runtime.timer.tick) {
-          state.runtime.timer.handle = setInterval(state.runtime.timer.tick, 1000);
-          state.runtime.timer.tick();
-        }
-      }
     } else {
       playErrorSound(state.settings.soundEnabled);
-    }
-  }
-
-  if (!flags.lockstep && userInputNorm.length > 0) {
-    const lastIndex = userInputNorm.length - 1;
-    if (userInputNorm[lastIndex] !== targetTextNorm[lastIndex]) {
-      const key = targetTextNorm[lastIndex];
-      if (key && key !== ' ') hardestKeys[key] = (hardestKeys[key] || 0) + 1;
+      if (!flags.lockstep) {
+        const key = targetTextNorm[lastIndex];
+        if (key && key !== ' ') hardestKeys[key] = (hardestKeys[key] || 0) + 1;
+      }
     }
   }
 
@@ -191,6 +202,6 @@ export function calculateVisualLines(state: AppState, data: AppData): void {
     state.runtime.lineElements = lineEls;
 
     const inputEl = getElement<HTMLTextAreaElement>('typing-input');
-    updateTypingDisplay(inputEl ? inputEl.value : '', state, data);
+    updateTypingDisplay(inputEl ? inputEl.value : '', state, data, { isUserAction: false });
   });
 }

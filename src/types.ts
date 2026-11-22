@@ -9,6 +9,9 @@ export type StatusFilter = 'all' | 'complete' | 'todo';
 export type SortKey = 'title' | 'length' | 'theme';
 export type FingerZone = 'lp' | 'lr' | 'lm' | 'li' | 'ri' | 'rm' | 'rr' | 'rp' | 'thumb';
 
+export type ContentId = string;
+export type LessonKey = `${LessonType}:${string}:${string}`;
+
 export const STAGES: readonly Stage[] = ['KS1', 'KS2', 'KS3', 'KS4'];
 
 export function isStage(value: string | undefined): value is Stage {
@@ -17,6 +20,12 @@ export function isStage(value: string | undefined): value is Stage {
 
 export function isLessonType(value: string | undefined): value is LessonType {
   return value === 'passage' || value === 'phonics' || value === 'spelling' || value === 'wordset' || value === 'drill';
+}
+
+export function isLessonKey(value: unknown): value is LessonKey {
+  if (typeof value !== 'string') return false;
+  const parts = value.split(':');
+  return parts.length >= 3 && isLessonType(parts[0]);
 }
 
 export interface ComplexityTags {
@@ -30,18 +39,17 @@ export interface LessonTags {
 }
 
 export interface Passage {
-  id: string;
+  id: ContentId;
   stage?: string;
   theme?: string;
   title?: string;
   name?: string;
-  text?: string;
-  words?: string[];
+  text: string;
   tags?: LessonTags;
 }
 
 export interface Wordset {
-  id: string;
+  id: ContentId;
   stage?: string;
   theme?: string;
   name?: string;
@@ -51,15 +59,16 @@ export interface Wordset {
 }
 
 export interface PatternPack {
-  id: string;
+  id: ContentId;
   stage?: string;
+  theme?: string;
   name: string;
   items: string[];
   tags?: LessonTags;
 }
 
 export interface DrillData {
-  id?: string;
+  id?: ContentId;
   name: string;
   words: string[];
   stage?: string;
@@ -70,21 +79,21 @@ export interface DrillData {
 
 export type LessonData = Passage | Wordset | PatternPack | DrillData;
 
-export interface Lesson {
-  type: LessonType;
-  data: LessonData;
-  withTimer?: boolean;
-}
+export type Lesson =
+  | { type: 'passage'; data: Passage; withTimer?: boolean }
+  | { type: 'phonics'; data: Passage; withTimer?: boolean }
+  | { type: 'spelling'; data: Wordset; withTimer?: boolean }
+  | { type: 'wordset'; data: Wordset; withTimer?: boolean }
+  | { type: 'drill'; data: DrillData; withTimer?: boolean };
 
 export interface BadgeDefinition {
-  id?: string;
-  label?: string;
-  desc?: string;
-  track?: string;
-  tier?: number;
+  id: string;
+  label: string;
+  desc: string;
+  track: string;
+  tier: number;
   requires?: string | string[];
   hidden?: boolean;
-  _comment?: string;
 }
 
 export interface EarnedBadge {
@@ -92,30 +101,14 @@ export interface EarnedBadge {
   earnedAt: string;
 }
 
-export interface KeymapEntry {
-  key: string;
-  name: string;
-  hand: string;
-  finger: string;
-}
-
 export interface CopyData {
-  appTitle: string;
-  tagline: string;
-  homeStart: string;
   homeChangeLesson: string;
-  tipAccuracyFirst: string;
-  typingHeaderReady: string;
   lockstepOn: string;
   focusLineOn: string;
   metricAccuracy: string;
-  metricNetWPM: string;
   metricWPM: string;
   metricTime: string;
   metricErrors: string;
-  nextKeyLabel: string;
-  spaceName: string;
-  enterName: string;
   summaryNiceWork: string;
   summaryReplay: string;
   summaryHome: string;
@@ -133,7 +126,6 @@ export interface AppData {
   PHONICS: Passage[];
   SPELLING: Wordset[];
   BADGES: BadgeDefinition[];
-  KEYMAP: KeymapEntry[];
   COPY: CopyData;
 }
 
@@ -163,10 +155,10 @@ export interface Progress {
   stagesCompleted: Record<string, boolean>;
   lastPlayed: string | null;
   consecutiveDays: number;
-  completedPassages: string[];
-  completedSpellings: string[];
-  completedPhonics: string[];
-  completedWordsets: string[];
+  completedPassages: ContentId[];
+  completedSpellings: ContentId[];
+  completedPhonics: ContentId[];
+  completedWordsets: ContentId[];
 }
 
 export type CompletedListKey =
@@ -198,7 +190,7 @@ export interface SessionMetrics {
 export interface SessionRecord extends SessionMetrics {
   id: string;
   ts: string;
-  contentId: string;
+  contentId: ContentId;
   contentType: LessonType;
   title: string;
   stage?: string;
@@ -209,13 +201,25 @@ export interface SessionRecord extends SessionMetrics {
 export interface Meta {
   hasSeenWelcome: boolean;
   welcomeVersion: number;
-  lastLessonId: string | null;
+  lastLessonId: LessonKey | null;
+}
+
+export interface LessonPickerState {
+  searchTerm: string;
+  sortKey: SortKey;
+  statusFilter: StatusFilter;
+  currentPage: number;
+  currentType: LessonType;
+  currentStage: string;
+  totalPages: number;
+  hasAutoScrolled: boolean;
 }
 
 export interface UIState {
   currentScreen: ScreenName;
   modal: ModalName | null;
   lastFocus: HTMLElement | null;
+  picker: LessonPickerState;
 }
 
 export interface PersonalBest {
@@ -232,17 +236,26 @@ export interface SummaryResults extends SessionMetrics {
 export interface SessionTimer {
   handle: ReturnType<typeof setInterval> | null;
   paused: boolean;
+  manualPaused?: boolean;
+  autoPaused?: boolean;
   remaining: number;
   started: boolean;
+  startedAtMs: number | null;
+  accumulatedMs: number;
   tick?: () => void;
+}
+
+export interface StartSessionOptions {
+  resumedTypedText?: string;
 }
 
 export interface Runtime {
   lesson?: Lesson;
   targetText?: string;
   targetTextNorm?: string;
+  initialInput?: string;
+  baselineChars?: number;
   startTime?: Date;
-  pauseStartTime?: Date;
   runtimeErrors?: number;
   hardestKeys?: Record<string, number>;
   flags?: SessionFlags;
@@ -253,10 +266,7 @@ export interface Runtime {
   wpmSamples?: number[];
   wpmSampleInterval?: ReturnType<typeof setInterval> | null;
   summaryResults?: SummaryResults;
-  _autoPaused?: boolean;
-  _cleanupPauseHandler?: (() => void) | null;
-  _cleanupResize?: (() => void) | null;
-  _cleanupSummaryKeys?: (() => void) | null;
+  abortController?: AbortController | null;
 }
 
 export interface AppState {
@@ -273,31 +283,25 @@ export interface PersistedState {
   settings?: Partial<Settings>;
   progress?: Partial<Progress>;
   sessions?: SessionRecord[];
-  meta?: Partial<Meta>;
+  meta?: {
+    hasSeenWelcome?: boolean;
+    welcomeVersion?: number;
+    lastLessonId?: string | null;
+  };
 }
 
 export interface Draft {
-  lessonId: string;
+  lessonId: ContentId;
   lessonType: LessonType;
   typedText: string;
   lessonData: LessonData;
   savedAt: number;
 }
 
-export interface LessonPickerState {
-  searchTerm: string;
-  sortKey: SortKey;
-  statusFilter: StatusFilter;
-  currentPage: number;
-  currentType: LessonType;
-  currentStage: string;
-  _totalPages?: number;
-}
-
 export interface LessonPickerItem {
-  id: string;
+  id: ContentId;
   type: LessonType;
-  lessonId: string;
+  lessonKey: LessonKey;
   title: string;
   theme?: string;
   icon: string;
@@ -320,7 +324,7 @@ export interface LessonPickerViewModel {
   hasPrevPage: boolean;
   currentType: LessonType;
   currentStage: string;
-  lastLessonId: string | null;
+  lastLessonKey: LessonKey | null;
 }
 
 export type ShowScreenFn = (screen: ScreenName) => void;
@@ -329,17 +333,4 @@ export type PersistStateFn = () => void;
 export interface SpeakOptions {
   gender?: VoiceGender;
   speed?: number;
-}
-
-export interface BadgeTrackSummary {
-  earned: number;
-  total: number;
-  visible: number;
-}
-
-export interface BadgeProgressSummary {
-  earned: number;
-  total: number;
-  visible: number;
-  tracks: Record<string, BadgeTrackSummary>;
 }

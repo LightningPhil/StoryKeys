@@ -130,32 +130,32 @@
     "stage": "KS2",
     "theme": "Tricky Spellings",
     "name": "Silent Letters",
-    "words": ["knight", "write", "knot", "gnaw", "wrinkle", "sign", "gnome", "knee"],
-    "tags": { "complexity": { "caps": true, "punct": false } }
+    "items": ["knight", "write", "knot", "gnaw", "wrinkle", "sign", "gnome", "knee"],
+    "tags": { "complexity": { "caps": true, "punct": false }, "phonics": ["ks2-silent-letters"] }
   },
   {
     "id": "ks2_trickyspellings_common_homophones_v1",
     "stage": "KS2",
     "theme": "Tricky Spellings",
     "name": "Common Homophones",
-    "words": ["their", "there", "they're", "your", "you're", "its", "it's"],
-    "tags": { "complexity": { "caps": true, "punct": false } }
+    "items": ["their", "there", "they're", "your", "you're", "its", "it's"],
+    "tags": { "complexity": { "caps": true, "punct": false }, "phonics": ["ks2-common-homophones"] }
   },
   {
     "id": "ks2_trickyspellings_more_homophones_v1",
     "stage": "KS2",
     "theme": "Tricky Spellings",
     "name": "More Homophones",
-    "words": ["to", "too", "two", "here", "hear", "where", "wear", "witch", "which"],
-    "tags": { "complexity": { "caps": true, "punct": false } }
+    "items": ["to", "too", "two", "here", "hear", "where", "wear", "witch", "which"],
+    "tags": { "complexity": { "caps": true, "punct": false }, "phonics": ["ks2-common-homophones"] }
   },
   {
     "id": "ks2_trickyspellings_commonly_misspelt_v1",
     "stage": "KS2",
     "theme": "Tricky Spellings",
     "name": "Commonly Misspelt Words",
-    "words": ["because", "beautiful", "friend", "believe", "separate", "accidentally", "different", "enough"],
-    "tags": { "complexity": { "caps": true, "punct": false } }
+    "items": ["because", "beautiful", "friend", "believe", "separate", "accidentally", "different", "enough"],
+    "tags": { "complexity": { "caps": true, "punct": false }, "phonics": ["ks2-commonly-misspelt"] }
   },
   {
     "id": "pattern_prefixes_v1",

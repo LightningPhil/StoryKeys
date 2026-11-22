@@ -2640,8 +2640,8 @@
     }
   },
   {
-    "id": "spelling_ks1_train_trip",
-    "name": "KS1 Spelling: Train Trip",
+    "id": "spelling_ks1_train_trip_v2",
+    "name": "KS1 Spelling: Train Trip II",
     "stage": "KS1",
     "theme": "Travel",
     "words": [
@@ -3888,8 +3888,8 @@
     }
   },
   {
-    "id": "spelling_ks3_robotics_club",
-    "name": "KS3 Spelling: Robotics Club",
+    "id": "spelling_ks3_robotics_club_dt",
+    "name": "KS3 Spelling: Robotics Club (DT)",
     "stage": "KS3",
     "theme": "DT",
     "words": [
@@ -4440,8 +4440,8 @@
     }
   },
   {
-    "id": "spelling_ks4_research_methods",
-    "name": "KS4 Spelling: Research Methods",
+    "id": "spelling_ks4_research_methods_academics",
+    "name": "KS4 Spelling: Research Methods (Academics)",
     "stage": "KS4",
     "theme": "Academics",
     "words": [
@@ -4608,8 +4608,8 @@
     }
   },
   {
-    "id": "spelling_ks4_modern_history",
-    "name": "KS4 Spelling: Modern History",
+    "id": "spelling_ks4_modern_history_v2",
+    "name": "KS4 Spelling: Modern History II",
     "stage": "KS4",
     "theme": "History",
     "words": [
@@ -9528,8 +9528,8 @@
     }
   },
   {
-    "id": "spelling_ks4_research_methods",
-    "name": "KS4 Spelling: Research Methods",
+    "id": "spelling_ks4_research_methods_study",
+    "name": "KS4 Spelling: Research Methods (Study Skills)",
     "stage": "KS4",
     "theme": "Study Skills",
     "words": [
@@ -9648,8 +9648,8 @@
     }
   },
   {
-    "id": "spelling_ks4_urban_planning",
-    "name": "KS4 Spelling: Urban Planning",
+    "id": "spelling_ks4_urban_planning_v2",
+    "name": "KS4 Spelling: Urban Planning II",
     "stage": "KS4",
     "theme": "Geography",
     "words": [
@@ -9672,8 +9672,8 @@
     }
   },
   {
-    "id": "spelling_ks4_quantum_concepts",
-    "name": "KS4 Spelling: Quantum Concepts",
+    "id": "spelling_ks4_quantum_concepts_v2",
+    "name": "KS4 Spelling: Quantum Concepts II",
     "stage": "KS4",
     "theme": "Physics",
     "words": [

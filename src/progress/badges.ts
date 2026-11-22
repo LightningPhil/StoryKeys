@@ -1,4 +1,4 @@
-import type { AppData, AppState, BadgeDefinition, BadgeProgressSummary, SessionMetrics, SessionRecord } from '../types';
+import type { AppData, AppState, BadgeDefinition, SessionMetrics } from '../types';
 
 const MAX_BADGES_PER_SESSION = 3;
 const MAX_PER_TRACK_PER_SESSION = 1;
@@ -57,51 +57,29 @@ function selectBadgesToAward(eligible: BadgeDefinition[], isFirstSession: boolea
   return selected;
 }
 
-export function checkAndAwardBadges(results: SessionMetrics, state: AppState, data: AppData): string[] {
+/**
+ * Pure badge eligibility evaluator. Reads already-updated `state.progress` and
+ * `state.sessions` without mutating `state`.
+ */
+export function evaluateEligibleBadges(
+  results: SessionMetrics,
+  state: AppState,
+  data: AppData,
+): string[] {
   const earnedIds = new Set(state.progress.badges.map((b) => b.id));
   const hasBadge = (id: string) => earnedIds.has(id);
-  const isFirstSession = state.sessions.length === 0;
   const lesson = state.runtime.lesson;
+  const currentType = lesson?.type ?? 'passage';
+  const currentStage = lesson?.data.stage;
 
-  const currentSession: SessionRecord = {
-    id: 'pending',
-    contentType: lesson?.type ?? 'passage',
-    contentId: (lesson?.data && 'id' in lesson.data && lesson.data.id) ? lesson.data.id : '',
-    stage: lesson?.data && 'stage' in lesson.data ? lesson.data.stage : undefined,
-    title: '',
-    accuracy: results.accuracy,
-    errors: results.errors,
-    grossWPM: results.grossWPM,
-    netWPM: results.netWPM,
-    durationSec: results.durationSec,
-    completionPercent: 0,
-    hardestKeys: results.hardestKeys,
-    trickyWords: results.trickyWords,
-    flags: state.runtime.flags ?? {
-      lockstep: false,
-      focusLine: false,
-      keyboardHint: false,
-      timer: false,
-      countdownTimer: false,
-      showTimerChip: false,
-      punct: true,
-    },
-    ts: new Date().toISOString(),
-  };
+  const allSessions = state.sessions;
+  const totalLessons = allSessions.length;
+  const isFirstSession = totalLessons <= 1;
 
   const charCount = state.runtime.targetTextNorm?.length || 0;
-  const allSessions = [...state.sessions, currentSession];
-  const totalLessons = allSessions.length;
-
-  const projectedWordsTotal = state.progress.wordsTotal + (charCount / 5);
-  const projectedMinutesTotal = state.progress.minutesTotal + (results.durationSec / 60);
-
-  const theme = lesson?.data && 'theme' in lesson.data ? lesson.data.theme : undefined;
-  if (theme) state.progress.themesCompleted[theme] = true;
+  const wordsTotal = state.progress.wordsTotal;
+  const minutesTotal = state.progress.minutesTotal;
   const themesCount = Object.keys(state.progress.themesCompleted).length;
-
-  const stage = currentSession.stage;
-  if (stage) state.progress.stagesCompleted[stage] = true;
   const stagesCount = Object.keys(state.progress.stagesCompleted).length;
 
   const countByType = (type: string) => allSessions.filter((s) => s.contentType === type).length;
@@ -111,7 +89,6 @@ export function checkAndAwardBadges(results: SessionMetrics, state: AppState, da
   const highAccuracySessions = allSessions.filter((s) => s.accuracy >= 90).length;
   const uniqueDays = new Set(allSessions.map((s) => new Date(s.ts).toDateString()));
   const daysCount = uniqueDays.size;
-  const now = new Date();
   const streak = state.progress.consecutiveDays || 1;
 
   const stageCounts: Record<string, number> = {};
@@ -121,11 +98,12 @@ export function checkAndAwardBadges(results: SessionMetrics, state: AppState, da
   const usualStage = Object.entries(stageCounts).sort((a, b) => b[1] - a[1])[0]?.[0];
   const stageOrder = ['KS1', 'KS2', 'KS3', 'KS4'];
   const isAboveUsual = Boolean(
-    usualStage && stage && stageOrder.indexOf(stage) > stageOrder.indexOf(usualStage),
+    usualStage && currentStage && stageOrder.indexOf(currentStage) > stageOrder.indexOf(usualStage),
   );
 
-  const sessionHour = (state.runtime.startTime ?? new Date()).getHours();
-  const isWeekend = now.getDay() === 0 || now.getDay() === 6;
+  const sessionStart = state.runtime.startTime ?? new Date();
+  const sessionHour = sessionStart.getHours();
+  const isWeekend = sessionStart.getDay() === 0 || sessionStart.getDay() === 6;
   const isLockstep = state.runtime.flags?.lockstep;
   const hasPunctuation = lesson?.data.tags?.complexity?.punct;
 
@@ -150,15 +128,15 @@ export function checkAndAwardBadges(results: SessionMetrics, state: AppState, da
     fluency_60: results.netWPM >= 60,
     balanced_40: results.netWPM >= 40 && results.accuracy >= 90,
     balanced_50: results.netWPM >= 50 && results.accuracy >= 95,
-    time_15: projectedMinutesTotal >= 15,
-    time_30: projectedMinutesTotal >= 30,
-    time_60: projectedMinutesTotal >= 60,
-    time_120: projectedMinutesTotal >= 120,
-    time_180: projectedMinutesTotal >= 180,
-    words_500: projectedWordsTotal >= 500,
-    words_1k: projectedWordsTotal >= 1000,
-    words_3k: projectedWordsTotal >= 3000,
-    words_5k: projectedWordsTotal >= 5000,
+    time_15: minutesTotal >= 15,
+    time_30: minutesTotal >= 30,
+    time_60: minutesTotal >= 60,
+    time_120: minutesTotal >= 120,
+    time_180: minutesTotal >= 180,
+    words_500: wordsTotal >= 500,
+    words_1k: wordsTotal >= 1000,
+    words_3k: wordsTotal >= 3000,
+    words_5k: wordsTotal >= 5000,
     routine_2: daysCount >= 2,
     routine_5: daysCount >= 5,
     routine_10: daysCount >= 10,
@@ -181,10 +159,10 @@ export function checkAndAwardBadges(results: SessionMetrics, state: AppState, da
     brave_steady: results.durationSec >= 300,
     brave_lockstep: results.errors === 0 && Boolean(isLockstep),
     brave_persist: results.errors >= 10 && totalLessons >= 1,
-    spelling_star: results.errors === 0 && currentSession.contentType === 'spelling',
+    spelling_star: results.errors === 0 && currentType === 'spelling',
     spelling_10: spellingCount >= 10,
     spelling_25: spellingCount >= 25,
-    phonics_precision: results.accuracy >= 90 && currentSession.contentType === 'phonics',
+    phonics_precision: results.accuracy >= 90 && currentType === 'phonics',
     phonics_10: phonicsCount >= 10,
     phonics_25: phonicsCount >= 25,
     punct_pro: results.accuracy >= 95 && Boolean(hasPunctuation),
@@ -196,7 +174,7 @@ export function checkAndAwardBadges(results: SessionMetrics, state: AppState, da
 
   const eligible: BadgeDefinition[] = [];
   for (const badge of data.BADGES) {
-    if (badge._comment || !badge.id) continue;
+    if (!badge.id) continue;
     if (hasBadge(badge.id)) continue;
     if (!criteria[badge.id]) continue;
     if (!prerequisitesMet(badge, earnedIds)) continue;
@@ -204,38 +182,12 @@ export function checkAndAwardBadges(results: SessionMetrics, state: AppState, da
   }
 
   const toAward = selectBadgesToAward(eligible, isFirstSession);
-  const newBadgeIds = toAward.map((b) => b.id).filter((id): id is string => Boolean(id));
-
-  if (newBadgeIds.length > 0) {
-    const timestamp = new Date().toISOString();
-    newBadgeIds.forEach((id) => {
-      state.progress.badges.push({ id, earnedAt: timestamp });
-    });
-  }
-
-  return newBadgeIds;
+  return toAward.map((b) => b.id).filter((id): id is string => Boolean(id));
 }
 
-export function getBadgeProgressSummary(state: AppState, data: AppData): BadgeProgressSummary {
-  const earnedIds = new Set(state.progress.badges.map((b) => b.id));
-  const allBadges = data.BADGES.filter((b) => !b._comment);
-  const visibleBadges = allBadges.filter((b) => !b.hidden);
-  const tracks: Record<string, { earned: number; total: number; visible: number }> = {};
-
-  for (const badge of allBadges) {
-    const track = badge.track ?? 'other';
-    if (!tracks[track]) {
-      tracks[track] = { earned: 0, total: 0, visible: 0 };
-    }
-    tracks[track].total++;
-    if (!badge.hidden) tracks[track].visible++;
-    if (badge.id && earnedIds.has(badge.id)) tracks[track].earned++;
+export function awardBadges(state: AppState, badgeIds: string[], earnedAt = new Date().toISOString()): void {
+  if (!badgeIds.length) return;
+  for (const id of badgeIds) {
+    state.progress.badges.push({ id, earnedAt });
   }
-
-  return {
-    earned: state.progress.badges.length,
-    total: allBadges.length,
-    visible: visibleBadges.length,
-    tracks,
-  };
 }

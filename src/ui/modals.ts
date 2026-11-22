@@ -167,7 +167,7 @@ export function getModalHtml(modalName: ModalName, state: AppState, data: AppDat
                 </div>`;
       });
       const hasBadges = earnedBadges.length > 0;
-      const total = data.BADGES.filter((b) => !b._comment && !b.hidden).length;
+      const total = data.BADGES.filter((b) => Boolean(b.id) && !b.hidden).length;
       return `
             <div class="${ui.modal}" role="dialog" aria-modal="true" aria-labelledby="badges-title"><div class="${ui.modalContent}">
                 ${header('badges-title', 'Your badges')}
@@ -246,8 +246,26 @@ export function getModalHtml(modalName: ModalName, state: AppState, data: AppDat
                 ${group('For grown-ups', [
                   setting('Key stage', 'Used for the main buttons on the home screen.', selectControl('setting-default-stage', [['KS1', 'KS1'], ['KS2', 'KS2'], ['KS3', 'KS3'], ['KS4', 'KS4']])),
                   setting('Show timer', 'Display a timer during lessons.', toggleControl('setting-timer-display', 'Show timer')),
-                  setting('Parent PIN', 'Protect Parent Glance with 4 digits.', `<input type="password" id="setting-pin" class="${pinInput}" maxlength="4" placeholder="0000" inputmode="numeric" autocomplete="new-password">`),
+                  setting(
+                    'Parent PIN',
+                    state.settings.pin
+                      ? 'PIN protection is active. Enter your current PIN to change or remove it.'
+                      : 'Protect Parent Glance with 4 digits.',
+                    state.settings.pin
+                      ? `<div class="flex flex-col items-end gap-2">
+                            <p id="setting-pin-status" class="m-0 text-xs text-sk-accent font-semibold">PIN active</p>
+                            <div class="flex flex-wrap items-center gap-2">
+                                <label class="sr-only" for="setting-current-pin">Current four digit PIN</label>
+                                <input type="password" id="setting-current-pin" class="${pinInput}" maxlength="4" placeholder="Current" inputmode="numeric" autocomplete="current-password">
+                                <label class="sr-only" for="setting-pin">New four digit PIN</label>
+                                <input type="password" id="setting-pin" class="${pinInput}" maxlength="4" placeholder="New PIN" inputmode="numeric" autocomplete="new-password">
+                                <button id="clear-pin-btn" type="button" class="${buttonClass('quiet', 'sm')}">Remove PIN</button>
+                            </div>
+                         </div>`
+                      : `<input type="password" id="setting-pin" class="${pinInput}" maxlength="4" placeholder="0000" inputmode="numeric" autocomplete="new-password" aria-label="Set four digit PIN">`,
+                  ),
                 ].join(''), false)}
+                <p id="setting-pin-error" role="alert" class="hidden m-0 text-sm text-center font-semibold text-[var(--sk-bad)]"></p>
                 <div class="${ui.modalFooter}">
                     <button id="save-settings-btn" type="button" class="${buttonClass('primary', 'lg')}">Save and close</button>
                 </div>
@@ -286,6 +304,13 @@ export function getModalHtml(modalName: ModalName, state: AppState, data: AppDat
                     <button id="export-btn" type="button" class="${buttonClass('secondary')}">Export data</button>
                     <button id="clear-data-btn" type="button" class="${buttonClass('danger')}">Clear all data</button>
                 </div>
+                <div id="clear-data-confirm" class="hidden border border-sk-border rounded-xl p-4 bg-sk-subtle flex flex-col gap-3" role="region" aria-label="Confirm clearing all data">
+                    <p class="m-0 font-semibold">Really erase all progress and badges on this device? This cannot be undone.</p>
+                    <div class="${ui.buttonRow}">
+                        <button id="confirm-clear-data-btn" type="button" class="${buttonClass('danger', 'sm')}">Yes, clear everything</button>
+                        <button id="cancel-clear-data-btn" type="button" class="${buttonClass('secondary', 'sm')}">Cancel</button>
+                    </div>
+                </div>
             </div></div>`;
     }
 
@@ -296,6 +321,7 @@ export function getModalHtml(modalName: ModalName, state: AppState, data: AppDat
                 <p class="m-0 mx-auto text-sk-muted">This area is for grown-ups.</p>
                 <label class="sr-only" for="pin-input">Four digit PIN</label>
                 <input type="password" id="pin-input" data-autofocus class="${cx(pinInput, 'mx-auto text-3xl tracking-[0.3em] w-[170px]')}" maxlength="4" inputmode="numeric" autocomplete="one-time-code">
+                <p id="pin-error" role="alert" class="hidden m-0 text-sm font-semibold text-[var(--sk-bad)]"></p>
                 <div class="${ui.modalFooter}">
                     <button id="pin-submit-btn" type="button" class="${buttonClass('primary')}">Unlock</button>
                 </div>

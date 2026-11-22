@@ -4,7 +4,6 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>StoryKeys Content Audit Dashboard</title>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
     <link rel="stylesheet" href="/audit/audit.css">
 </head>
 <body>
@@ -68,7 +67,7 @@
                     </div>
                     <p class="themes-label">Themes:</p>
                     <div class="themes-list" id="ks1Themes">Loading...</div>
-                    <button class="pdf-btn" onclick="generatePDF('KS1')">📄 Download KS1 PDF</button>
+                    <button class="pdf-btn" type="button" data-pdf-stage="KS1">📄 Download KS1 PDF</button>
                 </div>
 
                 <!-- KS2 -->
@@ -90,7 +89,7 @@
                     </div>
                     <p class="themes-label">Themes:</p>
                     <div class="themes-list" id="ks2Themes">Loading...</div>
-                    <button class="pdf-btn" onclick="generatePDF('KS2')">📄 Download KS2 PDF</button>
+                    <button class="pdf-btn" type="button" data-pdf-stage="KS2">📄 Download KS2 PDF</button>
                 </div>
 
                 <!-- KS3 -->
@@ -112,7 +111,7 @@
                     </div>
                     <p class="themes-label">Themes:</p>
                     <div class="themes-list" id="ks3Themes">Loading...</div>
-                    <button class="pdf-btn" onclick="generatePDF('KS3')">📄 Download KS3 PDF</button>
+                    <button class="pdf-btn" type="button" data-pdf-stage="KS3">📄 Download KS3 PDF</button>
                 </div>
 
                 <!-- KS4 -->
@@ -134,7 +133,7 @@
                     </div>
                     <p class="themes-label">Themes:</p>
                     <div class="themes-list" id="ks4Themes">Loading...</div>
-                    <button class="pdf-btn" onclick="generatePDF('KS4')">📄 Download KS4 PDF</button>
+                    <button class="pdf-btn" type="button" data-pdf-stage="KS4">📄 Download KS4 PDF</button>
                 </div>
             </div>
         </section>
@@ -146,7 +145,7 @@
                 <div class="section-stats" id="badgeStats">
                     <p>Loading badge statistics...</p>
                 </div>
-                <button class="pdf-btn" onclick="generateBadgesPDF()">📄 Download Badges PDF</button>
+                <button class="pdf-btn" type="button" id="pdf-badges-btn">📄 Download Badges PDF</button>
             </div>
         </section>
 
@@ -157,7 +156,7 @@
                 <div class="section-stats" id="phonicsStats">
                     <p>Loading phonics statistics...</p>
                 </div>
-                <button class="pdf-btn" onclick="generatePhonicsPDF()">📄 Download Phonics PDF</button>
+                <button class="pdf-btn" type="button" id="pdf-phonics-btn">📄 Download Phonics PDF</button>
             </div>
         </section>
 
@@ -168,7 +167,7 @@
                 <div class="section-stats" id="spellingStats">
                     <p>Loading spelling statistics...</p>
                 </div>
-                <button class="pdf-btn" onclick="generateSpellingPDF()">📄 Download Spelling PDF</button>
+                <button class="pdf-btn" type="button" id="pdf-spelling-btn">📄 Download Spelling PDF</button>
             </div>
         </section>
 
@@ -176,8 +175,8 @@
         <section class="download-all-section">
             <h2>Bulk Downloads</h2>
             <div class="bulk-buttons">
-                <button class="pdf-btn large" onclick="generateAllKeyStagesPDF()">📄 Download All Key Stages PDF</button>
-                <button class="pdf-btn large" onclick="generateCompletePDF()">📄 Download Complete Content Review PDF</button>
+                <button class="pdf-btn large" type="button" id="pdf-all-stages-btn">📄 Download All Key Stages PDF</button>
+                <button class="pdf-btn large" type="button" id="pdf-complete-btn">📄 Download Complete Content Review PDF</button>
             </div>
         </section>
     </main>
@@ -186,6 +185,6 @@
         <p>StoryKeys Content Audit Tool • Generated: <span id="generatedDate"></span></p>
     </footer>
 
-    <script src="/audit/audit.js"></script>
+    <script type="module" src="/src/audit/main.ts"></script>
 </body>
 </html>
