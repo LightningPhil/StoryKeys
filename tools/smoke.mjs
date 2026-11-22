@@ -74,11 +74,26 @@ const APP_SCRIPT = `(async () => {
   await waitUntil(() => target.classList.contains('focus-line-active') !== before);
   ok('focus line toggle works', target.classList.contains('focus-line-active') !== before);
 
-  // --- type part of it ----------------------------------------------------
+  // --- type part of it & verify zero glyph/line expansion -----------------
+  await waitUntil(() => document.querySelectorAll('#typing-target .line').length > 0);
+  const baseHeight = target.getBoundingClientRect().height;
+  const baseCoords = Array.from(document.querySelectorAll('#typing-target .char')).map(c => c.offsetLeft + ',' + c.offsetTop);
+
   const full = Array.from(document.querySelectorAll('#typing-target .char')).map(c => c.textContent).join('');
+  input.value = full.slice(0, Math.min(90, full.length - 2));
+  input.dispatchEvent(new Event('input', { bubbles: true }));
+  const afterHeight = target.getBoundingClientRect().height;
+  const afterCoords = Array.from(document.querySelectorAll('#typing-target .char')).map(c => c.offsetLeft + ',' + c.offsetTop);
+  const singleRowPerLine = Array.from(document.querySelectorAll('#typing-target .line')).every(
+    l => new Set(Array.from(l.querySelectorAll('.char')).map(c => c.offsetTop)).size <= 1
+  );
+  ok('typed text never expands or shifts character positions',
+     afterHeight === baseHeight && singleRowPerLine && baseCoords.every((v, i) => v === afterCoords[i]),
+     'dH=' + (Math.round((afterHeight - baseHeight) * 10) / 10) + 'px');
+
   input.value = full.slice(0, 20);
   input.dispatchEvent(new Event('input', { bubbles: true }));
-  await waitUntil(() => document.querySelectorAll('#typing-target .char.correct').length > 0);
+  await waitUntil(() => document.querySelectorAll('#typing-target .char.correct').length === 20);
   ok('correct letters marked', document.querySelectorAll('#typing-target .char.correct').length > 0,
      document.querySelectorAll('#typing-target .char.correct').length + ' correct');
   ok('cursor letter marked', document.querySelectorAll('#typing-target .char.current').length === 1);

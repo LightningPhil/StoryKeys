@@ -1,6 +1,7 @@
 import { APP_VERSION, SCHEMA_VERSION } from '../config';
 import { createLesson, findLesson, loadStageData } from '../data/loader';
 import { clearAllStoredData } from '../draft';
+import { calculateVisualLines } from '../session/keyboard';
 import { markWelcomeSeen, sanitiseSettings } from '../state';
 import type { AppData, AppState, Lesson, ModalName, PersistStateFn } from '../types';
 import { isLessonType } from '../types';
@@ -205,7 +206,7 @@ function bindLessonPickerEvents(ctx: ModalContext, signal: AbortSignal): void {
 }
 
 function bindSettingsEvents(ctx: ModalContext, signal: AbortSignal): void {
-  const { state, persist } = ctx;
+  const { state, data, persist } = ctx;
   const s = state.settings;
   const setVal = (id: string, value: string | number | boolean) => {
     const el = getElement(id);
@@ -313,6 +314,15 @@ function bindSettingsEvents(ctx: ModalContext, signal: AbortSignal): void {
 
     state.settings = updated;
     applySettings(state.settings, state.progress);
+    if (state.ui.currentScreen === 'typing') {
+      if (typeof document !== 'undefined' && document.fonts) {
+        void document.fonts.ready.then(() => {
+          if (state.ui.currentScreen === 'typing') calculateVisualLines(state, data);
+        });
+      } else {
+        calculateVisualLines(state, data);
+      }
+    }
     persist();
     closeModal(state, persist);
   }, { signal });

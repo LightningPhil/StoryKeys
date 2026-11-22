@@ -85,8 +85,10 @@ Themes are defined as custom properties on `.theme-cream` / `.theme-light` / `.t
   read `--sk-on-accent` (near-black there, white elsewhere). Same for `--sk-on-bad`.
 - **Avoid red and pink for positive feedback** — they are hard for colour-blind readers and read as
   warnings. Celebrations use `--sk-warm` (amber).
-- **Never signal state by colour alone.** Correct letters gain weight as well as colour; errors keep their
-  wavy underline.
+- **Never signal state by colour alone, and never shift glyph widths while typing.** The active letter uses a
+  solid accent block (`.char.current`) and errors add a wavy underline + subtle tint (`.char.incorrect`).
+  Never change `font-weight`, `font-size`, `letter-spacing`, `padding`, or `border` on `.char` states — altering
+  glyph advance widths as characters are typed causes proportional text to expand and overflow `.line` rows.
 - **Animations must respect motion preferences** — both `prefers-reduced-motion` and the in-app
   `.reduce-motion` class already blanket-disable animation and transition.
 

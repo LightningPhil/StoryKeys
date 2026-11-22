@@ -61,7 +61,14 @@ export function mountTypingScreen(ctx: TypingMountContext): void {
 
   calculateVisualLines(state, data);
   const onResize = debounce(() => calculateVisualLines(state, data), 250);
+  signal.addEventListener('abort', () => onResize.cancel());
   window.addEventListener('resize', onResize, { signal });
+
+  if (typeof document !== 'undefined' && document.fonts) {
+    document.fonts.addEventListener('loadingdone', () => {
+      if (!signal.aborted) calculateVisualLines(state, data);
+    }, { signal });
+  }
 
   window.addEventListener('blur', () => {
     pauseRuntimeClock(state.runtime, 'auto');

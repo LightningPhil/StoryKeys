@@ -426,16 +426,19 @@ body.modal-open { overflow: hidden; }
 .typing-target .line { transition: opacity 0.2s; }
 .typing-target .line.vanished { visibility: hidden; }
 
-/* Correct/incorrect never rely on colour alone: correct text also gains
-   weight, and errors keep the wavy underline. */
+/* Never change font-weight, font-size, letter-spacing, border, or padding on
+   typed characters: altering glyph advance widths as the learner types causes
+   proportional text to expand horizontally and overflow fixed .line rows.
+   Non-colour state cues come from the solid cursor block (.current) and wavy
+   underline + tint (.incorrect), which are paint-only. */
 .char.correct {
   color: var(--sk-good);
-  font-weight: 600;
 }
 
 .char.incorrect {
   color: var(--sk-bad);
-  font-weight: 600;
+  background-color: color-mix(in srgb, var(--sk-bad) 14%, transparent);
+  border-radius: 2px;
   text-decoration: underline wavy var(--sk-bad);
   text-decoration-thickness: 2px;
   text-underline-offset: 4px;
@@ -459,6 +462,7 @@ body.modal-open { overflow: hidden; }
   border-radius: var(--radius-xl);
   outline: none;
   resize: none;
+  scrollbar-gutter: stable;
   background-color: var(--sk-card);
   color: var(--sk-text);
   transition: border-color 0.15s ease, box-shadow 0.15s ease;
